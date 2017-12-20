@@ -26,8 +26,13 @@
           <argument>
             <kind>1</kind>
             <string>/// init spellbook
-// the *sorted* list of spells
+
+// the *sorted* list of spells, used for display
 spells = ds_list_create();
+// whether or not the spells have been discovered
+spellfound = ds_map_create();
+// objects that manage each spell
+spelleffects = ds_map_create();
 
 state = CLOSED;
 </string>
@@ -58,6 +63,37 @@ state = CLOSED;
 
 timer = 0;
 duration = 7;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// add spells here!
+createSpell("cat", noone);
+createSpell("seat", noone);
+createSpell("see", noone);
+createSpell("sea", noone);
+createSpell("act", noone);
+createSpell("sear", noone);
+createSpell("tear", noone);
+createSpell("seed", noone);
+createSpell("read", noone);
+printList(spells);
 </string>
           </argument>
         </arguments>

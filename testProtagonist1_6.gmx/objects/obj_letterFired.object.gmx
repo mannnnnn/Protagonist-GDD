@@ -78,7 +78,7 @@ var n = irandom_range(3, 6);
 for (var i = 0; i &lt; 360; i += 360 / n)
 {
     var dir = i + irandom_range(-n / 360, n / 360);
-    var f = instance_create(x, y, obj_spellFragment);
+    var f = instance_create(GUIToRoomX(x), GUIToRoomY(y), obj_spellFragment);
     f.dir = dir;
     f.image_xscale = image_xscale;
     f.image_yscale = image_yscale;

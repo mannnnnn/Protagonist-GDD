@@ -7,46 +7,7 @@
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
-  <events>
-    <event eventtype="0" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// player stats
-stats = createStats();
-stats[| STAT_EXTROVERSION] = 10;
-stats[| STAT_MAGIC] = 11;
-stats[| STAT_SPEED] = 9;
-stats[| STAT_CONTROL] = 12;
-stats[| STAT_DAMAGE] = 8;
-
-letters = ds_map_create();
-letters[? 's'] = true;
-letters[? 'e'] = true;
-letters[? 'a'] = true;
-letters[? 'c'] = true;
-letters[? 't'] = true;
-letters[? 'r'] = true;
-letters[? 'd'] = true;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-  </events>
+  <events/>
   <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
   <PhysicsObjectShape>0</PhysicsObjectShape>

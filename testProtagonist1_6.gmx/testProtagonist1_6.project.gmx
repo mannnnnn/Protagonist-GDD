@@ -521,7 +521,12 @@
       <script>scripts\createGroupEffect.gml</script>
       <script>scripts\checkCombatActive.gml</script>
     </scripts>
-    <script>scripts\letterValue.gml</script>
+    <scripts name="spells">
+      <script>scripts\createSpell.gml</script>
+      <script>scripts\spellSearchInsert.gml</script>
+      <script>scripts\string_compare.gml</script>
+      <script>scripts\letterValue.gml</script>
+    </scripts>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shr_blur.shader</shader>
@@ -705,13 +710,17 @@
       <object>objects\obj_letterFired</object>
       <object>objects\obj_letterFalling</object>
       <object>objects\obj_hand</object>
-      <object>objects\obj_spells</object>
+      <object>objects\obj_spellInput</object>
       <object>objects\obj_combatCursor</object>
       <object>objects\obj_spellFragment</object>
       <object>objects\obj_spellString</object>
       <object>objects\obj_spellHitEffect</object>
       <object>objects\obj_syntaxBob</object>
       <object>objects\obj_syntaxDancer</object>
+    </objects>
+    <objects name="spells">
+      <object>objects\obj_spellEffect</object>
+      <object>objects\object134</object>
     </objects>
   </objects>
   <timelines name="timelines">

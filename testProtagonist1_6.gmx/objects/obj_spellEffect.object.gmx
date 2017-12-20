@@ -25,22 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// player stats
-stats = createStats();
-stats[| STAT_EXTROVERSION] = 10;
-stats[| STAT_MAGIC] = 11;
-stats[| STAT_SPEED] = 9;
-stats[| STAT_CONTROL] = 12;
-stats[| STAT_DAMAGE] = 8;
-
-letters = ds_map_create();
-letters[? 's'] = true;
-letters[? 'e'] = true;
-letters[? 'a'] = true;
-letters[? 'c'] = true;
-letters[? 't'] = true;
-letters[? 'r'] = true;
-letters[? 'd'] = true;
+            <string>/// parent class of spell effects.
+// a spell effect is created everytime a spell effect is cast.
+// the type is determined by the string in the dictionary entry in 
 </string>
           </argument>
         </arguments>
