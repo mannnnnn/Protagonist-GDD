@@ -1,0 +1,195 @@
+character Hades
+character Apollo
+
+"Hello."
+
+"This is a test of the dialogue system."
+
+show Hades spr_talkHades
+with fade_right
+
+Hades: "You can make sprites appear onscreen."
+
+show Apollo spr_talkApollo
+with fade_left
+
+Apollo: "Here's another sprite."
+
+Apollo: "You can change the background too."
+
+scene back_forestFinal
+with fade
+
+Hades: "You're in a forest now."
+
+scene back_jungleWtoS
+with fade
+
+Hades: "You're in a jungle now."
+
+unscene
+
+"You can have text said by no one, also."
+
+Apollo: "And, if text goes too far, then it will wrap screen, because that's what makes sense. Hooray!"
+
+text speed 0.5
+
+Hades: "You can make the text go slower."
+
+text speed 5
+
+Hades: "Or you can make the text go faster."
+
+text speed 3
+
+Apollo: "You can call scripts in code, which is always useful. You can even pass in arguments."
+
+Apollo: "For example, the following code will call test_script("testing", 1, 2, 3)."
+
+call test_script("testing", 1, 2, 3)
+
+Apollo: "Check the console. Something's printed out. You can pass both string and numbers into script calls, by the way, and it will preserve the type."
+
+Hades: "You can create more objects, too."
+
+Hades: "Here's another block, which is the result of "create obj_solid 200 200"."
+
+create obj_solid 200 200
+
+Hades: "You can create any object you want, at any position you want."
+
+Apollo: "Of course, you can interact with the inventory."
+
+Apollo: "Check your inventory now."
+
+inventory add box1
+
+Apollo: "Here you go. You now have another box."
+
+Apollo: "You can remove from the inventory too."
+
+inventory remove box0
+inventory remove box1
+inventory remove box2
+inventory remove box3
+inventory remove box4
+inventory remove box5
+inventory remove box6
+inventory remove box7
+inventory remove box8
+inventory remove box9
+
+Apollo: "Now you only have that box."
+
+Hades: "You can play sounds, too."
+
+play music snd_NineStatues
+
+Hades: "Here's a test sound."
+
+Hades: "Of course, you can play more than one sound at once."
+
+play music2 snd_NineStatues
+
+Hades: "You can stop the first one."
+
+stop music
+
+Hades: "And now you can stop the second one."
+
+stop music2
+
+Hades: "This can be used for both music and sound effects."
+
+Apollo: "You can present the player with decisions, too."
+
+Apollo: "Don't worry if this menu looks bad. You can actually create any object you want as a menu, not just this one."
+
+menu
+{
+	"Adds a box0 to your inventory."
+	{
+		inventory add box0
+		Apollo: "You obtained a box0."
+	}
+	"Remove the box1 from your inventory."
+	{
+		inventory remove box1
+		Apollo: "You lost the box1."
+	}
+	"This is option is just text."
+	{
+		Apollo: "This is just text."
+		Apollo: "Well, that's the boring third option."
+	}
+}
+
+Hades: "Sprite entry and exit animations are a thing as well."
+
+Hades: "I can fade out."
+
+hide Hades
+with fade
+
+Hades: "I can swing in."
+
+show Hades spr_talkHades
+with hades_swing
+
+Hades: "I can swing out."
+
+hide Hades
+with hades_swing
+
+Hades: "I can even fade in then swing out, or vice versa. Any combination of animations works."
+
+show Hades spr_talkHades
+with fade_right
+
+pause
+
+hide Hades
+with hades_swing
+
+pause
+
+show Hades spr_talkHades
+with hades_swing
+
+pause
+
+hide Hades
+with fade
+
+Apollo: "I can do that too, but that would just be repetitive."
+
+show Hades spr_talkHades
+with fade_right
+
+Hades: "There's also subroutine jumps. If you look in testcase.protd in Included Files, you'll see what's going on."
+
+jump testjump
+
+Hades: "Now, you've exited from the subroutine."
+
+Apollo: "You can also use jump as a goto. In this example, you can see in code that Hades's statement is skipped."
+
+jump goto
+
+Hades: "This will be skipped, since we jumped to the goto label."
+
+label goto
+
+Apollo: "If you look in code, you'll see that we just jumped to this line, skipping Hades's statement."
+
+Apollo: "And that's that! Those are all the features of this dialogue system."
+
+Apollo: "Goodbye!"
+
+exit
+
+label testjump
+{
+	Hades: "If you look in the code, you'll see that this statement is in another subroutine."
+}

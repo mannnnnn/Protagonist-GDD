@@ -1,0 +1,10 @@
+character Hades
+
+show Hades spr_talkHades
+with fade_right
+
+Hades: "Howdy. Welcome to Ye Olde Pause Menu."
+
+menu pause
+
+Hades: "See you next time. I'm sure it won't be long."

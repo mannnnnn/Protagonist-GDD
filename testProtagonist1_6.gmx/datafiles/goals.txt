@@ -1,0 +1,4 @@
+extract dialogue draw from dialogue system
+create alternate dialogue drawer
+convert greek scenes to dialogue
+stats -> alignment

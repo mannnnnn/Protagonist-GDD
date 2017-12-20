@@ -1,0 +1,2 @@
+///getSaveImageFilename()
+return "savimg.png";
