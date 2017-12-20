@@ -527,6 +527,10 @@
       <script>scripts\string_compare.gml</script>
       <script>scripts\letterValue.gml</script>
     </scripts>
+    <scripts name="notifications">
+      <script>scripts\createNotification.gml</script>
+      <script>scripts\addNotification.gml</script>
+    </scripts>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shr_blur.shader</shader>
@@ -690,6 +694,8 @@
       <object>objects\obj_thumbnailSaver</object>
       <object>objects\obj_confWindow</object>
       <object>objects\obj_combat</object>
+      <object>objects\obj_notifications</object>
+      <object>objects\obj_notification</object>
     </objects>
     <objects name="transitions">
       <object>objects\obj_fadeTransition</object>
@@ -720,7 +726,6 @@
     </objects>
     <objects name="spells">
       <object>objects\obj_spellEffect</object>
-      <object>objects\object134</object>
     </objects>
   </objects>
   <timelines name="timelines">
@@ -748,7 +753,7 @@
       <room>rooms\rm_hadesRules</room>
     </rooms>
   </rooms>
-  <constants number="60">
+  <constants number="62">
     <constant name="RIGHT">0</constant>
     <constant name="UP">1</constant>
     <constant name="LEFT">2</constant>
@@ -809,6 +814,8 @@
     <constant name="SPELLIMAGE_NORMAL">0</constant>
     <constant name="SPELLIMAGE_GREEK">26</constant>
     <constant name="SPELLIMAGE_OBSCURED">52</constant>
+    <constant name="NOTIFICATION_OBJ">0</constant>
+    <constant name="NOTIFICATION_STR">1</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

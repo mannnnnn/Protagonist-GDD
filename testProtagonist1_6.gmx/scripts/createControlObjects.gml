@@ -16,6 +16,7 @@ ds_list_add(controlObjects, obj_quitter);
 ds_list_add(controlObjects, obj_debugTool);
 ds_list_add(controlObjects, obj_thumbnailSaver);
 ds_list_add(controlObjects, obj_combat);
+ds_list_add(controlObjects, obj_notifications);
 
 // create the control objects if necessary
 for (var i = 0; i < ds_list_size(controlObjects); i++)
