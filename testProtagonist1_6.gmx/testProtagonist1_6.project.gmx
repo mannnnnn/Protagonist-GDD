@@ -287,6 +287,11 @@
     <sprite>sprites\spr_spellFragments</sprite>
     <sprite>sprites\spr_syntaxBob</sprite>
     <sprite>sprites\spr_syntaxFull</sprite>
+    <sprites name="particles">
+      <sprite>sprites\spr_fire</sprite>
+      <sprite>sprites\spr_cinder</sprite>
+    </sprites>
+    <sprite>sprites\spr_earthdirt</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\scrollTest</background>
@@ -505,7 +510,6 @@
       <script>scripts\draw_text_highlighted.gml</script>
       <script>scripts\inrange.gml</script>
       <script>scripts\draw_sprite_offset_ext.gml</script>
-      <script>scripts\standardAngle.gml</script>
     </scripts>
     <scripts name="combat">
       <script>scripts\startCombatAnimation.gml</script>
@@ -531,6 +535,8 @@
       <script>scripts\createNotification.gml</script>
       <script>scripts\addNotification.gml</script>
     </scripts>
+    <script>scripts\createFireEffect.gml</script>
+    <script>scripts\createEarthEffect.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shr_blur.shader</shader>
@@ -726,7 +732,10 @@
     </objects>
     <objects name="spells">
       <object>objects\obj_spellEffect</object>
+      <object>objects\obj_seedSpell</object>
     </objects>
+    <object>objects\obj_particles</object>
+    <object>objects\obj_earthEffect</object>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\timeline0</timeline>
@@ -753,7 +762,7 @@
       <room>rooms\rm_hadesRules</room>
     </rooms>
   </rooms>
-  <constants number="62">
+  <constants number="65">
     <constant name="RIGHT">0</constant>
     <constant name="UP">1</constant>
     <constant name="LEFT">2</constant>
@@ -816,6 +825,9 @@
     <constant name="SPELLIMAGE_OBSCURED">52</constant>
     <constant name="NOTIFICATION_OBJ">0</constant>
     <constant name="NOTIFICATION_STR">1</constant>
+    <constant name="PARTSYS_FIRE">0</constant>
+    <constant name="PARTEFF_FIRE">0</constant>
+    <constant name="PARTEFF_CINDER">1</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

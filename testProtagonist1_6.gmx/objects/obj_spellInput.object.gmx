@@ -296,6 +296,73 @@ combatStartCast(targetX, targetY, action);
         </arguments>
       </action>
     </event>
+    <event eventtype="9" enumb="13">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// fire
+// don't do anything if empty
+if (ds_list_size(spell) == 0 || first != noone || last != noone)
+{
+    exit;
+}
+action = "";
+targetX = cursor_get_x();
+targetY = cursor_get_y();
+for (var i = 0; i &lt; ds_list_size(spell); i++)
+{
+    var letter = spell[| i];
+    if (instance_exists(letter))
+    {
+        // reset timer
+        letter.timer = 0;
+        // flash to normal letters
+        letter.state = SPELLIMAGE_OBSCURED;
+        letter.flash = true;
+        // set target
+        letter.targetX = targetX;
+        letter.targetY = targetY;
+        // use delay to fire letters one by one
+        letter.delay = i * delay;
+        // construct string
+        action += letter.value;
+        // letters to keep track of
+        if (first == noone)
+        {
+            first = letter;
+        }
+        last = letter;
+    }
+    with (letter)
+    {
+        instance_change(obj_letterFired, true);
+        startX = x;
+        startY = y;
+        scaleX = image_xscale;
+        scaleY = image_yscale;
+    }
+}
+
+// fire action, whatever it is
+combatStartCast(targetX, targetY, action);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
   </events>
   <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>

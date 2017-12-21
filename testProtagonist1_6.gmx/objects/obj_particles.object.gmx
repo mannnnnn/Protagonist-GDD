@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -25,16 +25,20 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// init spellbook
+            <string>/// init particle systems
 
-// the *sorted* list of spells, used for display
-spells = ds_list_create();
-// whether or not the spells have been discovered
-spellfound = ds_map_create();
-// objects that manage each spell
-spelleffects = ds_map_create();
+systems = ds_map_create();
 
-state = CLOSED;
+// fire particle system
+systems[? PARTSYS_FIRE] = part_system_create();
+part_system_depth(systems[? PARTSYS_FIRE], -100);
+
+effects = ds_map_create();
+effects[? PARTEFF_FIRE] = part_type_create();
+effects[? PARTEFF_CINDER] = part_type_create();
+
+emitters = ds_map_create();
+emitters[? PARTSYS_FIRE] = part_emitter_create(systems[? PARTSYS_FIRE]);
 </string>
           </argument>
         </arguments>
@@ -55,14 +59,18 @@ state = CLOSED;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// init draw
+            <string>/// fire particle effect
 
-name = "Spellbook";
-
-state = CLOSED;
-
-timer = 0;
-duration = 7;
+var fireEffect = effects[? PARTEFF_FIRE];
+part_type_sprite(fireEffect, spr_fire, 0, 0, 1);
+part_type_size(fireEffect, 1.5, 3, -0.05, 0);
+part_type_orientation(fireEffect, 0, 360, 2, 0, 0);
+part_type_color2(fireEffect, c_orange, c_red);
+part_type_alpha3(fireEffect, 1, 1, 0);
+part_type_blend(fireEffect, 1);
+part_type_direction(fireEffect, 85, 95, 0, 0);
+part_type_speed(fireEffect, 2, 10, -0.1, 0);
+part_type_life(fireEffect, 25, 35);
 </string>
           </argument>
         </arguments>
@@ -83,96 +91,19 @@ duration = 7;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// add spells here!
-createSpell("cat", noone);
-createSpell("seat", noone);
-createSpell("see", noone);
-createSpell("sea", noone);
-createSpell("act", noone);
-createSpell("sear", noone);
-createSpell("tear", noone);
-createSpell("seed", obj_seedSpell);
-createSpell("read", noone);
-printList(spells);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="64">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// draw
+            <string>/// cinder particle effect
 
-switch(state)
-{
-    case CLOSED:
-        timer = 0;
-        break;
-    case OPENING:
-        timer++;
-        if (timer &gt;= duration)
-        {
-            state = OPEN;
-        }
-        break;
-    case OPEN:
-        timer = duration;
-        break;
-    case CLOSING:
-        timer--;
-        if (timer &lt; 0)
-        {
-            reopenOptionsMenu();
-            state = CLOSED;
-        }
-        break;
-    default:
-        show_error("Invalid inventory state: " + string(state), true);
-        state = CLOSED;
-        break;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="27">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// close
-if (state == OPENING || state == OPEN)
-{
-    state = CLOSING;
-}
+var cinderEffect = effects[? PARTEFF_CINDER];
+
+part_type_sprite(cinderEffect, spr_cinder, 0, 0, 1);
+part_type_size(cinderEffect, 0.5, 0.75, -0.001, 0);
+part_type_orientation(cinderEffect, 0, 360, 0.05, 0, 0);
+part_type_color2(cinderEffect, c_orange, c_red);
+part_type_alpha3(cinderEffect, 1, 1, 0);
+part_type_blend(cinderEffect, 1);
+part_type_direction(cinderEffect, 80, 110, 0.01, 0.01);
+part_type_speed(cinderEffect, 6, 8, 0, 0);
+part_type_life(cinderEffect, 45, 75);
 </string>
           </argument>
         </arguments>
