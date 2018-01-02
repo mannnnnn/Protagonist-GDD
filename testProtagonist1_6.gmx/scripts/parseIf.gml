@@ -2,8 +2,6 @@
 var line = argument0;
 var split = argument1;
 
-show_debug_message(json_encode(obj_dialogue.variables));
-
 var expression = argument0;
 // get the variable name
 // remove the if
@@ -76,12 +74,12 @@ for (var i = obj_dialogue.line; (i < ds_list_size(obj_dialogue.dialogue) && retu
                 // if no else, then we're done here
                 else
                 {
-                    returnPointer = i + 1;
+                    returnPointer = i;
                 }
             }
             else
             {
-                returnPointer = i + 1;
+                returnPointer = i;
             }
         }
     }

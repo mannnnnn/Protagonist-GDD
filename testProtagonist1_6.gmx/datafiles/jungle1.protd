@@ -24,6 +24,9 @@ c = !true == b
 // false
 d = false == c
 
+e = 5
+f = 5
+
 // false
 if (!c || d)
 {
@@ -40,6 +43,12 @@ else
 {
 	"Else ran"
 }
+
+if (e == f)
+{
+	"Wat"
+}
+"C'mon"
 
 //BEGIN DIALOGUE
 show H spr_talkHades
