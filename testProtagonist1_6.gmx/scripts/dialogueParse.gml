@@ -17,6 +17,11 @@ for (var i = 0; i < ds_list_size(split); i++)
     }
 }
 
+// if statements
+if (string_pos("if", line) == 1)
+{
+    return parseIf(line, split);
+}
 
 // show
 if (split[| 0] == "show")
@@ -87,6 +92,13 @@ if (pos > 0)
 if (string_char_at(line, 1) == '"' && string_char_at(line, string_length(line)) == '"')
 {
     return parseQuoteText(line, split);
+}
+
+// Assignment, x = true
+var pos = string_pos("=", line);
+if (pos > 0)
+{
+    return parseAssign(line, split);
 }
 
 // exit

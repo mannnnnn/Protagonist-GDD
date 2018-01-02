@@ -1,0 +1,87 @@
+//Jungle6
+//Characters: Apollo, Protagonist
+
+
+//CHARACTERS
+character P
+{
+    name = "Protagonist"
+}
+character Ap
+{
+        name = "The Great Apollo?"
+}
+
+
+//BEGIN DIALOGUE
+show Ap spr_talkApollo
+with Apollo_swing
+//
+
+"Strummity strum strum strum~."
+
+//
+show P spr_defaultSpeak
+//
+
+P: "Hello?"
+"Hey Protagonist, how goes it?"
+"Whoahoho- hang on here."
+"I summoned the Protagonist with my magically delicious lyre-playing?"
+"I’ve done it!! I’ve solved the world’s problems!!"
+P:"You did!"
+"Yes!"
+"Wait,"
+"Maybe not. What happened to your face?"
+P:"I appear to have misplaced it."
+P:"Any ideas on where I could start looking?"
+"Forget that, you’ve got bigger issues to deal with."
+P:"I do?"
+P:"Oh right, the whole death of the mortals thing."
+"What?"
+"Oh please, that’s yesterday’s news."
+"You’ve forgotten a little thing called... applause?"
+P:"Applause? Where did I leave that?"
+"You are in the presence of a divine deity who just played a splendidly magical tune for your mortal ears."
+P:"Sorry, but I don’t have ears."
+"Yes you do. I can see them."
+P:"Sorry, but I don’t have eyes to see my ears so I didn’t know if they exist or not."
+"You have hands to feel them with."
+P:"I may not have hands for long. I don’t like my odds."
+"Well while you’ve still got them, perhaps you’d like to utilize them for some well-deserved applause?"
+P:”*clap* *clap* *clap*”
+"Well done, my good strange... grey... Protagonist."
+"I give you my divine favor of being able to speak in the presence of someone as fantastic as myself."
+"What are you doing here?"
+"No wait- don’t tell me."
+P:"I thought I just earned the privilege to speak."
+"You’re here because you wanted to bask in my glory?"
+P: "No."
+P: "Well, probably not."
+P: "I’m trying to find my purpose in the world right now."
+P: "And by extension, get out of this forest."
+"Well, in that case, I can help you, my young grey frienderino."
+"You seek to solve the riddle of the Sphinx?"
+P: "Yes!"
+"Then I... The Great Apollo, shall aid you in your quest!"
+P:"Whoa really? Just like that?"
+Ap:"Yeah sure, not much better to do."
+Ap:"The way I see it, if I figure out the riddle, then we both go free-"
+P:"And I can work on the escape too, so we’ll have twice the odds of figuring out something!"
+Ap:"Yeah sure, hey kid? Uh, fair warning. It’s gonna be me solving this riddle. I’ve got like, twenty times the thinking capacity of your mind melon."
+P:"But what if there’s a way to escape without solving the riddle?"
+Ap:"No way, hosay. I am like, the GOD of this kinda stuff. No backalley cat bird thing is gonna beat me in my own craft."
+P:"But... but the Sphinxx doesn’t even have a riddle! How are you going to-"
+Ap:"Just leave it all to me, youngin’. All you gotta do is be my wide-eyed sidekick."
+P:"I don’t have eyes anymore."
+Ap:"Minor setback, but probably for the best."
+Ap:"Just head through to that glade up ahead and I’ll let you know what’s the word in the underbelly of the forest."
+P:"Sure, but maybe I could-"
+Ap:"Ah, ah, ah! Wide-eyed sidekicks are timely and excited to help out with the Great Apollo’s glorious work!"
+P:"Yippee?"
+Ap:"That’s the spirit!"
+
+exit
+
+
+

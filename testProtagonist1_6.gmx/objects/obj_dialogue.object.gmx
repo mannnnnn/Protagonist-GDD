@@ -164,7 +164,9 @@ drawerKeywords[? "fade"] = obj_fadeInRightDrawer;
 drawerKeywords[? "fade_right"] = obj_fadeInRightDrawer;
 drawerKeywords[? "fade_left"] = obj_fadeInLeftDrawer;
 drawerKeywords[? "hades_swing"] = obj_hadesSwingInDrawer;
+drawerKeywords[? "Hades_swing"] = obj_hadesSwingInDrawer;
 drawerKeywords[? "apollo_swing"] = obj_hadesSwingInDrawer;
+drawerKeywords[? "Apollo_swing"] = obj_hadesSwingInDrawer;
 drawerHideKeywords[? "fade"] = obj_fadeOutDrawer;
 drawerHideKeywords[? "hades_swing"] = obj_hadesSwingOutDrawer;
 drawerHideKeywords[? "apollo_swing"] = obj_hadesSwingOutDrawer;
@@ -193,6 +195,28 @@ sceneDrawerHideKeywords[? "fade"] = obj_fadeOutSceneDrawer;
             <kind>1</kind>
             <string>/// steppers
 steppers = ds_map_create();
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// variables (AKA flags)
+variables = ds_map_create();
 </string>
           </argument>
         </arguments>
@@ -258,6 +282,35 @@ if (active)
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// 1234567
+for (var i = ord('1'); i &lt;= ord('7'); i++)
+{
+    if (!checkDialogueActive() &amp;&amp; keyboard_check_pressed(i))
+    {
+        dialogueLoad("jungle" + chr(i) + ".protd");
+        dialogueStart();
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="7" enumb="4">
       <action>
@@ -278,34 +331,6 @@ if (active)
             <kind>1</kind>
             <string>/// init drawer
 display = instance_create(0, 0, obj_dialogueBox);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="50">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// test dialogue
-if (!active)
-{
-    dialogueLoad("intro.protd");
-    dialogueStart("", obj_narration);
-}
 </string>
           </argument>
         </arguments>

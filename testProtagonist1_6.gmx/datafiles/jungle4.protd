@@ -1,0 +1,165 @@
+//Jungle4
+//Characters: Protagonist, Sphinxx
+
+
+//CHARACTERS
+character P
+{
+    name = "Protagonist"
+}
+character H
+{
+    Name = "Hades"
+}
+character S
+{
+        name = "Sphinxx"
+}
+
+
+//BEGIN DIALOGUE
+show P spr_defaultSpeak
+//
+
+P:"What is that?"
+
+
+//
+show S spr_talkSphinx
+//
+
+S:"What iss that?"
+S:"What are you doing in my forrest?"
+P:"I was sort of hoping you would know that."
+P:"As far as I’m aware, I’m supposed to be doing nothing."
+P:"But I was supposed to do something."
+P:"And now I’m not allowed to do anything?"
+S:"Do you wish to pass?"
+P:"That seems like a good starting point on a grand quest."
+S:"Welll you can’t."
+P:"This seems like a great game so far."
+P:"All I’ve done is been told I can’t do things."
+S:"I have been the guardian of this gate ever since the herallding of my existence."
+S:"I have watched the earth around me grow and fall with the tides of everchangging code."
+S:"The deccay of this world both driven and slowed by the very gods."
+S:"And I have been entrussted with divine knowledge, befit only for one cunning enough to swipe it from my grasp."
+P:"So I need to fight you?"
+S:"Answer my riddle, and you shall pass unscatthed through my realm."
+P:"I do enjoy having all my limbs intact."
+P:"I still miss having a mouth."
+P:"And eyes."
+P:"Anyways I’ll solve your riddle."
+S:"Be warned, should you fail, you will be cast into the forrest. Forever to wander until enlightenment strikes."
+P:"That sounds painful."
+
+//
+hide S
+show H spr_talkHades
+with Hades_swing
+//
+
+H:"I’m surprised the mere idea of thinking doesn’t incapacitate you."
+H:"I’m even surprised you thought of thinking in the first place."
+H:"Who knew the Protagonist had the capability of grasping the notion of acknowledging knowledge."
+P:"Are you going to help me with the riddle?"
+H:"Are you kidding me?"
+H:"You’re not going to get it."
+P:"You don’t know that."
+H:"Actually, I do. Go ahead though."
+
+//
+hide H
+with hades_swing
+show S spr_talkSphinx
+//
+
+S:"Have you prepared yourself for the riddle of the Sphinxx?"
+P:"How prepared do I need to be?"
+P:"Should I do some jumping jacks?"
+S:"I am unfamilliar with the notion of the summation of jacks who are jumping, but math is a good logical warmup."
+P:"Am I ready?"
+menu
+    {
+            "Let’s outthinks the Sphinxx"
+            {}
+            "I should really catch up on my calculus"
+            {
+        "Then again I can probably derive the meaning anyways."
+            "I should stop being a math nerd and play the game."
+            }
+}
+
+S:"The ridddle is as follows:"
+S:"Error: SyntaxError: Unexpected token"
+S:""
+P:""
+S:"Do you have the ansswer?"
+P:"Did you say something?"
+S:"I asked if you have the ansswer yet."
+P:"I haven’t heard the riddle yet."
+S:"I will repeaat myself once out of the just nature of my being."
+S:"The ridddle is as follows:"
+S:"Error: SyntaxError: Unexpected token"
+P:"I think something’s wrong here."
+
+//
+hide S
+show H spr_talkHades
+with Hades_swing
+//
+
+H:"Unfinished maps."
+H:"Unfinished characters."
+H:"And hence, unfinished puzzles."
+P:"Whoa, what?! What am I supposed to do then?!"
+H:"A wise god once said:"
+H:"GET INTO THE BOX AND END THE GAME."
+P:"You’re the Narrator! Don’t you have the riddle? Somewhere?"
+H:"Ah yes, here we are."
+H:"The riddle is as follows:"
+H:"Error: SyntaxError: Unexpected token"
+H:"I hope that helps."
+P:"So I have to solve a riddle,"
+P:"That doesn’t exist,"
+P:"Or I’m going to be trapped here forever?"
+H:"I’m surprisingly proud that you made that conclusion on your own."
+H:"Do you need an icepack for your head?"
+P:"Alright, here goes nothing."
+
+
+//
+hide H
+with hades_swing
+show S spr_talkSphinx
+//
+
+P:"The answer is..."
+//this division doesn’t add points to any categories, but each answer does //align with a path
+menu
+    {
+            "The friends we made along the way?" //Odyssey
+            {S:"You are incorrrect."
+S:"You have no friendss and have made no progress in the game."}
+
+            "Man?" //Labors //From the classic Sphinx riddle
+            {S:"You are incorrrect."
+S:"What sort of mythologicall creature would have a riddle with such a simplistic answer."
+
+}
+"Right behind you?" //Icarus
+      {S:"You are incorrrect."
+S:"And I’m not fallling for that again."
+S:"Not after the last inccident."
+}
+"*?" //Midas //ASCII is ‘42’
+      {S:"You are incorrrect."
+S:"Asterisks have no auddible representation on this plane of existence."
+S:"You are skilled to have cheraded that ansswer, but alas."
+}
+}
+
+S:"You will be banished to the forrrest until you gain a great enough understanding to answer the riddle."
+P:"But that’s impossib-"
+
+//Move to new area
+exit

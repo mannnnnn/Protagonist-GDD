@@ -3,7 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="7" name="datafiles">
+  <datafiles number="13" name="datafiles">
     <datafile>
       <name>syntaxError.ogv</name>
       <exists>-1</exists>
@@ -88,6 +88,108 @@
         </Config>
       </ConfigOptions>
       <filename>jungle1.protd</filename>
+    </datafile>
+    <datafile>
+      <name>jungle2.protd</name>
+      <exists>-1</exists>
+      <size>2326</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>jungle2.protd</filename>
+    </datafile>
+    <datafile>
+      <name>jungle3.protd</name>
+      <exists>-1</exists>
+      <size>2752</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>jungle3.protd</filename>
+    </datafile>
+    <datafile>
+      <name>jungle4.protd</name>
+      <exists>-1</exists>
+      <size>4805</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>jungle4.protd</filename>
+    </datafile>
+    <datafile>
+      <name>jungle5.protd</name>
+      <exists>-1</exists>
+      <size>1532</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>jungle5.protd</filename>
+    </datafile>
+    <datafile>
+      <name>jungle6.protd</name>
+      <exists>-1</exists>
+      <size>3261</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>jungle6.protd</filename>
+    </datafile>
+    <datafile>
+      <name>jungle7.protd</name>
+      <exists>-1</exists>
+      <size>3582</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>jungle7.protd</filename>
     </datafile>
     <datafile>
       <name>goals.txt</name>
@@ -263,6 +365,7 @@
       <sprite>sprites\spr_talkApollo</sprite>
       <sprite>sprites\spr_talkApolloLite</sprite>
       <sprite>sprites\spr_talkHades</sprite>
+      <sprite>sprites\spr_talkHadesGlitch</sprite>
       <sprite>sprites\spr_talkHadesLite</sprite>
     </sprites>
     <sprite>sprites\spr_fire1</sprite>
@@ -365,12 +468,18 @@
         <script>scripts\unquote.gml</script>
         <script>scripts\unparen.gml</script>
         <script>scripts\checkquote.gml</script>
+        <script>scripts\checkparen.gml</script>
         <script>scripts\executeScript.gml</script>
         <script>scripts\stringToValue.gml</script>
         <script>scripts\checkReal.gml</script>
         <script>scripts\string_join.gml</script>
         <script>scripts\string_split.gml</script>
         <script>scripts\string_trim.gml</script>
+        <script>scripts\splitByParen.gml</script>
+        <script>scripts\getDialogueVar.gml</script>
+        <script>scripts\parseToTree.gml</script>
+        <script>scripts\evalBoolean.gml</script>
+        <script>scripts\evalTree.gml</script>
         <scripts name="statements">
           <script>scripts\parseJump.gml</script>
           <script>scripts\parseOpenBracket.gml</script>
@@ -394,6 +503,8 @@
           <script>scripts\parseUnscene.gml</script>
           <script>scripts\parseNext.gml</script>
           <script>scripts\parseCreateStepper.gml</script>
+          <script>scripts\parseAssign.gml</script>
+          <script>scripts\parseIf.gml</script>
         </scripts>
       </scripts>
       <scripts name="draw">
@@ -553,114 +664,116 @@
     <font>fonts\fnt_save</font>
   </fonts>
   <objects name="objects">
-    <object>objects\obj_greekScenes</object>
-    <object>objects\obj_RajCloud</object>
-    <object>objects\obj_gameWorld</object>
-    <object>objects\obj_PanCloud</object>
-    <object>objects\obj_magicBox</object>
-    <object>objects\obj_apolloBox</object>
-    <object>objects\obj_athenaBox</object>
-    <objects name="parallelFunctions">
-      <object>objects\obj_target</object>
-      <object>objects\obj_launchButton</object>
-      <object>objects\obj_mouse</object>
-      <object>objects\obj_TitleObj</object>
-      <object>objects\obj_RulesObj</object>
-      <object>objects\obj_Fader</object>
-      <object>objects\obj_door</object>
-      <object>objects\obj_clock</object>
+    <objects name="old">
+      <object>objects\obj_greekScenes</object>
+      <object>objects\obj_RajCloud</object>
+      <object>objects\obj_gameWorld</object>
+      <object>objects\obj_PanCloud</object>
+      <object>objects\obj_magicBox</object>
+      <object>objects\obj_apolloBox</object>
+      <object>objects\obj_athenaBox</object>
+      <objects name="parallelFunctions">
+        <object>objects\obj_target</object>
+        <object>objects\obj_launchButton</object>
+        <object>objects\obj_mouse</object>
+        <object>objects\obj_TitleObj</object>
+        <object>objects\obj_RulesObj</object>
+        <object>objects\obj_Fader</object>
+        <object>objects\obj_door</object>
+        <object>objects\obj_clock</object>
+      </objects>
+      <objects name="talkingNPCs">
+        <object>objects\obj_syntaxWalker</object>
+        <object>objects\obj_Rosetta</object>
+        <object>objects\obj_talkStoneInvisible</object>
+        <object>objects\obj_ruleHades</object>
+        <objects name="Syntax Errors">
+          <object>objects\obj_Leroyy</object>
+          <object>objects\obj_Liily</object>
+          <object>objects\obj_Lalr</object>
+          <object>objects\obj_Milllie</object>
+          <object>objects\obj_Mollly</object>
+          <object>objects\obj_Mufffin</object>
+          <object>objects\obj_Caster</object>
+          <object>objects\obj_Pollluxx</object>
+        </objects>
+        <objects name="Hades">
+          <object>objects\obj_Narrator</object>
+          <object>objects\obj_hades</object>
+        </objects>
+        <object>objects\obj_parentNPC</object>
+      </objects>
+      <object>objects\obj_sleepSyn</object>
+      <object>objects\obj_fakeWindow</object>
+      <object>objects\obj_noGoZone</object>
+      <objects name="Various Doors">
+        <object>objects\obj_glitchDoor</object>
+        <object>objects\obj_vortex</object>
+        <object>objects\obj_whereTo</object>
+        <object>objects\obj_lockDoor</object>
+      </objects>
+      <object>objects\obj_GetFire</object>
+      <object>objects\obj_fire1</object>
+      <object>objects\obj_fire2</object>
+      <object>objects\obj_fire3</object>
+      <object>objects\obj_puzzlePiece</object>
+      <objects name="Environment">
+        <objects name="Statues">
+          <objects name="jungleStatues">
+            <object>objects\obj_staDuck</object>
+            <object>objects\obj_staDuck2</object>
+            <object>objects\obj_staLion</object>
+            <object>objects\obj_staSyntax</object>
+            <object>objects\obj_staSyntax2</object>
+            <object>objects\obj_staElement</object>
+            <object>objects\obj_staElement2</object>
+            <object>objects\obj_staBestDad</object>
+            <object>objects\obj_staSigns</object>
+            <object>objects\obj_staSigns2</object>
+          </objects>
+          <object>objects\obj_defaultStatue</object>
+        </objects>
+        <objects name="Trees">
+          <objects name="jungleTrees">
+            <object>objects\obj_tree1</object>
+            <object>objects\obj_tree2</object>
+            <object>objects\obj_stump1</object>
+          </objects>
+          <object>objects\obj_defaultTree</object>
+        </objects>
+        <objects name="Rocks">
+          <objects name="jungleRocks">
+            <object>objects\obj_rock1</object>
+            <object>objects\obj_rock2</object>
+            <object>objects\obj_rock3</object>
+            <object>objects\obj_rock4</object>
+            <object>objects\obj_rockOutcrop</object>
+          </objects>
+          <object>objects\obj_defaultRock</object>
+        </objects>
+      </objects>
+      <objects name="BattleInterface">
+        <object>objects\obj_LHand</object>
+        <object>objects\obj_RHand</object>
+        <object>objects\obj_Spell</object>
+        <object>objects\obj_Environment</object>
+      </objects>
+      <object>objects\obj_box</object>
+      <objects name="bossObjects">
+        <object>objects\obj_synHead</object>
+        <object>objects\obj_synBody</object>
+        <object>objects\obj_synTail</object>
+        <object>objects\obj_synLeg1</object>
+        <object>objects\obj_synLeg2</object>
+        <object>objects\obj_synLeg3</object>
+        <object>objects\obj_synLeg4</object>
+        <object>objects\obj_syntaxBoss</object>
+      </objects>
+      <object>objects\obj_blastOff</object>
     </objects>
     <objects name="playerCharacters">
       <object>objects\obj_protagonist</object>
     </objects>
-    <objects name="talkingNPCs">
-      <object>objects\obj_syntaxWalker</object>
-      <object>objects\obj_Rosetta</object>
-      <object>objects\obj_talkStoneInvisible</object>
-      <object>objects\obj_ruleHades</object>
-      <objects name="Syntax Errors">
-        <object>objects\obj_Leroyy</object>
-        <object>objects\obj_Liily</object>
-        <object>objects\obj_Lalr</object>
-        <object>objects\obj_Milllie</object>
-        <object>objects\obj_Mollly</object>
-        <object>objects\obj_Mufffin</object>
-        <object>objects\obj_Caster</object>
-        <object>objects\obj_Pollluxx</object>
-      </objects>
-      <objects name="Hades">
-        <object>objects\obj_Narrator</object>
-        <object>objects\obj_hades</object>
-      </objects>
-      <object>objects\obj_parentNPC</object>
-    </objects>
-    <object>objects\obj_sleepSyn</object>
-    <object>objects\obj_fakeWindow</object>
-    <object>objects\obj_noGoZone</object>
-    <objects name="Various Doors">
-      <object>objects\obj_glitchDoor</object>
-      <object>objects\obj_vortex</object>
-      <object>objects\obj_whereTo</object>
-      <object>objects\obj_lockDoor</object>
-    </objects>
-    <object>objects\obj_GetFire</object>
-    <object>objects\obj_fire1</object>
-    <object>objects\obj_fire2</object>
-    <object>objects\obj_fire3</object>
-    <object>objects\obj_puzzlePiece</object>
-    <objects name="Environment">
-      <objects name="Statues">
-        <objects name="jungleStatues">
-          <object>objects\obj_staDuck</object>
-          <object>objects\obj_staDuck2</object>
-          <object>objects\obj_staLion</object>
-          <object>objects\obj_staSyntax</object>
-          <object>objects\obj_staSyntax2</object>
-          <object>objects\obj_staElement</object>
-          <object>objects\obj_staElement2</object>
-          <object>objects\obj_staBestDad</object>
-          <object>objects\obj_staSigns</object>
-          <object>objects\obj_staSigns2</object>
-        </objects>
-        <object>objects\obj_defaultStatue</object>
-      </objects>
-      <objects name="Trees">
-        <objects name="jungleTrees">
-          <object>objects\obj_tree1</object>
-          <object>objects\obj_tree2</object>
-          <object>objects\obj_stump1</object>
-        </objects>
-        <object>objects\obj_defaultTree</object>
-      </objects>
-      <objects name="Rocks">
-        <objects name="jungleRocks">
-          <object>objects\obj_rock1</object>
-          <object>objects\obj_rock2</object>
-          <object>objects\obj_rock3</object>
-          <object>objects\obj_rock4</object>
-          <object>objects\obj_rockOutcrop</object>
-        </objects>
-        <object>objects\obj_defaultRock</object>
-      </objects>
-    </objects>
-    <objects name="BattleInterface">
-      <object>objects\obj_LHand</object>
-      <object>objects\obj_RHand</object>
-      <object>objects\obj_Spell</object>
-      <object>objects\obj_Environment</object>
-    </objects>
-    <object>objects\obj_box</object>
-    <objects name="bossObjects">
-      <object>objects\obj_synHead</object>
-      <object>objects\obj_synBody</object>
-      <object>objects\obj_synTail</object>
-      <object>objects\obj_synLeg1</object>
-      <object>objects\obj_synLeg2</object>
-      <object>objects\obj_synLeg3</object>
-      <object>objects\obj_synLeg4</object>
-      <object>objects\obj_syntaxBoss</object>
-    </objects>
-    <object>objects\obj_blastOff</object>
     <object>objects\obj_solid</object>
     <objects name="gui">
       <objects name="dialogue">
@@ -737,9 +850,6 @@
     <object>objects\obj_particles</object>
     <object>objects\obj_earthEffect</object>
   </objects>
-  <timelines name="timelines">
-    <timeline>timelines\timeline0</timeline>
-  </timelines>
   <rooms name="rooms">
     <room>rooms\rm_test</room>
     <room>rooms\rm_test2</room>
@@ -762,7 +872,7 @@
       <room>rooms\rm_hadesRules</room>
     </rooms>
   </rooms>
-  <constants number="65">
+  <constants number="74">
     <constant name="RIGHT">0</constant>
     <constant name="UP">1</constant>
     <constant name="LEFT">2</constant>
@@ -828,6 +938,15 @@
     <constant name="PARTSYS_FIRE">0</constant>
     <constant name="PARTEFF_FIRE">0</constant>
     <constant name="PARTEFF_CINDER">1</constant>
+    <constant name="OPERATOR_TYPE">0</constant>
+    <constant name="OPERAND_A">1</constant>
+    <constant name="OPERAND_B">2</constant>
+    <constant name="OP_PAREN">0</constant>
+    <constant name="OP_AND">1</constant>
+    <constant name="OP_OR">2</constant>
+    <constant name="OP_EQ">3</constant>
+    <constant name="OP_NOT">4</constant>
+    <constant name="OP_GET">5</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

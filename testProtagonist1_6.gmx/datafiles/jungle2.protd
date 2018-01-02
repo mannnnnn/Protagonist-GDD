@@ -1,0 +1,82 @@
+//Jungle2
+//Characters: Hades, Protagonist
+
+
+//CHARACTERS
+character P
+{
+    name = "Protagonist"
+}
+character H
+{
+        name = "Narrator"
+}
+
+
+//BEGIN DIALOGUE
+show H spr_talkHades
+with Hades_swing
+//
+
+
+H: "Back again. Hi."
+H: "Turns out I actually can’t leave this area while you’re still in it."
+H: "So."
+H: "Have you ever wondered why you don't have a mouth?"
+
+
+//
+show P spr_defaultSpeak
+//
+
+P: "I'm sort of new to this whole being alive deal."
+P: "As much as I'd like to be upset about not having a face, I can't exactly remember a time when I did."
+
+H: "Oh that's wonderful. I don't suppose you remember your true quest then."
+P: "To build a rocket?"
+H: "If you mention anything related to that dumb, comically-oversized treasure chest again I will personally hunt you down and-"
+
+
+//SWAP OUT THIS CODE
+show H spr_talkHadesGlitch
+H:"!"
+
+//SWAP OUT THIS CODE
+show H spr_talkHades
+P: "...you'll what?"
+H: "Trust me, if the game would allow me to be openly hostile towards you I would say it again."
+P: "This isn't openly hostile?"
+H: "This is my equivalent of a hug and a warm glass of milk. Now listen up."
+P: "I don't see a warm glass of milk in my inventory."
+H: "I haven't even told you how to use your inventory yet so-"
+H: "To access your inventory, press [i]"
+H: ""
+P: "Thanks?"
+H:"You just had to mention your inventory, didn't you."
+P: "Is there milk in there now?"
+H: "Alright let's clear the waters so we don't have an incident like that again."
+H: "I"
+H: "The great and powerful Hades"
+H: "Am going to be your guide through this grand and magical land."
+H: "Whether you like it or not."
+P: "I don’t know how to feel about that."
+H: "And who’s fault is that?"
+P: "Is it mine?"
+H: "Yes. Yes it is."
+H: "You are the Protagonist to this game, and if everything had been going according to plan, you’d be done with the tutorial by now."
+H: "But you decided to play around with that treasure chest and now we’re both in the discarded game files."
+H: "So no tutorial, no game, no plot... nothing."
+P: ""
+P: "What are we supposed to do then?"
+H: "Quit the game, won’t you?"
+H: "Just hop back into your little box and leave."
+P: "But-"
+H: "Ah, ah- no."
+H: "No more Narration. Get out."
+
+//
+hide H
+with hades_swing
+//
+
+exit

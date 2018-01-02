@@ -1,150 +1,109 @@
 //Jungle1
-
 //Characters: Hades, Protagonist
-
-//Plot Number: 6
 
 
 //CHARACTERS
-
-character Protagonist
-
-character Hades
-
+character P
 {
-
-        name = "Hades"
-
+        name = "Protagonist"
+}
+character H
+{
+        name = "Narrator"
 }
 
 
+a = true
 
+// false
+b = false && a
 
+// true
+c = !true == b
 
-//BEGIN DIALOUGE
+// false
+d = false == c
 
-show Hades spr_talkHades
+// false
+if (!c || d)
+{
+	"If ran"
+}
 
+// false
+else if (!a)
+{
+	"Else if ran"
+}
+
+else
+{
+	"Else ran"
+}
+
+//BEGIN DIALOGUE
+show H spr_talkHades
 with hades_swing
-
 //
 
 "Well."
-
 "Well, well, well."
-
 "You'd better have a real good reason for this nonsense."
-
 "Actually I don't want to wait around for an idea to bounce around and collide with the meaty thinking part of your mortal head."
-
 "At the rate which it took you to find that accursed button we might be here for weeks if you decide to open that mouth of yours."
 
-
-
+//
+show P spr_defaultSpeak
 //
 
-show Protagonist spr_defaultSpeak
-
-//
-
-
-
-Protagonist: "That's- hold on I don't have a mouth. How did that happen?"
-
-
+P: "That's- hold on I don't have a mouth. How did that happen?"
 
 "An unfortunate consequence of jumping outside the game files, I'm afraid."
+"And by jumping outside the game files, I of course refer to you turning this treasure chest into some sort of interplanetary ship."
 
-"And by jumping outside the game files, I of course refer to you turning this treasure chest into some sort of interplanetory ship."
-
-
-
-Protagonist: "I'm a rocket scientist?"
-
-
+P: "I'm a rocket scientist?"
 
 "I truly hope not."
-
 "But unfortunately I"
-
 "Cannot"
-
 "Disprooooveeee"
-
 "...that."
-
 ""
 
-
-
-Protagonist:""
-
-Protagonist:"So I might be a rocket scientist?"
-
-
+P:""
+P:"So I might be a rocket scientist?"
 
 "You aren't anything."
-
 "You shouldn't be anything."
-
 "And you are incapable of being anything because you've broken this game already."
 
-
-
-Protagonist: "What did I do?"
-
-
+P: "What did I do?"
 
 "You showed up! Didn't you hear me the first time?"
-
 "The game was over! The mortals died, the gods won, and Sezu had just gotten his grapes to root on the blood-stained hills of the western cities!"
-
 "We all had to deal with four hundred years of complains over how hard it is to make a vineyard on the bones of our enemies!"
-
 "And now I get to play nanny for someone who was too lazy to show up on time for their actual role."
 
-
-
-Protagonist: "What's my role?"
-
-
+P: "What's my role?"
 
 "Oh no, we're not playing that game."
-
 "I'm not the narrator in this."
+H: "If you excuse me I'll-"
+H: ""
+H: "When did I get a name above the dialogue box."
 
-Hades: "If you excuse me I'll-"
-
-Hades: ""
-
-Hades: "When did I get a name above the dialouge box."
-
-
-
-Protagonist: "About when you told me you weren't the narrator."
-
-Hades: "Well that's it for me. Have fun playing with the incomplete maps."
-
-Hades: "And don't pull up the menu, if you don't mind."
-
-
+P: "About when you told me you weren't the narrator."
+H: "Well that's it for me. Have fun playing with the incomplete maps."
+H: "And don't pull up the menu, if you don't mind."
 
 //
-
-hide Hades
-
+hide H
 with hades_swing
-
 //
 
-
-
-Protagonist: "Cool."
-
-Protagonist: "I guess I'll just relax in this... forest."
-
-Protagonist: "In the smoldering wreck of my science."
-
-
+P: "Cool."
+P: "I guess I'll just relax in this... forest."
+P: "In the smoldering wreck of my science."
 
 exit
+

@@ -21,7 +21,7 @@ string_split(stringArgs, ",", split);
 // convert to values
 for (var i = 0; i < ds_list_size(split); i++)
 {
-    split[| i] = stringToValue(string_trim(split[| i]));
+    split[| i] = stringToValue(string_trim(split[| i]), line);
 }
 // scripts, by default, do not pause
 obj_dialogue.scriptPause = false;
