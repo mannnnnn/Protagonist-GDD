@@ -133,10 +133,19 @@ status = STOP;
             <string>/// advance dialogue by mouse click
 if (obj_dialogue.active)
 {
-    // if not in a menu, advance
-    if (!dialogueCheckMenu())
+    // if done with current string
+    if (string_length(currentText) &gt;= string_length(text) - 3)
     {
-        dialogueAdvance();
+        // if not in a menu, advance
+        if (!dialogueCheckMenu())
+        {
+            dialogueAdvance();
+        }
+    }
+    // show more text
+    else
+    {
+        textshow += 20;
     }
 }
 </string>
@@ -164,10 +173,19 @@ if (obj_dialogue.active)
             <string>/// advance dialogue by mouse click
 if (obj_dialogue.active)
 {
-    // if not in a menu, advance
-    if (!dialogueCheckMenu())
+    // if done with current string
+    if (string_length(currentText) &gt;= string_length(text) - 3)
     {
-        dialogueAdvance();
+        // if not in a menu, advance
+        if (!dialogueCheckMenu())
+        {
+            dialogueAdvance();
+        }
+    }
+    // show more text
+    else
+    {
+        textshow += 20;
     }
 }
 </string>

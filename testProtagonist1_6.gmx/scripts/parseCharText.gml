@@ -4,8 +4,9 @@ var split = argument1;
 
 // then split by colon
 string_split(line, ":", split);
-var text = unquote(string_trim(split[| 1]));
 var character = string_trim(split[| 0]);
+ds_list_delete(split, 0);
+var text = unquote(string_trim(string_join(split, ":")));
 if (!ds_map_exists(obj_dialogue.characters, character))
 {
     show_error("The character " + string(character) + " is not defined.", true);

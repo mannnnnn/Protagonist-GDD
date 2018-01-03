@@ -5,11 +5,11 @@
 //CHARACTERS
 character P
 {
-    name = "Protagonist"
+	name = "Protagonist"
 }
 character H
 {
-        name = "Hades"
+	name = "Hades"
 }
 
 
@@ -19,67 +19,69 @@ with Hades_swing
 //
 
 H: "Hah! Finally fixed that pesky namecard."
-H: "So I’ve noticed that you’re still here."
-H: "Did you know that I’m hardcoded to follow you around."
+H: "So I've noticed that you're still here."
+H: "Did you know that I'm hardcoded to follow you around?"
 H: "Cards on the table, I am literally your menu."
-H: "And everytime you open it, I have to pay attention to whatever shenanigans you’re up to."
+H: "And every time you open it, I have to pay attention to whatever shenanigans you're up to."
 
 
 //
 show P spr_defaultSpeak
 //
 
-P: "You’ve been watching me?"
+P: "You've been watching me?"
 H: "You do understand how a game works, right?"
-H: "I’m a menu."
-H: "You’re the Protagonist."
-H: "I get the glorious task of following you around and spouting mystic nonsense that counts as ‘hints’."
+H: "I'm a menu."
+H: "You're the Protagonist."
+H: "I get the glorious task of following you around and spouting mystic nonsense that counts as 'hints'."
 H: "And I have the privilege of tracking your progress through the game."
 H: "The game which you broke."
 H: "Which can never be finished now."
 H: "Might as well leave."
-P: "So you’re saying-"
+P: "So you're saying-"
 P: "That I-"
 H: ""
 P: "-can ask you for advice?"
-H:"Oh Sweet Sezu, you’re actually going to stay here."
-H:"No, you cannot ask me for-"
- 
+H: "Oh Sweet Sezu, you're actually going to stay here."
+H: "No, you cannot ask me for-"
+
 //SWAP OUT THIS CODE
 show H spr_talkHadesGlitch
-H:"!"
+with nothing
+H: "!"
 //SWAP OUT THIS CODE
 show H spr_talkHades
+with nothing
 
-H:"..."
-H:"*sigh*"
-P:"Cool, so... how do I save?"
-H:"Save what?"
-P:"The game?"
-H: "You can’t, there’s no one to save. All the mortals are dead.”
-H: “Nice going, by the way."
+H: "..."
+H: "*sigh*"
+P: "Cool, so... how do I save?"
+H: "Save what?"
+P: "The game?"
+H: "You can't, there's no one to save. All the mortals are dead."
+H: "Nice going, by the way."
 P: "No I mean how do I save the game so I can come back and play it later?"
 H: "*sigh*"
-H: "It’s a button in the menu, like it always is.”
+H: "It's a button in the menu, like it always is."
 P: "Oh ok."
-P:""
-H:""
-P:"So-”
-H:"Please let me leave."
-P:"-is there any way to continue the game?"
-H:"Here, maybe it’ll be faster to show you."
+P: ""
+H: ""
+P: "So-"
+H: "Please let me leave."
+P: "-is there any way to continue the game?"
+H: "Here, maybe it'll be faster to show you."
 H: "Right above us is the original game, the place where we both should be."
 P: "I don't see anything."
 H: "That's because the camera doesn't just point upwards all willy-nilly like that. This is an unfinished map."
 H: "Why would the developers give you a way to stare up at the sky? This is a 2D game."
 H: "That's just unnecessary. Do you know how expensive art is?"
 P: "What am I supposed to be looking at then?"
-H: "You’re supposed to be understanding the constraints of the world you’re stuck in."
+H: "You're supposed to be understanding the constraints of the world you're stuck in."
 H: "At one point, you were supposed to save this world. And you had all the tools you needed to do it."
 H: "You had me, your loving guide,"
 H: "And your character traits."
-H: "But now you’ve escaped into a spot where you’re not supposed to be, and the game doesn’t know how to handle that."
-H: "You’ve got no purpose, and you’ve got nothing. You don’t even have yourself."
+H: "But now you've escaped into a spot where you're not supposed to be, and the game doesn't know how to handle that."
+H: "You've got no purpose, and you've got nothing. You don't even have yourself."
 P: ""
 P: "At least I still have you?"
 
@@ -87,6 +89,7 @@ P: "At least I still have you?"
 hide H
 with hades_swing
 //
+pause
 
 P: "Oh, ok."
 

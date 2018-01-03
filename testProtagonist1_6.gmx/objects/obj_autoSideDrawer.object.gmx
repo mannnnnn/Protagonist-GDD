@@ -19,24 +19,31 @@
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
-        <whoName>other</whoName>
+        <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// init
+            <string>/// an auto-siding drawer.
+// Waits until a drawer side is free,
+// then transforms into the drawer for that side.
 event_inherited();
-// rely on createDrawer for initialization.
-
-duration = 10;
-timer = 0;
+left = obj_fadeInLeftDrawer;
+right = obj_fadeInRightDrawer;
+preserveSpr = true;
+preserveImg = true;
+preservePos = false;
+preserveScale = false;
+preserveRot = false;
+preserveAlpha = false;
+preserveSide = false;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="64">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -53,47 +60,26 @@ timer = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// fade in
-if (timer &lt; duration)
-{
-    if (!finish &amp;&amp; !hide)
-    {
-        timer++;
-    }
-}
-else
-{
-    // if timer is at duration, then animation is complete
-    ready = true;
-}
+            <string>/// wait until a side becomes free then transform into L or R
 
-// self destruct: fade out
-// hide does the same thing
-if (finish || hide)
+// if right side is free, go to that one
+if (!instance_exists(obj_dialogue.rightDrawer) || obj_dialogue.rightDrawer.finish)
 {
-    /// fade out
-    timer--;
-    if (timer &lt;= 0)
-    {
-        timer = 0;
-        // only destroy if finish is true, not only hide
-        if (finish)
-        {
-            instance_destroy();
-        }
-    }
+    obj_dialogue.rightDrawer = transformDrawer(right,
+    preserveSpr, preserveImg, preservePos, preserveScale, preserveRot, preserveAlpha, preserveSide);
+    exit;
 }
-
-// draw
-alpha = map_range(timer, 0, duration, 0, 1);
-if (sprite_exists(sprite))
+// if left side is free, go to that one
+else if (!instance_exists(obj_dialogue.leftDrawer) || obj_dialogue.leftDrawer.finish)
 {
-    draw_sprite_ext(sprite, image, posX, posY, scaleX, scaleY, angle, c_white, alpha);
+    obj_dialogue.leftDrawer = transformDrawer(left,
+    preserveSpr, preserveImg, preservePos, preserveScale, preserveRot, preserveAlpha, preserveSide);
+    exit;
 }
-else
+// if we get told to self-destruct, then do it
+else if (finish)
 {
-    show_debug_message("Error in obj_fadeInDrawer: Trying to draw non-existing sprite. "
-    + "Make sure that, in your 'show' statement, that the sprite exists and is spelled correctly.");
+    instance_destroy();
 }
 </string>
           </argument>

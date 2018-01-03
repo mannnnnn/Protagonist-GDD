@@ -15,7 +15,18 @@ if (entry[| DRAWER_QUEUE_TYPE] == DRAWER_QUEUE_TYPE_NORMAL)
             var old = obj_dialogue.drawers[? channel];
             if (instance_exists(old))
             {
-                removeDrawer(old);
+                if (ds_map_exists(obj_dialogue.drawerHideKeywords, type))
+                {
+                    var hideObj = obj_dialogue.drawerHideKeywords[? type];
+                    with (old)
+                    {
+                        transformDrawer(hideObj, true, true, true, true, true, true, true);
+                    }
+                }
+                else
+                {
+                    show_error("The hide effect " + string(type) + " is not defined.", true);
+                }
             }
         }
         // start new
@@ -50,12 +61,20 @@ if (entry[| DRAWER_QUEUE_TYPE] == DRAWER_QUEUE_TYPE_NORMAL)
             old = obj_dialogue.drawers[? channel];
             if (instance_exists(old))
             {
-                if (old.type == type)
+                // end old
+                if (ds_map_exists(obj_dialogue.drawerHideKeywords, type))
                 {
-                    // if we can just remove the old one to the same effect, do that
-                    removeDrawer(old);
-                    return noone;
+                    var hideObj = obj_dialogue.drawerHideKeywords[? type];
+                    with (old)
+                    {
+                        transformDrawer(hideObj, true, true, true, true, true, true, true);
+                    }
                 }
+                else
+                {
+                    show_error("The hide effect " + string(type) + " is not defined.", true);
+                }
+                return noone;
             }
             else
             {
@@ -87,6 +106,7 @@ if (entry[| DRAWER_QUEUE_TYPE] == DRAWER_QUEUE_TYPE_NORMAL)
         drawer.scaleY = old.scaleY;
         drawer.angle = old.angle;
         drawer.alpha = old.alpha;
+        drawer.side = old.side;
         // destroy the old
         with (old)
         {

@@ -55,6 +55,10 @@ hide = false;
 
 // persistent, since it works with dialogue
 persistent = true;
+
+// optional 'side' variable, used by some drawers
+side = 0;
+
 </string>
           </argument>
         </arguments>

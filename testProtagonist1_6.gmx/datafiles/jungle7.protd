@@ -6,15 +6,15 @@
 //CHARACTERS
 character P
 {
-    name = "Protagonist"
+	name = "Protagonist"
 }
 character Ap
 {
-        name = "The Great Apollo"
+	name = "The Great Apollo"
 }
 character H
 {
-        name = "Hades"
+	name = "Hades"
 }
 
 
@@ -29,32 +29,32 @@ Ap: "Alright, you want to solve this riddle, yes?"
 show P spr_defaultSpeak
 //
 
-P: "What’s that thing over there?"
-Ap: "Hey, hey, you’re in the presence of a god, pay attention."
+P: "What's that thing over there?"
+Ap: "Hey, hey, you're in the presence of a god, pay attention."
 P: "I thought you were a video game character."
-Ap: "Pay attention or I’ll smite you."
+Ap: "Pay attention or I'll smite you."
 P: "Alright fine. What is it."
 Ap: "We should start solving the riddle by solving the real puzzle of the forest."
 Ap: "These cats."
 P: "I was just asking about them-"
-Ap: "Son, sit down and listen. You’re about to get some important exposition from a REAL storyteller."
+Ap: "Son, sit down and listen. You're about to get some important exposition from a REAL storyteller."
 Ap: "This place is home to a lot of cats. I think the sphinx must like them."
-Ap: "What’s more, they defy the very realm in which they live!"
+Ap: "What's more, they defy the very realm in which they live!"
 Ap: "And spookiest of all..."
-Ap:"They never talk."
+Ap: "They never talk."
 //*cat noise*
-Ap:"Huh."
-Ap:"Alright well scratch that. Thanks cat for making me look like an idiot."
-Ap:"They’ve always ignored me before"
-P:"It's looking at us."
-Ap:"What creature wouldn't be captivated by my beautiful body and your...grey...?"
-Ap:"Yeah, if you’re going to be my wingman, maybe we should get you a face."
-Ap:"A good one, but not as good as mine."
+Ap: "Huh."
+Ap: "Alright well scratch that. Thanks cat for making me look like an idiot."
+Ap: "They've always ignored me before"
+P: "It's looking at us."
+Ap: "What creature wouldn't be captivated by my beautiful body and your...grey...?"
+Ap: "Yeah, if you're going to be my wingman, maybe we should get you a face."
+Ap: "A good one, but not as good as mine."
 "The cat is blocking the path forward. I don't think we'll be able to pass through until we sate it."
-Ap:"How did you get all of that from a meow?"
-P:"I didn't. It's part of the game's puzzle."
-Ap:"I'm not playing a game. I'm here to prove myself against that dang Sphinxx."
-P:"Just take my word on this one. We have to make the cat happy."
+Ap: "How did you get all of that from a meow?"
+P: "I didn't. It's part of the game's puzzle."
+Ap: "I'm not playing a game. I'm here to prove myself against that dang Sphinxx."
+P: "Just take my word on this one. We have to make the cat happy."
 Ap: "Great. Gotta make the cat happy. What do we need to do?"
 //
 hide Ap 
@@ -68,21 +68,21 @@ P:"Hey Hades!"
 show H spr_talkHades
 with Hades_swing
 //
-"...how can I be of assistance?"
-P:"What does the cat want?"
-"What cat?"
-P:"The cat over there."
-"That's not a cat, therefore I cannot help you. Goodbye."
-P:"Hold on. Just tell us how to get past here."
-"I can't give you a direct answer. Now if you'll excuse me-"
-P:"Tell us what our objective is here."
-"..."
-P:"Didn't you say you had information on all-"
-"Yes, yes, alright. The Syntax Errors aren't here to give you a puzzle. They just exist."
-P:"How do we get around them then?"
-"That's for you to figure out."
-P:"You haven't been useful at all, then."
-"Thank god. I was afraid I was helping you for a moment there.
+H: "...how can I be of assistance?"
+P: "What does the cat want?"
+H: "What cat?"
+P: "The cat over there."
+H: "That's not a cat, therefore I cannot help you. Goodbye."
+P: "Hold on. Just tell us how to get past here."
+H: "I can't give you a direct answer. Now if you'll excuse me-"
+P: "Tell us what our objective is here."
+H: "..."
+P: "Didn't you say you had information on all-"
+H: "Yes, yes, alright. The Syntax Errors aren't here to give you a puzzle. They just exist."
+P: "How do we get around them then?"
+H: "That's for you to figure out."
+P: "You haven't been useful at all, then."
+H: "Thank god. I was afraid I was helping you for a moment there.
 
 
 //
@@ -99,22 +99,22 @@ with Apollo_swing
 //
 
 Ap: "Hades is a real charmer, huh."
-"How do we get around a Syntax Error?"
-Ap:"Syntax is the formation of sentences, yes? Does that mean-"
+P: "How do we get around a Syntax Error?"
+Ap: "Syntax is the formation of sentences, yes? Does that mean-"
 //*cat noise*
 Ap:"OH! OH! OH! Did you see THAT?!"
-"The letters?"
-Ap:"The cat is speaking! It's speaking in magic!"
-Ap:"What the heckidodah?! I spent years learning how to do that!"
-Ap:"I’m so proud of this cat! It must have taken it centuries to learn to bend the universe to its whim!"
-Ap:"I’m gonna go pet it."
-P:"Is it dangerous?"
+P: "The letters?"
+Ap: "The cat is speaking! It's speaking in magic!"
+Ap: "What the heckidodah?! I spent years learning how to do that!"
+Ap: "I'm so proud of this cat! It must have taken it centuries to learn to bend the universe to its whim!"
+Ap: "I'm gonna go pet it."
+P: "Is it dangerous?"
 "I can't understand magic languages."
-Ap:"Get a little closer, I’ll show you the mighty knowledge of the Lovely Linguist Apollo"
-Ap:"I’m gonna be the best dang language teacher you’ve ever seen."
-Ap:"Mostly for the cat’s sake though, not yours."
-P:"Well meow I’m just feline underappreciated."
-Ap:"I never appreciated you in the first place."
-Ap:"Hold on, was that a pun?"
+Ap: "Get a little closer, I'll show you the mighty knowledge of the Lovely Linguist Apollo"
+Ap: "I'm gonna be the best dang language teacher you've ever seen."
+Ap: "Mostly for the cat's sake though, not yours."
+P: "Well meow I'm just feline underappreciated."
+Ap: "I never appreciated you in the first place."
+Ap: "Hold on, was that a pun?"
 exit
 

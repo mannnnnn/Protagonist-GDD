@@ -5,11 +5,11 @@
 //CHARACTERS
 character P
 {
-    name = "Protagonist"
+	name = "Protagonist"
 }
 character H
 {
-        name = "Narrator"
+	name = "Narrator"
 }
 
 
@@ -38,11 +38,15 @@ H: "If you mention anything related to that dumb, comically-oversized treasure c
 
 
 //SWAP OUT THIS CODE
+
 show H spr_talkHadesGlitch
-H:"!"
+with nothing
+H: "!"
 
 //SWAP OUT THIS CODE
 show H spr_talkHades
+with nothing
+
 P: "...you'll what?"
 H: "Trust me, if the game would allow me to be openly hostile towards you I would say it again."
 P: "This isn't openly hostile?"
@@ -52,15 +56,15 @@ H: "I haven't even told you how to use your inventory yet so-"
 H: "To access your inventory, press [i]"
 H: ""
 P: "Thanks?"
-H:"You just had to mention your inventory, didn't you."
+H: "You just had to mention your inventory, didn't you."
 P: "Is there milk in there now?"
-H: "Alright let's clear the waters so we don't have an incident like that again."
-H: "I"
-H: "The great and powerful Hades"
-H: "Am going to be your guide through this grand and magical land."
+H: "Alright, let's clear the waters so we don't have an incident like that again."
+H: "I,"
+H: "the great and powerful Hades,"
+H: "am going to be your guide through this grand and magical land."
 H: "Whether you like it or not."
 P: "I don’t know how to feel about that."
-H: "And who’s fault is that?"
+H: "And whose fault is that?"
 P: "Is it mine?"
 H: "Yes. Yes it is."
 H: "You are the Protagonist to this game, and if everything had been going according to plan, you’d be done with the tutorial by now."

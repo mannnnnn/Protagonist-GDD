@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_fadeInDrawer</parentName>
+  <parentName>obj_fadeInRightDrawer</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="8" enumb="64">
@@ -25,11 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// left
-posX = 130 * displayScaleX();
-posY = 768 * displayScaleY();
-scaleX = 1.1 * displayScaleMin();
-scaleY = 1.1 * displayScaleMin();
+            <string>/// swing and draw light, and set 
+duration = 30;
+side = 1;
+angle = max(map_range(timer, 0, duration * 0.3, side * 90, 0), 0);
+draw_sprite_ext(spr_talkApolloLite, image, posX, posY, scaleX, scaleY, angle, c_white, 1 - alpha);
 event_inherited();
 </string>
           </argument>

@@ -56,7 +56,7 @@ for (var i = obj_dialogue.line; (i < ds_list_size(obj_dialogue.dialogue)) && (re
         if (obj_dialogue.dialogue[| i + 1] == "{")
         {
             // add this entry
-            ds_list_add(optionsList, createDialogueMenuOption(unquote(obj_dialogue.dialogue[| i]), ds_list_size(optionsList), i));
+            ds_list_add(optionsList, createDialogueMenuOption(unquote(string_trim(obj_dialogue.dialogue[| i])), ds_list_size(optionsList), i));
         }
     }
     // find end point
