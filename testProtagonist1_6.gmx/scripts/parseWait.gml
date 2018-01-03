@@ -33,5 +33,5 @@ if (split[| 1] == "for")
 }
 
 ds_list_destroy(split);
-// don't advance, since we're waiting
-return true;
+// it won't advance, since we're waiting
+return false;
