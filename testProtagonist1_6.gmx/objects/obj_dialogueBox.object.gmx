@@ -28,6 +28,7 @@
             <string>/// init
 // hiding or not
 hide = false;
+wait = noone;
 
 // show or hide name, text, and window
 showName = false;
@@ -108,6 +109,7 @@ timer = 0;
 duration = 10;
 
 status = STOP;
+
 </string>
           </argument>
         </arguments>
@@ -316,7 +318,11 @@ switch(state)
             status = NORMAL;
         }
         // timer
-        timer++;
+        // open if not waiting
+        if (!checkDialogueWait())
+        {
+            timer++;
+        }
         if (timer &gt;= duration)
         {
             state = OPEN;
@@ -338,7 +344,11 @@ switch(state)
         drawDialogueText(startX, t_startY, border, width, t_height, currentText, fnt_dialogue, textBorder);
         break;
     case CLOSING:
-        timer--;
+        // close if not waiting
+        if (!checkDialogueWait())
+        {
+            timer--;
+        }
         if (timer &lt; 0)
         {
             state = CLOSED;

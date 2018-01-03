@@ -93,5 +93,8 @@ pause
 
 P: "Oh, ok."
 
+hide P
+
+wait for drawers
 exit
 

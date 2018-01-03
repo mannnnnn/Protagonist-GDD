@@ -85,6 +85,12 @@ Ap: "Ah, ah, ah! Wide-eyed sidekicks are timely and excited to help out with the
 P: "Yippee?"
 Ap: "That's the spirit!"
 
+hide P
+with fade
+hide Ap
+with Apollo_swing
+
+wait for drawers
 exit
 
 

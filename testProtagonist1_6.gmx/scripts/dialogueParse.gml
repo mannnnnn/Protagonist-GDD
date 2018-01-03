@@ -162,5 +162,11 @@ if (split[| 0] == "menu")
     return parseMenu(line, split);
 }
 
+// wait
+if (split[| 0] == "wait")
+{
+    return parseWait(line, split);
+}
+
 // just output text by default
 return parseDefault(line, split);

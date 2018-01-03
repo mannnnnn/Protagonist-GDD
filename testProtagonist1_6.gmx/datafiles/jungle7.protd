@@ -116,5 +116,12 @@ Ap: "Mostly for the cat's sake though, not yours."
 P: "Well meow I'm just feline underappreciated."
 Ap: "I never appreciated you in the first place."
 Ap: "Hold on, was that a pun?"
+
+hide P
+with fade
+hide Ap
+with Apollo_swing
+
+wait for drawers
 exit
 

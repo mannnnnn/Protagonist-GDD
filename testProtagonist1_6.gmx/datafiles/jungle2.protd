@@ -82,5 +82,7 @@ H: "No more Narration. Get out."
 hide H
 with hades_swing
 //
+hide P
 
+wait for drawers
 exit

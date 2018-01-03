@@ -175,5 +175,9 @@ menu
 S: "You will be banished to the forrrest until you gain a great enough understanding to answer the riddle."
 P: "But that's impossib-"
 
+hide S
+hide P
+
 //Move to new area
+wait for drawers
 exit

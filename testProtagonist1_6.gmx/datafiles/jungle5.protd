@@ -63,4 +63,7 @@ P: ""
 P: "My conscience stuck around!"
 P: "Looks like Hades can be my guiding hand."
 
+hide P
+
+wait for drawers
 exit

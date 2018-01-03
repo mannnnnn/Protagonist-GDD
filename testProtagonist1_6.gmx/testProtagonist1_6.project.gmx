@@ -506,6 +506,7 @@
           <script>scripts\parseCreateStepper.gml</script>
           <script>scripts\parseAssign.gml</script>
           <script>scripts\parseIf.gml</script>
+          <script>scripts\parseWait.gml</script>
         </scripts>
       </scripts>
       <scripts name="draw">
@@ -533,6 +534,8 @@
         <script>scripts\dialogueUnhide.gml</script>
         <script>scripts\dialogueAddStepper.gml</script>
         <script>scripts\dialogueRemoveAllSteppers.gml</script>
+        <script>scripts\dialogueWait.gml</script>
+        <script>scripts\checkDialogueWait.gml</script>
       </scripts>
       <scripts name="drawers">
         <script>scripts\removeDrawer.gml</script>
@@ -811,6 +814,10 @@
         <object>objects\obj_dialogueBoxSpecial</object>
         <object>objects\obj_narration</object>
         <object>objects\obj_dialogueStepper</object>
+        <objects name="waiters">
+          <object>objects\obj_stepWaiter</object>
+          <object>objects\obj_drawerWaiter</object>
+        </objects>
       </objects>
       <object>objects\obj_optionsMenu</object>
       <object>objects\obj_inventory</object>

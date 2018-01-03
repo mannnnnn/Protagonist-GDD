@@ -4,7 +4,9 @@
 
 // advancing is only allowed if dialogue isn't in a menu
 // if dialogue IS in a menu, dialogue can only advance by selecting an option
-if (!dialogueCheckMenu())
+
+// advancing is also disabled when dialogue is on wait mode
+if (!dialogueCheckMenu() && !checkDialogueWait())
 {
     // advance
     var pause = dialogueNextAction();
@@ -12,4 +14,6 @@ if (!dialogueCheckMenu())
     {
         pause = dialogueNextAction();
     }
+    return true;
 }
+return false;
