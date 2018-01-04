@@ -38,6 +38,17 @@ preserveScale = false;
 preserveRot = false;
 preserveAlpha = false;
 preserveSide = false;
+
+siderList = ds_list_create();
+ds_list_add(siderList, spr_talkAthena);
+ds_list_add(siderList, spr_talkAthenaLite);
+ds_list_add(siderList, spr_talkApollo);
+ds_list_add(siderList, spr_talkApolloLite);
+ds_list_add(siderList, spr_talkHades);
+ds_list_add(siderList, spr_talkHadesLite);
+ds_list_add(siderList, spr_talkHadesGlitch);
+ds_list_add(siderList, spr_talkSphinx);
+ds_list_add(siderList, spr_defaultSpeak);
 </string>
           </argument>
         </arguments>
@@ -62,19 +73,36 @@ preserveSide = false;
             <kind>1</kind>
             <string>/// wait until a side becomes free then transform into L or R
 
+var talk = sprite == ds_list_find_value(siderList, ds_list_find_index(siderList, sprite));
+
+if (!talk)
+{
+    preservePos = true;
+    preserveScale = true;
+    preserveRot = true;
+    preserveAlpha = true;
+    preserveSide = true;
+}
+
 // if right side is free, go to that one
-if (!instance_exists(obj_dialogue.rightDrawer) || obj_dialogue.rightDrawer.finish)
+if (talk &amp;&amp; (!instance_exists(obj_dialogue.rightDrawer) || obj_dialogue.rightDrawer.finish))
 {
     obj_dialogue.rightDrawer = transformDrawer(right,
     preserveSpr, preserveImg, preservePos, preserveScale, preserveRot, preserveAlpha, preserveSide);
     exit;
 }
 // if left side is free, go to that one
-else if (!instance_exists(obj_dialogue.leftDrawer) || obj_dialogue.leftDrawer.finish)
+else if (talk &amp;&amp; (!instance_exists(obj_dialogue.leftDrawer) || obj_dialogue.leftDrawer.finish))
 {
     obj_dialogue.leftDrawer = transformDrawer(left,
     preserveSpr, preserveImg, preservePos, preserveScale, preserveRot, preserveAlpha, preserveSide);
     exit;
+}
+// if not a talk sprite
+else if (!talk)
+{
+    transformDrawer(obj_fadeInDrawer,
+    preserveSpr, preserveImg, preservePos, preserveScale, preserveRot, preserveAlpha, preserveSide);
 }
 // if we get told to self-destruct, then do it
 else if (finish)

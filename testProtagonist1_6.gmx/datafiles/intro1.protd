@@ -23,7 +23,7 @@ next intro
 H: "Or bolder still, together band, and strike down those who force thy hand."
 
 //
-show oAp spr_talkApolloLite
+show oAp spr_silhouettes 0 0 46
 with fade
 //
 
@@ -33,7 +33,7 @@ H: "In fires of gods, mere mortals will quiver,"
 hide oAp
 with fade
 
-show oAr spr_talkApolloLite
+show oAr spr_silhouettes 1 0 46
 with fade
 //
 
@@ -44,27 +44,21 @@ H: "The light of the moon can cause you to shiver,"
 hide oAr
 with fade
 
-show oHa spr_talkHadesLite
+show oHa spr_silhouettes 2 0 46
 with fade
 //
 
 H: "Or by thy hammer, forge light into peace."
 
 //
-hide oHa
-with fade
-
-show oAt spr_talkAthenaLite
-with fade
 //
 
 H: "And with thy guidance this era may cease."
 
 //
-hide oAt
+hide oHa
 with fade
 //
-
 
 text display obj_dialogueBox
 

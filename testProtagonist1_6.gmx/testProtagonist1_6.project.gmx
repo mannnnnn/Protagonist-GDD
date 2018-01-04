@@ -206,6 +206,7 @@
       <sprite>sprites\spr_greekScenes</sprite>
       <sprite>sprites\spr_gameWorld</sprite>
       <sprite>sprites\spr_BlastOff</sprite>
+      <sprite>sprites\spr_silhouettes</sprite>
     </sprites>
     <sprites name="battleInterface">
       <sprite>sprites\spr_Spells</sprite>
