@@ -396,6 +396,7 @@
       <sprite>sprites\spr_cinder</sprite>
     </sprites>
     <sprite>sprites\spr_earthdirt</sprite>
+    <sprite>sprites\spr_savvysMagicButton</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\scrollTest</background>
@@ -452,6 +453,7 @@
       <script>scripts\displayScaleY.gml</script>
       <script>scripts\displayScaleMin.gml</script>
       <script>scripts\displayScaleMax.gml</script>
+      <script>scripts\mouse_in_rect.gml</script>
     </scripts>
     <scripts name="dialogue">
       <scripts name="preprocessing">
