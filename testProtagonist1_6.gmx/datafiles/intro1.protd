@@ -1,0 +1,114 @@
+//intro1
+//Characters: Hades, Protagonist, the silhouettes of people
+
+//CHARACTERS
+character P
+{
+	name = "Protagonist"
+}
+character H
+{
+	name = "???"
+}
+
+text display obj_narration
+
+create stepper intro obj_intro
+next intro
+
+H: "Welcome Hero, to darkness of war. Give thy love to the gods of lore?"
+
+next intro
+
+H: "Or bolder still, together band, and strike down those who force thy hand."
+
+//
+show oAp spr_talkApolloLite
+with fade
+//
+
+H: "In fires of gods, mere mortals will quiver,"
+
+//
+hide oAp
+with fade
+
+show oAr spr_talkApolloLite
+with fade
+//
+
+
+H: "The light of the moon can cause you to shiver,"
+
+//
+hide oAr
+with fade
+
+show oHa spr_talkHadesLite
+with fade
+//
+
+H: "Or by thy hammer, forge light into peace."
+
+//
+hide oHa
+with fade
+
+show oAt spr_talkAthenaLite
+with fade
+//
+
+H: "And with thy guidance this era may cease."
+
+//
+hide oAt
+with fade
+//
+
+
+text display obj_dialogueBox
+
+call hadesSpecialDatetimeExtravaganza()
+
+//
+show H spr_talkHades
+with hades_swing
+//
+
+H: "Oh nevermind then. Don't worry about any of that stuff."
+P: "Huh?"
+H: "The war ended like three years ago when the game was released."
+P: "Wait, so we won already?"
+H: "What? Are you kidding me? The mortals didn't stand a chance!"
+
+next intro
+
+H: "We are GODS. We shoot LIGHTNING."
+H: "You guys had sticks."
+P: "That can't be right."
+H: "No, you're right. I misspoke."
+H: "You didn't have sticks by the end of it."
+H: "Universal ban on sticks, enacted by the gods."
+H: "You guys were pretty annoying with them."
+
+next intro
+
+H: "Invented dumb stuff like spears for survival."
+H: "And that weird instrument thing. Aulos?"
+H: "So yeah, you guys clearly weren't ready for sticks yet. So we banned them."
+H: "Then we just decided to cut to the root of the problem and just banned mortals from existence."
+P: "You did what?"
+H: "Yeah, they're all gone. It's pretty nice."
+H: "So enjoy that lifespan limitation of yours."
+H: "I'm not really under any obligation to do anything anymore."
+H: "Game's over. Thanks for stopping by. And don't do it again."
+H: "We've got our own little thing going on here, so no games please."
+H: "I'll just take this and-"
+
+call hadesSpecialExitingExtravaganza()
+
+wait -4
+
+H: "-exit you out."
+
+exit

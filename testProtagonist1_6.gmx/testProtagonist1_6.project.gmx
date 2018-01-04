@@ -3,41 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="13" name="datafiles">
-    <datafile>
-      <name>syntaxError.ogv</name>
-      <exists>-1</exists>
-      <size>6765000</size>
-      <exportAction>2</exportAction>
-      <exportDir></exportDir>
-      <overwrite>0</overwrite>
-      <freeData>-1</freeData>
-      <removeEnd>0</removeEnd>
-      <store>0</store>
-      <ConfigOptions>
-        <Config name="Default">
-          <CopyToMask>9223372036854775807</CopyToMask>
-        </Config>
-      </ConfigOptions>
-      <filename>syntaxError.ogv</filename>
-    </datafile>
-    <datafile>
-      <name>syntaxError_converted.ogv</name>
-      <exists>-1</exists>
-      <size>2905418</size>
-      <exportAction>2</exportAction>
-      <exportDir></exportDir>
-      <overwrite>0</overwrite>
-      <freeData>-1</freeData>
-      <removeEnd>0</removeEnd>
-      <store>0</store>
-      <ConfigOptions>
-        <Config name="Default">
-          <CopyToMask>9223372036854775807</CopyToMask>
-        </Config>
-      </ConfigOptions>
-      <filename>syntaxError_converted.ogv</filename>
-    </datafile>
+  <datafiles number="14" name="datafiles">
     <datafile>
       <name>testcase.protd</name>
       <exists>-1</exists>
@@ -192,9 +158,9 @@
       <filename>jungle7.protd</filename>
     </datafile>
     <datafile>
-      <name>goals.txt</name>
+      <name>intro1.protd</name>
       <exists>-1</exists>
-      <size>0</size>
+      <size>2232</size>
       <exportAction>2</exportAction>
       <exportDir></exportDir>
       <overwrite>0</overwrite>
@@ -206,24 +172,7 @@
           <CopyToMask>9223372036854775807</CopyToMask>
         </Config>
       </ConfigOptions>
-      <filename>goals.txt</filename>
-    </datafile>
-    <datafile>
-      <name>intro.protd</name>
-      <exists>-1</exists>
-      <size>0</size>
-      <exportAction>2</exportAction>
-      <exportDir></exportDir>
-      <overwrite>0</overwrite>
-      <freeData>-1</freeData>
-      <removeEnd>0</removeEnd>
-      <store>0</store>
-      <ConfigOptions>
-        <Config name="Default">
-          <CopyToMask>9223372036854775807</CopyToMask>
-        </Config>
-      </ConfigOptions>
-      <filename>intro.protd</filename>
+      <filename>intro1.protd</filename>
     </datafile>
   </datafiles>
   <NewExtensions/>
@@ -491,6 +440,7 @@
           <script>scripts\parseCharText.gml</script>
           <script>scripts\parseExit.gml</script>
           <script>scripts\parseTextSpeed.gml</script>
+          <script>scripts\parseTextDisplay.gml</script>
           <script>scripts\parseCall.gml</script>
           <script>scripts\parseCreate.gml</script>
           <script>scripts\parseInv.gml</script>
@@ -519,6 +469,7 @@
         <script>scripts\newline.gml</script>
         <script>scripts\breakText.gml</script>
         <script>scripts\getTextSlice.gml</script>
+        <script>scripts\swapDialogueDisplay.gml</script>
       </scripts>
       <scripts name="control">
         <script>scripts\dialogueTextBlock.gml</script>
@@ -556,6 +507,10 @@
         <script>scripts\closeDialogueMenu.gml</script>
         <script>scripts\createDialogueMenu.gml</script>
         <script>scripts\createDialogueMenuOption.gml</script>
+      </scripts>
+      <scripts name="specialScripts">
+        <script>scripts\hadesSpecialDatetimeExtravaganza.gml</script>
+        <script>scripts\hadesSpecialExitingExtravaganza.gml</script>
       </scripts>
     </scripts>
     <scripts name="debug">
@@ -628,6 +583,7 @@
       <script>scripts\draw_text_highlighted.gml</script>
       <script>scripts\inrange.gml</script>
       <script>scripts\draw_sprite_offset_ext.gml</script>
+      <script>scripts\cursor_set_pos.gml</script>
     </scripts>
     <scripts name="combat">
       <script>scripts\startCombatAnimation.gml</script>
@@ -819,6 +775,9 @@
         <objects name="waiters">
           <object>objects\obj_stepWaiter</object>
           <object>objects\obj_drawerWaiter</object>
+        </objects>
+        <objects name="specialObjects">
+          <object>objects\obj_mouseController</object>
         </objects>
       </objects>
       <object>objects\obj_optionsMenu</object>

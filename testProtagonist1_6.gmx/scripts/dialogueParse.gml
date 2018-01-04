@@ -115,9 +115,16 @@ if (line == "pause")
 
 
 // text speed
-if (split[| 0] == "text" && split[| 1] == "speed" && ds_list_size(split) >= 3)
+if (split[| 0] == "text" && ds_list_size(split) >= 3)
 {
-    return parseTextSpeed(line, split);
+    if (split[| 1] == "speed")
+    {
+        return parseTextSpeed(line, split);
+    }
+    if (split[| 1] == "display")
+    {
+        return parseTextDisplay(line, split);
+    }
 }
 
 // script call
