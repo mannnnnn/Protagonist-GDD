@@ -82,6 +82,7 @@ display = instance_create(0, 0, obj_dialogueBox);
             <string>/// script interaction
 // if you want a script to pause, the script must set this to true.
 scriptPause = false;
+
 </string>
           </argument>
         </arguments>

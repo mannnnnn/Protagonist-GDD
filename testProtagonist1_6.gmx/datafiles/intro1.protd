@@ -70,33 +70,53 @@ with hades_swing
 //
 
 H: "Oh nevermind then. Don't worry about any of that stuff."
+
 P: "Huh?"
+
 H: "The war ended like three years ago when the game was released."
+
 P: "Wait, so we won already?"
+
 H: "What? Are you kidding me? The mortals didn't stand a chance!"
 
 next intro
 
 H: "We are GODS. We shoot LIGHTNING."
+
 H: "You guys had sticks."
+
 P: "That can't be right."
+
 H: "No, you're right. I misspoke."
+
 H: "You didn't have sticks by the end of it."
+
 H: "Universal ban on sticks, enacted by the gods."
+
 H: "You guys were pretty annoying with them."
 
 next intro
 
 H: "Invented dumb stuff like spears for survival."
+
 H: "And that weird instrument thing. Aulos?"
+
 H: "So yeah, you guys clearly weren't ready for sticks yet. So we banned them."
+
 H: "Then we just decided to cut to the root of the problem and just banned mortals from existence."
+
 P: "You did what?"
+
 H: "Yeah, they're all gone. It's pretty nice."
+
 H: "So enjoy that lifespan limitation of yours."
+
 H: "I'm not really under any obligation to do anything anymore."
+
 H: "Game's over. Thanks for stopping by. And don't do it again."
+
 H: "We've got our own little thing going on here, so no games please."
+
 H: "I'll just take this and-"
 
 call hadesSpecialExitingExtravaganza()

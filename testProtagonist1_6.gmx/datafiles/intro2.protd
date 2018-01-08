@@ -1,0 +1,114 @@
+//intro2
+//Characters: Hades, Protagonist, the silhouettes of people
+
+//CHARACTERS
+character P
+{
+	name = "Protagonist"
+}
+character H
+{
+	name = "???"
+}
+
+text display obj_narration
+
+create stepper intro obj_intro
+next intro
+
+H: "Welcome Hero, to darkness of war. You made a new game and you're back for more."
+
+next intro
+
+H: "Normally I'd say you together band, and strike down those who force thy hand."
+
+H: "Except as you've already read, the mortals are already dead."
+
+H: "So go ahead, sit back, while I narrate. Opening lines are little more than bait."
+
+H: "Don't mind if I make things go a bit faster. I'm bored to death by this tale of disaster."
+
+text speed 6
+text auto true
+
+//
+show oAp spr_silhouettes 0 0 46
+with fade
+//
+
+H: "In fires of gods, mere mortals will quiver,"
+
+//
+hide oAp
+with fade
+
+show oAr spr_silhouettes 1 0 46
+with fade
+//
+
+
+H: "The light of the moon can cause you to shiver,"
+
+//
+hide oAr
+with fade
+
+show oHa spr_silhouettes 2 0 46
+with fade
+//
+
+H: "Or by thy hammer, forge light into peace."
+
+//
+//
+
+H: "And with thy guidance this era may cease."
+
+//
+hide oHa
+with fade
+//
+
+text speed 2
+text auto false
+
+text display obj_dialogueBox
+
+H: "Hooray we're done."
+
+//
+show H spr_talkHades
+with hades_swing
+//
+
+H: "And it all ended happily, ever, after."
+
+H: "Bye."
+
+P: "Wait!"
+
+H: "Yes?"
+
+P: "I'm here to play the game now."
+
+H: "So I see. I regret to inform you that the game is very much over."
+
+P: "If the world is destroyed, then where are we now?"
+
+H: "The world isn't destroyed. We just got rid of the mortals. It's perfectly nice here now."
+
+H: "But to answer your questions, since I'm forced to..."
+
+H: "We're in a very nice box."
+
+P: "Can I leave the box?"
+
+H: "Keep your arms and legs inside the box at all times, please."
+
+H: "And give me that."
+
+call hadesSpecialExitingExtravaganza()
+
+wait -4
+
+exit

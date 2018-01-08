@@ -45,6 +45,10 @@ name = "";
 // text incrementing (typewriter effect)
 textshow = 0;
 textspeed = 2;
+
+// whether or not to automatically advance
+autoAdvance = false;
+autoAdvanceTimer = autoAdvance;
 </string>
           </argument>
         </arguments>
@@ -115,6 +119,59 @@ status = STOP;
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// auto-advance if necessary
+if (obj_dialogue.active)
+{
+    // if done with current string
+    if (string_length(currentText) &gt;= string_length(text) - 1)
+    {
+        // auto advance only if setting is 1 or above
+        if (autoAdvance &gt; 0)
+        {
+            if (autoAdvanceTimer &lt;= 1)
+            {
+                autoAdvanceTimer = autoAdvance;
+                // if not in a menu, advance
+                if (!dialogueCheckMenu())
+                {
+                    dialogueAdvance();
+                }
+            }
+            // tick down until advance
+            else
+            {
+                autoAdvanceTimer--;
+            }
+        }
+    }
+    // if string isn't full, reset timer
+    else
+    {
+        autoAdvanceTimer = autoAdvance;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="5" enumb="17">
       <action>
         <libid>1</libid>
@@ -132,11 +189,11 @@ status = STOP;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// advance dialogue by mouse click
+            <string>/// skip dialogue by holding Ctrl
 if (obj_dialogue.active)
 {
     // if done with current string
-    if (string_length(currentText) &gt;= string_length(text) - 3)
+    if (string_length(currentText) &gt;= string_length(text) - 1)
     {
         // if not in a menu, advance
         if (!dialogueCheckMenu())
@@ -176,7 +233,7 @@ if (obj_dialogue.active)
 if (obj_dialogue.active)
 {
     // if done with current string
-    if (string_length(currentText) &gt;= string_length(text) - 3)
+    if (string_length(currentText) &gt;= string_length(text) - 1)
     {
         // if not in a menu, advance
         if (!dialogueCheckMenu())

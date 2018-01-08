@@ -113,10 +113,10 @@ if (line == "pause")
     return parsePause(line, split);
 }
 
-
 // text speed
 if (split[| 0] == "text" && ds_list_size(split) >= 3)
 {
+    show_debug_message(listToStr(split));
     if (split[| 1] == "speed")
     {
         return parseTextSpeed(line, split);
@@ -124,6 +124,10 @@ if (split[| 0] == "text" && ds_list_size(split) >= 3)
     if (split[| 1] == "display")
     {
         return parseTextDisplay(line, split);
+    }
+    if (split[| 1] == "auto")
+    {
+        return parseTextAuto(line, split);
     }
 }
 
