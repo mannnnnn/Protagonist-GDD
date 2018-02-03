@@ -366,23 +366,11 @@
     <sprite>sprites\spr_savvysMagicButton</sprite>
   </sprites>
   <backgrounds name="background">
-    <background>background\scrollTest</background>
-    <background>background\back_glow1</background>
-    <background>background\back_glow2</background>
-    <backgrounds name="Jungle">
-      <background>background\back_forestTest</background>
-      <background>background\back_forestFinal</background>
-      <background>background\back_jungleNtoS</background>
-      <background>background\back_darkNtoS</background>
-      <background>background\back_jungleStoE</background>
-      <background>background\back_jungleNtoE</background>
-      <background>background\back_jungleNtoW</background>
-      <background>background\back_jungleWtoS</background>
-      <background>background\back_jungleFind</background>
+    <backgrounds name="map">
+      <background>background\bgnd_forest1</background>
+      <background>background\bgnd_forest2</background>
+      <background>background\bgnd_forest3</background>
     </backgrounds>
-    <background>background\titleCard1</background>
-    <background>background\back_chest</background>
-    <background>background\back_inChest</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -829,7 +817,7 @@
     <object>objects\obj_dustBunnyCreator</object>
     <object>objects\obj_intro</object>
     <object>objects\obj_combatIntro</object>
-    <objects name="mystupidsystem">
+    <objects name="combatSystem">
       <object>objects\obj_letter</object>
       <object>objects\obj_letterFired</object>
       <object>objects\obj_letterFalling</object>

@@ -7,7 +7,11 @@ var action = argument2;
 // create spell effect
 if (ds_map_exists(obj_spellbook.spelleffects, action))
 {
-    var eff = instance_create(0, 0, obj_spellbook.spelleffects[? action]);
-    eff.targetX = X;
-    eff.targetY = Y;
+    var obj = obj_spellbook.spelleffects[? action];
+    if (object_exists(obj))
+    {
+        var eff = instance_create(0, 0, obj);
+        eff.targetX = X;
+        eff.targetY = Y;
+    }
 }

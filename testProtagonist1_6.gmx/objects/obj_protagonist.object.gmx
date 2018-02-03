@@ -304,6 +304,11 @@ firstframe = false;
             <string>/// test throw animation
 var test = instance_nearest(0, 0, obj_syntaxWalker);
 
+if (!instance_exists(test))
+{
+    exit;
+}
+
 with (obj_gravityAnimation)
 {
     instance_destroy();
