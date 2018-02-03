@@ -370,6 +370,12 @@
       <background>background\bgnd_forest1</background>
       <background>background\bgnd_forest2</background>
       <background>background\bgnd_forest3</background>
+      <background>background\bgnd_forest4</background>
+      <background>background\bgnd_forest5</background>
+      <background>background\bgnd_forest6</background>
+      <background>background\bgnd_forest7</background>
+      <background>background\bgnd_forest8</background>
+      <background>background\bgnd_forest9</background>
     </backgrounds>
   </backgrounds>
   <paths name="paths"/>
