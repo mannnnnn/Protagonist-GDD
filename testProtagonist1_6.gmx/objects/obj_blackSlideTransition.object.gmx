@@ -28,33 +28,11 @@
             <string>/// init
 event_inherited();
 color = c_black;
-alpha = 0;
-duration = 23;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// fade
-event_inherited();
-alpha = map_range(timer, 0, duration, 0, 1.5);
+duration = 22;
+offset = 10;
+
+alphaW = 100;
+spd = 2.5;
 </string>
           </argument>
         </arguments>
@@ -79,8 +57,89 @@ alpha = map_range(timer, 0, duration, 0, 1.5);
             <kind>1</kind>
             <string>/// draw, covering the entire screen
 draw_set_color(color);
-draw_set_alpha(alpha);
-draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
+draw_set_alpha(1);
+
+// black slide depends on side
+var pos = 0;
+var edge = 0;
+var sd = side;
+var trueTimer = (timer - offset) * spd;
+// switch sides if closing
+if (state == CLOSING)
+{
+    switch(sd)
+    {
+        case LEFT:
+            sd = RIGHT;
+            break;
+        case RIGHT:
+            sd = LEFT;
+            break;
+        case UP:
+            sd = DOWN;
+            break;
+        case DOWN:
+            sd = UP;
+            break;
+    }
+}
+
+// draw the big rectangle slider
+switch (sd)
+{
+    case RIGHT:
+        edge = getDisplayRoomWidth();
+        pos = map_range(trueTimer, 0, duration, edge, 0);
+        // draw the black slider from edge to (pos + alphaW)
+        draw_rectangle(edge, 0, pos + alphaW, getDisplayRoomHeight(), false);
+        // draw primitive from (pos + alphaW) to pos
+        draw_primitive_begin(pr_trianglestrip);
+        draw_vertex_colour(pos + alphaW, 0, color, 1);
+        draw_vertex_colour(pos + alphaW, getDisplayRoomHeight(), color, 1);
+        draw_vertex_colour(pos, 0, color, 0);
+        draw_vertex_colour(pos, getDisplayRoomHeight(), color, 0);
+        draw_primitive_end();
+        break;
+    case LEFT:
+        edge = 0;
+        pos = map_range(trueTimer, 0, duration, edge, getDisplayRoomWidth());
+        // draw the black slider from edge to (pos - alphaW)
+        draw_rectangle(edge, 0, pos - alphaW, getDisplayRoomHeight(), false);
+        // draw primitive from (pos - alphaW) to pos
+        draw_primitive_begin(pr_trianglestrip);
+        draw_vertex_colour(pos - alphaW, 0, color, 1);
+        draw_vertex_colour(pos - alphaW, getDisplayRoomHeight(), color, 1);
+        draw_vertex_colour(pos, 0, color, 0);
+        draw_vertex_colour(pos, getDisplayRoomHeight(), color, 0);
+        draw_primitive_end();
+        break;
+    case UP:
+        edge = 0;
+        pos = map_range(trueTimer, 0, duration, edge, getDisplayRoomHeight());
+        // draw the black slider from edge to (pos - alphaW)
+        draw_rectangle(0, edge, getDisplayRoomWidth(), pos - alphaW, false);
+        // draw primitive from (pos - alphaW) to pos
+        draw_primitive_begin(pr_trianglestrip);
+        draw_vertex_colour(0, pos - alphaW, color, 1);
+        draw_vertex_colour(getDisplayRoomWidth(), pos - alphaW, color, 1);
+        draw_vertex_colour(0, pos, color, 0);
+        draw_vertex_colour(getDisplayRoomWidth(), pos, color, 0);
+        draw_primitive_end();
+        break;
+    case DOWN:
+        edge = getDisplayRoomHeight();
+        pos = map_range(trueTimer, 0, duration, edge, 0);
+        // draw the black slider from edge to (pos + alphaW)
+        draw_rectangle(0, edge, getDisplayRoomWidth(), pos + alphaW, false);
+        // draw primitive from (pos + alphaW) to pos
+        draw_primitive_begin(pr_trianglestrip);
+        draw_vertex_colour(0, pos + alphaW, color, 1);
+        draw_vertex_colour(getDisplayRoomWidth(), pos + alphaW, color, 1);
+        draw_vertex_colour(0, pos, color, 0);
+        draw_vertex_colour(getDisplayRoomWidth(), pos, color, 0);
+        draw_primitive_end();
+        break;
+}
 </string>
           </argument>
         </arguments>

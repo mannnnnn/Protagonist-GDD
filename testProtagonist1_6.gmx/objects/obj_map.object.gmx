@@ -136,7 +136,7 @@ if (instance_number(obj_protagonist) &gt; 0 &amp;&amp; playerCanMove())
                 side = DOWN;
                 Y += 1;
             }
-            var trans = createRoomTransition(map[# X, Y], obj_blackSlideTransition, 30);
+            var trans = createRoomTransition(map[# X, Y], obj_blackSlideTransition);
             trans.side = side;
         }
     }
@@ -172,19 +172,19 @@ if (instance_exists(obj_roomTransition) &amp;&amp; instance_exists(obj_protagoni
         switch (trans.side)
         {
             case RIGHT:
-                setX(obj_protagonist, map_range(trans.timer, trans.duration, 0, 0, left + b));
+                setX(obj_protagonist, map_range(trans.timer, trans.duration, 0, left - b, left + b));
                 setY(obj_protagonist, room_height * 0.5);
                 break;
             case LEFT:
-                setX(obj_protagonist, map_range(trans.timer, trans.duration, 0, room_width, right - b));
+                setX(obj_protagonist, map_range(trans.timer, trans.duration, 0, right + b, right - b));
                 setY(obj_protagonist, room_height * 0.5);
                 break;
             case DOWN:
-                setY(obj_protagonist, map_range(trans.timer, trans.duration, 0, 0, upper + b));
+                setY(obj_protagonist, map_range(trans.timer, trans.duration, 0, upper - b, upper + b));
                 setX(obj_protagonist, room_width * 0.5);
                 break;
             case UP:
-                setY(obj_protagonist, map_range(trans.timer, trans.duration, 0, room_height, lower - b));
+                setY(obj_protagonist, map_range(trans.timer, trans.duration, 0, lower + b, lower - b));
                 setX(obj_protagonist, room_width * 0.5);
                 break;
         }
