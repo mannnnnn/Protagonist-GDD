@@ -57,8 +57,8 @@ label statLion
 
 label statSign
 {
-	"Looks like you shouldn't go this way,"
-	"But what does a sign know."
+	"Looks like you shouldn't go this way."
+	"But what does a sign know?"
 	"It's not like it can stop you anyways."
 	"You haven't even heard of this 'asbestos' stuff."
 }
@@ -177,9 +177,9 @@ label duckBox
 {
 	"It seems that you've come across an unfinished map in a game about unfinished maps."
 	"Instead of messing around here, why don't you take a look at this?"
-	"No more time for joking around and spamming music."
-	"We are now in search of intelligent minds for the future."
-	"begin. This is the test of Green Cat, for those who have wondered about our team's secret identity, start here."
+	"[BEGIN TRANSMISSION]"
+	"No more time for joking around and spamming music. We are now in search of intelligent minds for the future."
+	"This is the test of Green Cat. For those who have wondered about our team's secret identity, start here."
 	"01100111 01101110 01110000 00101110 01101111 01110011 01100110 01001111 01100101 01001101 01011000 00101111"
 	"01101101 01101111 01100011 00101110 01110010 01110101 01100111 01101101 01101001 00101110 01101001 00101111 00101111 00111010 01110000 01110100 01110100 01101000"
 }

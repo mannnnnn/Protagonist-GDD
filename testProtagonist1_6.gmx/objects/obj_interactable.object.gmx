@@ -33,7 +33,7 @@ name = "";
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="13">
+    <event eventtype="9" enumb="32">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -51,15 +51,19 @@ name = "";
           <argument>
             <kind>1</kind>
             <string>/// check if close, if so, display text
-if (instance_exists(obj_protagonist) &amp;&amp; playerCanMove() &amp;&amp; distance_to_object(obj_protagonist) &lt; 10)
+// dialogue must not be already open
+if (instance_exists(obj_dialogue.display) &amp;&amp; obj_dialogue.display.state == CLOSED)
 {
-    if (name != "")
+    if (instance_exists(obj_protagonist) &amp;&amp; playerCanMove() &amp;&amp; distance_to_object(obj_protagonist) &lt; 20)
     {
-        if (obj_dialogue.file != file)
+        if (name != "")
         {
-            dialogueLoad(file);
+            if (obj_dialogue.file != file)
+            {
+                dialogueLoad(file);
+            }
+            dialogueStart(name, obj_dialogueBox);
         }
-        dialogueStart(name, obj_dialogueBox);
     }
 }
 </string>
