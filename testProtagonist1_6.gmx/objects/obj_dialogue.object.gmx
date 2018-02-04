@@ -360,6 +360,11 @@ for (var i = ord('1'); i &lt;= ord('7'); i++)
         dialogueStart();
     }
 }
+if (!checkDialogueActive() &amp;&amp; keyboard_check_pressed(ord('8')))
+{
+    dialogueLoad("itemset1" + ".protd");
+    dialogueStart();
+}
 </string>
           </argument>
         </arguments>

@@ -3,7 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="15" name="datafiles">
+  <datafiles number="16" name="datafiles">
     <datafile>
       <name>testcase.protd</name>
       <exists>-1</exists>
@@ -191,6 +191,23 @@
       </ConfigOptions>
       <filename>intro2.protd</filename>
     </datafile>
+    <datafile>
+      <name>itemset1.protd</name>
+      <exists>-1</exists>
+      <size>4369</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>itemset1.protd</filename>
+    </datafile>
   </datafiles>
   <NewExtensions/>
   <sounds name="sound">
@@ -277,7 +294,7 @@
         <sprite>sprites\spr_rock2</sprite>
         <sprite>sprites\spr_rock3</sprite>
         <sprite>sprites\spr_rock4</sprite>
-        <sprite>sprites\spr_rockOutcrop</sprite>
+        <sprite>sprites\spr_rockOut</sprite>
         <sprite>sprites\spr_stump1</sprite>
         <sprite>sprites\spr_tree1</sprite>
         <sprite>sprites\spr_tree2</sprite>
@@ -301,18 +318,6 @@
     <sprites name="boxBorders">
       <sprite>sprites\spr_bor_regal</sprite>
     </sprites>
-    <sprites name="GreyProtagonistSprites">
-      <sprite>sprites\spr_greyProtagAll</sprite>
-      <sprite>sprites\spr_greyForward</sprite>
-      <sprite>sprites\spr_greyFlash</sprite>
-      <sprite>sprites\spr_greyBack</sprite>
-      <sprite>sprites\spr_greyRight</sprite>
-      <sprite>sprites\spr_greyLeft</sprite>
-      <sprite>sprites\spr_greyWalkForward</sprite>
-      <sprite>sprites\spr_greyWalkBack</sprite>
-      <sprite>sprites\spr_greyWalkRight</sprite>
-      <sprite>sprites\spr_greyWalkLeft</sprite>
-    </sprites>
     <sprites name="MyraSprites">
       <sprite>sprites\spr_MyraLeftWalk</sprite>
       <sprite>sprites\spr_MyraLeft</sprite>
@@ -322,7 +327,6 @@
       <sprite>sprites\spr_MyraBack</sprite>
       <sprite>sprites\spr_MyraRightWalk</sprite>
       <sprite>sprites\spr_MyraRight</sprite>
-      <sprite>sprites\sprite4</sprite>
     </sprites>
     <sprites name="TalkSprites">
       <sprite>sprites\spr_syntaxSpeak</sprite>
@@ -343,7 +347,6 @@
     <sprite>sprites\spr_talkStone</sprite>
     <sprite>sprites\spr_Rosetta</sprite>
     <sprite>sprites\spr_awakeSyntax</sprite>
-    <sprite>sprites\sprite11</sprite>
     <sprites name="SyntaxSprites">
       <sprite>sprites\syntaxAll</sprite>
       <sprite>sprites\spr_syntaxFront</sprite>
@@ -364,6 +367,24 @@
     </sprites>
     <sprite>sprites\spr_earthdirt</sprite>
     <sprite>sprites\spr_savvysMagicButton</sprite>
+    <sprites name="interactables">
+      <sprite>sprites\spr_duckBox</sprite>
+      <sprite>sprites\spr_lockTree</sprite>
+      <sprite>sprites\spr_signStatue</sprite>
+      <sprite>sprites\spr_sphinxx</sprite>
+      <sprite>sprites\spr_statDad</sprite>
+      <sprite>sprites\spr_statElem</sprite>
+      <sprite>sprites\spr_statNeko</sprite>
+      <sprite>sprites\spr_statLion</sprite>
+      <sprite>sprites\spr_statSign</sprite>
+      <sprite>sprites\spr_synFish</sprite>
+      <sprite>sprites\spr_synPlay</sprite>
+      <sprite>sprites\spr_synYarn</sprite>
+      <sprite>sprites\spr_synZero</sprite>
+      <sprite>sprites\spr_treeFruit</sprite>
+      <sprite>sprites\spr_treeStump</sprite>
+    </sprites>
+    <sprite>sprites\spr_duck</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="map">
@@ -445,6 +466,7 @@
         <script>scripts\evalBoolean.gml</script>
         <script>scripts\evalTree.gml</script>
         <scripts name="statements">
+          <script>scripts\parseLabel.gml</script>
           <script>scripts\parseJump.gml</script>
           <script>scripts\parseOpenBracket.gml</script>
           <script>scripts\parseClosedBracket.gml</script>
@@ -718,13 +740,6 @@
           <object>objects\obj_defaultTree</object>
         </objects>
         <objects name="Rocks">
-          <objects name="jungleRocks">
-            <object>objects\obj_rock1</object>
-            <object>objects\obj_rock2</object>
-            <object>objects\obj_rock3</object>
-            <object>objects\obj_rock4</object>
-            <object>objects\obj_rockOutcrop</object>
-          </objects>
           <object>objects\obj_defaultRock</object>
         </objects>
       </objects>
@@ -842,6 +857,28 @@
     </objects>
     <object>objects\obj_particles</object>
     <object>objects\obj_earthEffect</object>
+    <objects name="interactables">
+      <object>objects\obj_duckBox</object>
+      <object>objects\obj_lockTree</object>
+      <object>objects\obj_signStatue</object>
+      <object>objects\obj_sphinxx</object>
+      <object>objects\obj_statDad</object>
+      <object>objects\obj_statElem</object>
+      <object>objects\obj_statNeko</object>
+      <object>objects\obj_statLion</object>
+      <object>objects\obj_statSign</object>
+      <object>objects\obj_synFish</object>
+      <object>objects\obj_synPlay</object>
+      <object>objects\obj_synYarn</object>
+      <object>objects\obj_synZero</object>
+      <object>objects\obj_treeFruit</object>
+      <object>objects\obj_treeStump</object>
+      <object>objects\obj_rock1</object>
+      <object>objects\obj_rock2</object>
+      <object>objects\obj_rock3</object>
+      <object>objects\obj_rock4</object>
+      <object>objects\obj_rockOut</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test</room>
@@ -850,19 +887,19 @@
     <room>rooms\rm_narration</room>
     <room>rooms\rm_blastOff</room>
     <room>rooms\rm_boss1</room>
-    <rooms name="Jungle">
-      <room>rooms\room_jStart</room>
-      <room>rooms\room_j1</room>
-      <room>rooms\room_j2</room>
-      <room>rooms\room_j3</room>
-      <room>rooms\room_j4</room>
-      <room>rooms\room_j5</room>
-      <room>rooms\room_j6</room>
-      <room>rooms\room_j7</room>
-      <room>rooms\room_jEnd</room>
-    </rooms>
     <rooms name="Menus, etc.">
       <room>rooms\rm_hadesRules</room>
+    </rooms>
+    <rooms name="rooms">
+      <room>rooms\rm_forest1</room>
+      <room>rooms\rm_forest2</room>
+      <room>rooms\rm_forest3</room>
+      <room>rooms\rm_forest4</room>
+      <room>rooms\rm_forest5</room>
+      <room>rooms\rm_forest6</room>
+      <room>rooms\rm_forest7</room>
+      <room>rooms\rm_forest8</room>
+      <room>rooms\rm_forest9</room>
     </rooms>
   </rooms>
   <constants number="74">

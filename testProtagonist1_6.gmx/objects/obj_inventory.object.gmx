@@ -38,6 +38,7 @@ for (var i = 0; i &lt; 10; i++)
     createItem("box" + string(i), spr_box, 0, "Box " + string(i), "The " + string(i) + "th box.", false, createStats(i, i, i, i, i));
     addItem("box" + string(i));
 }
+createItem("fruit", spr_duck, 0, "Fruit", "I am froot", false);
 selected = noone;
 </string>
           </argument>

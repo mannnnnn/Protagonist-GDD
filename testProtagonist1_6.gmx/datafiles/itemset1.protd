@@ -1,0 +1,168 @@
+//Items for the First Set of Puzzles
+
+//-----------CALLS TO JUMPS---------------
+//Example: jump itemName
+
+jump statDad
+jump statElem
+jump statLion
+jump statSign
+jump statNeko
+jump treeStump
+jump treeFruit
+jump rock1
+jump rock2
+jump rock3
+jump rockOut
+
+//set 2 start
+jump lockTree
+jump synPlay
+jump synYarn
+jump synSign
+jump synZero
+jump synFish
+
+//----------LABELED JUMPS------------------
+
+//Example:
+//label itemName
+//{
+//    "This is the example jump text."
+//}
+
+label statDad
+{
+	"A statue of the World's Best Dad. The mug has been replicated throughout the world, but they are all hollow lies. There is only one."
+	"Luckily, hollow lies have a great carrying capacity for coffee."
+}
+
+label statElem
+{
+	"The sign says this was an artist's interpretation of what an omellette was."
+	"When someone finally showed them an omellette, the artist threw the statue away out of dissapointment."
+	"The artist had no comment on how they could confuse a massive ice sculpture with a egg-based edible good."
+	"They also had no comment on how exactly they were able to simply throw away a several ton sculpture."
+}
+
+label statLion
+{
+	"Looks like an offering coffer to the Sphinx."
+	"The writing on the side speaks of a spinning vortexes, brought out by the Sphinx's power."
+	"The portals radiate the power of the Sphinx, burning with heat."
+	"And from within come the offerings."
+	"..."
+	"It's filled with a lot of mismatched socks."
+}
+
+label statSign
+{
+	"Looks like you shouldn't go this way,"
+	"But what does a sign know."
+	"It's not like it can stop you anyways."
+	"You haven't even heard of this 'asbestos' stuff."
+}
+
+label statNeko
+{
+	"The Syntax Errors must have put up this statue of themselves."
+	"It probably improves your luck stat."
+	"Too bad you don't have one."
+}
+
+label treeStump
+{
+	"Feeling stumped?"
+	"Well you came to the right place!"
+	"This tree contains the answer to the riddle!"
+	"...No it doesn't."
+	"Hopefully consulting this dead tree was as informative as you'd hoped it would be."
+}
+
+label treeFruit
+{
+	"Looks like this tree has fruit that you can harvest."
+	"Well yes, they all have fruit that you can harvest, but this one is on the map."
+	"Look, do you want to harvest the fruit or not?"
+	menu
+	{
+		"Glowing spheres are my favorite fruit"
+		{
+			"That's the spirit."
+			inventory add fruit
+		}
+
+		"I'm going to consult my nutritionist first"
+		{
+			"They're high in vitamin C ya."
+		}
+	}
+}
+
+label rock1
+{
+	"Basalt with a pepper coloring."
+	"You just can't tell because your monitor isn't HD enough"
+}
+
+label rock2
+{
+	"Rock. Big. Good. Love it."
+}
+
+label rock3
+{
+	"Love this rock! Look at it! It's great!"
+}
+
+label rockOut
+{
+	"Who would throw this perfectly good rock out of a game file. Look at it."
+	"Appreciate it."
+	"Don't take it for granite."
+}
+
+label lockTree
+{
+	"You'd be surprised how many forests are actually just circuit boards with gigantic glowing locks menacing you from a distance."
+	"This forest appears to be experiencing some technical difficulties."
+	"You'd better let a ranger take care of this. They're trained for these sorts of situations."
+}
+
+label synPlay
+{
+	"Syntax errors are just like real cats!"
+	"They love fish and eating elementary school homework!"
+	"One of them is purring!"
+	"It sounds like a fax machine mixed with love!"
+}
+
+label synYarn
+{
+	"The syntax errors seem to really love this statue."
+	"Actually, it's because the sign says 'Bigist Ball of Yarn'."
+	"They really pulled the wool over your eyes with that one, huh?"
+}
+
+label synSign
+{
+	"Who knew syntax errors had degrees in chemistry and engineering."
+	"Where did they get neon to fuel this narcisistic creation?"
+}
+
+label synZero
+{
+	"How dare they."
+	"Look at that smug face."
+	"Have you ever seen such anarchy concealed beneath the visiage of a felinish-face?"
+	"A villianous felonous feline vile with falsifying vehemence?!" 
+}
+
+label synFish
+{
+	"The ol' Phishing hole."
+	"If you cast your line in you're bound to catch something good."
+	"In fact, you're the 1 millionth person to visit this ol' Phishing hole!"
+	"You've won a free Apple product!"
+	inventory add fruit
+}

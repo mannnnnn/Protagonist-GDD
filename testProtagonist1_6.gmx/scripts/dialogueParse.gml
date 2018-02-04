@@ -17,6 +17,12 @@ for (var i = 0; i < ds_list_size(split); i++)
     }
 }
 
+// label declarations
+if (split[| 0] == "label")
+{
+    return parseLabel(line, split);
+}
+
 // if statements
 if (string_pos("if", line) == 1)
 {
