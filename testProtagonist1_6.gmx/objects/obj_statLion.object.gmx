@@ -3,7 +3,7 @@
   <spriteName>spr_statLion</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-48</depth>
   <persistent>0</persistent>
   <parentName>obj_solid</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -20,8 +20,8 @@
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>-1</PhysicsObjectKinematic>
   <PhysicsShapePoints>
-    <point>0,16</point>
-    <point>96,16</point>
+    <point>0,32</point>
+    <point>96,32</point>
     <point>96,80</point>
     <point>0,80</point>
   </PhysicsShapePoints>

@@ -3,7 +3,7 @@
   <spriteName>spr_statElem</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-160</depth>
   <persistent>0</persistent>
   <parentName>obj_solid</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -20,8 +20,8 @@
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>-1</PhysicsObjectKinematic>
   <PhysicsShapePoints>
-    <point>16,48</point>
-    <point>80,48</point>
+    <point>16,80</point>
+    <point>80,80</point>
     <point>80,112</point>
     <point>16,112</point>
   </PhysicsShapePoints>

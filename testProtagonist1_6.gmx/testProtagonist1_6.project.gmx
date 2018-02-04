@@ -662,6 +662,7 @@
     <font>fonts\fnt_save</font>
   </fonts>
   <objects name="objects">
+    <object>objects\obj_solid</object>
     <objects name="old">
       <object>objects\obj_greekScenes</object>
       <object>objects\obj_RajCloud</object>
@@ -765,7 +766,6 @@
     <objects name="playerCharacters">
       <object>objects\obj_protagonist</object>
     </objects>
-    <object>objects\obj_solid</object>
     <objects name="gui">
       <objects name="dialogue">
         <object>objects\obj_dialogue</object>

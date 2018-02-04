@@ -3,7 +3,7 @@
   <spriteName>spr_treeFruit</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-320</depth>
   <persistent>0</persistent>
   <parentName>obj_solid</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -20,9 +20,9 @@
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>-1</PhysicsObjectKinematic>
   <PhysicsShapePoints>
-    <point>80,256</point>
-    <point>160,256</point>
-    <point>160,336</point>
-    <point>80,336</point>
+    <point>96,288</point>
+    <point>144,288</point>
+    <point>144,336</point>
+    <point>96,336</point>
   </PhysicsShapePoints>
 </object>

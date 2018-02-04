@@ -53,6 +53,16 @@
   <instances>
     <instance objName="obj_statLion" x="576" y="160" name="inst_38F14412" locked="0" code="" scaleX="1.23076927661896" scaleY="1.36170208454132" colour="4294967295" rotation="0"/>
     <instance objName="obj_lockTree" x="128" y="0" name="inst_6008358A" locked="0" code="" scaleX="1.174311876297" scaleY="1.20754718780518" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="0" y="0" name="inst_6C6516A4" locked="0" code="" scaleX="15" scaleY="2.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="896" y="160" name="inst_1C6B7BF3" locked="0" code="" scaleX="1" scaleY="2.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="832" y="160" name="inst_575EE106" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="896" y="448" name="inst_469C53FA" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="0" y="576" name="inst_A280E7DD" locked="0" code="" scaleX="15" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="0" y="448" name="inst_523150F2" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="64" y="512" name="inst_F64C87F6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="832" y="512" name="inst_C4267D92" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="0" y="160" name="inst_38547A2D" locked="0" code="" scaleX="1" scaleY="2.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="64" y="160" name="inst_25283D5F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>
