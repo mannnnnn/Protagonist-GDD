@@ -860,6 +860,7 @@
     <object>objects\obj_earthEffect</object>
     <objects name="map">
       <objects name="interactables">
+        <object>objects\obj_interactable</object>
         <object>objects\obj_duckBox</object>
         <object>objects\obj_lockTree</object>
         <object>objects\obj_signStatue</object>
@@ -868,7 +869,7 @@
         <object>objects\obj_statElem</object>
         <object>objects\obj_statNeko</object>
         <object>objects\obj_statLion</object>
-        <object>objects\obj_statSign</object>
+        <object>objects\obj_synSign</object>
         <object>objects\obj_synFish</object>
         <object>objects\obj_synPlay</object>
         <object>objects\obj_synYarn</object>

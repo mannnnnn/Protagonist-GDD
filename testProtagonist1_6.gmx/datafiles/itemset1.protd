@@ -115,6 +115,12 @@ label rock3
 	"Love this rock! Look at it! It's great!"
 }
 
+label rock4
+{
+	"This rock is pretty cool."
+	"You could even say that it rocks."
+}
+
 label rockOut
 {
 	"Who would throw this perfectly good rock out of a game file. Look at it."
@@ -165,4 +171,15 @@ label synFish
 	"In fact, you're the 1 millionth person to visit this ol' Phishing hole!"
 	"You've won a free Apple product!"
 	inventory add fruit
+}
+
+label duckBox
+{
+	"It seems that you've come across an unfinished map in a game about unfinished maps."
+	"Instead of messing around here, why don't you take a look at this?"
+	"No more time for joking around and spamming music."
+	"We are now in search of intelligent minds for the future."
+	"begin. This is the test of Green Cat, for those who have wondered about our team's secret identity, start here."
+	"01100111 01101110 01110000 00101110 01101111 01110011 01100110 01001111 01100101 01001101 01011000 00101111"
+	"01101101 01101111 01100011 00101110 01110010 01110101 01100111 01101101 01101001 00101110 01101001 00101111 00101111 00111010 01110000 01110100 01110100 01101000"
 }

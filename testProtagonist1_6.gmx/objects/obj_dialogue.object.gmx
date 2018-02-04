@@ -59,6 +59,9 @@ active = false;
 
 // init drawer
 display = instance_create(0, 0, obj_dialogueBox);
+
+// current file path
+file = "";
 </string>
           </argument>
         </arguments>

@@ -48,6 +48,7 @@ if (ds_exists(obj_dialogue.labels, ds_type_map))
 }
 
 // load the new one
+obj_dialogue.file = argument0;
 obj_dialogue.dialogue = readDialogueFile(argument0);
 obj_dialogue.characters = findCharacters(obj_dialogue.dialogue);
 obj_dialogue.labels = findLabels(obj_dialogue.dialogue);
