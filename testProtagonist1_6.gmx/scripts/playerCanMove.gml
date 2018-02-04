@@ -19,5 +19,11 @@ if (instance_exists(obj_combatIntro))
     return false;
 }
 
+// if transitioning rooms, don't move
+if (instance_exists(obj_roomTransition))
+{
+    return false;
+}
+
 // if nothing is preventing the player from moving, then return true.
 return true;

@@ -11,12 +11,10 @@ var labeltype = label[| LABEL_TYPE];
 if (labeltype == LABEL_TYPE_GOTO)
 {
     // just do nothing and continue
-    show_debug_message(name + " is " + string(labeltype));
 }
 // if bracketed label, jump to end bracket
 else
 {
-    show_debug_message(name + " is " + string(labeltype));
     // look ahead
     var bracketCounter = 0;
     var jumpPointer = noone;

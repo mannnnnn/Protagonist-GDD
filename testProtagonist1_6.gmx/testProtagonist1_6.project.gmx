@@ -826,6 +826,7 @@
     </objects>
     <objects name="transitions">
       <object>objects\obj_fadeTransition</object>
+      <object>objects\obj_blackSlideTransition</object>
       <object>objects\obj_roomTransition</object>
       <object>objects\obj_slideTransition</object>
       <object>objects\obj_timedRoomTransition</object>
@@ -857,27 +858,30 @@
     </objects>
     <object>objects\obj_particles</object>
     <object>objects\obj_earthEffect</object>
-    <objects name="interactables">
-      <object>objects\obj_duckBox</object>
-      <object>objects\obj_lockTree</object>
-      <object>objects\obj_signStatue</object>
-      <object>objects\obj_sphinxx</object>
-      <object>objects\obj_statDad</object>
-      <object>objects\obj_statElem</object>
-      <object>objects\obj_statNeko</object>
-      <object>objects\obj_statLion</object>
-      <object>objects\obj_statSign</object>
-      <object>objects\obj_synFish</object>
-      <object>objects\obj_synPlay</object>
-      <object>objects\obj_synYarn</object>
-      <object>objects\obj_synZero</object>
-      <object>objects\obj_treeFruit</object>
-      <object>objects\obj_treeStump</object>
-      <object>objects\obj_rock1</object>
-      <object>objects\obj_rock2</object>
-      <object>objects\obj_rock3</object>
-      <object>objects\obj_rock4</object>
-      <object>objects\obj_rockOut</object>
+    <objects name="map">
+      <objects name="interactables">
+        <object>objects\obj_duckBox</object>
+        <object>objects\obj_lockTree</object>
+        <object>objects\obj_signStatue</object>
+        <object>objects\obj_sphinxx</object>
+        <object>objects\obj_statDad</object>
+        <object>objects\obj_statElem</object>
+        <object>objects\obj_statNeko</object>
+        <object>objects\obj_statLion</object>
+        <object>objects\obj_statSign</object>
+        <object>objects\obj_synFish</object>
+        <object>objects\obj_synPlay</object>
+        <object>objects\obj_synYarn</object>
+        <object>objects\obj_synZero</object>
+        <object>objects\obj_treeFruit</object>
+        <object>objects\obj_treeStump</object>
+        <object>objects\obj_rock1</object>
+        <object>objects\obj_rock2</object>
+        <object>objects\obj_rock3</object>
+        <object>objects\obj_rock4</object>
+        <object>objects\obj_rockOut</object>
+      </objects>
+      <object>objects\obj_map</object>
     </objects>
   </objects>
   <rooms name="rooms">

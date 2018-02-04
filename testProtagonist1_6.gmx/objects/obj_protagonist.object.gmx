@@ -205,55 +205,6 @@ if (playerCanMove())
           </argument>
         </arguments>
       </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// test slide transition
-if (room != rm_test)
-{
-    exit;
-}
-var w = sprite_get_width(sprite_index);
-if (!point_in_rectangle(playerX(), playerY(), -w, -w, room_width + w, room_height + w))
-{
-    if (!checkRoomTransition())
-    {
-        var trans = createRoomTransition(room, obj_slideTransition, 30);
-        if (playerX() &lt; 0)
-        {
-            trans.side = LEFT;
-        }
-        else if (playerX() &gt; room_width)
-        {
-            trans.side = RIGHT;
-        }
-        else if (playerY() &lt; 0)
-        {
-            trans.side = UP;
-        }
-        else if (playerY() &gt; room_height)
-        {
-            trans.side = DOWN;
-        }
-    }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
     </event>
     <event eventtype="8" enumb="0">
       <action>
