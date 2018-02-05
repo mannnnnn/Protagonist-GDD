@@ -31,7 +31,7 @@ color = c_black;
 duration = 22;
 offset = 10;
 
-alphaW = 100;
+alphaW = 0;
 spd = 2.5;
 </string>
           </argument>
