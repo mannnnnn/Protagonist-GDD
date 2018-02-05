@@ -231,6 +231,9 @@
       <sound>sound\snd_Xylo4</sound>
     </sounds>
     <sound>sound\snd_taut</sound>
+    <sound>sound\snd_forest1</sound>
+    <sound>sound\snd_forest2</sound>
+    <sound>sound\snd_forest3</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="SceneSprites">
@@ -871,6 +874,7 @@
       <object>objects\obj_seedSpell</object>
     </objects>
     <object>objects\obj_particles</object>
+    <object>objects\obj_music</object>
     <object>objects\obj_earthEffect</object>
     <objects name="map">
       <objects name="interactables">
@@ -922,7 +926,7 @@
       <room>rooms\rm_forest9</room>
     </rooms>
   </rooms>
-  <constants number="77">
+  <constants number="80">
     <constant name="RIGHT">0</constant>
     <constant name="UP">1</constant>
     <constant name="LEFT">2</constant>
@@ -1000,6 +1004,9 @@
     <constant name="SPELLCAST_START">0</constant>
     <constant name="SPELLCAST_FIRSTHIT">1</constant>
     <constant name="SPELLCAST_LASTHIT">2</constant>
+    <constant name="MUSIC_FOREST1">0</constant>
+    <constant name="MUSIC_FOREST2">1</constant>
+    <constant name="MUSIC_FOREST3">2</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

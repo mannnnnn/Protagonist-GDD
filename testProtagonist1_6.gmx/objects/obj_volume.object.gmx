@@ -43,7 +43,6 @@ sounds[| MUSIC] = ds_list_create();
 sounds[| SFX] = ds_list_create();
 sounds[| DIALOGUE] = ds_list_create();
 
-//playSound(MUSIC, snd_NineStatues, true);
 </string>
           </argument>
         </arguments>

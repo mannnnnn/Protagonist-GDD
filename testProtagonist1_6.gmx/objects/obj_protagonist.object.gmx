@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>/// init
 //This is the base for the protagonist, and the parent for all other protagonist pieces
-spd = 5;
+spd = 8;
 imgspd = 0.3;
 image_speed = 0;
 

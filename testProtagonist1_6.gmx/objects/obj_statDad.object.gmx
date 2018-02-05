@@ -3,7 +3,7 @@
   <spriteName>spr_statDad</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-120</depth>
+  <depth>-180</depth>
   <persistent>0</persistent>
   <parentName>obj_interactable</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -47,9 +47,9 @@ name = "statDad";
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>-1</PhysicsObjectKinematic>
   <PhysicsShapePoints>
-    <point>0,112</point>
-    <point>64,112</point>
-    <point>64,160</point>
-    <point>0,160</point>
+    <point>8,112</point>
+    <point>72,112</point>
+    <point>72,156</point>
+    <point>8,156</point>
   </PhysicsShapePoints>
 </object>
