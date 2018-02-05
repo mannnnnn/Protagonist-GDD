@@ -25,14 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// init puzzle
-str = "Wellcome";
-typoStart = 2;
-typoStop = 3;
-X = 200;
-Y = 230;
-
-puzzle = noone;
+            <string>/// init
+typoStr = "waiting while wantihg";
+typoStart = 19;
+typoStop = 19;
 </string>
           </argument>
         </arguments>
@@ -56,7 +52,7 @@ puzzle = noone;
           <argument>
             <kind>1</kind>
             <string>/// end combat
-obj_storyData.data[? "puzzle1"] = false;
+obj_storyData.data[? "puzzle3"] = false;
 endCombat();
 </string>
           </argument>
@@ -81,50 +77,48 @@ endCombat();
           <argument>
             <kind>1</kind>
             <string>/// after spell is cast, on first hit
-if (instance_exists(puzzle))
+// if hit the right letter
+var success = false;
+var succStart = typoStart;
+var succStop = typoStop;
+var posX = X;
+var posY = Y;
+var targetStr = typoStr;
+with (obj_letter)
 {
-    // if hit the right letter
-    var success = false;
-    var succStart = typoStart;
-    var succStop = typoStop;
-    var posX = X;
-    var posY = Y;
-    with (obj_letter)
+    if (!spell)
     {
-        if (!spell)
+        // if within hitbox
+        if (point_in_rectangle(posX, posY, getX(id) - 0.5 * sprite_width, getY(id) - 0.5 * sprite_height,
+        getX(id) + 0.5 * sprite_width, getY(id) + 0.5 * sprite_height))
         {
-            // if within hitbox
-            if (point_in_rectangle(posX, posY, getX(id) - 0.5 * sprite_width, getY(id) - 0.5 * sprite_height,
-            getX(id) + 0.5 * sprite_width, getY(id) + 0.5 * sprite_height))
+            // check position
+            if (str == targetStr &amp;&amp; pos &gt;= succStart &amp;&amp; pos &lt;= succStop)
             {
-                // check position
-                if (pos &gt;= succStart &amp;&amp; pos &lt;= succStop)
-                {
-                    success = true;
-                }
+                success = true;
             }
         }
     }
-    
-    // end puzzle if right letter was hit
-    if (success)
+}
+
+// end puzzle if right letter was hit
+if (success)
+{
+    var ef = createGroupEffect(obj_spellHitEffect, ds_list_create());
+    with (obj_spellString)
     {
-        var ef = createGroupEffect(obj_spellHitEffect, ds_list_create());
-        with (puzzle)
+        // add contents to effect list
+        for (var i = 0; i &lt; ds_list_size(list); i++)
         {
-            // add contents to effect list
-            for (var i = 0; i &lt; ds_list_size(list); i++)
-            {
-                ds_list_add(ef.list, list[| i]);
-            }
-            // remove the spellString
-            instance_destroy();
+            ds_list_add(ef.list, list[| i]);
         }
-        // get ready to end
-        if (alarm[0] &lt; 0)
-        {
-            alarm[0] = 60;
-        }
+        // remove the spellString
+        instance_destroy();
+    }
+    // get ready to end
+    if (alarm[0] &lt; 0)
+    {
+        alarm[0] = 60;
     }
 }
 </string>
@@ -151,7 +145,11 @@ if (instance_exists(puzzle))
             <kind>1</kind>
             <string>/// combat start
 // create the puzzle string
-puzzle = createLetterString(X, Y, str, false, 2, 60);
+createLetterString(50, 60, "Why worry when", false, 2, 60, 0.68);
+createLetterString(40, 120, "welcomed warriors", false, 2, 60, 0.68);
+createLetterString(150, 180, "watch windy worlds", false, 2, 60, 0.68);
+createLetterString(60, 240, "waiting while wantihg", false, 2, 60, 0.68);
+createLetterString(120, 300, "warm waffles", false, 2, 60, 0.7);
 </string>
           </argument>
         </arguments>

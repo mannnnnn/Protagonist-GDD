@@ -3,9 +3,9 @@
   <spriteName>spr_syntaxBob</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-39</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_interactable</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -57,6 +57,7 @@ activeTracker = "";
           <argument>
             <kind>1</kind>
             <string>/// destroy self if not needed
+event_inherited();
 if (ds_map_exists(obj_storyData.data, activeTracker) &amp;&amp; !obj_storyData.data[? activeTracker])
 {
     instance_destroy();

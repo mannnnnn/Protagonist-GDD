@@ -63,6 +63,8 @@
     <instance objName="obj_solid" x="64" y="512" name="inst_6862322A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="64" y="160" name="inst_6892CEF6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="832" y="160" name="inst_E5732DB8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_syntaxBob" x="832" y="288" name="inst_D3E0F91F" locked="0" code="handler = obj_puzzle3;&#xA;activeTracker = &quot;puzzle3&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_invisibleWall" x="896" y="320" name="inst_5B2ADFEF" locked="0" code="activeTracker = &quot;puzzle3&quot;;&#xA;" scaleX="0.5" scaleY="2" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>

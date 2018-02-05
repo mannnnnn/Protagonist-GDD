@@ -858,6 +858,12 @@
       <objects name="puzzles">
         <object>objects\obj_puzzle</object>
         <object>objects\obj_puzzle1</object>
+        <object>objects\obj_puzzle2</object>
+        <object>objects\obj_puzzle3</object>
+        <object>objects\obj_puzzle4</object>
+        <object>objects\obj_puzzle5</object>
+        <object>objects\obj_puzzle6</object>
+        <object>objects\obj_puzzle7</object>
       </objects>
     </objects>
     <objects name="spells">

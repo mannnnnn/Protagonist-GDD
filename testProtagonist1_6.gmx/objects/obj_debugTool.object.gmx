@@ -181,9 +181,11 @@ if (keyboard_check(vk_control))
           <argument>
             <kind>1</kind>
             <string>/// go one room down
-obj_map.Y += 1;
-room = obj_map.map[# obj_map.X, obj_map.Y];
-
+if (keyboard_check(vk_control))
+{
+    obj_map.Y += 1;
+    room = obj_map.map[# obj_map.X, obj_map.Y];
+}
 </string>
           </argument>
         </arguments>
@@ -207,9 +209,11 @@ room = obj_map.map[# obj_map.X, obj_map.Y];
           <argument>
             <kind>1</kind>
             <string>/// go one room right
-obj_map.X += 1;
-room = obj_map.map[# obj_map.X, obj_map.Y];
-
+if (keyboard_check(vk_control))
+{
+    obj_map.X += 1;
+    room = obj_map.map[# obj_map.X, obj_map.Y];
+}
 </string>
           </argument>
         </arguments>
@@ -233,8 +237,11 @@ room = obj_map.map[# obj_map.X, obj_map.Y];
           <argument>
             <kind>1</kind>
             <string>/// go one room up
-obj_map.Y -= 1;
-room = obj_map.map[# obj_map.X, obj_map.Y];
+if (keyboard_check(vk_control))
+{
+    obj_map.Y -= 1;
+    room = obj_map.map[# obj_map.X, obj_map.Y];
+}
 
 </string>
           </argument>
@@ -259,9 +266,11 @@ room = obj_map.map[# obj_map.X, obj_map.Y];
           <argument>
             <kind>1</kind>
             <string>/// go one room left
-obj_map.X -= 1;
-room = obj_map.map[# obj_map.X, obj_map.Y];
-
+if (keyboard_check(vk_control))
+{
+    obj_map.X -= 1;
+    room = obj_map.map[# obj_map.X, obj_map.Y];
+}
 </string>
           </argument>
         </arguments>

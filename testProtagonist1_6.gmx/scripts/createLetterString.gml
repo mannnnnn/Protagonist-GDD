@@ -1,4 +1,4 @@
-/// createLetterString(x, y, str, ?animate, ?delay, ?startdelay, ?list)
+/// createLetterString(x, y, str, ?animate, ?delay, ?startdelay, ?scale, ?list)
 // creates an unused letter string
 
 var X = argument[0];
@@ -26,11 +26,18 @@ if (argument_count >= 6)
     startdelay = argument[5];
 }
 
-// list to store letters in
-var list = noone;
+// scale of letters
+var scale = 1;
 if (argument_count >= 7)
 {
-    list = argument[6];
+    scale = argument[6];
+}
+
+// list to store letters in
+var list = noone;
+if (argument_count >= 8)
+{
+    list = argument[7];
     ds_list_clear(list);
 }
 
@@ -39,11 +46,13 @@ if (delay <= 0)
 {
     for (var i = 0; i < string_length(str); i++)
     {
-        var obj = createLetter(X + (i * sprite_get_width(spr_Spells)), Y, string_char_at(str, i));
+        var obj = createLetter(X + (i * sprite_get_width(spr_Spells) * scale), Y, string_char_at(str, i));
         obj.depth = object_get_depth(obj.object_index) + 1;
         obj.spell = false;
         obj.str = str;
         obj.pos = i;
+        obj.image_xscale = scale;
+        obj.image_yscale = scale;
         if (!anim)
         {
             obj.normalSpd = 0;
@@ -57,6 +66,7 @@ if (delay <= 0)
 else
 {
     var obj = instance_create(X, Y, obj_spellString);
+    obj.scale = scale;
     obj.anim = anim;
     if (list != noone)
     {

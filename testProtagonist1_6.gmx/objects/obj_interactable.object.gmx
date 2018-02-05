@@ -51,6 +51,28 @@ name = "";
           <argument>
             <kind>1</kind>
             <string>/// check if close, if so, display text
+// check if we're the closest
+// otherwise, do nothing, since something else might
+var closest = noone;
+var minDist = 100000;
+with (obj_interactable)
+{
+    var dist = distance_to_object(obj_protagonist);
+    if (object_index == obj_invisibleWall)
+    {
+        dist += 10;
+    }
+    if (dist &lt; minDist)
+    {
+        closest = id;
+        minDist = dist;
+    }
+}
+if (closest != id)
+{
+    exit;
+}
+
 // dialogue must not be already open
 if (instance_exists(obj_dialogue.display) &amp;&amp; obj_dialogue.display.state == CLOSED)
 {

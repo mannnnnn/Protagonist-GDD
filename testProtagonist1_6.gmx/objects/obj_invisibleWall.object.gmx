@@ -3,9 +3,9 @@
   <spriteName>spr_invisibleWall</spriteName>
   <solid>0</solid>
   <visible>0</visible>
-  <depth>0</depth>
+  <depth>-1000</depth>
   <persistent>0</persistent>
-  <parentName>obj_solid</parentName>
+  <parentName>obj_interactable</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -27,8 +27,12 @@
             <kind>1</kind>
             <string>/// set activeTracker in room creation code
 // if it goes false, this will auto-destroy itself
+event_inherited();
 activeTracker = "";
 
+// dialogue, if it has any
+file = "itemset1.protd";
+name = "invisibleWall";
 </string>
           </argument>
         </arguments>
