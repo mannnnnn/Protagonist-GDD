@@ -180,54 +180,6 @@ if (action != "")
           </argument>
         </arguments>
       </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// test
-/// display question
-
-// only display question if there isn't one already
-var exists = false;
-with (obj_letter)
-{
-    if (!spell)
-    {
-        exists = true;
-        break;
-    }
-}
-with (obj_spellString)
-{
-    exists = true;
-    break;
-}
-if (exists)
-{
-    exit;
-}
-
-var d = 2;
-var s1 = "A cat in the";
-var s2 = "the game";
-createLetterString(200, 100, s1, false, d, 0);
-createLetterString(250, 200, s2, false, d, (string_length(s1) + 1) * d);
-</string>
-          </argument>
-        </arguments>
-      </action>
     </event>
     <event eventtype="6" enumb="53">
       <action>

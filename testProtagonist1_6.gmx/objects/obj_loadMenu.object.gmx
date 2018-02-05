@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>-11</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>obj_saveMenu</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>

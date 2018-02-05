@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>/// init
 active = false;
+// instance that handles combat
+handler = noone;
 </string>
           </argument>
         </arguments>

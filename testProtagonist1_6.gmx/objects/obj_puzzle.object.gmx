@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>-1</persistent>
-  <parentName>obj_confWindow</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,29 +25,28 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// init draw
-event_inherited();
+            <string>/// parent object of all puzzles
+// combat is considered a "puzzle"
+// to use a puzzle object, give it to an object that passes it to prepareCombat(handler).
 
-name = "Quit";
+// before calling any event_user, the action field will be set to which spell is used,
+// as well as its position.
+X = 0;
+Y = 0;
+action = "";
 
-text = "Are you sure you want to quit?"
+// event_user(0) is called when a spell starts being cast.
+// event_user(1) is called when the spell animation hits for the first time.
+// event_user(2) is called when the spell animation hits for the last time.
+// more events can be added as necessary
 
-state = CLOSED;
-
-timer = 0;
-duration = 7;
-
-optionsLinked = true;
-
-options = ds_list_create();
-options[| 0] = "Yes";
-options[| 1] = "No";
+// these handlers must be persistent.
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="7" enumb="12">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -64,29 +63,14 @@ options[| 1] = "No";
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// quit if necessary
-if (confirmed)
-{
-    var option = options[| selected];
-    if (selected == 0)
-    {
-        game_end();
-    }
-    else
-    {
-        /// close
-        if (state == OPENING || state == OPEN)
-        {
-            state = CLOSING;
-        }
-    }
-}
+            <string>/// called on last hit
+
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="27">
+    <event eventtype="7" enumb="11">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -103,11 +87,56 @@ if (confirmed)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// close
-if (state == OPENING || state == OPEN)
-{
-    state = CLOSING;
-}
+            <string>/// called on first hit
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// called on spellcast start
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// combat start
+
 </string>
           </argument>
         </arguments>

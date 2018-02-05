@@ -28,6 +28,11 @@
             <string>/// init player position in map
 X = 2;
 Y = 2;
+posX = 0;
+posY = 0;
+
+// not all transitions move the player to one of the left/right/up/down positions.
+movePlayer = false;
 </string>
           </argument>
         </arguments>
@@ -136,7 +141,7 @@ if (instance_number(obj_protagonist) &gt; 0 &amp;&amp; playerCanMove())
                 side = DOWN;
                 Y += 1;
             }
-            var trans = createRoomTransition(map[# X, Y], obj_blackSlideTransition);
+            var trans = createRoomTransition(map[# X, Y], obj_blackSlideTransition, true);
             trans.side = side;
         }
     }
@@ -164,50 +169,60 @@ if (instance_number(obj_protagonist) &gt; 0 &amp;&amp; playerCanMove())
             <string>/// handle player enter/exit room animation
 if (instance_exists(obj_roomTransition) &amp;&amp; instance_exists(obj_protagonist))
 {
-    var trans = instance_nearest(0, 0, obj_roomTransition);
-    // if transitioning into the new room, walk in
-    var b = 32;
-    if (trans.state == CLOSING)
+    // if player has to be moved to left/right/up/down position due to map walking
+    if (movePlayer)
     {
-        switch (trans.side)
+        var trans = instance_nearest(0, 0, obj_roomTransition);
+        // if transitioning into the new room, walk in
+        var b = 32;
+        if (trans.state == CLOSING)
         {
-            case RIGHT:
-                setX(obj_protagonist, map_range(trans.timer, trans.duration, 0, left - b, left + b));
-                setY(obj_protagonist, room_height * 0.5);
-                break;
-            case LEFT:
-                setX(obj_protagonist, map_range(trans.timer, trans.duration, 0, right + b, right - b));
-                setY(obj_protagonist, room_height * 0.5);
-                break;
-            case DOWN:
-                setY(obj_protagonist, map_range(trans.timer, trans.duration, 0, upper - b, upper + b));
-                setX(obj_protagonist, room_width * 0.5);
-                break;
-            case UP:
-                setY(obj_protagonist, map_range(trans.timer, trans.duration, 0, lower + b, lower - b));
-                setX(obj_protagonist, room_width * 0.5);
-                break;
+            switch (trans.side)
+            {
+                case RIGHT:
+                    setX(obj_protagonist, map_range(trans.timer, trans.duration, 0, left - b, left + b));
+                    setY(obj_protagonist, room_height * 0.5);
+                    break;
+                case LEFT:
+                    setX(obj_protagonist, map_range(trans.timer, trans.duration, 0, right + b, right - b));
+                    setY(obj_protagonist, room_height * 0.5);
+                    break;
+                case DOWN:
+                    setY(obj_protagonist, map_range(trans.timer, trans.duration, 0, upper - b, upper + b));
+                    setX(obj_protagonist, room_width * 0.5);
+                    break;
+                case UP:
+                    setY(obj_protagonist, map_range(trans.timer, trans.duration, 0, lower + b, lower - b));
+                    setX(obj_protagonist, room_width * 0.5);
+                    break;
+            }
+        }
+        // otherwise, walk out
+        else
+        {
+            var b = 80;
+            switch (trans.side)
+            {
+                case LEFT:
+                    setX(obj_protagonist, map_range(trans.timer, trans.duration, 0, left - b, left));
+                    break;
+                case RIGHT:
+                    setX(obj_protagonist, map_range(trans.timer, trans.duration, 0, right + b, right));
+                    break;
+                case UP:
+                    setY(obj_protagonist, map_range(trans.timer, trans.duration, 0, upper - b, upper));
+                    break;
+                case DOWN:
+                    setY(obj_protagonist, map_range(trans.timer, trans.duration, 0, lower + b, lower));
+                    break;
+            }
         }
     }
-    // otherwise, walk out
+    // otherwise, player preserves old position
     else
     {
-        var b = 80;
-        switch (trans.side)
-        {
-            case LEFT:
-                setX(obj_protagonist, map_range(trans.timer, trans.duration, 0, left - b, left));
-                break;
-            case RIGHT:
-                setX(obj_protagonist, map_range(trans.timer, trans.duration, 0, right + b, right));
-                break;
-            case UP:
-                setY(obj_protagonist, map_range(trans.timer, trans.duration, 0, upper - b, upper));
-                break;
-            case DOWN:
-                setY(obj_protagonist, map_range(trans.timer, trans.duration, 0, lower + b, lower));
-                break;
-        }
+        setX(obj_protagonist, posX);
+        setY(obj_protagonist, posY);
     }
 }
 </string>
