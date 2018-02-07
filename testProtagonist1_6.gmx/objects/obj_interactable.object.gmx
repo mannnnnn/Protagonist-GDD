@@ -28,6 +28,43 @@
             <string>/// init name to execute
 file = "itemset1.protd";
 name = "";
+
+dustBunny = false;
+interacted = true;
+interID = noone;
+
+// last interacted instance
+last = noone;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// if interactable and must keep track of it, give it a interID
+event_inherited();
+
+if (dustBunny &amp;&amp; interID &lt; 0)
+{
+    interID = obj_storyData.interID;
+    obj_storyData.interID += 1;
+}
 </string>
           </argument>
         </arguments>
@@ -85,6 +122,13 @@ if (instance_exists(obj_dialogue.display) &amp;&amp; obj_dialogue.display.state 
                 dialogueLoad(file);
             }
             dialogueStart(name, obj_dialogueBox);
+            interacted = true;
+            if (dustBunny)
+            {
+                obj_storyData.last = id;
+                var inter = obj_storyData.interaction[# obj_map.X, obj_map.Y];
+                inter[? interID] = true;
+            }
         }
     }
 }

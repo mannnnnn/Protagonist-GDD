@@ -37,7 +37,6 @@ notifications = ds_list_create();
 
 current = noone;
 
-test = 0;
 </string>
           </argument>
         </arguments>
@@ -70,31 +69,6 @@ if (((!instance_exists(current)) || current.complete) &amp;&amp; !ds_list_empty(
     current = instance_create(0, 0, notification[? NOTIFICATION_OBJ]);
     current.notification = notification;
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="72">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// test
-addNotification(createNotification("Hooray for testing \#" + string(test)));
-test++;
 </string>
           </argument>
         </arguments>

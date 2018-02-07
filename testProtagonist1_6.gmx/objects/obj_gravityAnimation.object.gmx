@@ -77,6 +77,10 @@ dustY = 0;
           <argument>
             <kind>1</kind>
             <string>///gravity physics
+if (!instance_exists(target))
+{
+    instance_destroy();
+}
 
 if (!landed)
 {

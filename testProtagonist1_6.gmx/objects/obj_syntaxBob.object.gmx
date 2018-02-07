@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>/// init
+event_inherited();
 image_speed = 0.3;
 // puzzle handler object
 // set this in creation code
@@ -34,6 +35,10 @@ handler = noone;
 // whether or not this should appear
 activeTracker = "";
 
+/// music
+intro = snd_syntaxIntro1;
+loop = snd_syntaxLoop1;
+outro = snd_syntaxOutro1;
 </string>
           </argument>
         </arguments>
@@ -100,6 +105,8 @@ if (instance_exists(obj_dialogue.display) &amp;&amp; obj_dialogue.display.state 
         {
             //playSound(MUSIC, snd_taut, true);
             startCombatAnimation(handler);
+            // start new music
+            obj_combat.music = createTriSoundLoop(intro, loop, outro);
         }
     }
 }

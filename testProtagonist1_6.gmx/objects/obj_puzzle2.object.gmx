@@ -119,6 +119,7 @@ if (success)
     if (alarm[0] &lt; 0)
     {
         alarm[0] = 60;
+        prepareCombatEnd();
     }
 }
 </string>

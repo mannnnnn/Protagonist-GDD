@@ -51,8 +51,8 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="obj_statLion" x="576" y="160" name="inst_38F14412" locked="0" code="" scaleX="1.23076927661896" scaleY="1.36170208454132" colour="4294967295" rotation="0"/>
-    <instance objName="obj_lockTree" x="128" y="0" name="inst_6008358A" locked="0" code="" scaleX="1.174311876297" scaleY="1.20754718780518" colour="4294967295" rotation="0"/>
+    <instance objName="obj_statLion" x="576" y="160" name="inst_38F14412" locked="0" code="dustBunny = true;&#xA;" scaleX="1.23076927661896" scaleY="1.36170208454132" colour="4294967295" rotation="0"/>
+    <instance objName="obj_lockTree" x="128" y="0" name="inst_6008358A" locked="0" code="dustBunny = true;&#xA;" scaleX="1.174311876297" scaleY="1.20754718780518" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="0" y="0" name="inst_6C6516A4" locked="0" code="" scaleX="15" scaleY="2.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="896" y="160" name="inst_1C6B7BF3" locked="0" code="" scaleX="1" scaleY="2.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="832" y="160" name="inst_575EE106" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

@@ -28,6 +28,113 @@
             <string>/// init story data
 data = ds_map_create();
 
+interaction = ds_grid_create(4, 3);
+for (var i = 0; i &lt; ds_grid_width(interaction); i++)
+{
+    for (var j = 0; j &lt; ds_grid_height(interaction); j++)
+    {
+        interaction[# i, j] = ds_map_create();
+    }
+}
+dustBunny = ds_grid_create(4, 3);
+pickedUp = ds_grid_create(4, 3);
+
+interID = 0;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// handle dust bunnies
+// dialogue must not be already open
+if (instance_exists(obj_dialogue.display) &amp;&amp; obj_dialogue.display.state == CLOSED)
+{
+    if (instance_exists(obj_protagonist))
+    {
+        // if all interactable objects have been interacted with
+        // and no dust bunny spawned yet
+        var interacted = true;
+        with (obj_interactable)
+        {
+            if (dustBunny)
+            {
+                var inter = obj_storyData.interaction[# obj_map.X, obj_map.Y];
+                // if missing entry or it is false
+                if (!ds_map_exists(inter, interID) || !inter[? interID])
+                {
+                    interacted = false;
+                }
+            }
+        }
+        // if player has interacted with everything and dust bunny has not been supplied
+        if (!ds_map_empty(obj_storyData.interaction[# obj_map.X, obj_map.Y])
+        &amp;&amp; interacted &amp;&amp; !dustBunny[# obj_map.X, obj_map.Y] &amp;&amp; !pickedUp[# obj_map.X, obj_map.Y])
+        {
+            // supply one
+            dustBunny[# obj_map.X, obj_map.Y] = true;
+            if (instance_exists(last))
+            {
+                instance_create(getX(last) + (0.5 * last.sprite_width), getY(last) + (0.5 * last.sprite_height), obj_dustBunny);
+            }
+            else
+            {
+                instance_create(room_width * 0.5, room_height * 0.5, obj_dustBunny);
+            }
+        }
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// each room has different interactable indexes
+interID = 0;
+last = noone;
+
+// wipe dust bunny spawns
+for (var i = 0; i &lt; ds_grid_width(interaction); i++)
+{
+    for (var j = 0; j &lt; ds_grid_height(interaction); j++)
+    {
+        dustBunny[# i, j] = false;
+    }
+}
 </string>
           </argument>
         </arguments>

@@ -29,6 +29,8 @@
 active = false;
 // instance that handles combat
 handler = noone;
+
+music = noone;
 </string>
           </argument>
         </arguments>

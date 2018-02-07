@@ -42,4 +42,3 @@ if (argument_count >= 4)
 trans.duration = duration;
 
 return trans;
-

@@ -234,6 +234,12 @@
     <sound>sound\snd_forest1</sound>
     <sound>sound\snd_forest2</sound>
     <sound>sound\snd_forest3</sound>
+    <sound>sound\snd_syntaxIntro2</sound>
+    <sound>sound\snd_syntaxLoop2</sound>
+    <sound>sound\snd_syntaxOutro2</sound>
+    <sound>sound\snd_syntaxIntro1</sound>
+    <sound>sound\snd_syntaxLoop1</sound>
+    <sound>sound\snd_syntaxOutro1</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="SceneSprites">
@@ -573,6 +579,8 @@
       <script>scripts\setMasterFade.gml</script>
       <script>scripts\masterVolumeFader.gml</script>
       <script>scripts\playSound.gml</script>
+      <script>scripts\createTriSoundLoop.gml</script>
+      <script>scripts\stopTriSoundLoop.gml</script>
     </scripts>
     <scripts name="stats">
       <script>scripts\createStats.gml</script>
@@ -638,6 +646,7 @@
       <script>scripts\createGroupEffect.gml</script>
       <script>scripts\checkCombatActive.gml</script>
       <script>scripts\endCombat.gml</script>
+      <script>scripts\prepareCombatEnd.gml</script>
       <script>scripts\endCombatAnimation.gml</script>
     </scripts>
     <scripts name="spells">
@@ -903,6 +912,7 @@
       <object>objects\obj_map</object>
     </objects>
     <object>objects\obj_storyData</object>
+    <object>objects\obj_triSoundLoop</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test</room>

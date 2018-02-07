@@ -39,6 +39,7 @@ for (var i = 0; i &lt; 10; i++)
     addItem("box" + string(i));
 }
 createItem("fruit", spr_duck, 0, "Fruit", "I am froot", false);
+createItem("bunny", spr_dust, 0, "Dust Bunny", "Don't eat it. It'll taste terrible.", false);
 selected = noone;
 </string>
           </argument>

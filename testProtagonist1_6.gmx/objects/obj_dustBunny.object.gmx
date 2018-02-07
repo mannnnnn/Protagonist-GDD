@@ -178,6 +178,34 @@ depthify();
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// get picked up when contact player
+if (distance_to_object(obj_protagonist) &lt; 10)
+{
+    addNotification(createNotification("You picked up a dust bunny!"));
+    addItem("bunny");
+    obj_storyData.pickedUp[# obj_map.X, obj_map.Y] = true;
+    instance_destroy();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="8" enumb="0">
       <action>

@@ -9,4 +9,10 @@ if (instance_exists(obj_protagonist))
     obj_map.posX = playerX();
     obj_map.posY = playerY();
 }
+// stop normal music
+for (var i = 0; i < ds_list_size(obj_music.music); i++)
+{
+    var volume = 0;
+    audio_sound_gain(obj_music.music[| i], volume, 0);
+}
 return c;

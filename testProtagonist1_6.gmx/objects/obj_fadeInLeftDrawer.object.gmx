@@ -28,7 +28,7 @@
             <string>/// left
 posX = 130 * displayScaleX();
 posY = 768 * displayScaleY();
-scaleX = 1.1 * displayScaleMin();
+scaleX = -1.1 * displayScaleMin();
 scaleY = 1.1 * displayScaleMin();
 event_inherited();
 </string>
