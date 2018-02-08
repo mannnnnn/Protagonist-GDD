@@ -41,6 +41,7 @@ text = "";
 currentText = "";
 // name to display
 name = "";
+nameR = "";
 
 // text incrementing (typewriter effect)
 textshow = 0;
@@ -166,6 +167,31 @@ if (obj_dialogue.active)
     {
         autoAdvanceTimer = autoAdvance;
     }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// clear nameR if no drawer is there
+if (!instance_exists(obj_dialogue.rightDrawer))
+{
+    nameR = "";
 }
 </string>
           </argument>
@@ -324,9 +350,12 @@ var t_height = map_range(timer, 0, duration, 0, height);
 var t_nameH = map_range(timer, 0, duration, 0, string_height("|") + (2 * nameTextBorder));
 var t_textalpha = map_range(timer, 0, duration, -2, 1);
 
-// find name box position
+// find left name box position
 var t_nameY = t_startY - nameSep - t_nameH;
 var nameW = max(nameMinWidth, string_width(name) + (3 * nameTextBorder));
+// find right name box X position
+var nameWR = max(nameMinWidth, string_width(nameR) + (3 * nameTextBorder));
+var t_nameRX = startX + width - nameWR;
 
 // window is fully opaque
 draw_set_alpha(1);
@@ -335,6 +364,10 @@ draw_set_alpha(1);
 if (showName &amp;&amp; name != "")
 {
     drawDialogueWindow(startX, t_nameY, border, nameW, t_nameH);
+}
+if (showName &amp;&amp; nameR != "")
+{
+    drawDialogueWindow(t_nameRX, t_nameY, border, nameWR, t_nameH);
 }
 
 // window but no text
@@ -389,6 +422,7 @@ switch(state)
         showText = true;
         showWindow = true;
         drawDialogueText(startX, t_nameY, border, nameW, t_nameH, name, fnt_dialogue, nameTextBorder);
+        drawDialogueText(t_nameRX, t_nameY, border, nameWR, t_nameH, nameR, fnt_dialogue, nameTextBorder);
         drawDialogueText(startX, t_startY, border, width, t_height, currentText, fnt_dialogue, textBorder);
         break;
     case OPEN:
@@ -398,6 +432,7 @@ switch(state)
         showWindow = true;
         timer = duration;
         drawDialogueText(startX, t_nameY, border, nameW, t_nameH, name, fnt_dialogue, nameTextBorder);
+        drawDialogueText(t_nameRX, t_nameY, border, nameWR, t_nameH, nameR, fnt_dialogue, nameTextBorder);
         drawDialogueText(startX, t_startY, border, width, t_height, currentText, fnt_dialogue, textBorder);
         break;
     case CLOSING:
@@ -415,6 +450,7 @@ switch(state)
         showText = true;
         showWindow = true;
         drawDialogueText(startX, t_nameY, border, nameW, t_nameH, name, fnt_dialogue, nameTextBorder);
+        drawDialogueText(t_nameRX, t_nameY, border, nameWR, t_nameH, nameR, fnt_dialogue, nameTextBorder);
         drawDialogueText(startX, t_startY, border, width, t_height, currentText, fnt_dialogue, textBorder);
         break;
     default:
