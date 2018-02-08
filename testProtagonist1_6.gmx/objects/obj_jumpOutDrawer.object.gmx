@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_autoSideDrawer</parentName>
+  <parentName>obj_fadeOutDrawer</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,12 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// an auto-siding drawer.
-// Waits until a drawer side is free,
-// then transforms into the drawer for that side.
+            <string>/// last 1 step
 event_inherited();
-left = obj_hadesSwingInLDrawer;
-right = obj_hadesSwingInRDrawer;
+duration = 1;
+timer = duration;
 </string>
           </argument>
         </arguments>

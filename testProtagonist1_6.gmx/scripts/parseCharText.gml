@@ -14,7 +14,8 @@ if (!ds_map_exists(obj_dialogue.characters, character))
 var char = obj_dialogue.characters[? character];
 var name = char[| CHARACTER_DISPLAYNAME];
 // set dialogue scroll text thing
-dialogueTextBlock(text, name);
+dialogueTextBlock(text, name, char[| CHARACTER_SIDE]);
+
 // true to pause
 ds_list_destroy(split);
 return true;

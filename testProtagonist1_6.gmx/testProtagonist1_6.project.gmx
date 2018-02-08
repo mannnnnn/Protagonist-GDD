@@ -5,23 +5,6 @@
   </Configs>
   <datafiles number="16" name="datafiles">
     <datafile>
-      <name>testcase.protd</name>
-      <exists>-1</exists>
-      <size>4146</size>
-      <exportAction>2</exportAction>
-      <exportDir></exportDir>
-      <overwrite>0</overwrite>
-      <freeData>-1</freeData>
-      <removeEnd>0</removeEnd>
-      <store>0</store>
-      <ConfigOptions>
-        <Config name="Default">
-          <CopyToMask>9223372036854775807</CopyToMask>
-        </Config>
-      </ConfigOptions>
-      <filename>testcase.protd</filename>
-    </datafile>
-    <datafile>
       <name>pause.protd</name>
       <exists>-1</exists>
       <size>0</size>
@@ -484,6 +467,7 @@
           <script>scripts\parseCharText.gml</script>
           <script>scripts\parseExit.gml</script>
           <script>scripts\parseTextSpeed.gml</script>
+          <script>scripts\parseCharacterSide.gml</script>
           <script>scripts\parseTextDisplay.gml</script>
           <script>scripts\parseTextAuto.gml</script>
           <script>scripts\parseCall.gml</script>
@@ -544,6 +528,7 @@
         <script>scripts\dialogueUnhideAllDrawers.gml</script>
         <script>scripts\createDrawer.gml</script>
         <script>scripts\transformDrawer.gml</script>
+        <script>scripts\createDrawerKeyword.gml</script>
       </scripts>
       <scripts name="menu">
         <script>scripts\dialogueSetMenu.gml</script>
@@ -788,20 +773,17 @@
         <object>objects\obj_menu</object>
         <objects name="drawers">
           <object>objects\obj_drawer</object>
-          <object>objects\obj_autoSideDrawer</object>
-          <object>objects\obj_autoSideJumpDrawer</object>
-          <object>objects\obj_autoSideDrawerOut</object>
-          <object>objects\obj_autoSideJumpDrawerOut</object>
           <object>objects\obj_fadeInDrawer</object>
           <object>objects\obj_fadeOutDrawer</object>
           <object>objects\obj_fadeInLeftDrawer</object>
           <object>objects\obj_fadeInRightDrawer</object>
+          <object>objects\obj_jumpLeftDrawer</object>
+          <object>objects\obj_jumpRightDrawer</object>
+          <object>objects\obj_jumpOutDrawer</object>
           <objects name="characterLRDrawers">
-            <object>objects\obj_hadesSwingInDrawer</object>
             <object>objects\obj_hadesSwingInLDrawer</object>
             <object>objects\obj_hadesSwingInRDrawer</object>
             <object>objects\obj_hadesSwingOutDrawer</object>
-            <object>objects\obj_apolloSwingInDrawer</object>
             <object>objects\obj_apolloSwingInLDrawer</object>
             <object>objects\obj_apolloSwingInRDrawer</object>
             <object>objects\obj_apolloSwingOutDrawer</object>
@@ -955,7 +937,7 @@
     <constant name="CHARACTER_NAME">0</constant>
     <constant name="CHARACTER_DISPLAYNAME">1</constant>
     <constant name="CHARACTER_TEXTSPEED">2</constant>
-    <constant name="CHARACTER_TALKCHANNEL">3</constant>
+    <constant name="CHARACTER_SIDE">3</constant>
     <constant name="ITEM_IDENTIFIER">0</constant>
     <constant name="ITEM_SPRITE">1</constant>
     <constant name="ITEM_IMAGE">2</constant>

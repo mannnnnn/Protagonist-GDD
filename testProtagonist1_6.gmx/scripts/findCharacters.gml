@@ -33,7 +33,7 @@ for (var i = 0; i < ds_list_size(list); i++)
             {
                 show_error("Character " + name + " is defined twice.", true);
             }
-            character = createCharacter(name, name);
+            character = createCharacter(name, name, noone, RIGHT);
             characterMap[? name] = character;
             // now remove this line
             ds_list_delete(list, i);
@@ -76,13 +76,41 @@ for (var i = 0; i < ds_list_size(list); i++)
             character = noone;
         }
         // if display name declaration on depth 1
-        if (split[| 0] == "name" && split[| 1] == "=" && bracketCounter == 1)
+        if (split[| 1] == "=" && bracketCounter == 1)
         {
-            // remove "name" from the display name we're going to use
-            // set display name
+            // remove the command name from the display name we're going to use
             string_split(line, "=", nameSplit);
-            var displayName = unquote(string_trim(nameSplit[| 1]));
-            character[| CHARACTER_DISPLAYNAME] = displayName;
+            if (split[| 0] == "name")
+            {
+                // set display name
+                var displayName = unquote(string_trim(nameSplit[| 1]));
+                character[| CHARACTER_DISPLAYNAME] = displayName;
+            }
+            if (split[| 0] == "speed")
+            {
+                // set textspeed of character
+                var textspeed = string_trim(nameSplit[| 1]);
+                character[| CHARACTER_TEXTSPEED] = textspeed;
+            }
+            if (split[| 0] == "side")
+            {
+                // set side of character
+                var side = string_lower(string_trim(nameSplit[| 1]));
+                var sideConst = noone;
+                switch (side)
+                {
+                    case "left":
+                        sideConst = LEFT;
+                        break;
+                    case "right":
+                        sideConst = RIGHT;
+                        break;
+                    default:
+                        show_error('Error in line "' + string(line) + '": Invalid side "' + side + '" is not "right" or "left"', true);
+                        break;
+                }
+                character[| CHARACTER_SIDE] = sideConst;
+            }
         }
     }
 }

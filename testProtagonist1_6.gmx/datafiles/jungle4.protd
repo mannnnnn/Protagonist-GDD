@@ -6,20 +6,23 @@
 character P
 {
 	name = "Protagonist"
+	side = left
 }
 character H
 {
 	name = "Hades"
+	side = right
 }
 character S
 {
 	name = "Sphinxx"
+	side = right
 }
 
 
 //BEGIN DIALOGUE
 show P spr_defaultSpeak
-with fade_left
+with fade
 //
 
 P: "What is that?"

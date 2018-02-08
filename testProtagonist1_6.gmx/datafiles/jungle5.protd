@@ -6,10 +6,12 @@
 character P
 {
 	name = "Protagonist"
+	side = right
 }
 character H
 {
 	name = "Hades"
+	side = left
 }
 
 

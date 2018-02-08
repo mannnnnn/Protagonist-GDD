@@ -6,14 +6,17 @@
 character P
 {
 	name = "Protagonist"
+	side = left
 }
 character H
 {
 	name = "Narrator"
+	side = right
 }
 character ?
 {
 	name = "???"
+	side = right
 }
 
 //BEGIN DIALOGUE

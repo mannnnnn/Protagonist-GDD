@@ -2,13 +2,15 @@
 var entry = argument0;
 var type = argument1;
 var obj = noone;
+var channel = entry[| DRAWER_QUEUE_CHANNEL];
+var char = obj_dialogue.characters[? channel];
+show_debug_message(char[| CHARACTER_DISPLAYNAME] + " has side " + string(char[| CHARACTER_SIDE]));
 
 if (entry[| DRAWER_QUEUE_TYPE] == DRAWER_QUEUE_TYPE_NORMAL)
 {
     // show normal
     if (entry[| DRAWER_QUEUE_ACTION] == DRAWER_QUEUE_ACTION_SHOW)
     {
-        var channel = entry[| DRAWER_QUEUE_CHANNEL];
         // find and end old
         if (ds_map_exists(obj_dialogue.drawers, channel))
         {
@@ -17,7 +19,9 @@ if (entry[| DRAWER_QUEUE_TYPE] == DRAWER_QUEUE_TYPE_NORMAL)
             {
                 if (ds_map_exists(obj_dialogue.drawerHideKeywords, type))
                 {
-                    var hideObj = obj_dialogue.drawerHideKeywords[? type];
+                    var keyword = obj_dialogue.drawerHideKeywords[? type];
+                    var hideObj = keyword[| char[| CHARACTER_SIDE]];
+                    show_debug_message("1: " + object_get_name(hideObj));
                     with (old)
                     {
                         transformDrawer(hideObj, true, true, true, true, true, true, true);
@@ -32,7 +36,10 @@ if (entry[| DRAWER_QUEUE_TYPE] == DRAWER_QUEUE_TYPE_NORMAL)
         // start new
         if (ds_map_exists(obj_dialogue.drawerKeywords, type))
         {
-            obj = obj_dialogue.drawerKeywords[? type];
+            var keyword = obj_dialogue.drawerKeywords[? type];
+            var char = obj_dialogue.characters[? channel];
+            obj = keyword[| char[| CHARACTER_SIDE]];
+            show_debug_message("2: " + object_get_name(obj));
         }
         else
         {
@@ -53,7 +60,6 @@ if (entry[| DRAWER_QUEUE_TYPE] == DRAWER_QUEUE_TYPE_NORMAL)
     // hide normal
     else
     {
-        var channel = entry[| DRAWER_QUEUE_CHANNEL];
         // if same type, find and end old, and we're done
         var old = noone;
         if (ds_map_exists(obj_dialogue.drawers, channel))
@@ -64,7 +70,9 @@ if (entry[| DRAWER_QUEUE_TYPE] == DRAWER_QUEUE_TYPE_NORMAL)
                 // end old
                 if (ds_map_exists(obj_dialogue.drawerHideKeywords, type))
                 {
-                    var hideObj = obj_dialogue.drawerHideKeywords[? type];
+                    var keyword = obj_dialogue.drawerHideKeywords[? type];
+                    var hideObj = keyword[| char[| CHARACTER_SIDE]];
+                    show_debug_message("3: " + object_get_name(hideObj));
                     with (old)
                     {
                         transformDrawer(hideObj, true, true, true, true, true, true, true);
@@ -90,7 +98,10 @@ if (entry[| DRAWER_QUEUE_TYPE] == DRAWER_QUEUE_TYPE_NORMAL)
         // if different types... (old exists)
         if (ds_map_exists(obj_dialogue.drawerHideKeywords, type))
         {
-            obj = obj_dialogue.drawerHideKeywords[? type];
+            var keyword = obj_dialogue.drawerHideKeywords[? type];
+            var char = obj_dialogue.characters[? channel];
+            obj = keyword[| char[| CHARACTER_SIDE]];
+            show_debug_message("3: " + object_get_name(obj));
         }
         else
         {
@@ -121,7 +132,6 @@ else
     // show scene
     if (entry[| DRAWER_QUEUE_ACTION] == DRAWER_QUEUE_ACTION_SHOW)
     {
-        var channel = entry[| DRAWER_QUEUE_CHANNEL];
         // find and end old
         if (ds_map_exists(obj_dialogue.drawers, channel))
         {
@@ -161,7 +171,6 @@ else
     // hide scene
     else
     {
-        var channel = entry[| DRAWER_QUEUE_CHANNEL];
         // if same type, find and end old, and we're done
         var old = noone;
         if (ds_map_exists(obj_dialogue.drawers, channel))

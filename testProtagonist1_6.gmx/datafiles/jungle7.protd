@@ -7,14 +7,17 @@
 character P
 {
 	name = "Protagonist"
+	side = left
 }
 character Ap
 {
 	name = "The Great Apollo"
+	side = right
 }
 character H
 {
 	name = "Hades"
+	side = right
 }
 
 
