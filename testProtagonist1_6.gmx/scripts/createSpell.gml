@@ -7,12 +7,10 @@ obj_spellbook.spelleffects[? str] = obj;
 var index = spellSearchInsert(str);
 if (index == noone)
 {
-    show_debug_message("Omoe wa mou shindeiru");
     show_error("Error in createSpell: Spell " + str + " is already in the spellbook.", true);
 }
 else if (index == -1)
 {
-    show_debug_message("Kek");
     show_error("Error in createSpell: Spell " + str + " has fucked up code.", true);
 }
 ds_list_insert(obj_spellbook.spells, index, str);

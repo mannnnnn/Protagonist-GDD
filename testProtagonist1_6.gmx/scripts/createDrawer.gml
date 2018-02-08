@@ -4,7 +4,6 @@ var type = argument1;
 var obj = noone;
 var channel = entry[| DRAWER_QUEUE_CHANNEL];
 var char = obj_dialogue.characters[? channel];
-show_debug_message(char[| CHARACTER_DISPLAYNAME] + " has side " + string(char[| CHARACTER_SIDE]));
 
 if (entry[| DRAWER_QUEUE_TYPE] == DRAWER_QUEUE_TYPE_NORMAL)
 {
@@ -21,7 +20,6 @@ if (entry[| DRAWER_QUEUE_TYPE] == DRAWER_QUEUE_TYPE_NORMAL)
                 {
                     var keyword = obj_dialogue.drawerHideKeywords[? type];
                     var hideObj = keyword[| char[| CHARACTER_SIDE]];
-                    show_debug_message("1: " + object_get_name(hideObj));
                     with (old)
                     {
                         transformDrawer(hideObj, true, true, true, true, true, true, true);
@@ -39,7 +37,6 @@ if (entry[| DRAWER_QUEUE_TYPE] == DRAWER_QUEUE_TYPE_NORMAL)
             var keyword = obj_dialogue.drawerKeywords[? type];
             var char = obj_dialogue.characters[? channel];
             obj = keyword[| char[| CHARACTER_SIDE]];
-            show_debug_message("2: " + object_get_name(obj));
         }
         else
         {
@@ -72,7 +69,6 @@ if (entry[| DRAWER_QUEUE_TYPE] == DRAWER_QUEUE_TYPE_NORMAL)
                 {
                     var keyword = obj_dialogue.drawerHideKeywords[? type];
                     var hideObj = keyword[| char[| CHARACTER_SIDE]];
-                    show_debug_message("3: " + object_get_name(hideObj));
                     with (old)
                     {
                         transformDrawer(hideObj, true, true, true, true, true, true, true);
@@ -101,7 +97,6 @@ if (entry[| DRAWER_QUEUE_TYPE] == DRAWER_QUEUE_TYPE_NORMAL)
             var keyword = obj_dialogue.drawerHideKeywords[? type];
             var char = obj_dialogue.characters[? channel];
             obj = keyword[| char[| CHARACTER_SIDE]];
-            show_debug_message("3: " + object_get_name(obj));
         }
         else
         {

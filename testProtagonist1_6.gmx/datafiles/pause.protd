@@ -1,7 +1,10 @@
 character Hades
+{
+	side = right
+}
 
 show Hades spr_talkHades
-with fade_right
+with fade
 
 Hades: "Howdy. Welcome to Ye Olde Pause Menu."
 

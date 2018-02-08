@@ -122,7 +122,6 @@ if (line == "pause")
 // text speed
 if (split[| 0] == "text" && ds_list_size(split) >= 3)
 {
-    show_debug_message(listToStr(split));
     if (split[| 1] == "speed")
     {
         return parseTextSpeed(line, split);

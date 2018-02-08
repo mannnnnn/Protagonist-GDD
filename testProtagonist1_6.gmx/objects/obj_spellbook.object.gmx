@@ -93,7 +93,7 @@ createSpell("sear", noone);
 createSpell("tear", noone);
 createSpell("seed", obj_seedSpell);
 createSpell("read", noone);
-printList(spells);
+
 </string>
           </argument>
         </arguments>
