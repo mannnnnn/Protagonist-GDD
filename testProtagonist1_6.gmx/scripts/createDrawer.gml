@@ -52,6 +52,7 @@ if (entry[| DRAWER_QUEUE_TYPE] == DRAWER_QUEUE_TYPE_NORMAL)
         drawer.scaleY = entry[| DRAWER_QUEUE_SCALE_Y];
         drawer.angle = entry[| DRAWER_QUEUE_ANGLE];
         drawer.alpha = entry[| DRAWER_QUEUE_ALPHA];
+        drawer.channel = channel;
         obj_dialogue.drawers[? channel] = drawer;
     }
     // hide normal
@@ -113,6 +114,7 @@ if (entry[| DRAWER_QUEUE_TYPE] == DRAWER_QUEUE_TYPE_NORMAL)
         drawer.angle = old.angle;
         drawer.alpha = old.alpha;
         drawer.side = old.side;
+        drawer.channel = channel;
         // destroy the old
         with (old)
         {

@@ -59,6 +59,103 @@ persistent = true;
 // optional 'side' variable, used by some drawers
 side = 0;
 
+// which channel this is on
+channel = "";
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// make characters talk
+talkTimer = 0;
+talkDuration = 5;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// if it's a character, make it talk
+// check if it's a character
+if (ds_map_exists(obj_dialogue.characters, channel))
+{
+    var talking = true;
+    
+    var char = obj_dialogue.characters[? channel];
+    // check if person side matches
+    switch(char[| CHARACTER_SIDE])
+    {
+        case LEFT:
+            if (obj_dialogue.display.name == "")
+            {
+                talking = false;
+            }
+            break;
+        case RIGHT:
+            if (obj_dialogue.display.nameR == "")
+            {
+                talking = false;
+            }
+            break;
+    }
+    // check if text is moving
+    if (string_length(obj_dialogue.display.currentText) &gt;= string_length(obj_dialogue.display.text) - 1)
+    {
+        talking = false;
+    }
+    // check if text is a pause
+    var lastchar = string_char_at(obj_dialogue.display.currentText, string_length(obj_dialogue.display.currentText));
+    if (ds_map_exists(obj_dialogue.speakpause, lastchar))
+    {
+        talking = false;
+    }
+    //if it is, make the mouth move
+    if (talking || image)
+    {
+        talkTimer += 1;
+        if (talkTimer &gt; talkDuration)
+        {
+            talkTimer = 0;
+            image = !image;
+        }
+    }
+    else
+    {
+        image = 0;
+    }
+}
 </string>
           </argument>
         </arguments>

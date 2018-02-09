@@ -8,7 +8,6 @@ if (ds_list_size(split) < 3)
     show_error('Error in line "' + string(line) + '": text requires 3 arguments: text option value', true);
 }
 var val = stringToValue(split[| 2], line);
-show_debug_message("strval: " + split[| 2]);
 // set display text auto-advance
 if (is_real(val))
 {
