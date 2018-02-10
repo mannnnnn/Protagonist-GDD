@@ -81,9 +81,12 @@ if (image_index &gt;= loopImage)
     image_angle += angspd;
     image_speed = 0.2;
     // emit bubbles
-    createParticleEffect(PARTSYS, particle,
-    x - (particleRadius * image_xscale), y - (particleRadius * image_yscale),
-    x + (particleRadius * image_xscale), y + (particleRadius * image_yscale), ps_shape_ellipse, ps_distr_linear, 1);
+    if (ds_map_exists(obj_particles.effects, particle))
+    {
+        createParticleEffect(PARTSYS, particle,
+        x - (particleRadius * image_xscale), y - (particleRadius * image_yscale),
+        x + (particleRadius * image_xscale), y + (particleRadius * image_yscale), ps_shape_ellipse, ps_distr_linear, 1);
+    }
 }
 // throw animation
 if (firing &amp;&amp; image_index &gt;= loopImage)
