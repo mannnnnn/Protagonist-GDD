@@ -18,7 +18,7 @@ for (var i = 0; i < n; i++)
     draw_set_alpha(1);
     var posY = getNthCell(startY, outsideBorder, height, i);
     // draw rectangle
-    drawOutlineRectExt(startX, posY, width, height, border, c_black, c_white, alpha, alpha);
+    drawButtonRect(startX, posY, width - 6, height - 6, obj_buttons.button, c_white, c_white, alpha, alpha);
     if (drawText && ds_exists(submenus, ds_type_list))
     {
         draw_set_alpha(textAlpha);
@@ -28,6 +28,6 @@ for (var i = 0; i < n; i++)
         draw_set_color(c_white);
         // draw text
         var submenu = submenus[| i];
-        draw_text(startX + textBorder, posY + textBorder, submenu.name);
+        draw_text(startX + textBorder + 10, posY + textBorder, submenu.name);
     }
 }

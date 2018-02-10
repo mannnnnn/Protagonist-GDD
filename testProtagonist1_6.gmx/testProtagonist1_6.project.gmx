@@ -395,8 +395,13 @@
       <sprite>sprites\spr_tearSpell</sprite>
     </sprites>
     <sprites name="buttons">
-      <sprite>sprites\spr_button</sprite>
-      <sprite>sprites\spr_buttonback</sprite>
+      <sprite>sprites\spr_buttonfill</sprite>
+      <sprite>sprites\spr_buttonLU</sprite>
+      <sprite>sprites\spr_buttonLD</sprite>
+      <sprite>sprites\spr_buttonRU</sprite>
+      <sprite>sprites\spr_buttonRD</sprite>
+      <sprite>sprites\spr_buttonHEdge</sprite>
+      <sprite>sprites\spr_buttonVEdge</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -617,10 +622,11 @@
       <script>scripts\clearSaveSpritetableEntry.gml</script>
       <script>scripts\drawSaveNameplate.gml</script>
       <script>scripts\interactSaveGame.gml</script>
-      <script>scripts\drawOutlineRectExt.gml</script>
       <script>scripts\getGlobalSavePath.gml</script>
     </scripts>
     <scripts name="general">
+      <script>scripts\drawOutlineRectExt.gml</script>
+      <script>scripts\drawButtonRect.gml</script>
       <script>scripts\static.gml</script>
       <script>scripts\instanceof.gml</script>
       <script>scripts\objectof.gml</script>
@@ -673,6 +679,9 @@
       <script>scripts\createParticleTypeSeaBack.gml</script>
       <script>scripts\createParticleTypeSearBack.gml</script>
       <script>scripts\createParticleEffect.gml</script>
+    </scripts>
+    <scripts name="buttons">
+      <script>scripts\createButtonGroup.gml</script>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -833,6 +842,7 @@
         <objects name="specialObjects">
           <object>objects\obj_mouseController</object>
         </objects>
+        <object>objects\obj_buttons</object>
       </objects>
       <object>objects\obj_optionsMenu</object>
       <object>objects\obj_inventory</object>
@@ -962,7 +972,7 @@
       <room>rooms\rm_forest9</room>
     </rooms>
   </rooms>
-  <constants number="82">
+  <constants number="89">
     <constant name="RIGHT">0</constant>
     <constant name="UP">1</constant>
     <constant name="LEFT">2</constant>
@@ -1045,6 +1055,13 @@
     <constant name="MUSIC_FOREST1">0</constant>
     <constant name="MUSIC_FOREST2">1</constant>
     <constant name="MUSIC_FOREST3">2</constant>
+    <constant name="BUTTON_FILL">0</constant>
+    <constant name="BUTTON_LU">1</constant>
+    <constant name="BUTTON_LD">2</constant>
+    <constant name="BUTTON_RU">3</constant>
+    <constant name="BUTTON_RD">4</constant>
+    <constant name="BUTTON_HEDGE">5</constant>
+    <constant name="BUTTON_VEDGE">6</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

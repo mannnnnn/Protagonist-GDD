@@ -62,7 +62,7 @@ ds_list_add(submenus, instance_nearest(0, 0, obj_quitter));
 // how far to be from the edge of the screen
 edgeBorder = 30;
 n = ds_list_size(submenus);
-textBorder = 10;
+textBorder = 5;
 draw_set_font(fnt_dialogue);
 // width is what the dialogue sprite doesn't take up
 var sprSize = 400;

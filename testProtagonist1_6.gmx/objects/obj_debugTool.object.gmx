@@ -54,29 +54,6 @@ if (mouse_in_rect(B, B, w, h))
           </argument>
         </arguments>
       </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// the magic tiles
-draw_texture_tiled(sprite_get_texture(spr_buttonback, 0), 100, 100, cursor_get_x() - 100, cursor_get_y() - 100,
-sprite_get_width(spr_buttonback), sprite_get_height(spr_buttonback), c_white, 0.5);
-</string>
-          </argument>
-        </arguments>
-      </action>
     </event>
     <event eventtype="9" enumb="82">
       <action>
