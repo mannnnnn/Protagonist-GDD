@@ -23,6 +23,16 @@ jump synSign
 jump synZero
 jump synFish
 
+//set 3 start
+jump sockRack
+jump craterThere
+jump laundryPile
+jump leafPile
+jump sockTree
+jump statDuck
+jump visibleWall
+
+
 //----------LABELED JUMPS------------------
 
 //Example:
@@ -52,7 +62,8 @@ label statLion
 	"The portals radiate the power of the Sphinx, burning with heat."
 	"And from within come the offerings."
 	"..."
-	"It's filled with a lot of mismatched socks."
+	"Is this a portal to someone's dryer?"
+	"Is that how the syntax errors keep getting their socks?"
 }
 
 label statSign
@@ -108,6 +119,8 @@ label rock1
 label rock2
 {
 	"Rock. Big. Good. Love it."
+	"Is it sad that you'd rather talk to a rock than use this time for something else?"
+	"Belive it ore not, the rocks have nothing for you."
 }
 
 label rock3
@@ -158,8 +171,8 @@ label synSign
 
 label synZero
 {
-	"How dare they."
-	"Look at that smug face."
+	"How dare they divide by zero."
+	"Look at that smug face. It knows what it's done."
 	"Have you ever seen such anarchy concealed beneath the visiage of a felinish-face?"
 	"A villianous felonous feline vile with falsifying vehemence?!" 
 }
@@ -176,16 +189,63 @@ label synFish
 label duckBox
 {
 	"It seems that you've come across an unfinished map in a game about unfinished maps."
-	"Instead of messing around here, why don't you take a look at this?"
-	"[BEGIN TRANSMISSION]"
-	"No more time for joking around and spamming music. We are now in search of intelligent minds for the future."
-	"This is the test of Green Cat. For those who have wondered about our team's secret identity, start here."
-	"01100111 01101110 01110000 00101110 01101111 01110011 01100110 01001111 01100101 01001101 01011000 00101111"
-	"01101101 01101111 01100011 00101110 01110010 01110101 01100111 01101101 01101001 00101110 01101001 00101111 00101111 00111010 01110000 01110100 01110100 01101000"
+	"Ironic, huh?"
 }
 
 label invisibleWall
 {
 	"Did you hear the pun about the invisible wall?"
 	"You'll never see it coming!"
+}
+
+
+label sockRack
+{
+	"All these socks have are tinted pink."
+	"They weren't washed with care, or hung with care for that manner."
+	"Good luck having Santa Claws visit now."
+}
+
+label craterThere
+{
+	"You were supposed to save this world."
+	"Instead you rammed a rocket into it for your spectacular enterance."
+	"No one even saw it."
+}
+
+label leafPile
+{
+	"Jumping into this is scientifically 0.5 times as fun as jumping into a warm pile of laundry."
+	"Unfortunately, you don't have a jump animation."
+	"Maybe you had one in a plat-former life."
+}
+
+label laundryPile
+{
+	"Jumping into this is scientifically 1.5 times as fun as jumping into a pile of suspicious leaves."
+	"Apollo ran the math on it, he can show you the graphs."
+	"He really took one for the team by repeatedly diving into a pile of soft clothing."
+	"A true hero."
+}
+
+label sockTree
+{
+	"Look at all the little socks about to ripen!"
+	"Dust trees are great at producing linty tasting things."
+	"Unfortunately they're also a large source of dust bunnies."
+	"If you use one you'll get a lucky rabbit's soot!"
+}
+
+label statDuck
+{
+	"It looks like this statue was made with gold, how expensive."
+	"Wonder how that all fit on the bill."
+}
+
+label visibleWall
+{
+	"There's so many invisible walls around here, it's nice to finally find a visible one."
+	"If you're the protagonist, and a wall blocks your way... is it an antagonist?"
+	"The wall is beginning to look a bit nervous."
+	"The wall doesn't mean you any trouble, for now."
 }

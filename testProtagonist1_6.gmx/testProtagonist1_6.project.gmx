@@ -3,7 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="16" name="datafiles">
+  <datafiles number="18" name="datafiles">
     <datafile>
       <name>pause.protd</name>
       <exists>-1</exists>
@@ -177,7 +177,7 @@
     <datafile>
       <name>itemset1.protd</name>
       <exists>-1</exists>
-      <size>4369</size>
+      <size>6489</size>
       <exportAction>2</exportAction>
       <exportDir></exportDir>
       <overwrite>0</overwrite>
@@ -376,6 +376,16 @@
       <sprite>sprites\spr_synZero</sprite>
       <sprite>sprites\spr_treeFruit</sprite>
       <sprite>sprites\spr_treeStump</sprite>
+      <sprite>sprites\spr_bellSetA</sprite>
+      <sprite>sprites\spr_bellSetB</sprite>
+      <sprite>sprites\spr_craterThere</sprite>
+      <sprite>sprites\spr_laundryPile</sprite>
+      <sprite>sprites\spr_leafPile</sprite>
+      <sprite>sprites\spr_rockTop</sprite>
+      <sprite>sprites\spr_sockRack</sprite>
+      <sprite>sprites\spr_sockTree</sprite>
+      <sprite>sprites\spr_statDuck</sprite>
+      <sprite>sprites\spr_visibleWall</sprite>
     </sprites>
     <sprite>sprites\spr_duck</sprite>
     <sprites name="spells">
@@ -907,6 +917,16 @@
         <object>objects\obj_rock3</object>
         <object>objects\obj_rock4</object>
         <object>objects\obj_rockOut</object>
+        <object>objects\obj_bellSetA</object>
+        <object>objects\obj_bellSetB</object>
+        <object>objects\obj_craterThere</object>
+        <object>objects\obj_laundryPile</object>
+        <object>objects\obj_leafPile</object>
+        <object>objects\obj_rockTop</object>
+        <object>objects\obj_sockRack</object>
+        <object>objects\obj_sockTree</object>
+        <object>objects\obj_statDuck</object>
+        <object>objects\obj_visibleWall</object>
       </objects>
       <object>objects\obj_map</object>
     </objects>
