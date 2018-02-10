@@ -384,10 +384,10 @@ switch(state)
         // draw nameplate
         drawSaveNameplate(nameplateX, nameplateY, t_nameplateW, nameplateH, border, textBorder, name, t_nameplateAlpha, t_alpha);
         // draw window
-        drawButtonRect(startX, t_startY, width - 6, t_height - 6, obj_buttons.button, c_black, c_white, t_alpha, 0);
+        drawButtonRect(startX, t_startY, width - 6, t_height - 6, obj_buttons.button, c_white, c_white, t_alpha, 0);
         draw_set_alpha(t_alpha);
         draw_surface_stretched(surf, surfX, t_startY + border, surfW, t_height - (2 * border));
-        drawButtonRect(startX, t_startY, width - 6, t_height - 6, obj_buttons.button, c_black, c_white, 0, t_alpha);
+        drawButtonRect(startX, t_startY, width - 6, t_height - 6, obj_buttons.button, c_white, c_white, 0, t_alpha);
         timer++;
         if (timer &gt;= duration)
         {
@@ -398,9 +398,9 @@ switch(state)
         // draw nameplate
         drawSaveNameplate(nameplateX, nameplateY, nameplateW, nameplateH, border, textBorder, name, 1, 1);
         // draw window
-        drawButtonRect(startX, startY, width - 6, height - 6, obj_buttons.button, c_black, c_white, 1, 0);
+        drawButtonRect(startX, startY, width - 6, height - 6, obj_buttons.button, c_white, c_white, 1, 0);
         draw_surface(surf, surfX, surfY);
-        drawButtonRect(startX, startY, width - 6, height - 6, obj_buttons.button, c_black, c_white, 0, 1);
+        drawButtonRect(startX, startY, width - 6, height - 6, obj_buttons.button, c_white, c_white, 0, 1);
         // draw scroll bar
         draw_set_color(c_dkgray);
         draw_roundrect_ext(scrollBarX, scrollBarPos, scrollBarX + scrollBarW, scrollBarPos + scrollBarH, 10, 10, false);
@@ -412,10 +412,10 @@ switch(state)
         // draw nameplate
         drawSaveNameplate(nameplateX, nameplateY, t_nameplateW, nameplateH, border, textBorder, name, t_nameplateAlpha, t_alpha);
         // draw window
-        drawButtonRect(startX, t_startY, width - 6, t_height - 6, obj_buttons.button, c_black, c_white, t_alpha, 0);
+        drawButtonRect(startX, t_startY, width - 6, t_height - 6, obj_buttons.button, c_white, c_white, t_alpha, 0);
         draw_set_alpha(t_alpha);
         draw_surface_stretched(surf, surfX, t_startY + border, surfW, t_height - (2 * border));
-        drawButtonRect(startX, t_startY, width - 6, t_height - 6, obj_buttons.button, c_black, c_white, 0, t_alpha);
+        drawButtonRect(startX, t_startY, width - 6, t_height - 6, obj_buttons.button, c_white, c_white, 0, t_alpha);
         timer--;
         if (timer &lt; 0)
         {

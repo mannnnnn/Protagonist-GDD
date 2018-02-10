@@ -15,16 +15,13 @@ var descW = argument12;
 var descH = argument13;
 var textBorder = argument14;
 var selected = argument15;
-var col = c_black;
+var alpha = 0;
 if (selected)
 {
-    col = c_dkgray;
+    alpha = 0.3;
 }
 
 draw_set_font(fnt_save);
-
-// draw the background
-// drawButtonRect(posX, posY, saveW - scrollBarW - border - 6, saveH - 6, obj_buttons.button, c_white, c_white, 1, 1);
 
 // draw the image
 // if the save is there
@@ -38,13 +35,14 @@ if (checkSavePath(saveID))
     }
     var spr = spritetable[| saveID];
     // draw it
-    drawButtonRect(picX, picY, picW - 6, picH - 6, obj_buttons.button, c_white, c_white, 1, 1);
+    drawButtonRect(picX, picY, picW - 6, picH - 6, obj_buttons.button, c_white, c_white, 1, 0);
     draw_sprite_stretched(spr, 0, picX + border + 1, picY + border + 1, picW - (2 * border) - 1, picH - (2 * border) - 1);
+    drawButtonRect(picX, picY, picW - 6, picH - 6, obj_buttons.button, c_white, c_white, 0, 1);
 }
 // draw that there is no save
 else
 {
-    drawButtonRect(picX, picY, picW - 6, picH - 6, obj_buttons.button, c_white, c_white, 1, 1);
+    drawButtonRectHighlight(picX, picY, picW - 6, picH - 6, obj_buttons.button, c_white, c_white, 1, 1, c_white, alpha);
     draw_set_halign(fa_center);
     draw_set_valign(fa_center);
     draw_set_color(c_white);
@@ -52,7 +50,7 @@ else
 }
 
 // draw the desc box
-drawButtonRect(descX, descY, descW - 6, descH - 6, obj_buttons.button, c_white, c_white, 1, 1);
+drawButtonRectHighlight(descX, descY, descW - 6, descH - 6, obj_buttons.button, c_white, c_white, 1, 1, c_white, alpha);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_color(c_white);

@@ -627,6 +627,7 @@
     <scripts name="general">
       <script>scripts\drawOutlineRectExt.gml</script>
       <script>scripts\drawButtonRect.gml</script>
+      <script>scripts\drawButtonRectHighlight.gml</script>
       <script>scripts\static.gml</script>
       <script>scripts\instanceof.gml</script>
       <script>scripts\objectof.gml</script>

@@ -29,7 +29,7 @@ for (var i = 0; i < width; i++)
         var index = XYToIndex(i, j, width);
         if (index == selected)
         {
-            drawInventoryRectColor(X, Y, cellWidth, cellHeight, B, c_dkgray, c_white);
+            drawInventoryRectColor(X, Y, cellWidth, cellHeight, B, c_white, 0.3);
         }
         if (index >= 0 && index < ds_list_size(inventory))
         {

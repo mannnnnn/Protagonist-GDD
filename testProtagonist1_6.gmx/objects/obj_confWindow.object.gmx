@@ -224,12 +224,12 @@ if (state == OPENING || state == OPEN || state == CLOSING)
             selected = i;
         }
         // draw option rect
-        var col = c_black;
+        var alp = 0;
         if (selected == i)
         {
-            col = c_dkgray;
+            alp = 0.3;
         }
-        drawButtonRect(optionX - ((t_optionW - optionW) * 0.5), optionY - ((t_optionH - optionH) * 0.5), t_optionW - 6, t_optionH - 6, obj_buttons.button, c_white, c_white, t_optionAlpha, t_optionAlpha);
+        drawButtonRectHighlight(optionX - ((t_optionW - optionW) * 0.5), optionY - ((t_optionH - optionH) * 0.5), t_optionW - 6, t_optionH - 6, obj_buttons.button, c_white, c_white, t_optionAlpha, t_optionAlpha, c_white, alp);
         // draw option text
         draw_set_halign(fa_center);
         draw_set_valign(fa_center);
