@@ -391,7 +391,8 @@
     <sprites name="spells">
       <sprite>sprites\spr_searSpell</sprite>
       <sprite>sprites\spr_seaSprite</sprite>
-      <sprite>sprites\spr_spellCat</sprite>
+      <sprite>sprites\spr_catSpell</sprite>
+      <sprite>sprites\spr_tearSpell</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -889,7 +890,8 @@
       <object>objects\obj_seatSpell</object>
       <object>objects\obj_seaSpell</object>
       <object>objects\obj_searSpell</object>
-      <object>objects\obj_spellCat</object>
+      <object>objects\obj_catSpell</object>
+      <object>objects\obj_tearSpell</object>
     </objects>
     <object>objects\obj_particles</object>
     <object>objects\obj_music</object>

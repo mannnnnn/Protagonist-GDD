@@ -86,7 +86,8 @@ if (instance_exists(obj_dialogue.display) &amp;&amp; obj_dialogue.display.state 
         }
         // if player has interacted with everything and dust bunny has not been supplied
         if (!ds_map_empty(obj_storyData.interaction[# obj_map.X, obj_map.Y])
-        &amp;&amp; interacted &amp;&amp; !dustBunny[# obj_map.X, obj_map.Y] &amp;&amp; !pickedUp[# obj_map.X, obj_map.Y])
+        &amp;&amp; interacted &amp;&amp; !dustBunny[# obj_map.X, obj_map.Y] &amp;&amp; !pickedUp[# obj_map.X, obj_map.Y]
+        &amp;&amp; playerCanMove() &amp;&amp; !checkRoomTransition())
         {
             // supply one
             dustBunny[# obj_map.X, obj_map.Y] = true;
