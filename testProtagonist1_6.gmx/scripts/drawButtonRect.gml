@@ -1,8 +1,8 @@
 ///drawButtonRect(x, y, w, h, buttonGroup, colFill, colOutline, alphaFill, alphaOutline)
-var X = argument0;
-var Y = argument1;
-var W = argument2;
-var H = argument3;
+var X = round(argument0);
+var Y = round(argument1);
+var W = round(argument2);
+var H = round(argument3);
 if (W < 0)
 {
     X += W;
