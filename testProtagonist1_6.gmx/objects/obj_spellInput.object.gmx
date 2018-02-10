@@ -205,8 +205,25 @@ if (ds_list_size(spell) == 0 || first != noone || last != noone)
     exit;
 }
 action = "";
+// get action
+for (var i = 0; i &lt; ds_list_size(spell); i++)
+{
+    var letter = spell[| i];
+    action += letter.value;
+}
 targetX = cursor_get_x();
 targetY = cursor_get_y();
+
+// fire action, whatever it is
+var castSpell = combatStartCast(targetX, targetY, action);
+
+var obj = obj_letterFired;
+if (castSpell)
+{
+    obj = obj_letterFaded;
+}
+
+// letter throw if necessary
 for (var i = 0; i &lt; ds_list_size(spell); i++)
 {
     var letter = spell[| i];
@@ -222,8 +239,6 @@ for (var i = 0; i &lt; ds_list_size(spell); i++)
         letter.targetY = targetY;
         // use delay to fire letters one by one
         letter.delay = i * delay;
-        // construct string
-        action += letter.value;
         // letters to keep track of
         if (first == noone)
         {
@@ -233,16 +248,13 @@ for (var i = 0; i &lt; ds_list_size(spell); i++)
     }
     with (letter)
     {
-        instance_change(obj_letterFired, true);
+        instance_change(obj, true);
         startX = x;
         startY = y;
         scaleX = image_xscale;
         scaleY = image_yscale;
     }
 }
-
-// fire action, whatever it is
-combatStartCast(targetX, targetY, action);
 </string>
           </argument>
         </arguments>
@@ -272,8 +284,25 @@ if (ds_list_size(spell) == 0 || first != noone || last != noone)
     exit;
 }
 action = "";
+// get action
+for (var i = 0; i &lt; ds_list_size(spell); i++)
+{
+    var letter = spell[| i];
+    action += letter.value;
+}
 targetX = cursor_get_x();
 targetY = cursor_get_y();
+
+// fire action, whatever it is
+var castSpell = combatStartCast(targetX, targetY, action);
+
+var obj = obj_letterFired;
+if (castSpell)
+{
+    obj = obj_letterFaded;
+}
+
+// letter throw if necessary
 for (var i = 0; i &lt; ds_list_size(spell); i++)
 {
     var letter = spell[| i];
@@ -289,8 +318,6 @@ for (var i = 0; i &lt; ds_list_size(spell); i++)
         letter.targetY = targetY;
         // use delay to fire letters one by one
         letter.delay = i * delay;
-        // construct string
-        action += letter.value;
         // letters to keep track of
         if (first == noone)
         {
@@ -300,16 +327,13 @@ for (var i = 0; i &lt; ds_list_size(spell); i++)
     }
     with (letter)
     {
-        instance_change(obj_letterFired, true);
+        instance_change(obj, true);
         startX = x;
         startY = y;
         scaleX = image_xscale;
         scaleY = image_yscale;
     }
 }
-
-// fire action, whatever it is
-combatStartCast(targetX, targetY, action);
 </string>
           </argument>
         </arguments>

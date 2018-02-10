@@ -80,6 +80,31 @@ spell = true;
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>/// only do this in draw GUI if it's a spell
+if (!spell)
+{
+    exit;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>/// update animation
 switch (state)
 {
@@ -207,6 +232,127 @@ if (spell)
 else
 {
     depth = 0;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// only do this in draw if it's not a spell
+if (spell)
+{
+    exit;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// update animation
+switch (state)
+{
+    case SPELLIMAGE_NORMAL:
+        // end flash
+        flash = false;
+        // don't leave normal if firing
+        if (timer &gt; normalDur)
+        {
+            timer = 0;
+            normalDur = irandom_range(normalMin, normalMax);
+            state = normalTarget;
+            break;
+        }
+        timer += normalSpd;
+        break;
+        
+    case SPELLIMAGE_GREEK:
+        if (timer &gt; greekDur)
+        {
+            timer = 0;
+            greekDur = irandom_range(greekMin, greekMax);
+            // finished greek section, start flash
+            flash = true;
+            state = greekTarget;
+            break;
+        }
+        timer += greekSpd;
+        break;
+        
+    case SPELLIMAGE_OBSCURED:
+        if (timer &gt; obscureDur)
+        {
+            timer = 0;
+            // if just starting flash, go to normal state
+            if (flash)
+            {
+                state = obscureTargetFlash;
+            }
+            // otherwise go to greek state
+            else
+            {
+                state = obscureTarget;
+            }
+            break;
+        }
+        timer += obscureSpd;
+        break;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// draw to screen
+if (value != '' &amp;&amp; active)
+{
+    draw_sprite_offset_ext(sprite_index, letterValue(value) + state, x, y,
+    sprite_get_width(sprite_index) * 0.5, sprite_get_height(sprite_index) * 0.5,
+    image_xscale, image_yscale, image_angle, image_blend, image_alpha);
 }
 </string>
           </argument>

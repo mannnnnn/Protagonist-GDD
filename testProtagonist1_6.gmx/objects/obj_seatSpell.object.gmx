@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_spellEffect</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,14 +26,25 @@
           <argument>
             <kind>1</kind>
             <string>/// init
-angle = 0;
-spd = -4;
+event_inherited();
+timer = 0;
+duration = 15;
+
+sit = true;
+alarm[0] = 150;
+
+// can't have 2 seats at once
+destroy = false;
+if (instance_number(object_index) &gt;= 2)
+{
+    destroy = true;
+}
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="64">
+    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -50,29 +61,55 @@ spd = -4;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// draw cursor
-angle += spd;
-var X = cursor_get_x();
-var Y = cursor_get_y();
-var X2 = X;
-var Y2 = Y;
-if (instance_number(obj_letterFired) &gt; 0)
+            <string>/// stand back up
+sit = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// go down for a while, then come up
+// destroy self if it's one that was created while one was already active
+if (destroy)
 {
-    with (obj_letterFired)
-    {
-        X2 = targetX;
-        Y2 = targetY;
-    }
+    instance_destroy();
+    exit;
 }
-else if (instance_number(obj_spellEffect) &gt; 0)
+
+// sit animation
+if (sit)
 {
-    with (obj_spellEffect)
-    {
-        X2 = targetX;
-        Y2 = targetY;
-    }
+    timer++;
 }
-drawReticle(X, Y, 25, 3, 13, 2, angle, 19, 34, 3, X2, Y2);
+else
+{
+    timer--;
+}
+timer = clamp(timer, 0, duration);
+
+view_yview[0] = map_range(timer, 0, duration, 0, background_get_height(bgnd_puzzle) - getDisplayRoomHeight());
+
+if (timer == 0 &amp;&amp; !sit)
+{
+    instance_destroy();
+}
 </string>
           </argument>
         </arguments>

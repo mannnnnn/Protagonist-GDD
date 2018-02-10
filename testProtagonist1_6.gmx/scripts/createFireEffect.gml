@@ -8,9 +8,9 @@ var ps_distr = argument5;
 var fireNum = argument6;
 var cinderNum = argument7;
 
-part_emitter_region(obj_particles.systems[? PARTSYS_FIRE],
-obj_particles.emitters[? PARTSYS_FIRE], x1, x2, y1, y2, ps_shape, ps_distr);
-part_emitter_burst(obj_particles.systems[? PARTSYS_FIRE],
-obj_particles.emitters[? PARTSYS_FIRE], obj_particles.effects[PARTEFF_FIRE], fireNum);
-part_emitter_burst(obj_particles.systems[? PARTSYS_FIRE],
-obj_particles.emitters[? PARTSYS_FIRE], obj_particles.effects[PARTEFF_CINDER], cinderNum);
+part_emitter_region(obj_particles.systems[? PARTSYS],
+obj_particles.emitters[? PARTSYS], x1, x2, y1, y2, ps_shape, ps_distr);
+part_emitter_burst(obj_particles.systems[? PARTSYS],
+obj_particles.emitters[? PARTSYS], obj_particles.effects[? PARTEFF_FIRE], fireNum);
+part_emitter_burst(obj_particles.systems[? PARTSYS],
+obj_particles.emitters[? PARTSYS], obj_particles.effects[? PARTEFF_CINDER], cinderNum);

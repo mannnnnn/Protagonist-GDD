@@ -378,6 +378,10 @@
       <sprite>sprites\spr_treeStump</sprite>
     </sprites>
     <sprite>sprites\spr_duck</sprite>
+    <sprites name="spells">
+      <sprite>sprites\spr_searSpell</sprite>
+      <sprite>sprites\spr_seaSprite</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="map">
@@ -391,6 +395,7 @@
       <background>background\bgnd_forest8</background>
       <background>background\bgnd_forest9</background>
     </backgrounds>
+    <background>background\bgnd_puzzle</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -647,6 +652,11 @@
     </scripts>
     <script>scripts\createFireEffect.gml</script>
     <script>scripts\createEarthEffect.gml</script>
+    <scripts name="particles">
+      <script>scripts\createParticleTypeSeaBack.gml</script>
+      <script>scripts\createParticleTypeSearBack.gml</script>
+      <script>scripts\createParticleEffect.gml</script>
+    </scripts>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shr_blur.shader</shader>
@@ -841,6 +851,7 @@
     <objects name="combatSystem">
       <object>objects\obj_letter</object>
       <object>objects\obj_letterFired</object>
+      <object>objects\obj_letterFaded</object>
       <object>objects\obj_letterFalling</object>
       <object>objects\obj_hand</object>
       <object>objects\obj_spellInput</object>
@@ -864,6 +875,9 @@
     <objects name="spells">
       <object>objects\obj_spellEffect</object>
       <object>objects\obj_seedSpell</object>
+      <object>objects\obj_seatSpell</object>
+      <object>objects\obj_seaSpell</object>
+      <object>objects\obj_searSpell</object>
     </objects>
     <object>objects\obj_particles</object>
     <object>objects\obj_music</object>
@@ -919,7 +933,7 @@
       <room>rooms\rm_forest9</room>
     </rooms>
   </rooms>
-  <constants number="80">
+  <constants number="82">
     <constant name="RIGHT">0</constant>
     <constant name="UP">1</constant>
     <constant name="LEFT">2</constant>
@@ -982,9 +996,11 @@
     <constant name="SPELLIMAGE_OBSCURED">52</constant>
     <constant name="NOTIFICATION_OBJ">0</constant>
     <constant name="NOTIFICATION_STR">1</constant>
-    <constant name="PARTSYS_FIRE">0</constant>
+    <constant name="PARTSYS">0</constant>
     <constant name="PARTEFF_FIRE">0</constant>
     <constant name="PARTEFF_CINDER">1</constant>
+    <constant name="PARTEFF_SEAR">2</constant>
+    <constant name="PARTEFF_SEA">3</constant>
     <constant name="OPERATOR_TYPE">0</constant>
     <constant name="OPERAND_A">1</constant>
     <constant name="OPERAND_B">2</constant>

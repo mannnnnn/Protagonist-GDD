@@ -3,6 +3,7 @@
 var X = argument0;
 var Y = argument1;
 var action = argument2;
+var spell = false;
 
 // create spell effect
 if (ds_map_exists(obj_spellbook.spelleffects, action))
@@ -13,6 +14,7 @@ if (ds_map_exists(obj_spellbook.spelleffects, action))
         var eff = instance_create(0, 0, obj);
         eff.targetX = X;
         eff.targetY = Y;
+        spell = true;
     }
 }
 
@@ -28,3 +30,4 @@ if (instance_exists(obj_combat.handler))
     }
 }
 
+return spell;
