@@ -394,6 +394,10 @@
       <sprite>sprites\spr_catSpell</sprite>
       <sprite>sprites\spr_tearSpell</sprite>
     </sprites>
+    <sprites name="buttons">
+      <sprite>sprites\spr_button</sprite>
+      <sprite>sprites\spr_buttonback</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="map">
@@ -634,6 +638,7 @@
       <script>scripts\draw_sprite_offset_ext.gml</script>
       <script>scripts\cursor_set_pos.gml</script>
       <script>scripts\setNumber.gml</script>
+      <script>scripts\draw_texture_tiled.gml</script>
     </scripts>
     <scripts name="combat">
       <script>scripts\startCombatAnimation.gml</script>
