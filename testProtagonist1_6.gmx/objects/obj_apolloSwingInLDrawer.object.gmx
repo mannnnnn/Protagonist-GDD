@@ -8,6 +8,33 @@
   <parentName>obj_fadeInLeftDrawer</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// set duration and side
+// angle is set each step
+event_inherited();
+duration = 30;
+side = -1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
@@ -26,8 +53,6 @@
           <argument>
             <kind>1</kind>
             <string>/// swing and draw light, and set angle
-duration = 30;
-side = -1;
 angle = min(map_range(timer, 0, duration * 0.3, side * 90, 0), 0);
 draw_sprite_ext(spr_talkApolloLite, image, posX, posY, scaleX, scaleY, angle, c_white, 1 - alpha);
 event_inherited();

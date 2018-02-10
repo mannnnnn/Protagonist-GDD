@@ -45,13 +45,13 @@ if (entry[| DRAWER_QUEUE_TYPE] == DRAWER_QUEUE_TYPE_NORMAL)
         var drawer = instance_create(0, 0, obj);
         // settings
         drawer.sprite = asset_get_index(entry[| DRAWER_QUEUE_SPRITENAME]);
-        drawer.image = entry[| DRAWER_QUEUE_IMAGE];
-        drawer.posX = entry[| DRAWER_QUEUE_POS_X];
-        drawer.posY = entry[| DRAWER_QUEUE_POS_Y];
-        drawer.scaleX = entry[| DRAWER_QUEUE_SCALE_X];
-        drawer.scaleY = entry[| DRAWER_QUEUE_SCALE_Y];
-        drawer.angle = entry[| DRAWER_QUEUE_ANGLE];
-        drawer.alpha = entry[| DRAWER_QUEUE_ALPHA];
+        drawer.image = setNumber(entry[| DRAWER_QUEUE_IMAGE], drawer.image);
+        drawer.posX = setNumber(entry[| DRAWER_QUEUE_POS_X], drawer.posX);
+        drawer.posY = setNumber(entry[| DRAWER_QUEUE_POS_Y], drawer.posY);
+        drawer.scaleX = setNumber(entry[| DRAWER_QUEUE_SCALE_X], drawer.scaleX);
+        drawer.scaleY = setNumber(entry[| DRAWER_QUEUE_SCALE_Y], drawer.scaleY);
+        drawer.angle = setNumber(entry[| DRAWER_QUEUE_ANGLE], drawer.angle);
+        drawer.alpha = setNumber(entry[| DRAWER_QUEUE_ALPHA], drawer.alpha);
         drawer.channel = channel;
         obj_dialogue.drawers[? channel] = drawer;
     }

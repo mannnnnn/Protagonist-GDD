@@ -616,6 +616,7 @@
       <script>scripts\inrange.gml</script>
       <script>scripts\draw_sprite_offset_ext.gml</script>
       <script>scripts\cursor_set_pos.gml</script>
+      <script>scripts\setNumber.gml</script>
     </scripts>
     <scripts name="combat">
       <script>scripts\startCombatAnimation.gml</script>

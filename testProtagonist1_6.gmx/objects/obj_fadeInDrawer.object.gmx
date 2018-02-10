@@ -88,13 +88,16 @@ if (finish || hide)
 alpha = map_range(timer, 0, duration, 0, 1);
 if (sprite_exists(sprite))
 {
-    draw_sprite_ext(sprite, image, posX, posY, scaleX, scaleY, angle, c_white, alpha);
+    draw_sprite_ext(sprite, image, posX, posY, scaleX, scaleY, angle, color, alpha);
 }
 else
 {
     show_debug_message("Error in obj_fadeInDrawer: Trying to draw non-existing sprite. "
     + "Make sure that, in your 'show' statement, that the sprite exists and is spelled correctly.");
 }
+
+// inherit
+event_inherited();
 </string>
           </argument>
         </arguments>

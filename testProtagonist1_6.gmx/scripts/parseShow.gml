@@ -25,13 +25,13 @@ drawerQueue[| DRAWER_QUEUE_TYPE] = DRAWER_QUEUE_TYPE_NORMAL;
 drawerQueue[| DRAWER_QUEUE_ACTION] = DRAWER_QUEUE_ACTION_SHOW;
 drawerQueue[| DRAWER_QUEUE_CHANNEL] = split[| 1];
 drawerQueue[| DRAWER_QUEUE_SPRITENAME] = split[| 2];
-drawerQueue[| DRAWER_QUEUE_IMAGE] = 0;
-drawerQueue[| DRAWER_QUEUE_POS_X] = 0;
-drawerQueue[| DRAWER_QUEUE_POS_Y] = 0;
-drawerQueue[| DRAWER_QUEUE_SCALE_X] = 1;
-drawerQueue[| DRAWER_QUEUE_SCALE_Y] = 1;
-drawerQueue[| DRAWER_QUEUE_ANGLE] = 0;
-drawerQueue[| DRAWER_QUEUE_ALPHA] = 1;
+drawerQueue[| DRAWER_QUEUE_IMAGE] = "";
+drawerQueue[| DRAWER_QUEUE_POS_X] = "";
+drawerQueue[| DRAWER_QUEUE_POS_Y] = "";
+drawerQueue[| DRAWER_QUEUE_SCALE_X] = "";
+drawerQueue[| DRAWER_QUEUE_SCALE_Y] = "";
+drawerQueue[| DRAWER_QUEUE_ANGLE] = "";
+drawerQueue[| DRAWER_QUEUE_ALPHA] = "";
 
 // get data from args
 for (var i = 3; i < ds_list_size(split) && i + 1 < ds_list_size(drawerQueue); i++)

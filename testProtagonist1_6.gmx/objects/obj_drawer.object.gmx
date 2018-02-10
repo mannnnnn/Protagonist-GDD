@@ -42,6 +42,9 @@ angle = 0;
 // alpha
 alpha = 1;
 
+// color
+color = c_white;
+
 // whether or not animation is complete
 ready = false;
 
@@ -85,6 +88,16 @@ channel = "";
             <string>/// make characters talk
 talkTimer = 0;
 talkDuration = 5;
+
+// fade characters out if not focused on
+talkFocus = false;
+talkFocusDuration = 5;
+talkFocusTimer = talkFocusDuration;
+talkFocusGray = 128;
+talkFocusScale = 0.95;
+initScaleX = "";
+initScaleY = "";
+
 </string>
           </argument>
         </arguments>
@@ -112,6 +125,9 @@ talkDuration = 5;
 if (ds_map_exists(obj_dialogue.characters, channel))
 {
     var talking = true;
+    talkFocus = true;
+    initScaleX = setNumber(initScaleX, scaleX);
+    initScaleY = setNumber(initScaleY, scaleY);
     
     var char = obj_dialogue.characters[? channel];
     // check if person side matches
@@ -121,12 +137,14 @@ if (ds_map_exists(obj_dialogue.characters, channel))
             if (obj_dialogue.display.name == "")
             {
                 talking = false;
+                talkFocus = false;
             }
             break;
         case RIGHT:
             if (obj_dialogue.display.nameR == "")
             {
                 talking = false;
+                talkFocus = false;
             }
             break;
     }
@@ -155,6 +173,56 @@ if (ds_map_exists(obj_dialogue.characters, channel))
     {
         image = 0;
     }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// handle talk focus state
+if (ds_map_exists(obj_dialogue.characters, channel)
+&amp;&amp; is_real(initScaleX) &amp;&amp; is_real(initScaleY))
+{
+    // go up if talk focus
+    if (talkFocus)
+    {
+        if (talkFocusTimer &lt; talkFocusDuration)
+        {
+            talkFocusTimer++;
+        }
+    }
+    // go down if not focused on
+    else
+    {
+        if (talkFocusTimer &gt; 0)
+        {
+            talkFocusTimer--;
+        }
+    }
+    talkFocusTimer = clamp(talkFocusTimer, 0, talkFocusDuration);
+    
+    // scale down if not focused
+    scaleX = map_range(talkFocusTimer, 0, talkFocusDuration, talkFocusScale * initScaleX, initScaleX);
+    scaleY = map_range(talkFocusTimer, 0, talkFocusDuration, talkFocusScale * initScaleY, initScaleY);
+    
+    // change color if not focused
+    var gray = map_range(talkFocusTimer, 0, talkFocusDuration, talkFocusGray, 255);
+    color = make_color_rgb(gray, gray, gray);
 }
 </string>
           </argument>
