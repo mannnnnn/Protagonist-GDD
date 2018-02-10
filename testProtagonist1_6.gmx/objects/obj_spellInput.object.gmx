@@ -47,6 +47,9 @@ first = noone;
 // target
 targetX = 0;
 targetY = 0;
+
+// spell cast or not
+spellCast = false;
 </string>
           </argument>
         </arguments>
@@ -152,15 +155,28 @@ if (action == "")
             <string>/// handle end-of-cast action
 if (action != "")
 {
-    if ((!instance_exists(first) || !first.active) &amp;&amp; first != noone)
+    // if no spell was cast handle letters. Otherwise, the spell will handle it.
+    if (!spellCast)
     {
-        combatEndCast(targetX, targetY, action);
-        first = noone;
+        if ((!instance_exists(first) || !first.active) &amp;&amp; first != noone)
+        {
+            combatEndCast(targetX, targetY, action);
+            first = noone;
+        }
+        if ((!instance_exists(last) || !last.active) &amp;&amp; last != noone)
+        {
+            combatLastCast(targetX, targetY, action);
+            last = noone;
+        }
     }
-    if ((!instance_exists(last) || !last.active) &amp;&amp; last != noone)
+    // otherwise, once all spell effects are done, release hold to allow more typing
+    else
     {
-        combatLastCast(targetX, targetY, action);
-        last = noone;
+        if (instance_number(obj_spellEffect) == 0)
+        {
+            first = noone;
+            last = noone;
+        }
     }
     if (first == noone &amp;&amp; last == noone)
     {
@@ -215,10 +231,10 @@ targetX = cursor_get_x();
 targetY = cursor_get_y();
 
 // fire action, whatever it is
-var castSpell = combatStartCast(targetX, targetY, action);
+spellCast = combatStartCast(targetX, targetY, action);
 
 var obj = obj_letterFired;
-if (castSpell)
+if (spellCast)
 {
     obj = obj_letterFaded;
 }
@@ -294,10 +310,10 @@ targetX = cursor_get_x();
 targetY = cursor_get_y();
 
 // fire action, whatever it is
-var castSpell = combatStartCast(targetX, targetY, action);
+spellCast = combatStartCast(targetX, targetY, action);
 
 var obj = obj_letterFired;
-if (castSpell)
+if (spellCast)
 {
     obj = obj_letterFaded;
 }

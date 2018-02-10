@@ -93,6 +93,10 @@ if (destroy)
     exit;
 }
 
+// target is same as mouse, since this can't shoot
+targetX = cursor_get_x();
+targetY = cursor_get_y();
+
 // sit animation
 if (sit)
 {

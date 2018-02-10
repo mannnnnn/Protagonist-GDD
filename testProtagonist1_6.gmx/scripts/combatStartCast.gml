@@ -14,6 +14,7 @@ if (ds_map_exists(obj_spellbook.spelleffects, action))
         var eff = instance_create(0, 0, obj);
         eff.targetX = X;
         eff.targetY = Y;
+        eff.action = action;
         spell = true;
     }
 }

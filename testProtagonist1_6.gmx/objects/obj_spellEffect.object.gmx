@@ -32,6 +32,7 @@
 // target position is set
 targetX = 0;
 targetY = 0;
+action = "";
 </string>
           </argument>
         </arguments>

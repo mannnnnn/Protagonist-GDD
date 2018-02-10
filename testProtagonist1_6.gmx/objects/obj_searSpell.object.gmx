@@ -30,6 +30,9 @@ event_inherited();
 loopImage = 17;
 particle = PARTEFF_SEAR;
 particleRadius = 15;
+
+x = obj_spellInput.x + sprite_get_xoffset(sprite_index) - 20;
+y = obj_spellInput.y + sprite_get_yoffset(sprite_index) - 100;
 </string>
           </argument>
         </arguments>
@@ -55,6 +58,9 @@ particleRadius = 15;
             <string>/// explode
 effect_create_above(ef_explosion, x, y, 1, c_orange);
 effect_create_above(ef_explosion, x, y, 1, c_orange);
+
+combatEndCast(targetX, targetY, action);
+combatLastCast(targetX, targetY, action);
 instance_destroy();
 </string>
           </argument>

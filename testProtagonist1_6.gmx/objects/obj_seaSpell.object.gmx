@@ -28,8 +28,8 @@
             <string>/// init
 event_inherited();
 image_speed = 0.5;
-x = getDisplayRoomWidth() * 0.5;
-y = getDisplayRoomHeight() * 0.5;
+x = obj_spellInput.x + sprite_get_xoffset(sprite_index) - 55;
+y = obj_spellInput.y + sprite_get_yoffset(sprite_index) - 100;
 
 // firing
 fireTimer = 0;
@@ -141,6 +141,8 @@ repeat(10)
     effect_create_above(ef_explosion, x + lengthdir_x(r, ang), y + lengthdir_y(r, ang), 3, make_color_rgb(73, 132, 123));
 }
 
+combatEndCast(targetX, targetY, action);
+combatLastCast(targetX, targetY, action);
 instance_destroy();
 </string>
           </argument>
