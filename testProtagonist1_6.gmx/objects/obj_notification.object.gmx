@@ -117,7 +117,7 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_center);
 w = string_width(str) + (2 * textBorder);
 h = string_height(str) + (2 * textBorder);
-drawOutlineRectExt(x - (0.5 * w), y - (0.5 * h), w, h, border, c_black, c_white, 1, 1);
+drawButtonRect(x - (0.5 * w), y - (0.5 * h), w - 6, h - 6, obj_buttons.button, c_white, c_white, 1, 1);
 draw_set_color(c_white);
 draw_set_alpha(1);
 draw_text(x, y, str);

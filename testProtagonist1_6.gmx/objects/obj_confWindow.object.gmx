@@ -203,7 +203,7 @@ selected = noone;
 if (state == OPENING || state == OPEN || state == CLOSING)
 {
     // draw back
-    drawOutlineRectExt(startX, t_startY, width, t_height, border, c_black, c_white, t_alpha, t_alpha);
+    drawButtonRect(startX, t_startY, width - 6, t_height - 6, obj_buttons.button, c_white, c_white, t_alpha, t_alpha);
     // draw text
     draw_set_halign(fa_center);
     draw_set_valign(fa_top);
@@ -229,7 +229,7 @@ if (state == OPENING || state == OPEN || state == CLOSING)
         {
             col = c_dkgray;
         }
-        drawOutlineRectExt(optionX - ((t_optionW - optionW) * 0.5), optionY - ((t_optionH - optionH) * 0.5), t_optionW, t_optionH, border, col, c_white, t_optionAlpha, t_optionAlpha);
+        drawButtonRect(optionX - ((t_optionW - optionW) * 0.5), optionY - ((t_optionH - optionH) * 0.5), t_optionW - 6, t_optionH - 6, obj_buttons.button, c_white, c_white, t_optionAlpha, t_optionAlpha);
         // draw option text
         draw_set_halign(fa_center);
         draw_set_valign(fa_center);

@@ -15,5 +15,5 @@ if (text != "")
     draw_set_font(font);
     draw_set_halign(fa_left);
     draw_set_valign(fa_top);
-    draw_text(startX + border + textBorder, startY + border + textBorder, text);
+    draw_text_outlined(startX + border + textBorder, startY + border + textBorder, text);
 }

@@ -7,8 +7,4 @@ var B = argument4;
 var colFill = argument5;
 var colOutline = argument6;
 
-draw_set_color(colOutline);
-draw_rectangle(X, Y, X + W, Y + H, false);
-
-draw_set_color(colFill);
-draw_rectangle(X + B, Y + B, X + W - B, Y + H - B, false);
+drawButtonRect(X, Y, W - 6, H - 6, obj_buttons.button, c_white, c_white, 1, 1);

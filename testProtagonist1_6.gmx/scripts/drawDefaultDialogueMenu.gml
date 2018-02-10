@@ -27,6 +27,6 @@ for (var i = 0; i < n; i++)
         draw_set_color(c_white);
         // draw text
         var option = optionsList[| i];
-        draw_text(centerX, posY + textBorder, option[| MENU_OPTION_NAME]);
+        draw_text_outlined(centerX, posY + textBorder, option[| MENU_OPTION_NAME]);
     }
 }

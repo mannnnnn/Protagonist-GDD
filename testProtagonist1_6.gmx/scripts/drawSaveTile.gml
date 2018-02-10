@@ -24,7 +24,7 @@ if (selected)
 draw_set_font(fnt_save);
 
 // draw the background
-drawOutlineRectExt(posX, posY, saveW - scrollBarW - border, saveH, border, col, col, 1, 1);
+// drawButtonRect(posX, posY, saveW - scrollBarW - border - 6, saveH - 6, obj_buttons.button, c_white, c_white, 1, 1);
 
 // draw the image
 // if the save is there
@@ -38,22 +38,22 @@ if (checkSavePath(saveID))
     }
     var spr = spritetable[| saveID];
     // draw it
-    drawOutlineRectExt(picX, picY, picW, picH, border, c_white, c_white, 1, 1);
+    drawButtonRect(picX, picY, picW - 6, picH - 6, obj_buttons.button, c_white, c_white, 1, 1);
     draw_sprite_stretched(spr, 0, picX + border + 1, picY + border + 1, picW - (2 * border) - 1, picH - (2 * border) - 1);
 }
 // draw that there is no save
 else
 {
-    drawOutlineRectExt(picX, picY, picW, picH, border + 1, col, c_white, 1, 1);
+    drawButtonRect(picX, picY, picW - 6, picH - 6, obj_buttons.button, c_white, c_white, 1, 1);
     draw_set_halign(fa_center);
     draw_set_valign(fa_center);
     draw_set_color(c_white);
-    draw_text(picX + (0.5 * picW), picY + (0.5 * picH), "No Save"); 
+    draw_text_outlined(picX + (0.5 * picW), picY + (0.5 * picH), "No Save"); 
 }
 
 // draw the desc box
-drawOutlineRectExt(descX, descY, descW, descH, border, col, c_white, 1, 1);
+drawButtonRect(descX, descY, descW - 6, descH - 6, obj_buttons.button, c_white, c_white, 1, 1);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
-draw_text(descX + border + textBorder, descY + border + textBorder, "Save " + string(saveID));
+draw_text_outlined(descX + border + textBorder, descY + border + textBorder, "Save " + string(saveID));

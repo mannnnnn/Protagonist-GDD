@@ -28,6 +28,6 @@ for (var i = 0; i < n; i++)
         draw_set_color(c_white);
         // draw text
         var submenu = submenus[| i];
-        draw_text(startX + textBorder + 10, posY + textBorder, submenu.name);
+        draw_text_outlined(startX + textBorder + 10, posY + textBorder, submenu.name);
     }
 }

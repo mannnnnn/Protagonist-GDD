@@ -5,8 +5,4 @@ var W = argument2;
 var H = argument3;
 var B = argument4;
 
-draw_set_color(c_white);
-draw_rectangle(X, Y, X + W, Y + H, false);
-
-draw_set_color(c_black);
-draw_rectangle(X + B, Y + B, X + W - B, Y + H - B, false);
+drawButtonRect(X, Y, W - 6, H - 6, obj_buttons.button, c_white, c_white, 1, 1);
