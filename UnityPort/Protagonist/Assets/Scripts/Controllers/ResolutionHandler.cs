@@ -3,14 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Handles resultion scaling when loading map.
+ * Also handles conversion between Map Coordinates and other Unity coordinate systems.
+ * Map Coordinates:
+ *  Normalized coordinates on domain [0, widthToHeightRatio] and range [0, 1]
+ * MapView Coordinates:
+ *  Normalize coordinates on domain [0, 1] and range [0, 1]. Note that this is a linear transoform of regular coordinates that
+ *      does not preserve shape. Use with caution.
+ */
 public class ResolutionHandler : MonoBehaviour {
 
-    //Scale on (0, 1] of default window's width size (fraction of the screen)
+    //Scale on (0, 1] of default window's hieght scale (fraction of the screen)
     public float DEFAULT_RESOLUTION_SCALE;
 
     //data about background texture
     GameObject roomBackgroud;
     SpriteRenderer mapTexture;
+
 
     //dimenstions of mapTexture in Unity Units
     Vector2 MapTextureDimensions
@@ -37,7 +47,6 @@ public class ResolutionHandler : MonoBehaviour {
 
     void Update()
     {
-
     }
 
     /**
@@ -104,5 +113,42 @@ public class ResolutionHandler : MonoBehaviour {
          *  of how the resolution was set.
          */
         Camera.main.orthographicSize = mapTextureHeight / 2f;
+    }
+
+
+    //game coordinate conversion functions (unfortunately necessary because of black bars in fullscreen)
+    public Vector3 MapViewToViewportPoint(Vector3 point)
+    {
+        //scale by mapHeight/mapWidth on x. 
+        //TODO: matrix lib? This doesnt feel great.
+        Vector3 mapPoint = MapToViewportPoint(point);
+        return new Vector3(mapPoint.x * ((float)MapTextureDimensions.y / (float)MapTextureDimensions.x), mapPoint.y, mapPoint.z);
+    }
+
+    public Vector3 MapToViewportPoint(Vector3 point)
+    {
+        //TODO: refactor using matrices
+        return new Vector3(((float)Screen.width / (float)Screen.height) * point.y + 0.5f * (((float)Screen.width / (float)Screen.height) - ((float)MapTextureDimensions.x / (float)MapTextureDimensions.x)), point.y, point.z);
+    }
+
+
+
+    //I guess this is a singleton now
+    //yaaay for good code style
+    private static ResolutionHandler instance;
+
+    public static ResolutionHandler GetInstance()
+    {
+        if (instance == null)
+        {
+            instance = new ResolutionHandler();
+        }
+        return instance;
+    }
+
+    //TODO: fix duplicate assignment for instance == null case
+    public ResolutionHandler()
+    {
+        instance = this;
     }
 }
