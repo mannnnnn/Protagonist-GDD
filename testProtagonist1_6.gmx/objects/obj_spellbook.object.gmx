@@ -63,6 +63,31 @@ state = CLOSED;
 
 timer = 0;
 duration = 7;
+
+scaleX = 1.5;
+scaleY = 1.5;
+
+// current draw page
+page = 0;
+entriesPerPage = 6;
+
+// where to draw each entry
+entryPosX = ds_grid_create(2, 3);
+entryPosY = ds_grid_create(2, 3);
+// first column
+entryPosX[# 0, 0] = 50;
+entryPosY[# 0, 0] = 30;
+entryPosX[# 0, 1] = 50;
+entryPosY[# 0, 1] = 126;
+entryPosX[# 0, 2] = 47;
+entryPosY[# 0, 2] = 238;
+// second column 
+entryPosX[# 1, 0] = 287;
+entryPosY[# 1, 0] = 33;
+entryPosX[# 1, 1] = 283;
+entryPosY[# 1, 1] = 134;
+entryPosX[# 1, 2] = 282;
+entryPosY[# 1, 2] = 238;
 </string>
           </argument>
         </arguments>
@@ -98,6 +123,42 @@ createSpell("read", noone);
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// entry graphic for each spell in the book
+// note that these are subimages. Everything uses spr_spellbookGraphics
+// subimage 0 is the unknown default one
+graphic = ds_map_create();
+graphic[? "cat"] = 1;
+graphic[? "sea"] = 2;
+graphic[? "sear"] = 3;
+graphic[? "seat"] = 4;
+graphic[? "seed"] = 5;
+
+// test cat spell
+spellfound[? "cat"] = true;
+spellfound[? "sea"] = true;
+spellfound[? "sear"] = true;
+spellfound[? "seat"] = true;
+spellfound[? "seed"] = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="8" enumb="64">
       <action>
@@ -117,6 +178,9 @@ createSpell("read", noone);
           <argument>
             <kind>1</kind>
             <string>/// draw
+var alpha = map_range(timer, 0, duration, 0, 1);
+var startX = round((getDisplayRoomWidth() - scaleX * sprite_get_width(spr_spellbook)) * 0.5);
+var startY = round((getDisplayRoomHeight() - scaleY * sprite_get_height(spr_spellbook)) * 0.5);
 
 switch(state)
 {
@@ -124,6 +188,7 @@ switch(state)
         timer = 0;
         break;
     case OPENING:
+        draw_sprite_ext(spr_spellbook, 0, startX, startY, scaleX, scaleY, 0, c_white, alpha);
         timer++;
         if (timer &gt;= duration)
         {
@@ -131,9 +196,11 @@ switch(state)
         }
         break;
     case OPEN:
+        draw_sprite_ext(spr_spellbook, 0, startX, startY, scaleX, scaleY, 0, c_white, alpha);
         timer = duration;
         break;
     case CLOSING:
+        draw_sprite_ext(spr_spellbook, 0, startX, startY, scaleX, scaleY, 0, c_white, alpha);
         timer--;
         if (timer &lt; 0)
         {
@@ -145,6 +212,173 @@ switch(state)
         show_error("Invalid inventory state: " + string(state), true);
         state = CLOSED;
         break;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// draw entries
+if (alpha &gt; 0 &amp;&amp; state != CLOSED)
+{
+    // for each entry, draw it if it's on this page
+    var start = page * entriesPerPage;
+    for (var i = start; i &lt; start + entriesPerPage &amp;&amp; i &lt; ds_list_size(spells); i++)
+    {
+        var gridX = (i - start) mod 2;
+        var gridY = floor((i - start) / 2);
+        /// draw the entry at that position
+        var posX = round(startX + (entryPosX[# gridX, gridY] * scaleX));
+        var posY = round(startY + (entryPosY[# gridX, gridY] * scaleY));
+        var sp = spells[| i];
+        var subimage = 0;
+        // if the spell has been found
+        if (ds_map_exists(spellfound, sp) &amp;&amp; spellfound[? sp] &amp;&amp; ds_map_exists(graphic, sp))
+        {
+            subimage = graphic[? sp];
+        }
+        draw_sprite_ext(spr_spellbookGraphics, subimage, posX, posY, scaleX / 1.1, scaleX / 1.15, 0, c_white, alpha);
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// draw arrows at the bottom
+if (alpha &gt; 0 &amp;&amp; state != CLOSED)
+{
+    // hardcoded positions
+    var arrowLeftX = 48;
+    var arrowLeftY = 334;
+    var arrowRightX = 460;
+    var arrowRightY = 336;
+    var size = 7;
+    
+    // if we're able to go left
+    if (page &gt; 0)
+    {
+        var posX = round(startX + (arrowLeftX * scaleX));
+        var posY = round(startY + (arrowLeftY * scaleY));
+        draw_sprite_ext(spr_spellbookArrow, 0, posX, posY, scaleX, scaleY, 0, c_white, alpha);
+        
+        // if mouse is over the arrow
+        if (mouse_in_rect(posX - (size * scaleX), posY - (size * scaleY), 2 * size * scaleX, 2 * size * scaleY))
+        {
+            if (mouse_check_button_pressed(mb_left))
+            {
+                // go left a page
+                page--;
+            }
+        }
+    }
+    
+    if (page &lt; floor(ds_list_size(spells) / entriesPerPage))
+    {
+        var posX = round(startX + (arrowRightX * scaleX));
+        var posY = round(startY + (arrowRightY * scaleY));
+        draw_sprite_ext(spr_spellbookArrow, 1, posX, posY, scaleX, scaleY, 0, c_white, alpha);
+        
+        // if mouse is over the arrow
+        if (mouse_in_rect(posX - (size * scaleX), posY - (size * scaleY), 2 * size * scaleX, 2 * size * scaleY))
+        {
+            if (mouse_check_button_pressed(mb_left))
+            {
+                // go left a page
+                page++;
+            }
+        }
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="39">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// right a page
+if (state == OPEN)
+{
+    if (page &lt; floor(ds_list_size(spells) / entriesPerPage))
+    {
+        page++;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="37">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// left a page
+if (state == OPEN)
+{
+    if (page &gt; 0)
+    {
+        page--;
+    }
 }
 </string>
           </argument>

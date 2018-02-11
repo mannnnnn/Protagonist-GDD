@@ -404,6 +404,11 @@
       <sprite>sprites\spr_buttonHEdge</sprite>
       <sprite>sprites\spr_buttonVEdge</sprite>
     </sprites>
+    <sprites name="spellbook">
+      <sprite>sprites\spr_spellbookArrow</sprite>
+      <sprite>sprites\spr_spellbook</sprite>
+      <sprite>sprites\spr_spellbookGraphics</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="map">
