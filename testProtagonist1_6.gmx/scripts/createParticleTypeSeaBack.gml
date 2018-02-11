@@ -1,6 +1,5 @@
 ///createParticleTypeSeaBack(sys)
 // Creates the seaBack particle type and returns it.
-var sys = argument0;
 var part = part_type_create();
 part_type_shape(part, pt_shape_ring);
 part_type_scale(part, 1, 1);

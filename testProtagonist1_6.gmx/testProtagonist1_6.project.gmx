@@ -349,6 +349,7 @@
     </sprites>
     <sprite>sprites\spr_solid</sprite>
     <sprite>sprites\spr_invisibleWall</sprite>
+    <sprite>sprites\spr_particleSolid</sprite>
     <sprite>sprites\spr_dust</sprite>
     <sprite>sprites\spr_extendoHand</sprite>
     <sprite>sprites\spr_spellFragments</sprite>
@@ -680,6 +681,7 @@
     <scripts name="particles">
       <script>scripts\createParticleTypeSeaBack.gml</script>
       <script>scripts\createParticleTypeSearBack.gml</script>
+      <script>scripts\createParticleTypeJungle.gml</script>
       <script>scripts\createParticleEffect.gml</script>
     </scripts>
     <scripts name="buttons">
@@ -701,8 +703,12 @@
     <font>fonts\fnt_save</font>
   </fonts>
   <objects name="objects">
-    <object>objects\obj_solid</object>
-    <object>objects\obj_invisibleWall</object>
+    <objects name="solids">
+      <object>objects\obj_solid</object>
+      <object>objects\obj_invisibleWall</object>
+      <object>objects\obj_particleSolid</object>
+      <object>objects\obj_jungleParticleSolid</object>
+    </objects>
     <objects name="old">
       <object>objects\obj_greekScenes</object>
       <object>objects\obj_RajCloud</object>
@@ -974,7 +980,7 @@
       <room>rooms\rm_forest9</room>
     </rooms>
   </rooms>
-  <constants number="89">
+  <constants number="91">
     <constant name="RIGHT">0</constant>
     <constant name="UP">1</constant>
     <constant name="LEFT">2</constant>
@@ -1037,11 +1043,13 @@
     <constant name="SPELLIMAGE_OBSCURED">52</constant>
     <constant name="NOTIFICATION_OBJ">0</constant>
     <constant name="NOTIFICATION_STR">1</constant>
-    <constant name="PARTSYS">0</constant>
+    <constant name="PARTSYS_MAP">0</constant>
+    <constant name="PARTSYS_PUZ">1</constant>
     <constant name="PARTEFF_FIRE">0</constant>
     <constant name="PARTEFF_CINDER">1</constant>
     <constant name="PARTEFF_SEAR">2</constant>
     <constant name="PARTEFF_SEA">3</constant>
+    <constant name="PARTEFF_JUNGLE">4</constant>
     <constant name="OPERATOR_TYPE">0</constant>
     <constant name="OPERAND_A">1</constant>
     <constant name="OPERAND_B">2</constant>

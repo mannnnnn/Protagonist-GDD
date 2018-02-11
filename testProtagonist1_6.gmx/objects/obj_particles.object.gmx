@@ -30,17 +30,21 @@
 systems = ds_map_create();
 
 // fire particle system
-systems[? PARTSYS] = part_system_create();
-part_system_depth(systems[? PARTSYS], -100);
+systems[? PARTSYS_PUZ] = part_system_create();
+systems[? PARTSYS_MAP] = part_system_create();
+part_system_depth(systems[? PARTSYS_PUZ], -100);
+part_system_depth(systems[? PARTSYS_MAP], 10000);
 
 effects = ds_map_create();
 effects[? PARTEFF_FIRE] = part_type_create();
 effects[? PARTEFF_CINDER] = part_type_create();
-effects[? PARTEFF_SEAR] = createParticleTypeSearBack(systems[? PARTSYS]);
-effects[? PARTEFF_SEA] = createParticleTypeSeaBack(systems[? PARTSYS]);
+effects[? PARTEFF_SEAR] = createParticleTypeSearBack();
+effects[? PARTEFF_SEA] = createParticleTypeSeaBack();
+effects[? PARTEFF_JUNGLE] = createParticleTypeJungle();
 
 emitters = ds_map_create();
-emitters[? PARTSYS] = part_emitter_create(systems[? PARTSYS]);
+emitters[? PARTSYS_PUZ] = part_emitter_create(systems[? PARTSYS_PUZ]);
+emitters[? PARTSYS_MAP] = part_emitter_create(systems[? PARTSYS_MAP]);
 
 </string>
           </argument>

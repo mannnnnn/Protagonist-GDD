@@ -1,6 +1,5 @@
 ///createParticleTypeSearBack(sys)
 // Creates the searBack particle type and returns it.
-var sys = argument0;
 var part = part_type_create();
 part_type_shape(part, pt_shape_smoke);
 part_type_scale(part, 0.32, 0.25);

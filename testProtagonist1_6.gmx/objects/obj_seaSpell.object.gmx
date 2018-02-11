@@ -83,7 +83,7 @@ if (image_index &gt;= loopImage)
     // emit bubbles
     if (ds_map_exists(obj_particles.effects, particle))
     {
-        createParticleEffect(PARTSYS, particle,
+        createParticleEffect(PARTSYS_PUZ, particle,
         x - (particleRadius * image_xscale), y - (particleRadius * image_yscale),
         x + (particleRadius * image_xscale), y + (particleRadius * image_yscale), ps_shape_ellipse, ps_distr_linear, 1);
     }

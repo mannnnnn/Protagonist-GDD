@@ -53,19 +53,19 @@
   <instances>
     <instance objName="obj_synPlay" x="128" y="32" name="inst_59C8DFA5" locked="0" code="dustBunny = true;&#xA;" scaleX="1.15315318107605" scaleY="1.31506848335266" colour="4294967295" rotation="0"/>
     <instance objName="obj_synYarn" x="608" y="320" name="inst_0510817C" locked="0" code="dustBunny = true;&#xA;" scaleX="1.24271845817566" scaleY="1.22137403488159" colour="4294967295" rotation="0"/>
-    <instance objName="obj_solid" x="0" y="0" name="inst_0CAAF41A" locked="0" code="" scaleX="15" scaleY="2.5" colour="4294967295" rotation="0"/>
-    <instance objName="obj_solid" x="896" y="160" name="inst_E6D37C11" locked="0" code="" scaleX="1" scaleY="6.5" colour="4294967295" rotation="0"/>
-    <instance objName="obj_solid" x="0" y="576" name="inst_9800CD6D" locked="0" code="" scaleX="15" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_solid" x="0" y="160" name="inst_7EFDA7F0" locked="0" code="" scaleX="1" scaleY="2.5" colour="4294967295" rotation="0"/>
-    <instance objName="obj_solid" x="0" y="448" name="inst_55C53690" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
-    <instance objName="obj_solid" x="64" y="512" name="inst_C1291EC2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_solid" x="64" y="160" name="inst_D1AA5FD6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_solid" x="832" y="160" name="inst_90596AA3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_solid" x="832" y="512" name="inst_D952EFC4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_syntaxBob" x="224" y="352" name="inst_687E20D9" locked="0" code="handler = obj_puzzle4;&#xA;activeTracker = &quot;puzzle4&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_syntaxBob" x="576" y="192" name="inst_4DAE5FAD" locked="0" code="handler = obj_puzzle6;&#xA;activeTracker = &quot;puzzle6&quot;;&#xA;intro = snd_syntaxIntro2;&#xA;loop = snd_syntaxLoop2;&#xA;outro = snd_syntaxOutro2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_syntaxBob" x="704" y="256" name="inst_573F06CA" locked="0" code="handler = obj_puzzle5;&#xA;activeTracker = &quot;puzzle5&quot;;&#xA;intro = snd_syntaxIntro2;&#xA;loop = snd_syntaxLoop2;&#xA;outro = snd_syntaxOutro2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_syntaxBob" x="768" y="416" name="inst_58E88377" locked="0" code="handler = obj_puzzle7;&#xA;activeTracker = &quot;puzzle7&quot;;&#xA;intro = snd_syntaxIntro2;&#xA;loop = snd_syntaxLoop2;&#xA;outro = snd_syntaxOutro2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_jungleParticleSolid" x="0" y="0" name="inst_8774D421" locked="0" code="" scaleX="15" scaleY="2.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_jungleParticleSolid" x="832" y="160" name="inst_8B2382B0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_jungleParticleSolid" x="896" y="160" name="inst_B70D1531" locked="0" code="" scaleX="1" scaleY="6.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_jungleParticleSolid" x="832" y="512" name="inst_6085C830" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_jungleParticleSolid" x="0" y="576" name="inst_37F5C148" locked="0" code="" scaleX="15" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_jungleParticleSolid" x="0" y="448" name="inst_4C676D18" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="obj_jungleParticleSolid" x="64" y="512" name="inst_522E56AE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_jungleParticleSolid" x="0" y="160" name="inst_824FADF9" locked="0" code="" scaleX="1" scaleY="2.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_jungleParticleSolid" x="64" y="160" name="inst_12A6E563" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>
