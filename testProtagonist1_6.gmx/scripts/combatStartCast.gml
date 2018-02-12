@@ -31,4 +31,12 @@ if (instance_exists(obj_combat.handler))
     }
 }
 
+// if the spell exists, and we discovered this spell, notify the player.
+if (ds_map_exists(obj_spellbook.spelleffects, action) && obj_spellbook.spelleffects[? action] != noone
+&& !obj_spellbook.spellfound[? action])
+{
+    obj_spellbook.spellfound[? action] = true;
+    addNotification(createNotification("You discovered the spell " + string_upper(action) + "!"));
+}
+
 return spell;

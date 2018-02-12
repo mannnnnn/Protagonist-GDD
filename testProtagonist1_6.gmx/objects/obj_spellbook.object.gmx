@@ -149,12 +149,6 @@ graphic[? "sear"] = 3;
 graphic[? "seat"] = 4;
 graphic[? "seed"] = 5;
 
-// test cat spell
-spellfound[? "cat"] = true;
-spellfound[? "sea"] = true;
-spellfound[? "sear"] = true;
-spellfound[? "seat"] = true;
-spellfound[? "seed"] = true;
 </string>
           </argument>
         </arguments>

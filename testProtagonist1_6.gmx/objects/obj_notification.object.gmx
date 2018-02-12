@@ -38,7 +38,7 @@ outDur = 15;
 // offscreen x
 x = -getDisplayRoomWidth();
 // constant y
-y = getDisplayRoomHeight() * 0.25;
+y = getDisplayRoomHeight() * 0.13;
 // center
 targetX = getDisplayRoomWidth() * 0.5;
 
