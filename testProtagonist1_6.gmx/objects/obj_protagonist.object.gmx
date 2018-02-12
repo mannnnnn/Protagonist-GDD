@@ -85,12 +85,12 @@ var imgindex = image_index;
 var dist = point_distance(prevX, prevY, phy_position_x, phy_position_y);
 
 /// if moving right
-if (dir &lt;= 45 || dir &gt;= 315)
+if (dir &lt;= 46 || dir &gt;= 314)
 {
     sprite_index = sprites[RIGHT];
 }
 /// if moving left
-else if (dir &gt;= 135 &amp;&amp; dir &lt;= 225)
+else if (dir &gt;= 134 &amp;&amp; dir &lt;= 226)
 {
     sprite_index = sprites[LEFT];
 }

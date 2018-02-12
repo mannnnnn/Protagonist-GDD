@@ -28,8 +28,8 @@
             <string>/// init player position in map
 X = 2;
 Y = 2;
-posX = 0;
-posY = 0;
+posX = getDisplayRoomWidth() * 0.5;
+posY = getDisplayRoomHeight() * 0.5;
 
 // not all transitions move the player to one of the left/right/up/down positions.
 movePlayer = false;
@@ -55,6 +55,13 @@ movePlayer = false;
             <kind>1</kind>
             <string>/// init map
 map = ds_grid_create(4, 3);
+for (var i = 0; i &lt; ds_grid_width(obj_map.map); i++)
+{
+    for (var j = 0; j &lt; ds_grid_height(obj_map.map); j++)
+    {
+        map[# i, j] = noone;
+    }
+}
 map[# 2, 2] = rm_forest1;
 map[# 2, 1] = rm_forest2;
 map[# 2, 0] = rm_forest3;

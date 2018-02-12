@@ -226,11 +226,7 @@
   </sounds>
   <sprites name="sprites">
     <sprites name="SceneSprites">
-      <sprite>sprites\spr_PanCloud</sprite>
-      <sprite>sprites\spr_RajCloud</sprite>
-      <sprite>sprites\spr_PanCloudNew</sprite>
       <sprite>sprites\spr_greekScenes</sprite>
-      <sprite>sprites\spr_gameWorld</sprite>
       <sprite>sprites\spr_BlastOff</sprite>
       <sprite>sprites\spr_silhouettes</sprite>
     </sprites>
@@ -409,6 +405,7 @@
       <sprite>sprites\spr_spellbook</sprite>
       <sprite>sprites\spr_spellbookGraphics</sprite>
     </sprites>
+    <sprite>sprites\spr_banner</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="map">
@@ -423,6 +420,7 @@
       <background>background\bgnd_forest9</background>
     </backgrounds>
     <background>background\bgnd_puzzle</background>
+    <background>background\bgnd_title</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -962,6 +960,7 @@
     </objects>
     <object>objects\obj_storyData</object>
     <object>objects\obj_triSoundLoop</object>
+    <object>objects\obj_titleBanner</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test</room>
