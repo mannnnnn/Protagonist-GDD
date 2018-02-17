@@ -3,7 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="18" name="datafiles">
+  <datafiles number="19" name="datafiles">
     <datafile>
       <name>pause.protd</name>
       <exists>-1</exists>
@@ -175,6 +175,23 @@
       <filename>intro2.protd</filename>
     </datafile>
     <datafile>
+      <name>intro3.protd</name>
+      <exists>-1</exists>
+      <size>1801</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>intro3.protd</filename>
+    </datafile>
+    <datafile>
       <name>itemset1.protd</name>
       <exists>-1</exists>
       <size>6489</size>
@@ -229,6 +246,8 @@
       <sprite>sprites\spr_greekScenes</sprite>
       <sprite>sprites\spr_BlastOff</sprite>
       <sprite>sprites\spr_silhouettes</sprite>
+      <sprite>sprites\spr_fastScenes</sprite>
+      <sprite>sprites\spr_launch</sprite>
     </sprites>
     <sprites name="battleInterface">
       <sprite>sprites\spr_Spells</sprite>
@@ -243,6 +262,7 @@
     </sprites>
     <sprites name="boxSprites">
       <sprite>sprites\spr_box</sprite>
+      <sprite>sprites\spr_rocket</sprite>
       <sprite>sprites\spr_shakeBox</sprite>
       <sprite>sprites\spr_apolloBox</sprite>
       <sprite>sprites\spr_popBox</sprite>
@@ -570,7 +590,9 @@
       </scripts>
       <scripts name="specialScripts">
         <script>scripts\hadesSpecialDatetimeExtravaganza.gml</script>
+        <script>scripts\hadesSpecialButtonExtravaganza.gml</script>
         <script>scripts\hadesSpecialExitingExtravaganza.gml</script>
+        <script>scripts\hadesSpecialSaveExtravaganza.gml</script>
       </scripts>
     </scripts>
     <scripts name="debug">
@@ -627,6 +649,8 @@
       <script>scripts\drawSaveNameplate.gml</script>
       <script>scripts\interactSaveGame.gml</script>
       <script>scripts\getGlobalSavePath.gml</script>
+      <script>scripts\saveStoryData.gml</script>
+      <script>scripts\loadStoryData.gml</script>
     </scripts>
     <scripts name="general">
       <script>scripts\drawOutlineRectExt.gml</script>
@@ -690,6 +714,8 @@
     <scripts name="buttons">
       <script>scripts\createButtonGroup.gml</script>
     </scripts>
+    <script>scripts\drawHealthBar.gml</script>
+    <script>scripts\checkFlag.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shr_blur.shader</shader>
@@ -814,6 +840,7 @@
     </objects>
     <objects name="playerCharacters">
       <object>objects\obj_protagonist</object>
+      <object>objects\obj_fakeProtagonist</object>
     </objects>
     <objects name="gui">
       <objects name="dialogue">
@@ -854,6 +881,13 @@
           <object>objects\obj_mouseController</object>
         </objects>
         <object>objects\obj_buttons</object>
+        <objects name="scriptedTriggerObjects">
+          <object>objects\obj_launch</object>
+          <object>objects\obj_triggerIntro</object>
+          <object>objects\obj_triggerDialogue1</object>
+          <object>objects\obj_triggerDialogueAuto</object>
+          <object>objects\obj_triggerPostSphinx</object>
+        </objects>
       </objects>
       <object>objects\obj_optionsMenu</object>
       <object>objects\obj_inventory</object>
@@ -885,6 +919,7 @@
     <object>objects\obj_dustBunny</object>
     <object>objects\obj_dustBunnyCreator</object>
     <object>objects\obj_intro</object>
+    <object>objects\obj_ffintro</object>
     <object>objects\obj_combatIntro</object>
     <objects name="combatSystem">
       <object>objects\obj_letter</object>
@@ -908,6 +943,7 @@
         <object>objects\obj_puzzle5</object>
         <object>objects\obj_puzzle6</object>
         <object>objects\obj_puzzle7</object>
+        <object>objects\obj_combatPuzzle</object>
       </objects>
     </objects>
     <objects name="spells">
@@ -961,6 +997,7 @@
     <object>objects\obj_storyData</object>
     <object>objects\obj_triSoundLoop</object>
     <object>objects\obj_titleBanner</object>
+    <object>objects\obj_enemy</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test</room>

@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>1</depth>
   <persistent>0</persistent>
-  <parentName>obj_dialogueStepper</parentName>
+  <parentName>obj_intro</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,35 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// init
+            <string>/// fast forward greek scenes
 event_inherited();
-
-// current image
-index = -2;
-
-// state is NORMAL or FADE
-state = NORMAL;
-
-timer = 0;
-duration = 35;
-
-spr = spr_greekScenes;
-
-back = false;
-
-// customizable attributes
-// start of fade-in
-instart = 0.7;
-// end of fade-out
-outstart = 0.3;
-// portion of total duration on fade-in
-in = 0.3;
-// portion of total duration on fade-out
-out = 0.3;
-
-// draw position (should be 0)
-posX = 0;
-posY = 0;
+spr = spr_fastScenes;
+duration = 1;
 </string>
           </argument>
         </arguments>
@@ -76,54 +51,21 @@ posY = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// remove if necessary
-if (remove &amp;&amp; obj_dialogue.file != "intro1.protd" &amp;&amp; obj_dialogue.file != "intro2.protd" &amp;&amp; 
-obj_dialogue.file != "intro3.protd" || (instance_exists(obj_launch) &amp;&amp; obj_launch.clicked))
+            <string>/// randomly skip forward or not
+// skip about 2 times per second
+if (irandom_range(0, 15) == 0)
 {
-    instance_destroy();
+    var s = (irandom_range(0, 2) * 2) - 1;
+    posX += s * irandom_range(50, 400);
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="10">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// next
+// slide forward at an unsteady rate
+posX += irandom_range(15, 35);
 
-// start on next
-timer = 0;
-if (index &lt; -1)
-{
-    timer = duration;
-}
-if (!back &amp;&amp; state == FADE)
-{
-    back = true;
-}
-state = FADE;
-index++;
+// wrap position
+posX = abs(posX mod getDisplayRoomWidth());
 
-// go to spinny world thingy when sprite_get_number(spr) is exceeded
-if (index &gt; sprite_get_number(spr))
-{
-    
-}
+// inherit removal
+event_inherited();
 </string>
           </argument>
         </arguments>
@@ -162,7 +104,9 @@ switch(state)
         if (inrange(index, 0, sprite_get_number(spr)))
         {
             draw_set_alpha(1);
+            draw_sprite_stretched(spr, index, posX - getDisplayRoomWidth(), posY, getDisplayRoomWidth(), getDisplayRoomHeight());
             draw_sprite_stretched(spr, index, posX, posY, getDisplayRoomWidth(), getDisplayRoomHeight());
+            draw_sprite_stretched(spr, index, posX + getDisplayRoomWidth(), posY, getDisplayRoomWidth(), getDisplayRoomHeight());
         }
         break;
     case FADE:
@@ -189,13 +133,17 @@ switch(state)
         if (inrange(index - 1, 0, sprite_get_number(spr)))
         {
             draw_set_alpha(1 - map_range(outtimer, 0, duration * out, 0, 1));
+            draw_sprite_stretched(spr, index - 1, posX - getDisplayRoomWidth(), posY, getDisplayRoomWidth(), getDisplayRoomHeight());
             draw_sprite_stretched(spr, index - 1, posX, posY, getDisplayRoomWidth(), getDisplayRoomHeight());
+            draw_sprite_stretched(spr, index - 1, posX + getDisplayRoomWidth(), posY, getDisplayRoomWidth(), getDisplayRoomHeight());
         }
         // draw index fade in
         if (inrange(index, 0, sprite_get_number(spr)))
         {
             draw_set_alpha(map_range(intimer, 0, duration * in, 0, 1));
+            draw_sprite_stretched(spr, index, posX - getDisplayRoomWidth(), posY, getDisplayRoomWidth(), getDisplayRoomHeight());
             draw_sprite_stretched(spr, index, posX, posY, getDisplayRoomWidth(), getDisplayRoomHeight());
+            draw_sprite_stretched(spr, index, posX + getDisplayRoomWidth(), posY, getDisplayRoomWidth(), getDisplayRoomHeight());
         }
         break;
 }

@@ -3,9 +3,9 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>1</depth>
-  <persistent>0</persistent>
-  <parentName>obj_dialogueStepper</parentName>
+  <depth>0</depth>
+  <persistent>-1</persistent>
+  <parentName>obj_puzzle</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -27,33 +27,34 @@
             <kind>1</kind>
             <string>/// init
 event_inherited();
+show_debug_message("CREATED");
 
-// current image
-index = -2;
+playerHP = 100;
+enemyHP = 100;
 
-// state is NORMAL or FADE
-state = NORMAL;
-
-timer = 0;
-duration = 35;
-
-spr = spr_greekScenes;
-
-back = false;
-
-// customizable attributes
-// start of fade-in
-instart = 0.7;
-// end of fade-out
-outstart = 0.3;
-// portion of total duration on fade-in
-in = 0.3;
-// portion of total duration on fade-out
-out = 0.3;
-
-// draw position (should be 0)
-posX = 0;
-posY = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// draw stuff
+playerDamaged = 0;
+enemyDamaged = 0;
 </string>
           </argument>
         </arguments>
@@ -76,54 +77,12 @@ posY = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// remove if necessary
-if (remove &amp;&amp; obj_dialogue.file != "intro1.protd" &amp;&amp; obj_dialogue.file != "intro2.protd" &amp;&amp; 
-obj_dialogue.file != "intro3.protd" || (instance_exists(obj_launch) &amp;&amp; obj_launch.clicked))
-{
-    instance_destroy();
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="10">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// next
+            <string>/// when either HP reaches 0, end combat
 
-// start on next
-timer = 0;
-if (index &lt; -1)
-{
-    timer = duration;
-}
-if (!back &amp;&amp; state == FADE)
-{
-    back = true;
-}
-state = FADE;
-index++;
+// when player is dead
 
-// go to spinny world thingy when sprite_get_number(spr) is exceeded
-if (index &gt; sprite_get_number(spr))
-{
-    
-}
+// when enemy is dead
+
 </string>
           </argument>
         </arguments>
@@ -146,58 +105,65 @@ if (index &gt; sprite_get_number(spr))
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// draw intro sequence
-switch(state)
+            <string>/// hp bar
+var W = 300;
+var H = 32;
+var X = getDisplayRoomWidth() * 0.5;
+var Y = getDisplayRoomHeight() - 1;
+drawHealthBar(X - (0.5 * W), Y - H, W, H, playerHP, playerHP + playerDamaged, 100);
+
+if (instance_exists(obj_enemy))
 {
-    case NORMAL:
-        timer = 0;
-        // draw back if necessary
-        if (back)
-        {
-            draw_set_alpha(1);
-            draw_set_color(c_black);
-            draw_rectangle(0, 0, getDisplayRoomWidth(), getDisplayRoomHeight(), false);
-        }
-        // draw index
-        if (inrange(index, 0, sprite_get_number(spr)))
-        {
-            draw_set_alpha(1);
-            draw_sprite_stretched(spr, index, posX, posY, getDisplayRoomWidth(), getDisplayRoomHeight());
-        }
-        break;
-    case FADE:
-        // handle timer
-        timer++;
-        var intimer = timer - (duration * (instart));
-        var outtimer = timer - (duration * (outstart - out));
-        if (timer &gt;= duration)
-        {
-            timer = duration;
-            state = NORMAL;
-            back = true;
-        }
-        // fades from index - 1 to index
-        // if fading in the background, do it
-        draw_set_color(c_black);
-        draw_set_alpha(1);
-        if (!back)
-        {
-            draw_set_alpha(map_range(intimer, 0, duration * in, 0, 1));
-        }
-        draw_rectangle(0, 0, getDisplayRoomWidth(), getDisplayRoomHeight(), false);
-        // draw index - 1 fade out
-        if (inrange(index - 1, 0, sprite_get_number(spr)))
-        {
-            draw_set_alpha(1 - map_range(outtimer, 0, duration * out, 0, 1));
-            draw_sprite_stretched(spr, index - 1, posX, posY, getDisplayRoomWidth(), getDisplayRoomHeight());
-        }
-        // draw index fade in
-        if (inrange(index, 0, sprite_get_number(spr)))
-        {
-            draw_set_alpha(map_range(intimer, 0, duration * in, 0, 1));
-            draw_sprite_stretched(spr, index, posX, posY, getDisplayRoomWidth(), getDisplayRoomHeight());
-        }
-        break;
+    var X = obj_enemy.X;
+    var Y = obj_enemy.Y - 100;
+    drawHealthBar(X - (0.5 * W), Y - H, W, H, enemyHP, enemyHP + enemyDamaged, 100);
+}
+
+// decrement player/enemy damage display after taking damage
+if (playerDamaged &gt; 0)
+{
+    playerDamaged = max(0, playerDamaged - max(1, playerDamaged / 5));
+}
+if (enemyDamaged &gt; 0)
+{
+    enemyDamaged = max(0, enemyDamaged - max(1, enemyDamaged / 5));
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="82">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// remove hp if debug
+if (obj_debugTool.debug)
+{
+    if (keyboard_check(vk_shift))
+    {
+        playerHP = 100;
+        playerDamaged = 0;
+    }
+    else
+    {
+        playerDamaged += min(playerHP, 20);
+        playerHP = max(0, playerHP - 20);
+    }
 }
 </string>
           </argument>

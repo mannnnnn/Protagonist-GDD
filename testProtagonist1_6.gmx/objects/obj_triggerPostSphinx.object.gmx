@@ -3,9 +3,9 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>1</depth>
-  <persistent>0</persistent>
-  <parentName>obj_dialogueStepper</parentName>
+  <depth>10000</depth>
+  <persistent>-1</persistent>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,35 +25,44 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// init
-event_inherited();
+            <string>/// throw the player offscreen
+// deactivate the real player
+var spr = obj_protagonist.sprite_index;
+var img = obj_protagonist.image_index;
+var scaleX = obj_protagonist.image_xscale;
+var scaleY = obj_protagonist.image_yscale;
+var X = playerX();
+var Y = playerY();
+instance_deactivate_object(obj_protagonist);
 
-// current image
-index = -2;
+// create the fake player
+fake = instance_create(X, Y, obj_fakeProtagonist);
+fake.sprite_index = spr;
+fake.image_index = img;
+fake.image_xscale = scaleX;
+fake.image_yscale = scaleY;
 
-// state is NORMAL or FADE
-state = NORMAL;
+// throw the player
+grav = movementAnimation(obj_gravityAnimation, fake, 0, 0, 13, 18);
+grav.projX = fake.x;
+grav.projY = fake.y;
+grav.projVelX = -1;
+grav.projVelY = 0.25;
+grav.color = c_dkgray;
+grav.dustY = 30;
 
-timer = 0;
-duration = 35;
+// start transitioning room
+obj_map.X -= 1;
+var trans = createRoomTransition(obj_map.map[# obj_map.X, obj_map.Y], obj_blackSlideTransition,
+false, 22);
+trans.side = LEFT;
+trans.timer = -35;
 
-spr = spr_greekScenes;
+// whether or not we're on the next room or not
+next = false;
 
-back = false;
-
-// customizable attributes
-// start of fade-in
-instart = 0.7;
-// end of fade-out
-outstart = 0.3;
-// portion of total duration on fade-in
-in = 0.3;
-// portion of total duration on fade-out
-out = 0.3;
-
-// draw position (should be 0)
-posX = 0;
-posY = 0;
+// block the wall
+obj_storyData.data[? "sphinxxWall"] = true;
 </string>
           </argument>
         </arguments>
@@ -76,128 +85,92 @@ posY = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// remove if necessary
-if (remove &amp;&amp; obj_dialogue.file != "intro1.protd" &amp;&amp; obj_dialogue.file != "intro2.protd" &amp;&amp; 
-obj_dialogue.file != "intro3.protd" || (instance_exists(obj_launch) &amp;&amp; obj_launch.clicked))
+            <string>/// return control to player once animation is done
+if (next &amp;&amp; !instance_exists(grav))
 {
+    instance_activate_object(obj_protagonist);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// move player
+next = true;
+
+// deactivate the real player
+var spr = obj_protagonist.sprite_index;
+var img = obj_protagonist.image_index;
+var scaleX = obj_protagonist.image_xscale;
+var scaleY = obj_protagonist.image_yscale;
+var X = 960;
+var Y = 290;
+instance_deactivate_object(obj_protagonist);
+
+// create the fake player
+fake = instance_create(X, Y, obj_fakeProtagonist);
+fake.sprite_index = spr;
+fake.image_index = img;
+fake.image_xscale = scaleX;
+fake.image_yscale = scaleY;
+
+// throw the player
+grav = movementAnimation(obj_gravityAnimation, fake, 0, 0, 10, 15);
+grav.projX = fake.x;
+grav.projY = fake.y;
+grav.projVelX = -1;
+grav.projVelY = 0.25;
+grav.color = c_dkgray;
+grav.dustY = 30;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// set player pos after activation
+if (next &amp;&amp; instance_exists(obj_protagonist))
+{
+    setX(obj_protagonist, fake.x);
+    setY(obj_protagonist, fake.y);
+    with (fake)
+    {
+        instance_destroy();
+    }
     instance_destroy();
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="10">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// next
-
-// start on next
-timer = 0;
-if (index &lt; -1)
-{
-    timer = duration;
-}
-if (!back &amp;&amp; state == FADE)
-{
-    back = true;
-}
-state = FADE;
-index++;
-
-// go to spinny world thingy when sprite_get_number(spr) is exceeded
-if (index &gt; sprite_get_number(spr))
-{
-    
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="64">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// draw intro sequence
-switch(state)
-{
-    case NORMAL:
-        timer = 0;
-        // draw back if necessary
-        if (back)
-        {
-            draw_set_alpha(1);
-            draw_set_color(c_black);
-            draw_rectangle(0, 0, getDisplayRoomWidth(), getDisplayRoomHeight(), false);
-        }
-        // draw index
-        if (inrange(index, 0, sprite_get_number(spr)))
-        {
-            draw_set_alpha(1);
-            draw_sprite_stretched(spr, index, posX, posY, getDisplayRoomWidth(), getDisplayRoomHeight());
-        }
-        break;
-    case FADE:
-        // handle timer
-        timer++;
-        var intimer = timer - (duration * (instart));
-        var outtimer = timer - (duration * (outstart - out));
-        if (timer &gt;= duration)
-        {
-            timer = duration;
-            state = NORMAL;
-            back = true;
-        }
-        // fades from index - 1 to index
-        // if fading in the background, do it
-        draw_set_color(c_black);
-        draw_set_alpha(1);
-        if (!back)
-        {
-            draw_set_alpha(map_range(intimer, 0, duration * in, 0, 1));
-        }
-        draw_rectangle(0, 0, getDisplayRoomWidth(), getDisplayRoomHeight(), false);
-        // draw index - 1 fade out
-        if (inrange(index - 1, 0, sprite_get_number(spr)))
-        {
-            draw_set_alpha(1 - map_range(outtimer, 0, duration * out, 0, 1));
-            draw_sprite_stretched(spr, index - 1, posX, posY, getDisplayRoomWidth(), getDisplayRoomHeight());
-        }
-        // draw index fade in
-        if (inrange(index, 0, sprite_get_number(spr)))
-        {
-            draw_set_alpha(map_range(intimer, 0, duration * in, 0, 1));
-            draw_sprite_stretched(spr, index, posX, posY, getDisplayRoomWidth(), getDisplayRoomHeight());
-        }
-        break;
 }
 </string>
           </argument>

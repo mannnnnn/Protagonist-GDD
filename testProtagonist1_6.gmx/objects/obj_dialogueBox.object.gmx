@@ -50,6 +50,9 @@ textspeed = 2;
 // whether or not to automatically advance
 autoAdvance = false;
 autoAdvanceTimer = autoAdvance;
+
+// allow advance or not
+allowAdvance = true;
 </string>
           </argument>
         </arguments>
@@ -191,7 +194,7 @@ if (obj_dialogue.active)
           <argument>
             <kind>1</kind>
             <string>/// skip dialogue by holding Ctrl
-if (obj_dialogue.active)
+if (obj_dialogue.active &amp;&amp; allowAdvance)
 {
     // if done with current string
     if (string_length(currentText) &gt;= string_length(text) - 1)
@@ -231,7 +234,7 @@ if (obj_dialogue.active)
           <argument>
             <kind>1</kind>
             <string>/// advance dialogue by mouse click
-if (obj_dialogue.active)
+if (obj_dialogue.active &amp;&amp; allowAdvance)
 {
     // if done with current string
     if (string_length(currentText) &gt;= string_length(text) - 1)
@@ -456,7 +459,7 @@ switch(state)
           <argument>
             <kind>1</kind>
             <string>/// advance dialogue by space press
-if (obj_dialogue.active)
+if (obj_dialogue.active &amp;&amp; allowAdvance)
 {
     // if done with current string
     if (string_length(currentText) &gt;= string_length(text) - 1)
@@ -496,7 +499,7 @@ if (obj_dialogue.active)
           <argument>
             <kind>1</kind>
             <string>/// advance dialogue by esc press
-if (obj_dialogue.active)
+if (obj_dialogue.active &amp;&amp; allowAdvance)
 {
     // if done with current string
     if (string_length(currentText) &gt;= string_length(text) - 1)

@@ -41,6 +41,7 @@ action = "";
 // more events can be added as necessary
 
 // these handlers must be persistent.
+persistent = true;
 </string>
           </argument>
         </arguments>

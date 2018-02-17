@@ -115,7 +115,7 @@ if (instance_exists(obj_dialogue.display) &amp;&amp; obj_dialogue.display.state 
 {
     if (instance_exists(obj_protagonist) &amp;&amp; playerCanMove() &amp;&amp; distance_to_object(obj_protagonist) &lt; 20)
     {
-        if (name != "")
+        if (name != "" || file != "")
         {
             if (obj_dialogue.file != file)
             {

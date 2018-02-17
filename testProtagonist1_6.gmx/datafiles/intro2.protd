@@ -15,12 +15,10 @@ character H
 
 text display obj_narration
 
-create stepper intro obj_intro
+create stepper intro obj_ffintro
 next intro
 
 H: "Welcome Hero, to darkness of war. You made a new game and you're back for more."
-
-next intro
 
 H: "Normally I'd say you together band, and strike down those who force thy hand."
 
@@ -30,42 +28,46 @@ H: "So go ahead, sit back, while I narrate. Opening lines are little more than b
 
 H: "Don't mind if I make things go a bit faster. I'm bored to death by this tale of disaster."
 
-text speed 6
+next intro
+text speed 2
 text auto true
 
 //
-show oAp spr_silhouettes 0 0 46
+show oAp spr_silhouettes 0 0 100
 with fade
 //
 
 H: "In fires of gods, mere mortals will quiver,"
+next intro
 
 //
 hide oAp
 with fade
 
-show oAr spr_silhouettes 1 0 46
+show oAr spr_silhouettes 1 0 100
 with fade
 //
 
 
 H: "The light of the moon can cause you to shiver,"
+next intro
 
 //
 hide oAr
 with fade
 
-show oHa spr_silhouettes 2 0 46
+show oHa spr_silhouettes 2 0 100
 with fade
 //
 
 H: "Or by thy hammer, forge light into peace."
+next intro
 
 //
 //
 
 H: "And with thy guidance this era may cease."
-
+next intro
 //
 hide oHa
 with fade
@@ -109,6 +111,7 @@ H: "Keep your arms and legs inside the box at all times, please."
 
 H: "And give me that."
 
+call hadesSpecialSaveExtravaganza(3)
 call hadesSpecialExitingExtravaganza()
 
 wait -4

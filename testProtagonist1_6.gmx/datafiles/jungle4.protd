@@ -1,7 +1,6 @@
 //Jungle4
 //Characters: Protagonist, Sphinxx
 
-
 //CHARACTERS
 character P
 {
@@ -183,4 +182,5 @@ hide P
 
 //Move to new area
 wait for drawers
+create obj_triggerPostSphinx
 exit
