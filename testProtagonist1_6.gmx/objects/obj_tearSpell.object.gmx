@@ -79,6 +79,7 @@ switch(state)
             // deal damage here
             combatEndCast(targetX, targetY, action);
             combatLastCast(targetX, targetY, action);
+            combatDamage(targetX, targetY, 15);
         }
         break;
     // loop tear animation for a while

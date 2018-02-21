@@ -25,20 +25,28 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///UNIQUE VARIABLES
-partName = "head" //string for the body part
-moveX1 = 10; //left bound for movement
-moveX2 = 10; //right bound for movement
-moveY1 = 5; //bottom bound for movement
-moveY2 = -5; //top bound for movement 
-scaleChange = 0; //scale for movement
-rotate1 = 6; //"left" bound for degree
-rotate2 = -6; //"right" bound for degree
-tick = 0;
-partDmg = 3;
-//Starting Vars
-sX = x;
-sY = y;
+            <string>///tail draw varaibles
+event_inherited();
+
+damaged = false;
+
+//starting position
+initialX = x;
+initialY = y;
+
+// duration
+timer = 0;
+duration = 360;
+spd = 7;
+
+// wiggle tail
+angleMin = -15;
+angleMax = 15;
+
+// get relation to body
+bodyX = x - obj_synBody.x;
+bodyY = y - obj_synBody.y;
+
 </string>
           </argument>
         </arguments>
@@ -61,40 +69,15 @@ sY = y;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Y (growl)
-if (tick mod 5 == 0){
-    y+=sin(tick)*moveY1/2;
-}
+            <string>/// wiggle up and down
+image_angle = mean(angleMin, angleMax) + lengthdir_y(0.5 * (angleMax - angleMin), timer);
+timer = (timer + spd) mod 360;
 
-
-
-//Tail Wag
-
-if (tick mod 1 == 0){
-    if((tick&lt;45)||(tick&gt;=90&amp;&amp;tick&lt;=135)||(tick&gt;=180&amp;&amp;tick&lt;=225) ||(tick&gt;=270&amp;&amp;tick&lt;=305)){
-        image_angle+=1;
-        }
-    else{
-        image_angle-=1;
-    }
-}
-
-
-tick++;
-if (tick==360){
-    tick = 0;
-}
-
-if (x&gt;(sX+moveX2) || x&lt;(sX-moveX1)){
-x = sX;
-}
-if (y&gt;(sY+moveY2) || y&lt;(sY-moveY1)){
-y = sY;
-}
-if (image_angle &gt; rotate2 || image_angle&lt; rotate1){
-image_angle = 0;
-}
-
+// move tail with body
+var posX = obj_synBody.x + bodyX;
+var posY = obj_synBody.y + bodyY;
+x = posX;
+y = posY;
 </string>
           </argument>
         </arguments>

@@ -25,16 +25,48 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///UNIQUE VARIABLES
-partName = "head" //string for the body part
-moveX1 = 0; //left bound for movement
-moveX2 = 0; //right bound for movement
-moveY1 = 0; //bottom bound for movement
-moveY2 = 0; //top bound for movement 
-scaleChange = 0; //scale for movement
-rotate1 = 0; //"left" bound for degree
-rotate2 = 0; //"right" bound for degree
-partDmg = 2;
+            <string>/// leg movement
+event_inherited();
+
+//Starting Vars
+initialX = x;
+initialY = y;
+
+// scale bounds
+scaleMin = 0.9 * image_yscale;
+scaleMax = 1 * image_yscale;
+
+// damaged state
+damaged = false;
+
+// get relation to body
+bodyX = x - obj_synBody.x;
+bodyY = y - obj_synBody.y;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// move legs with body
+image_yscale = mean(scaleMin, scaleMax) + lengthdir_y(0.5 * abs(scaleMax - scaleMin), 360 - obj_synBody.timer);
 </string>
           </argument>
         </arguments>

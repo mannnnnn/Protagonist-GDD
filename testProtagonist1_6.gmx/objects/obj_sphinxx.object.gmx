@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>/// everything depends on puzzle4
 puzzle = false;
-if (checkFlag("puzzle4", false))
+if (!checkFlag("puzzle4", true))
 {
     puzzle = true;
 }

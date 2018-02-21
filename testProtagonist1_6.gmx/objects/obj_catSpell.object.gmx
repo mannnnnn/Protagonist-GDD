@@ -64,6 +64,7 @@ if (floor(image_index) == 7)
     {
         combatEndCast(noone, noone, action);
         combatLastCast(noone, noone, action);
+        combatDamage("", "", 25);
         cast = true;
     }
 }

@@ -61,6 +61,7 @@ effect_create_above(ef_explosion, x, y, 1, c_orange);
 
 combatEndCast(targetX, targetY, action);
 combatLastCast(targetX, targetY, action);
+combatDamage(targetX, targetY, 10);
 instance_destroy();
 </string>
           </argument>

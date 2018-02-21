@@ -56,7 +56,7 @@ script = "jungle2.protd";
 if (playerCanMove())
 {
     // do nothing if already triggered
-    if (ds_map_exists(obj_storyData.data, activeTracker) &amp;&amp; obj_storyData.data[? activeTracker])
+    if (checkFlag(activeTracker, false))
     {
         instance_destroy();
         exit;

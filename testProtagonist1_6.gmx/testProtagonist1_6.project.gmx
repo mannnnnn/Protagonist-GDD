@@ -403,6 +403,7 @@
       <sprite>sprites\spr_sockTree</sprite>
       <sprite>sprites\spr_statDuck</sprite>
       <sprite>sprites\spr_visibleWall</sprite>
+      <sprite>sprites\spr_apolloPlaying</sprite>
     </sprites>
     <sprite>sprites\spr_duck</sprite>
     <sprites name="spells">
@@ -692,6 +693,7 @@
       <script>scripts\endCombat.gml</script>
       <script>scripts\prepareCombatEnd.gml</script>
       <script>scripts\endCombatAnimation.gml</script>
+      <script>scripts\combatDamage.gml</script>
     </scripts>
     <scripts name="spells">
       <script>scripts\createSpell.gml</script>
@@ -826,16 +828,6 @@
         <object>objects\obj_Environment</object>
       </objects>
       <object>objects\obj_box</object>
-      <objects name="bossObjects">
-        <object>objects\obj_synHead</object>
-        <object>objects\obj_synBody</object>
-        <object>objects\obj_synTail</object>
-        <object>objects\obj_synLeg1</object>
-        <object>objects\obj_synLeg2</object>
-        <object>objects\obj_synLeg3</object>
-        <object>objects\obj_synLeg4</object>
-        <object>objects\obj_syntaxBoss</object>
-      </objects>
       <object>objects\obj_blastOff</object>
     </objects>
     <objects name="playerCharacters">
@@ -885,8 +877,10 @@
           <object>objects\obj_launch</object>
           <object>objects\obj_triggerIntro</object>
           <object>objects\obj_triggerDialogue1</object>
+          <object>objects\obj_triggerDialogue5</object>
           <object>objects\obj_triggerDialogueAuto</object>
           <object>objects\obj_triggerPostSphinx</object>
+          <object>objects\obj_triggerChest</object>
         </objects>
       </objects>
       <object>objects\obj_optionsMenu</object>
@@ -944,6 +938,17 @@
         <object>objects\obj_puzzle6</object>
         <object>objects\obj_puzzle7</object>
         <object>objects\obj_combatPuzzle</object>
+        <objects name="cat">
+          <object>objects\obj_synHead</object>
+          <object>objects\obj_synBody</object>
+          <object>objects\obj_synTail</object>
+          <object>objects\obj_synLeg1</object>
+          <object>objects\obj_synLeg2</object>
+          <object>objects\obj_synLeg3</object>
+          <object>objects\obj_synLeg4</object>
+          <object>objects\obj_enemy</object>
+          <object>objects\obj_syntaxBoss</object>
+        </objects>
       </objects>
     </objects>
     <objects name="spells">
@@ -991,13 +996,13 @@
         <object>objects\obj_sockTree</object>
         <object>objects\obj_statDuck</object>
         <object>objects\obj_visibleWall</object>
+        <object>objects\obj_apolloPlaying</object>
       </objects>
       <object>objects\obj_map</object>
     </objects>
     <object>objects\obj_storyData</object>
     <object>objects\obj_triSoundLoop</object>
     <object>objects\obj_titleBanner</object>
-    <object>objects\obj_enemy</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test</room>
@@ -1006,9 +1011,6 @@
     <room>rooms\rm_narration</room>
     <room>rooms\rm_blastOff</room>
     <room>rooms\rm_boss1</room>
-    <rooms name="Menus, etc.">
-      <room>rooms\rm_hadesRules</room>
-    </rooms>
     <rooms name="rooms">
       <room>rooms\rm_forest1</room>
       <room>rooms\rm_forest2</room>
@@ -1019,6 +1021,9 @@
       <room>rooms\rm_forest7</room>
       <room>rooms\rm_forest8</room>
       <room>rooms\rm_forest9</room>
+    </rooms>
+    <rooms name="Menus, etc.">
+      <room>rooms\rm_hadesRules</room>
     </rooms>
   </rooms>
   <constants number="91">

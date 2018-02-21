@@ -107,6 +107,13 @@ else
     timer--;
 }
 timer = clamp(timer, 0, duration);
+if (timer == duration)
+{
+    if (instance_exists(obj_combatPuzzle))
+    {
+        obj_combatPuzzle.playerHP = clamp(obj_combatPuzzle.playerHP + 0.1, 0, obj_combatPuzzle.playerMaxHP);
+    }
+}
 
 view_yview[0] = map_range(timer, 0, duration, 0, background_get_height(bgnd_puzzle) - getDisplayRoomHeight());
 

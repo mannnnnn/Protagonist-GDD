@@ -5,10 +5,10 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_enemy</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="4" ename="obj_Spell">
+    <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,75 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(obj_Spell.image_xscale==0.2){
-    image_index = 1;
-}
-
-if(obj_Spell.image_xscale==0.1){ //only deal damage during the "hit" (before it dissapears)
-    if(obj_Environment.attack == "cat"){
-    health-=partDmg*2; //and trigger animation?
-    image_index = 0;
-    show_message("Meow!");
-    }
-    else{
-     image_index = 0;
-    health-=partDmg; //damage is scaled based on which part it hits
-    }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="9">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>instance_destroy();
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="4">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///BOSS STATS
+            <string>/// draw settings
 image_speed = 0;
-health = 100; //percentage
-timAtt = 2000; //how many ticks before the boss will attack
-timDef = -1; //how many ticks before the boss will defend
-timMove = 5000; //how many ticks before the boss will move
-
-
 </string>
           </argument>
         </arguments>
@@ -116,8 +49,20 @@ timMove = 5000; //how many ticks before the boss will move
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_healthbar(obj_synHead.x-5, obj_synHead.y-50, obj_synHead.x+obj_synHead.sprite_width-30, obj_synHead.y-35, health, c_black, c_red, c_blue, 0, true, true);
-draw_self();
+            <string>/// draw cat part of hp bar
+if (sprite_exists(sprite_index))
+{
+    draw_self();
+}
+else
+{
+    if (instance_exists(obj_combatPuzzle))
+    {
+        drawHealthBar(obj_synHead.x - 5, obj_synHead.y - 35, obj_synHead.sprite_width - 35, 20,
+        obj_combatPuzzle.enemyHP, obj_combatPuzzle.enemyHP + obj_combatPuzzle.enemyDamaged, obj_combatPuzzle.enemyMaxHP);
+    }
+}
+
 </string>
           </argument>
         </arguments>

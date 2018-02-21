@@ -32,4 +32,4 @@ if (instance_exists(obj_triggerPostSphinx))
 }
 
 // if nothing is preventing the player from moving, then return true.
-return true;
+return instance_exists(obj_protagonist);

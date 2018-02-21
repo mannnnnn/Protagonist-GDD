@@ -146,6 +146,7 @@ repeat(10)
 
 combatEndCast(targetX, targetY, action);
 combatLastCast(targetX, targetY, action);
+combatDamage(targetX, targetY, 10);
 instance_destroy();
 </string>
           </argument>

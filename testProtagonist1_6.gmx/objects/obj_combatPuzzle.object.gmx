@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-3</depth>
   <persistent>-1</persistent>
   <parentName>obj_puzzle</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -27,11 +27,14 @@
             <kind>1</kind>
             <string>/// init
 event_inherited();
-show_debug_message("CREATED");
 
 playerHP = 100;
+playerMaxHP = 100;
 enemyHP = 100;
+enemyMaxHP = 100;
 
+// move to a the boss cat room
+room = rm_boss1;
 </string>
           </argument>
         </arguments>
@@ -110,14 +113,7 @@ var W = 300;
 var H = 32;
 var X = getDisplayRoomWidth() * 0.5;
 var Y = getDisplayRoomHeight() - 1;
-drawHealthBar(X - (0.5 * W), Y - H, W, H, playerHP, playerHP + playerDamaged, 100);
-
-if (instance_exists(obj_enemy))
-{
-    var X = obj_enemy.X;
-    var Y = obj_enemy.Y - 100;
-    drawHealthBar(X - (0.5 * W), Y - H, W, H, enemyHP, enemyHP + enemyDamaged, 100);
-}
+drawHealthBar(X - (0.5 * W), Y - H, W, H, playerHP, playerHP + playerDamaged, playerMaxHP);
 
 // decrement player/enemy damage display after taking damage
 if (playerDamaged &gt; 0)
@@ -129,42 +125,6 @@ if (enemyDamaged &gt; 0)
     enemyDamaged = max(0, enemyDamaged - max(1, enemyDamaged / 5));
 }
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="82">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// remove hp if debug
-if (obj_debugTool.debug)
-{
-    if (keyboard_check(vk_shift))
-    {
-        playerHP = 100;
-        playerDamaged = 0;
-    }
-    else
-    {
-        playerDamaged += min(playerHP, 20);
-        playerHP = max(0, playerHP - 20);
-    }
-}
 </string>
           </argument>
         </arguments>
