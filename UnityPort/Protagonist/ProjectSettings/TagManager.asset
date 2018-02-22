@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - RoomBackground
+  - Wall
+  - Door
   layers:
   - Default
   - TransparentFX

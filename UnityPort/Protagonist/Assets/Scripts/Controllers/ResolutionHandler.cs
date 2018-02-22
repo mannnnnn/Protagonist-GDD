@@ -52,6 +52,8 @@ public class ResolutionHandler : MonoBehaviour {
         roomBackgroud = GameObject.FindGameObjectWithTag("RoomBackground");
         mapTexture = roomBackgroud.GetComponent<SpriteRenderer>();
 
+        PositionCamera();
+
         SetInitialResolution();
 
         ScaleView();
@@ -102,6 +104,11 @@ public class ResolutionHandler : MonoBehaviour {
     //PRIVATE METHODS
 
     /////////////////////Fullscreen/windowed resolution helper methods//////////////////////////////////////////////////////////////
+
+    private void PositionCamera()
+    {
+        Camera.main.transform.position = new Vector3(mapTexture.transform.position.x, mapTexture.transform.position.y, Camera.main.transform.position.z);
+    }
 
     /**
      * Sets the game resolution based on screen size and map dimensions.
