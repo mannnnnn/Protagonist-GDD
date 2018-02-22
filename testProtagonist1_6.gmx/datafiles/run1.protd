@@ -1,0 +1,12 @@
+character H
+{
+	name = "Hades"
+	side = right
+}
+
+show H spr_talkHades
+with Hades_swing
+
+H: "Leave pls"
+call runCombat()
+exit

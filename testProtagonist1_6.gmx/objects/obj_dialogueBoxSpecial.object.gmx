@@ -35,6 +35,8 @@ volumeFade = 0.2;
 volumeDur = 30;
 specialStartSound = snd_Xylo1;
 specialEndSound = snd_Xylo2;
+
+surf = noone;
 </string>
           </argument>
         </arguments>
@@ -67,6 +69,16 @@ if (instance_exists(dimmer))
 dimmer = noone;
 masterVolumeFader(MUSIC, 1, volumeDur);
 playSound(SFX, specialEndSound);
+// reactivate the combat objects and free the surface
+if (checkCombatActive())
+{
+    instance_activate_all();
+    if (!surface_exists(surf))
+    {
+        surface_free(surf);
+    }
+    surf = noone;
+}
 </string>
           </argument>
         </arguments>
@@ -96,6 +108,31 @@ dimmer = screenDimmer(screenDim, screenDur);
 masterVolumeFader(MUSIC, volumeFade, volumeDur);
 // play the starting ding
 playSound(SFX, specialStartSound);
+// deactivate the combat objects and save image to surface
+if (checkCombatActive())
+{
+    if (!surface_exists(surf))
+    {
+        surf = surface_create(getDisplayRoomWidth(), getDisplayRoomHeight());
+    }
+    surface_copy(surf, 0, 0, application_surface);
+    surface_set_target(surf);
+    var this = id;
+    with (all)
+    {
+        if (id != this &amp;&amp; !instanceof(id, obj_drawer))
+        {
+            event_perform(ev_draw, ev_gui);
+        }
+    }
+    surface_reset_target();
+    // deactivate all other things
+    instance_deactivate_all(true);
+    reactivateControlObjects();
+    instance_activate_object(obj_drawer);
+    instance_activate_object(obj_screenDimmer);
+    instance_activate_object(obj_masterVolumeFader);
+}
 </string>
           </argument>
         </arguments>
