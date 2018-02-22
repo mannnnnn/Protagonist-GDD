@@ -7,23 +7,36 @@ using UnityEngine;
  * Handles resultion scaling when loading map.
  * Also handles conversion between Map Coordinates and other Unity coordinate systems.
  * Map Coordinates:
- *  Normalized coordinates on domain [0, widthToHeightRatio] and range [0, 1]
- * MapView Coordinates:
- *  Normalize coordinates on domain [0, 1] and range [0, 1]. Note that this is a linear transoform of regular coordinates that
- *      does not preserve shape. Use with caution.
+ *  Normalized coordinates on domain [0, 1] and range [0, MapHeightToWidthRatio]
  */
 public class ResolutionHandler : MonoBehaviour {
 
     //Scale on (0, 1] of default window's hieght scale (fraction of the screen)
     public float DEFAULT_RESOLUTION_SCALE;
 
+
     //data about background texture
     GameObject roomBackgroud;
     SpriteRenderer mapTexture;
 
+    public float PixelsPerUU
+    {
+        get
+        {
+            return mapTexture.sprite.texture.width / mapTexture.GetComponent<Renderer>().bounds.size.x;
+        }
+    }
+
+    public float MapHeightToWidthRatio
+    {
+        get
+        {
+            return MapDimensions.y / MapDimensions.x;
+        }
+    }
 
     //dimenstions of mapTexture in Unity Units
-    Vector2 MapTextureDimensions
+    public Vector2 MapDimensions
     {
         get
         {
@@ -50,7 +63,7 @@ public class ResolutionHandler : MonoBehaviour {
     }
 
     /**
-     * Toffles resolution between initial windowed resolution and fullscreen.
+     * Toggles resolution between initial windowed resolution and fullscreen.
      */
     public void ToggleFullScreen()
     {
@@ -67,10 +80,33 @@ public class ResolutionHandler : MonoBehaviour {
         }
     }
 
+    /////////////////////////////////COORDINATE CONVERSION METHODS//////////////////////////////////////////////////////////////////
+
+    public Vector3 MapToUnityCoords(Vector3 point)
+    {
+        float newX = Mathf.Lerp(-MapDimensions.x / 2f, MapDimensions.x / 2f, point.x);
+        float newY = Mathf.Lerp(-MapDimensions.y / 2f, MapDimensions.y / 2f, point.y / MapHeightToWidthRatio);
+        return new Vector3(newX, newY, point.z);
+    }
+
+    public Vector3 UnityToMapCoords(Vector3 point)
+    {
+        Debug.Log("BW: " + GetScaledBarWidth());
+        Debug.Log("PPUU: " + PixelsPerUU);
+        float newX = (point.x / MapDimensions.x) + 0.5f;
+        float newY = Mathf.Lerp(0, MapHeightToWidthRatio, (point.y / MapDimensions.y) + 0.5f);
+        return new Vector3(newX, newY, point.z);
+    }
+
+
+    //PRIVATE METHODS
+
+    /////////////////////Fullscreen/windowed resolution helper methods//////////////////////////////////////////////////////////////
+
     /**
      * Sets the game resolution based on screen size and map dimensions.
      */
-    void SetInitialResolution()
+    private void SetInitialResolution()
     {
         //respect initial resolution if user chose full screen
         if (Screen.fullScreen) { return; }
@@ -78,19 +114,19 @@ public class ResolutionHandler : MonoBehaviour {
         //get resolution of initial screen fraction
         //TODO: do compatibility checks
         int windowHeight = (int)(DEFAULT_RESOLUTION_SCALE * Screen.currentResolution.height);
-        int windowWidth = (int)(DEFAULT_RESOLUTION_SCALE * Screen.currentResolution.height * (MapTextureDimensions.x / MapTextureDimensions.y));
-        
+        int windowWidth = (int)(DEFAULT_RESOLUTION_SCALE * Screen.currentResolution.height * (MapDimensions.x / MapDimensions.y));
+
         //set res
         Screen.SetResolution(windowWidth, windowHeight, false);
 
         //sometimes this resolution isnt set correctly in the Unity Editor
-        Debug.Log("Set Res: " + new Vector2(Screen.width, Screen.height) + ", expected: " + new Vector2(windowWidth, windowHeight)); 
+        Debug.Log("Set Res: " + new Vector2(Screen.width, Screen.height) + ", expected: " + new Vector2(windowWidth, windowHeight));
     }
 
     /**
      * Finds the optimum fullscreen resolution for a given screen size, ppi given the game assets
      */
-    Resolution GetOptimumFullscreenResolution()
+    private Resolution GetOptimumFullscreenResolution()
     {
         //TODO: Get rid of temp implementation and actually do this.
 
@@ -100,10 +136,10 @@ public class ResolutionHandler : MonoBehaviour {
     /**
      * Scales view such that the height of the view matches the height of the mapTexture.
      */
-    void ScaleView()
+    private void ScaleView()
     {
         //get height of mapTexure un Unity units
-        float mapTextureHeight = MapTextureDimensions.y;
+        float mapTextureHeight = MapDimensions.y;
 
         /*
          * Scale camera to to mapTexture size--this makes scaling to match full sceme much easier
@@ -116,22 +152,16 @@ public class ResolutionHandler : MonoBehaviour {
     }
 
 
-    //game coordinate conversion functions (unfortunately necessary because of black bars in fullscreen)
-    public Vector3 MapViewToViewportPoint(Vector3 point)
-    {
-        //scale by mapHeight/mapWidth on x. 
-        //TODO: matrix lib? This doesnt feel great.
-        Vector3 mapPoint = MapToViewportPoint(point);
-        return new Vector3(mapPoint.x * ((float)MapTextureDimensions.y / (float)MapTextureDimensions.x), mapPoint.y, mapPoint.z);
-    }
+    /////////////////////////////Coordinate System Helper Methods/////////////////////////////////////////////////////////
 
-    public Vector3 MapToViewportPoint(Vector3 point)
+    //get the with of the black bars scaled to [0, 1] as a multiplier of the screen width
+    private float GetScaledBarWidth()
     {
-        //TODO: refactor using matrices
-        return new Vector3(((float)Screen.width / (float)Screen.height) * point.y + 0.5f * (((float)Screen.width / (float)Screen.height) - ((float)MapTextureDimensions.x / (float)MapTextureDimensions.x)), point.y, point.z);
+        return (Screen.width - (MapDimensions.x * PixelsPerUU)) / Screen.width / 2f;
     }
 
 
+    //////////////////////////////Singleton Nonsense///////////////////////////////////////////////////////////////////////
 
     //I guess this is a singleton now
     //yaaay for good code style
