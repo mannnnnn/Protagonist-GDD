@@ -257,6 +257,7 @@
     <sound>sound\snd_syntaxIntro1</sound>
     <sound>sound\snd_syntaxLoop1</sound>
     <sound>sound\snd_syntaxOutro1</sound>
+    <sound>sound\snd_break</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="SceneSprites">

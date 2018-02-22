@@ -82,7 +82,7 @@ else if (timer &lt; dur)
     Y = map_range(timer, 0, dur, y1, Y);
     if (timer == dur - 1)
     {
-        combatDamage(X, Y, 1.25);
+        combatDamage(X, Y, 1);
     }
 }
 // spike stays

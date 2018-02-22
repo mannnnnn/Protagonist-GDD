@@ -31,6 +31,9 @@ VelX = 0;
 VelY = 0;
 rot = 0;
 exploded = false;
+damageTimer = 0;
+damageDur = 10;
+damaged = false;
 </string>
           </argument>
         </arguments>
@@ -56,9 +59,43 @@ exploded = false;
             <string>/// draw cat part of hp bar
 if (sprite_exists(sprite_index))
 {
+    image_alpha = 1;
+    image_index = 0;
+    var dam = false;
+    if (object_index == obj_synHead)
+    {
+        with (obj_syntaxBoss)
+        {
+            if ((object_index != obj_synHead) &amp;&amp; damaged)
+            {
+                dam = true;
+                show_debug_message(object_get_name(object_index));
+            }
+        }
+        if (dam &amp;&amp; !damaged)
+        {
+            image_index = 2;
+        }
+        else
+        {
+            image_index = 0;
+        }
+    }
     draw_self();
+    
+    if (damaged)
+    {
+        image_alpha = random_range(0.4, 0.7);
+        image_index = 1;
+        draw_self();
+        damageTimer--;
+        if (damageTimer &lt;= 0)
+        {
+            damaged = false;
+        }
+    }
 }
-else
+if (object_index == obj_synHead)
 {
     if (instance_exists(obj_combatPuzzle))
     {

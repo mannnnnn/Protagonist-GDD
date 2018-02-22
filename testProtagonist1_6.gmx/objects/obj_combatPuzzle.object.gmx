@@ -30,8 +30,8 @@ event_inherited();
 
 playerHP = 100;
 playerMaxHP = 100;
-enemyHP = 100;
-enemyMaxHP = 100;
+enemyHP = 500;
+enemyMaxHP = 500;
 
 // move to a the boss cat room
 room = rm_boss1;

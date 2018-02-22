@@ -85,7 +85,7 @@ for (var i = 0; i &lt; 360; i += 360 / n)
     f.spd = f.spd * image_xscale;
 }
 active = false;
-combatDamage(x, y, 1);
+combatDamage(x, y, 0.9);
 exit;
 </string>
           </argument>

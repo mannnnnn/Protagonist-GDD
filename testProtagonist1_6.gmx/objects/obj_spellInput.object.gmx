@@ -59,10 +59,11 @@ for (var i = 0; i &lt; ds_map_size(obj_playerStats.letters); i++)
 {
     var index = spellSearchInsert(key, letters);
     ds_list_insert(letters, index, key);
-    letterCooldowns[? key] = irandom_range(0, 100);
+    letterCooldowns[? key] = 0;
     key = ds_map_find_next(obj_playerStats.letters, key);
 }
 letterCooldowns[? key] = irandom_range(0, 100);
+recovery = 800;
 </string>
           </argument>
         </arguments>
@@ -125,11 +126,11 @@ if (action == "")
     // check every keyboard letter
     for (var i = ord('A'); i &lt;= ord('Z'); i++)
     {
-        // if maxsize isn't met, and key is pressed, and player owns that letter
+        // if maxsize isn't met, and key is pressed, and player owns that letter, and it isn't broken
         var char = string_lower(chr(i));
         if (ds_list_size(spell) &lt; maxsize &amp;&amp; keyboard_check_pressed(i) &amp;&amp;
         ds_map_exists(obj_playerStats.letters, char) &amp;&amp; 
-        obj_playerStats.letters[? char])
+        obj_playerStats.letters[? char] &amp;&amp; obj_spellInput.letterCooldowns[? char] &gt;= 0)
         {
             ds_list_add(spell, createLetter(x + (ds_list_size(spell) * sprite_get_width(spr_Spells)), y, char));
         }
@@ -203,6 +204,38 @@ if (action != "")
         }
         ds_list_clear(spell);
         action = "";
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// recover broken letters
+// for every letter
+for (var i = 0; i &lt; ds_list_size(obj_spellInput.letters); i++)
+{
+    var c = obj_spellInput.letters[| i];
+    // if letter is broken, recover it slowly
+    var heat = obj_spellInput.letterCooldowns[? c];
+    if (heat &lt; 0)
+    {
+        obj_spellInput.letterCooldowns[? c] = min(obj_spellInput.letterCooldowns[? c] + 1, 0);
     }
 }
 </string>
@@ -307,14 +340,14 @@ for (var i = 0; i &lt; ds_list_size(spell); i++)
           <argument>
             <kind>1</kind>
             <string>/// draw the letters you can use
-var spellScale = 0.5;
-var bordW = 3;
-var bordH = 3;
-var listW = (sprite_get_width(spr_Spells) * spellScale * ds_list_size(letters)) + (2 * bordW);
-var listH = (sprite_get_height(spr_Spells) * spellScale * 1) + (2 * bordH);
+spellScale = 0.5;
+bordW = 3;
+bordH = 3;
+listW = (sprite_get_width(spr_Spells) * spellScale * ds_list_size(letters)) + (2 * bordW);
+listH = (sprite_get_height(spr_Spells) * spellScale * 1) + (2 * bordH);
 
-var posX = getDisplayRoomWidth() - listW - 40;
-var posY = 8;
+posX = getDisplayRoomWidth() - listW - 40;
+posY = 8;
 
 draw_set_alpha(1);
 draw_set_color(c_black);
@@ -322,8 +355,27 @@ draw_rectangle(posX, posY, posX + listW, posY + listH, true);
 
 for (var i = 0; i &lt; ds_list_size(letters); i++)
 {
-    var color = make_colour_hsv(0, map_range(letterCooldowns[? string_lower(letters[| i])], 0, 100, 0, 255), 255);
-    draw_sprite_ext(spr_Spells, ord(string_lower(letters[| i])) - ord('a'), posX + (i * sprite_get_width(spr_Spells) * spellScale) + bordW, posY + bordH, spellScale, spellScale, 0, color, 1);
+    var c = letters[| i];
+    var heat = obj_spellInput.letterCooldowns[? c];
+    var color = c_white;
+    // if not broken
+    if (heat &gt;= 0)
+    {
+        // color indicates chance of breakage
+        color = make_colour_hsv(0, map_range(heat, 0, 100, 0, 255), 255);
+    }
+    // if broken
+    else
+    {
+        color = c_black;
+    }
+    draw_sprite_ext(spr_Spells, ord(c) - ord('a'), posX + (i * sprite_get_width(spr_Spells) * spellScale) + bordW, posY + bordH, spellScale, spellScale, 0, color, 1);
+    // if broken but returning
+    if (heat &lt; 0 &amp;&amp; heat &gt;= -45)
+    {
+        // flicker to indicate coming back
+        draw_sprite_ext(spr_Spells, ord(c) - ord('a'), posX + (i * sprite_get_width(spr_Spells) * spellScale) + bordW, posY + bordH, spellScale, spellScale, 0, c_white, random_range(0, 0.7));
+    }
 }
 </string>
           </argument>
