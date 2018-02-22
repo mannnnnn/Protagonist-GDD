@@ -109,6 +109,9 @@ if (instance_exists(puzzle))
     // end puzzle if right letter was hit
     if (success)
     {
+        // can no longer exit
+        obj_combatCursor.exitable = false;
+        // make the letters flicker
         var ef = createGroupEffect(obj_spellHitEffect, ds_list_create());
         with (puzzle)
         {

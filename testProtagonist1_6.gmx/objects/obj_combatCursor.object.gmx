@@ -28,6 +28,8 @@
             <string>/// init
 angle = 0;
 spd = -4;
+// exitable
+exitable = true;
 </string>
           </argument>
         </arguments>
@@ -73,6 +75,42 @@ else if (instance_number(obj_spellEffect) &gt; 0)
     }
 }
 drawReticle(X, Y, 25, 3, 13, 2, angle, 19, 34, 3, X2, Y2);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// draw exit button
+if (exitable)
+{
+    if (mouse_in_rect(getDisplayRoomWidth() - 32, 0, 32, 32))
+    {
+        draw_sprite(spr_exitPuzzle, 1, getDisplayRoomWidth() - 32, 0);
+        if (mouse_check_button_pressed(mb_left))
+        {
+            runCombat();
+        }
+    }
+    else
+    {
+        draw_sprite(spr_exitPuzzle, 0, getDisplayRoomWidth() - 32, 0);
+    }
+}
 </string>
           </argument>
         </arguments>

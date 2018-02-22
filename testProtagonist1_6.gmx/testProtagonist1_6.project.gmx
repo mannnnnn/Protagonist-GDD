@@ -427,6 +427,7 @@
       <sprite>sprites\spr_spellbookGraphics</sprite>
     </sprites>
     <sprite>sprites\spr_banner</sprite>
+    <sprite>sprites\spr_exitPuzzle</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="map">
@@ -694,6 +695,7 @@
       <script>scripts\prepareCombatEnd.gml</script>
       <script>scripts\endCombatAnimation.gml</script>
       <script>scripts\combatDamage.gml</script>
+      <script>scripts\runCombat.gml</script>
     </scripts>
     <scripts name="spells">
       <script>scripts\createSpell.gml</script>
