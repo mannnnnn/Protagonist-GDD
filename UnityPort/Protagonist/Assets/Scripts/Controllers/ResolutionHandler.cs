@@ -179,6 +179,7 @@ public class ResolutionHandler : MonoBehaviour {
         if (instance == null)
         {
             instance = new ResolutionHandler();
+            Debug.Log("ResolutionHandler instance is null, reinitializing...");
         }
         return instance;
     }

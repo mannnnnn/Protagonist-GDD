@@ -35,6 +35,10 @@ public class Player : MonoBehaviour {
 
     private void Update () {
         Move();
+        if (ResolutionHandler.GetInstance() == null)
+        {
+            Debug.Log("ERROR! ResolutionHandler Instance is Null!");
+        }
 	}
 
 
