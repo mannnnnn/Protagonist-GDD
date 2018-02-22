@@ -63,6 +63,10 @@ spd = 15;
           <argument>
             <kind>1</kind>
             <string>/// bounce up and down for breathing
+if (exploded)
+{
+    exit;
+}
 y = initialX + mean(yMin, yMax) + lengthdir_y(0.5 * (yMax - yMin), timer);
 timer = (timer + spd) mod 360;
 </string>

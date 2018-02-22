@@ -117,7 +117,6 @@ createSpell("act", noone);
 createSpell("sear", obj_searSpell);
 createSpell("tear", obj_tearSpell);
 createSpell("seed", obj_seedSpell);
-createSpell("read", noone);
 
 </string>
           </argument>

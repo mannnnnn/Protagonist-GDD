@@ -80,6 +80,10 @@ oldTargetY = targetY;
           <argument>
             <kind>1</kind>
             <string>///head growl
+if (exploded)
+{
+    exit;
+}
 
 // randomize head position within bounds for growl effect
 if (timer &gt;= duration)

@@ -979,6 +979,7 @@
       <object>objects\obj_searSpell</object>
       <object>objects\obj_catSpell</object>
       <object>objects\obj_tearSpell</object>
+      <object>objects\obj_dialogueSpell</object>
     </objects>
     <object>objects\obj_particles</object>
     <object>objects\obj_music</object>

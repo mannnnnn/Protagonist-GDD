@@ -1,7 +1,11 @@
-///spellSearchInsert(str)
-var str = argument0;
+///spellSearchInsert(str, ?list)
+var str = argument[0];
 // binary search on the spell sorted list, for insertion only
 var list = obj_spellbook.spells;
+if (argument_count >= 2)
+{
+    list = argument[1];
+}
 if (ds_list_empty(list))
 {
     return 0;

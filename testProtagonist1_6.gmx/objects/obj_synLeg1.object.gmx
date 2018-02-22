@@ -66,6 +66,10 @@ bodyY = y - obj_synBody.y;
           <argument>
             <kind>1</kind>
             <string>/// move legs with body
+if (exploded)
+{
+    exit;
+}
 image_yscale = mean(scaleMin, scaleMax) + lengthdir_y(0.5 * abs(scaleMax - scaleMin), 360 - obj_synBody.timer);
 </string>
           </argument>

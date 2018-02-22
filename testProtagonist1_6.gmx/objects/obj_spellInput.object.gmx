@@ -50,6 +50,19 @@ targetY = 0;
 
 // spell cast or not
 spellCast = false;
+
+// letters
+letters = ds_list_create();
+letterCooldowns = ds_map_create();
+var key = ds_map_find_first(obj_playerStats.letters);
+for (var i = 0; i &lt; ds_map_size(obj_playerStats.letters); i++)
+{
+    var index = spellSearchInsert(key, letters);
+    ds_list_insert(letters, index, key);
+    letterCooldowns[? key] = irandom_range(0, 100);
+    key = ds_map_find_next(obj_playerStats.letters, key);
+}
+letterCooldowns[? key] = irandom_range(0, 100);
 </string>
           </argument>
         </arguments>
@@ -270,6 +283,47 @@ for (var i = 0; i &lt; ds_list_size(spell); i++)
         scaleX = image_xscale;
         scaleY = image_yscale;
     }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// draw the letters you can use
+var spellScale = 0.5;
+var bordW = 3;
+var bordH = 3;
+var listW = (sprite_get_width(spr_Spells) * spellScale * ds_list_size(letters)) + (2 * bordW);
+var listH = (sprite_get_height(spr_Spells) * spellScale * 1) + (2 * bordH);
+
+var posX = getDisplayRoomWidth() - listW - 40;
+var posY = 8;
+
+draw_set_alpha(1);
+draw_set_color(c_black);
+draw_rectangle(posX, posY, posX + listW, posY + listH, true);
+
+for (var i = 0; i &lt; ds_list_size(letters); i++)
+{
+    var color = make_colour_hsv(0, map_range(letterCooldowns[? string_lower(letters[| i])], 0, 100, 0, 255), 255);
+    draw_sprite_ext(spr_Spells, ord(string_lower(letters[| i])) - ord('a'), posX + (i * sprite_get_width(spr_Spells) * spellScale) + bordW, posY + bordH, spellScale, spellScale, 0, color, 1);
 }
 </string>
           </argument>

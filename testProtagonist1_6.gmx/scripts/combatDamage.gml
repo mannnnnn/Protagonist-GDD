@@ -29,12 +29,7 @@ if (instance_exists(obj_enemy) && instance_exists(obj_combatPuzzle))
             if (collision_point(X, Y, obj_synHead, true, false))
             {
                 // attack head
-                damage = pow;
-            }
-            else if (collision_point(X, Y, obj_synBody, true, false))
-            {
-                // attack body
-                damage = pow;
+                damage = 1.2 * pow;
             }
             else if (collision_point(X, Y, obj_synLeg1, true, false))
             {
@@ -56,10 +51,15 @@ if (instance_exists(obj_enemy) && instance_exists(obj_combatPuzzle))
                 // attack leg4
                 damage = pow;
             }
+            else if (collision_point(X, Y, obj_synBody, true, false))
+            {
+                // attack body
+                damage = pow;
+            }
             else if (collision_point(X, Y, obj_synTail, true, false))
             {
                 // attack tail
-                damage = pow;
+                damage = 2 * pow;
             }
         }
         else

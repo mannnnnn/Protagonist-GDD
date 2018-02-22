@@ -27,6 +27,10 @@
             <kind>1</kind>
             <string>/// draw settings
 image_speed = 0;
+VelX = 0;
+VelY = 0;
+rot = 0;
+exploded = false;
 </string>
           </argument>
         </arguments>
@@ -63,6 +67,24 @@ else
     }
 }
 
+// explode at the end
+if (!exploded &amp;&amp; obj_combatPuzzle.enemyHP &lt;= 0)
+{
+    var centerX = x + (0.5 * sprite_width);
+    var centerY = y + (0.5 * sprite_height);
+    var dir = point_direction(getDisplayRoomWidth() * 0.5, getDisplayRoomHeight(), centerX, centerY);
+    VelX = lengthdir_x(20, dir);
+    VelY = lengthdir_y(20, dir);
+    exploded = true;
+}
+
+x += VelX;
+y += VelY;
+if (exploded)
+{
+    VelY += 1;
+}
+image_angle += rot;
 </string>
           </argument>
         </arguments>

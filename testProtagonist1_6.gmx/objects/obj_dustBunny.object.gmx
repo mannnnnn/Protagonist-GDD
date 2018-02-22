@@ -99,12 +99,15 @@ if (timer &gt;= duration)
     {
         var chosenAngle = list[| irandom_range(0, ds_list_size(list))];
         ds_list_destroy(list);
-        hop = movementAnimation(obj_hopAnimation, id, 0, 0, vel * sqrt(2) * 0.5, vel * sqrt(2) * 0.5);
-        hop.projVelX = lengthdir_x(1, chosenAngle);
-        hop.projVelY = lengthdir_y(1, chosenAngle);
-        hop.projX = getX(id);
-        hop.projY = getY(id);
-        hop.AccY = acc;
+        if (!is_undefined(chosenAngle))
+        {
+            hop = movementAnimation(obj_hopAnimation, id, 0, 0, vel * sqrt(2) * 0.5, vel * sqrt(2) * 0.5);
+            hop.projVelX = lengthdir_x(1, chosenAngle);
+            hop.projVelY = lengthdir_y(1, chosenAngle);
+            hop.projX = getX(id);
+            hop.projY = getY(id);
+            hop.AccY = acc;
+        }
     }
 }
 

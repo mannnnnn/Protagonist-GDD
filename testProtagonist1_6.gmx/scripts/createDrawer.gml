@@ -19,7 +19,12 @@ if (entry[| DRAWER_QUEUE_TYPE] == DRAWER_QUEUE_TYPE_NORMAL)
                 if (ds_map_exists(obj_dialogue.drawerHideKeywords, type))
                 {
                     var keyword = obj_dialogue.drawerHideKeywords[? type];
-                    var hideObj = keyword[| char[| CHARACTER_SIDE]];
+                    var side = char[| CHARACTER_SIDE];
+                    if (is_undefined(side))
+                    {
+                        side = RIGHT;
+                    }
+                    var hideObj = keyword[| side];
                     with (old)
                     {
                         transformDrawer(hideObj, true, true, true, true, true, true, true);
@@ -36,7 +41,12 @@ if (entry[| DRAWER_QUEUE_TYPE] == DRAWER_QUEUE_TYPE_NORMAL)
         {
             var keyword = obj_dialogue.drawerKeywords[? type];
             var char = obj_dialogue.characters[? channel];
-            obj = keyword[| char[| CHARACTER_SIDE]];
+            var side = char[| CHARACTER_SIDE];
+            if (is_undefined(side))
+            {
+                side = RIGHT;
+            }
+            obj = keyword[| side];
         }
         else
         {
@@ -69,7 +79,12 @@ if (entry[| DRAWER_QUEUE_TYPE] == DRAWER_QUEUE_TYPE_NORMAL)
                 if (ds_map_exists(obj_dialogue.drawerHideKeywords, type))
                 {
                     var keyword = obj_dialogue.drawerHideKeywords[? type];
-                    var hideObj = keyword[| char[| CHARACTER_SIDE]];
+                    var side = char[| CHARACTER_SIDE];
+                    if (is_undefined(side))
+                    {
+                        side = RIGHT;
+                    }
+                    var hideObj = keyword[| side];
                     with (old)
                     {
                         transformDrawer(hideObj, true, true, true, true, true, true, true);
@@ -97,7 +112,12 @@ if (entry[| DRAWER_QUEUE_TYPE] == DRAWER_QUEUE_TYPE_NORMAL)
         {
             var keyword = obj_dialogue.drawerHideKeywords[? type];
             var char = obj_dialogue.characters[? channel];
-            obj = keyword[| char[| CHARACTER_SIDE]];
+            var side = char[| CHARACTER_SIDE];
+            if (is_undefined(side))
+            {
+                side = RIGHT;
+            }
+            obj = keyword[| side];
         }
         else
         {
