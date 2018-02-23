@@ -157,6 +157,16 @@ Prefab:
       propertyPath: sceneName
       value: test2
       objectReference: {fileID: 0}
+    - target: {fileID: 114559861110980712, guid: 92967a5370c40a043a8c44be83080333,
+        type: 2}
+      propertyPath: transitionTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114559861110980712, guid: 92967a5370c40a043a8c44be83080333,
+        type: 2}
+      propertyPath: fadeSpeed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 92967a5370c40a043a8c44be83080333, type: 2}
   m_IsPrefabParent: 0
