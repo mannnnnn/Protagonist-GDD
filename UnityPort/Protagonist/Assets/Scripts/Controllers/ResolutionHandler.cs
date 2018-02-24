@@ -8,6 +8,9 @@ using UnityEngine;
  * Also handles conversion between Map Coordinates and other Unity coordinate systems.
  * Map Coordinates:
  *  Normalized coordinates on domain [0, 1] and range [0, MapHeightToWidthRatio]
+ * MapView Coordinates:
+ *  The same as map corrdinates, but the range is also normalized to [0, 1]
+    Note that this is a non 1:1 transformation and aspect ratios may not be preserved
  */
 public class ResolutionHandler : MonoBehaviour {
 
@@ -17,7 +20,7 @@ public class ResolutionHandler : MonoBehaviour {
 
     //data about background texture
     GameObject roomBackgroud;
-    SpriteRenderer mapTexture;
+    public SpriteRenderer mapTexture;
 
     public float PixelsPerUU
     {
@@ -84,20 +87,76 @@ public class ResolutionHandler : MonoBehaviour {
 
     /////////////////////////////////COORDINATE CONVERSION METHODS//////////////////////////////////////////////////////////////////
 
-    public Vector3 MapToUnityCoords(Vector3 point)
+    //Conversion from World Coordinates (Unity Units)
+    public Vector3 MapToWorldPoint(Vector3 point)
     {
         float newX = Mathf.Lerp(-MapDimensions.x / 2f, MapDimensions.x / 2f, point.x);
         float newY = Mathf.Lerp(-MapDimensions.y / 2f, MapDimensions.y / 2f, point.y / MapHeightToWidthRatio);
         return new Vector3(newX, newY, point.z);
     }
 
-    public Vector3 UnityToMapCoords(Vector3 point)
+    public Vector3 WorldToMapPoint(Vector3 point)
     {
-        Debug.Log("BW: " + GetScaledBarWidth());
-        Debug.Log("PPUU: " + PixelsPerUU);
         float newX = (point.x / MapDimensions.x) + 0.5f;
         float newY = Mathf.Lerp(0, MapHeightToWidthRatio, (point.y / MapDimensions.y) + 0.5f);
         return new Vector3(newX, newY, point.z);
+    }
+
+
+    public Vector3 WorldToMapViewPoint(Vector3 point)
+    {
+        Vector3 mapCoords = WorldToMapPoint(point);
+        mapCoords.y /= MapHeightToWidthRatio;
+        return mapCoords;
+    }
+
+    public Vector3 MapViewToWorldPoint(Vector3 point)
+    {
+        point.y *= MapHeightToWidthRatio; //transalte to Map Coords
+        return MapToWorldPoint(point);
+    }
+      
+    //Conversions for screen (pixel) coords
+    public Vector3 ScreenToMapPoint(Vector3 point)
+    {
+        return WorldToMapPoint(Camera.main.ScreenToWorldPoint(point));
+    }
+
+    public Vector3 MapToScreenPoint(Vector3 point)
+    {
+        return Camera.main.WorldToScreenPoint(MapToWorldPoint(point));
+    }
+
+    public Vector3 ScreenToMapViewPoint(Vector3 point)
+    {
+        return WorldToMapViewPoint(Camera.main.ScreenToWorldPoint(point));
+    }
+
+    public Vector3 MapViewToScreenPoint(Vector3 point)
+    {
+        return Camera.main.WorldToScreenPoint(MapViewToWorldPoint(point));
+    }
+
+    //Conversions for Viewport coordinates
+
+    public Vector3 ViewportToMapPoint(Vector3 point)
+    {
+        return WorldToMapPoint(Camera.main.ViewportToWorldPoint(point));
+    }
+
+    public Vector3 MapToViewportPoint(Vector3 point)
+    {
+        return Camera.main.WorldToViewportPoint(MapToWorldPoint(point));
+    }
+
+    public Vector3 ViewportToMapViewPoint(Vector3 point)
+    {
+        return WorldToMapViewPoint(Camera.main.ViewportToWorldPoint(point));
+    }
+    
+    public Vector3 MapViewToViewportPoint(Vector3 point)
+    {
+        return Camera.main.WorldToViewportPoint(MapViewToWorldPoint(point));
     }
 
 
@@ -158,14 +217,6 @@ public class ResolutionHandler : MonoBehaviour {
         Camera.main.orthographicSize = mapTextureHeight / 2f;
     }
 
-
-    /////////////////////////////Coordinate System Helper Methods/////////////////////////////////////////////////////////
-
-    //get the with of the black bars scaled to [0, 1] as a multiplier of the screen width
-    private float GetScaledBarWidth()
-    {
-        return (Screen.width - (MapDimensions.x * PixelsPerUU)) / Screen.width / 2f;
-    }
 
 
     //////////////////////////////Singleton Nonsense///////////////////////////////////////////////////////////////////////
