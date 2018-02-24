@@ -35,7 +35,8 @@ public class Player : MonoBehaviour {
 
     private void Update () {
         Move();
-	}
+    }
+
 
     private void Move()
     {
@@ -45,7 +46,7 @@ public class Player : MonoBehaviour {
         Vector3 velocity = movementSpeed * new Vector3(xInput, yInput, 0);
 
         //TODO: normalize to ensure that diagnonal movement isn't faster
-        transform.position += velocity * Time.deltaTime; 
+        GetComponent<Rigidbody2D>().MovePosition( transform.position + (velocity * Time.deltaTime)); 
 
         //change Animator state if needed
         animator.speed = (velocity.magnitude == 0) ? 0f : walkAnimSpeed;
