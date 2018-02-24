@@ -97,6 +97,13 @@ var ymax = -10000;
 for (var i = 0; i &lt; ds_list_size(list); i++)
 {
     var letter = list[| i];
+    // remove nonexistent letters
+    if (!instance_exists(letter))
+    {
+        ds_list_delete(list, i);
+        i--;
+        continue;
+    }
     var xval = letter.x - (0.5 * letter.sprite_width);
     if (xval &lt; xmin)
     {

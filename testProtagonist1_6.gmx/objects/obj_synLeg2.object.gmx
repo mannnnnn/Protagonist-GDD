@@ -3,7 +3,7 @@
   <spriteName>spr_synLeg2</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-45</depth>
+  <depth>50</depth>
   <persistent>0</persistent>
   <parentName>obj_synLeg1</parentName>
   <maskName>&lt;undefined&gt;</maskName>

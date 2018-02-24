@@ -69,7 +69,6 @@ if (sprite_exists(sprite_index))
             if ((object_index != obj_synHead) &amp;&amp; damaged)
             {
                 dam = true;
-                show_debug_message(object_get_name(object_index));
             }
         }
         if (dam &amp;&amp; !damaged)

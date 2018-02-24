@@ -1,4 +1,4 @@
-/// createLetterString(x, y, str, ?animate, ?delay, ?startdelay, ?scale, ?list)
+/// createLetterString(x, y, str, ?animate, ?delay, ?startdelay, ?scale, ?list, ?obj)
 // creates an unused letter string
 
 var X = argument[0];
@@ -35,10 +35,17 @@ if (argument_count >= 7)
 
 // list to store letters in
 var list = noone;
-if (argument_count >= 8)
+if (argument_count >= 8 && is_real(argument[7]))
 {
     list = argument[7];
     ds_list_clear(list);
+}
+
+// obj
+var type = obj_letter;
+if (argument_count >= 9)
+{
+    type = argument[8];
 }
 
 // create
@@ -46,7 +53,7 @@ if (delay <= 0)
 {
     for (var i = 0; i < string_length(str); i++)
     {
-        var obj = createLetter(X + (i * sprite_get_width(spr_Spells) * scale), Y, string_char_at(str, i));
+        var obj = createLetter(X + (i * sprite_get_width(spr_Spells) * scale), Y, string_char_at(str, i), type);
         obj.depth = object_get_depth(obj.object_index) + 1;
         obj.spell = false;
         obj.str = str;
@@ -74,6 +81,7 @@ else
         obj.list = list;
         obj.selflist = false;
     }
+    obj.type = type;
     obj.delay = delay;
     obj.str = str;
     obj.timer = -startdelay / delay;

@@ -15,4 +15,3 @@ if (instance_exists(obj_combat.handler))
         event_user(SPELLCAST_FIRSTHIT);
     }
 }
-

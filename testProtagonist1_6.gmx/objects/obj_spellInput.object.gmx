@@ -237,6 +237,11 @@ for (var i = 0; i &lt; ds_list_size(obj_spellInput.letters); i++)
     {
         obj_spellInput.letterCooldowns[? c] = min(obj_spellInput.letterCooldowns[? c] + 1, 0);
     }
+    // if letter is not broken, decrease heat slowly
+    if (heat &gt; 0)
+    {
+        obj_spellInput.letterCooldowns[? c] = max(obj_spellInput.letterCooldowns[? c] - 0.07, 0);
+    }
 }
 </string>
           </argument>
@@ -362,7 +367,7 @@ for (var i = 0; i &lt; ds_list_size(letters); i++)
     if (heat &gt;= 0)
     {
         // color indicates chance of breakage
-        color = make_colour_hsv(0, map_range(heat, 0, 100, 0, 255), 255);
+        color = make_colour_hsv(0, clamp(map_range(heat, 0, 100, 0, 255), 0, 255), 255);
     }
     // if broken
     else

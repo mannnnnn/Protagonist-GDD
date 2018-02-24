@@ -715,6 +715,7 @@
       <script>scripts\endCombatAnimation.gml</script>
       <script>scripts\combatDamage.gml</script>
       <script>scripts\runCombat.gml</script>
+      <script>scripts\playerDamage.gml</script>
     </scripts>
     <scripts name="spells">
       <script>scripts\createSpell.gml</script>
@@ -960,6 +961,9 @@
         <object>objects\obj_puzzle7</object>
         <object>objects\obj_combatPuzzle</object>
         <objects name="cat">
+          <object>objects\obj_attack</object>
+          <object>objects\obj_sphinxAttack1</object>
+          <object>objects\obj_sphinxAttackLetter</object>
           <object>objects\obj_synHead</object>
           <object>objects\obj_synBody</object>
           <object>objects\obj_synTail</object>
