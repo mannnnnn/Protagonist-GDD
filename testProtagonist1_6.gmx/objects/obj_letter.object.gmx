@@ -290,6 +290,10 @@ switch (state)
             timer = 0;
             normalDur = irandom_range(normalMin, normalMax);
             state = normalTarget;
+            if (state == SPELLIMAGE_OBSCURED)
+            {
+                //playSound(SFX, snd_fizz, false);
+            }
             break;
         }
         timer += normalSpd;
@@ -303,6 +307,10 @@ switch (state)
             // finished greek section, start flash
             flash = true;
             state = greekTarget;
+            if (state == SPELLIMAGE_OBSCURED)
+            {
+                //playSound(SFX, snd_fizz, false);
+            }
             break;
         }
         timer += greekSpd;

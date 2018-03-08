@@ -1,5 +1,11 @@
+///loadStoryData(?file)
 /// load story data map
-var fname = getGlobalSavePath(obj_storyData.file);
+var datafile = obj_storyData.file;
+if (argument_count >= 1)
+{
+    datafile = argument[0];
+}
+var fname = getGlobalSavePath(datafile);
 if (!file_exists(fname))
 {
     return false;

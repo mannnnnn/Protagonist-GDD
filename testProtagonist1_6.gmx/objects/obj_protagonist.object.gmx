@@ -56,6 +56,33 @@ prevY = phy_position_y;
 
 // check if first frame (don't draw on first frame if transitioning)
 firstframe = true;
+
+// footsteps sound effect
+snd = audio_play_sound(snd_steps, 1, true);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// stop footsteps
+audio_stop_sound(snd);
 </string>
           </argument>
         </arguments>
@@ -110,6 +137,10 @@ if (dist &gt; spd * 0.3)
 {
     dir = point_direction(prevX, prevY, phy_position_x, phy_position_y);
     image_index = imgindex + imgspd;
+    if (audio_sound_get_gain(snd) != 1)
+    {
+        audio_sound_gain(snd, 1, 10);
+    }
 }
 else
 {
@@ -133,6 +164,10 @@ else
         {
             dir = 270;
         }
+    }
+    if (audio_sound_get_gain(snd) != 0)
+    {
+        audio_sound_gain(snd, 0,10 );
     }
 }
 
@@ -201,6 +236,54 @@ if (playerCanMove())
         phy_position_y += spd;
     }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// stop footsteps
+audio_stop_sound(snd);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// stop footsteps
+audio_stop_sound(snd);
 </string>
           </argument>
         </arguments>

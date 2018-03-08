@@ -18,6 +18,8 @@ text display obj_narration
 create stepper intro obj_intro
 next intro
 
+play music snd_introMusicLoop snd_introMusicIntro
+
 H: "Welcome Hero, to darkness of war. Give thy love to the gods of lore?"
 
 next intro
@@ -63,6 +65,8 @@ with fade
 //
 
 text display obj_dialogueBox
+
+play music snd_hadesEntrance
 
 call hadesSpecialDatetimeExtravaganza()
 

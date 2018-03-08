@@ -103,7 +103,7 @@ if (mouse_in_rect(B, B, w, h))
             <string>/// restart game
 if (!debug)
 {
-    exit;
+    //exit;
 }
 if (keyboard_check(vk_control))
 {

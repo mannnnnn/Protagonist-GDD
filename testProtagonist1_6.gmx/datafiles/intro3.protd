@@ -20,6 +20,8 @@ text display obj_narration
 create stepper intro obj_ffintro
 next intro
 
+play music snd_introMusicLoop snd_introMusicIntro
+
 "Welcome Hero, to darkness of war. Rhyming's a duty I can't ignore."
 
 "I thought that I'd made this very clear, but there is nothing for you here."
@@ -29,6 +31,8 @@ next intro
 "Repeating again the important lines, I'm starting to think that you're missing the signs."
 
 "But if it's all for giggles and chortles, I'll reminisce about the death of the mortals."
+
+play music snd_introMusicFF
 
 next intro
 text speed 2
@@ -79,6 +83,8 @@ text speed 2
 text auto false
 
 text display obj_dialogueBox
+
+play music snd_hadesEntrance
 
 //slow down text to original speed
 "I can tell this is all greek to you."

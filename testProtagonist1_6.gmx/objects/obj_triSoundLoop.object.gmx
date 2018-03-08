@@ -36,6 +36,7 @@ introSnd = noone;
 loopSnd = noone;
 outroSnd = noone;
 
+playLoop = true;
 </string>
           </argument>
         </arguments>
@@ -63,33 +64,62 @@ switch (state)
 {
     case CLOSED:
         // play intro
-        introSnd = audio_play_sound(intro, 1, false);
+        introSnd = noone;
+        if (sound_exists(intro))
+        {
+            introSnd = audio_play_sound(intro, 1, false);
+        }
         state = OPENING;
         break;
     case OPENING:
         // if intro stops, play loop
-        if (!audio_is_playing(introSnd))
+        if (!audio_is_playing(introSnd) || introSnd == noone)
         {
-            loopSnd = audio_play_sound(loop, 1, true);
+            loopSnd = noone;
+            if (sound_exists(loop))
+            {
+                loopSnd = audio_play_sound(loop, 1, playLoop);
+            }
             introSnd = noone;
             state = OPEN;
         }
         break;
     case OPEN:
         // keep looping until outro (state = CLOSING) 
+        // if not looping, then wait until sound is over
+        if (!playLoop &amp;&amp; (!audio_is_playing(loopSnd) || loopSnd == noone))
+        {
+            state = CLOSING;
+        }
         break;
     case CLOSING:
+        // if playing the intro
+        if (audio_is_playing(introSnd) &amp;&amp; introSnd != noone)
+        {
+            // stop intro sound
+            audio_stop_sound(introSnd);
+        }
         // if playing the looping sound
-        if (audio_is_playing(loopSnd))
+        if ((audio_is_playing(loopSnd) || loopSnd == noone) &amp;&amp; outroSnd == noone)
         {
             // stop looping sound
-            audio_stop_sound(loopSnd);
+            if (loopSnd != noone)
+            {
+                audio_stop_sound(loopSnd);
+            }
             loopSnd = noone;
             // play outro
-            outroSnd = audio_play_sound(outro, 1, false);
+            if (sound_exists(outro))
+            {
+                outroSnd = audio_play_sound(outro, 1, false);
+            }
+            else
+            {
+                instance_destroy();
+            }
         }
         // if outro is done
-        if (!audio_is_playing(outroSnd))
+        if (!audio_is_playing(outroSnd) || outroSnd == noone)
         {
             // done, destroy self
             instance_destroy();

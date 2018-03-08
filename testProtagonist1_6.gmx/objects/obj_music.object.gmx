@@ -27,21 +27,10 @@
             <kind>1</kind>
             <string>/// play all at once, then hide the ones that aren't current
 music = ds_list_create();
-music[| MUSIC_FOREST1] = audio_play_sound(snd_forest1, 1, true);
-music[| MUSIC_FOREST2] = audio_play_sound(snd_forest2, 2, true);
-music[| MUSIC_FOREST3] = audio_play_sound(snd_forest3, 3, true);
+sfx = ds_list_create();
 
-current = MUSIC_FOREST1;
-
-for (var i = 0; i &lt; ds_list_size(obj_music.music); i++)
-{
-    var volume = 0;
-    if (obj_music.current == i)
-    {
-        volume = 1;
-    }
-    audio_sound_gain(obj_music.music[| i], volume, 0);
-}
+currentMusic = noone;
+currentSfx = noone;
 </string>
           </argument>
         </arguments>

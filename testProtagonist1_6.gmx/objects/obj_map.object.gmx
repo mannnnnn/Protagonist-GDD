@@ -152,33 +152,7 @@ if (instance_number(obj_protagonist) &gt; 0 &amp;&amp; playerCanMove())
             var trans = createRoomTransition(map[# X, Y], obj_blackSlideTransition, true);
             trans.side = side;
             // set music
-            switch (map[# X, Y])
-            {
-                case rm_forest1:
-                case rm_forest2:
-                case rm_forest3:
-                    obj_music.current = MUSIC_FOREST1;
-                    break;
-                case rm_forest4:
-                case rm_forest5:
-                case rm_forest6:
-                    obj_music.current = MUSIC_FOREST2;
-                    break;
-                case rm_forest7:
-                case rm_forest8:
-                case rm_forest9:
-                    obj_music.current = MUSIC_FOREST3;
-                    break;
-            }
-            for (var i = 0; i &lt; ds_list_size(obj_music.music); i++)
-            {
-                var volume = 0;
-                if (obj_music.current == i)
-                {
-                    volume = 1;
-                }
-                audio_sound_gain(obj_music.music[| i], volume, 1000);
-            }
+            updateForestMusic();
         }
     }
 }

@@ -7,10 +7,13 @@ for (var i = 0; i < size; i++)
 {
     var snd = obj_dialogue.sounds[? current];
     // if it's playing
-    if (audio_is_playing(snd))
+    if (instance_exists(snd))
     {
         // stop it
-        audio_stop_sound(snd);
+        if (snd.state != CLOSING)
+        {
+            snd.state = CLOSING;
+        }
     }
     current = ds_map_find_next(obj_dialogue.sounds, current);
 }

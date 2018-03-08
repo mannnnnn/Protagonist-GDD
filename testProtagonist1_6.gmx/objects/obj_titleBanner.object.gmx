@@ -99,6 +99,10 @@ if (mouse_in_rect(posX, posY, 2 * w, h) &amp;&amp; mouse_check_button_pressed(mb
     {
         obj_debugTool.debug = false;
         createRoomTransition(obj_map.map[# obj_map.X, obj_map.Y], obj_fadeTransition, false);
+        if (checkFlag("launched", false))
+        {
+            updateForestMusic();
+        }
     }
 }
 
@@ -110,7 +114,12 @@ if (mouse_in_rect(posX, posY + 100, 2 * w, h) &amp;&amp; mouse_check_button_pres
     if (!checkRoomTransition())
     {
         obj_debugTool.debug = true;
+        loadStoryData(createDebugSave());
         createRoomTransition(obj_map.map[# obj_map.X, obj_map.Y], obj_fadeTransition, false);
+        if (checkFlag("launched", false))
+        {
+            updateForestMusic();
+        }
     }
 }
 </string>

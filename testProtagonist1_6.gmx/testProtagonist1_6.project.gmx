@@ -257,7 +257,22 @@
     <sound>sound\snd_syntaxIntro1</sound>
     <sound>sound\snd_syntaxLoop1</sound>
     <sound>sound\snd_syntaxOutro1</sound>
-    <sound>sound\snd_break</sound>
+    <sounds name="sfx">
+      <sound>sound\snd_break</sound>
+      <sound>sound\snd_fizz</sound>
+      <sound>sound\snd_click1</sound>
+      <sound>sound\snd_click2</sound>
+      <sound>sound\snd_click3</sound>
+      <sound>sound\snd_steps</sound>
+      <sound>sound\snd_jungle</sound>
+      <sound>sound\snd_junglePurr</sound>
+      <sound>sound\snd_hadesEntrance</sound>
+      <sound>sound\snd_introMusicLoop</sound>
+      <sound>sound\snd_introMusicIntro</sound>
+      <sound>sound\snd_introMusicFF</sound>
+      <sound>sound\snd_sphinxxMeow</sound>
+      <sound>sound\snd_syntaxMeow</sound>
+    </sounds>
   </sounds>
   <sprites name="sprites">
     <sprites name="SceneSprites">
@@ -671,6 +686,7 @@
       <script>scripts\getGlobalSavePath.gml</script>
       <script>scripts\saveStoryData.gml</script>
       <script>scripts\loadStoryData.gml</script>
+      <script>scripts\createDebugSave.gml</script>
     </scripts>
     <scripts name="general">
       <script>scripts\drawOutlineRectExt.gml</script>
@@ -740,6 +756,7 @@
     </scripts>
     <script>scripts\drawHealthBar.gml</script>
     <script>scripts\checkFlag.gml</script>
+    <script>scripts\updateForestMusic.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shr_blur.shader</shader>
@@ -1052,7 +1069,7 @@
       <room>rooms\rm_hadesRules</room>
     </rooms>
   </rooms>
-  <constants number="91">
+  <constants number="93">
     <constant name="RIGHT">0</constant>
     <constant name="UP">1</constant>
     <constant name="LEFT">2</constant>
@@ -1137,6 +1154,8 @@
     <constant name="MUSIC_FOREST1">0</constant>
     <constant name="MUSIC_FOREST2">1</constant>
     <constant name="MUSIC_FOREST3">2</constant>
+    <constant name="MUSIC_FORESTSFX1">0</constant>
+    <constant name="MUSIC_FORESTSFX2">1</constant>
     <constant name="BUTTON_FILL">0</constant>
     <constant name="BUTTON_LU">1</constant>
     <constant name="BUTTON_LD">2</constant>

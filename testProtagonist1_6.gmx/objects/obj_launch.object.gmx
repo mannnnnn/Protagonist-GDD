@@ -272,6 +272,9 @@ with (obj_mouseController)
     instance_destroy();
 }
 
+// stop music
+dialogueStopAllSounds();
+
 // don't allow dialogue advance
 if (instanceof(obj_dialogue.display, obj_narration))
 {

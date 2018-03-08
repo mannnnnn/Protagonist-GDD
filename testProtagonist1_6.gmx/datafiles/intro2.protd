@@ -18,6 +18,8 @@ text display obj_narration
 create stepper intro obj_ffintro
 next intro
 
+play music snd_introMusicLoop snd_introMusicIntro
+
 H: "Welcome Hero, to darkness of war. You made a new game and you're back for more."
 
 H: "Normally I'd say you together band, and strike down those who force thy hand."
@@ -27,6 +29,8 @@ H: "Except as you've already read, the mortals are already dead."
 H: "So go ahead, sit back, while I narrate. Opening lines are little more than bait."
 
 H: "Don't mind if I make things go a bit faster. I'm bored to death by this tale of disaster."
+
+play music snd_introMusicFF
 
 next intro
 text speed 2
@@ -77,6 +81,8 @@ text speed 2
 text auto false
 
 text display obj_dialogueBox
+
+play music snd_hadesEntrance
 
 H: "Hooray we're done."
 
