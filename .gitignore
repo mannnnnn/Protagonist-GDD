@@ -3,6 +3,8 @@
 [Oo]bj/
 [Bb]uild/
 [Bb]uilds/
+[Bb]in/
+[Oo]bj/
 Assets/AssetStoreTools*
 
 # Visual Studio 2015 cache directory
@@ -22,6 +24,7 @@ ExportedObj/
 *.booproj
 *.svd
 *.pdb
+*.lock
 
 # Unity3D generated meta files
 *.pidb.meta
