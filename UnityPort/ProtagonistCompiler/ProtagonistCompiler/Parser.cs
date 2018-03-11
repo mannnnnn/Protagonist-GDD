@@ -32,6 +32,7 @@ namespace ProtagonistCompiler
                     {
                         // get all tokens within the two brackets
                         List<Token> characterInfo = getBracketContents(tokens, i);
+                        // read character info
 
                     }
                 }
@@ -101,13 +102,16 @@ namespace ProtagonistCompiler
     // holds data on a character definition
     public class CharacterDefinition
     {
-
+        public string name;
+        public string id;
+        public string side;
     }
 
     // holds data on a label definition
     public class LabelDefinition
     {
-        
+        public string id;
+        public ParseNode node;
     }
 
     // exception that is thrown when an error in parsing occurs
