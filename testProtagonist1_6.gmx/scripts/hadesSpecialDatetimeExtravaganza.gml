@@ -23,4 +23,3 @@ var str = 'H: "Speaking of era, what day is today? The ' + datestr + '?"';
 dialogueParse(str);
 obj_dialogue.scriptPause = true;
 
-

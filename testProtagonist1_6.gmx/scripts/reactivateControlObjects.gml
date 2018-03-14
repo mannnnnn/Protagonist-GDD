@@ -32,4 +32,3 @@ for (var i = 0; i < ds_list_size(controlObjects); i++)
 
 // free the list
 ds_list_destroy(controlObjects);
-

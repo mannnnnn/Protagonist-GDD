@@ -461,6 +461,7 @@
     </sprites>
     <sprite>sprites\spr_banner</sprite>
     <sprite>sprites\spr_exitPuzzle</sprite>
+    <sprite>sprites\spr_test</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="map">
@@ -757,6 +758,7 @@
     <script>scripts\drawHealthBar.gml</script>
     <script>scripts\checkFlag.gml</script>
     <script>scripts\updateForestMusic.gml</script>
+    <script>scripts\playClickSound.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shr_blur.shader</shader>
@@ -1046,6 +1048,8 @@
     <object>objects\obj_storyData</object>
     <object>objects\obj_triSoundLoop</object>
     <object>objects\obj_titleBanner</object>
+    <object>objects\obj_jokeTestAth</object>
+    <object>objects\obj_jokeTestCombat</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test</room>

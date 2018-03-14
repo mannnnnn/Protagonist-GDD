@@ -176,6 +176,7 @@ if (state == OPEN)
     if (point_in_rectangle(cursor_get_x(), cursor_get_y(), 
     scrollBarX, scrollBarPos, scrollBarX + scrollBarW, scrollBarPos + scrollBarH))
     {
+        playClickSound();
         // we're dragging the scroll bar
         scrollBarDrag = true;
         scrollBarDragY = scrollBarPos - cursor_get_y();
@@ -186,6 +187,7 @@ if (state == OPEN)
     /// if press on a save
     if (point_in_rectangle(cursor_get_x(), cursor_get_y(), surfX, surfY, surfX + surfW, surfY + surfH))
     {
+        playClickSound();
         /// draw calculations
         var posY = map_range(scrollBarPos, barMin, barMax, saveDrawMin, saveDrawMax);
         var k = max(0, floor(posY / saveH));

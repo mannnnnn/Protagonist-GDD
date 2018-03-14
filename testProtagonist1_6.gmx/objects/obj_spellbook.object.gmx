@@ -291,6 +291,7 @@ if (alpha &gt; 0 &amp;&amp; state != CLOSED)
             if (mouse_check_button_pressed(mb_left))
             {
                 // go left a page
+                playClickSound();
                 page--;
             }
         }
@@ -307,7 +308,8 @@ if (alpha &gt; 0 &amp;&amp; state != CLOSED)
         {
             if (mouse_check_button_pressed(mb_left))
             {
-                // go left a page
+                // go right a page
+                playClickSound();
                 page++;
             }
         }

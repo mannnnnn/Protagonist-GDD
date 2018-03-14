@@ -5,4 +5,3 @@ with (obj_combat.handler)
     instance_destroy();
 }
 endCombatAnimation();
-

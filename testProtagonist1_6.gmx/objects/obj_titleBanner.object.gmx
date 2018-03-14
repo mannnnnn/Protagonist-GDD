@@ -91,12 +91,14 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_center);
 
 drawButtonRect(posX, posY, 2 * w, h, obj_buttons.button, c_white, c_white, 1, 1);
+draw_set_color(c_white);
 draw_text_outlined(posX + w, posY + (0.5 * h), "New Game");
 // handle new game click
 if (mouse_in_rect(posX, posY, 2 * w, h) &amp;&amp; mouse_check_button_pressed(mb_left))
 {
     if (!checkRoomTransition())
     {
+        playClickSound();
         obj_debugTool.debug = false;
         createRoomTransition(obj_map.map[# obj_map.X, obj_map.Y], obj_fadeTransition, false);
         if (checkFlag("launched", false))
@@ -113,6 +115,7 @@ if (mouse_in_rect(posX, posY + 100, 2 * w, h) &amp;&amp; mouse_check_button_pres
 {
     if (!checkRoomTransition())
     {
+        playClickSound();
         obj_debugTool.debug = true;
         loadStoryData(createDebugSave());
         createRoomTransition(obj_map.map[# obj_map.X, obj_map.Y], obj_fadeTransition, false);

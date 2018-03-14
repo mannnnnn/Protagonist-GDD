@@ -119,6 +119,7 @@ for (var i = 0; i &lt; n; i++)
     // check if cursor in rectangle
     if (point_in_rectangle(cursor_get_x(), cursor_get_y(), centerX - (0.5 * width), posY, centerX + (0.5 * width), posY + height))
     {
+        playClickSound();
         // select ith option
         selectDialogueMenuOption(optionsList, i, returnPointer);
         optionsList = noone;

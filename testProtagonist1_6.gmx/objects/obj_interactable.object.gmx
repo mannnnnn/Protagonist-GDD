@@ -119,6 +119,7 @@ if (instance_exists(obj_dialogue.display) &amp;&amp; obj_dialogue.display.state 
     {
         if (name != "" || file != "")
         {
+            playClickSound();
             if (obj_dialogue.file != file)
             {
                 dialogueLoad(file);

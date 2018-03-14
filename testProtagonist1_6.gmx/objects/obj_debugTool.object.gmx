@@ -69,6 +69,7 @@ if (mouse_in_rect(B, B, w, h))
     // if mouse pressed, load the file
     if (mouse_check_button_pressed(mb_left))
     {
+        playClickSound();
         var f = get_open_filename_ext("Text file|*.*", "", working_directory, "Open this dialogue file...");
         if (f != "" &amp;&amp; file_exists(f))
         {

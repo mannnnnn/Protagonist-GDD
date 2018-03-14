@@ -103,6 +103,7 @@ if (exitable)
         draw_sprite(spr_exitPuzzle, 1, getDisplayRoomWidth() - 32, 0);
         if (mouse_check_button_pressed(mb_left))
         {
+            playClickSound();
             dialogueLoad("run1.protd");
             dialogueStart("", obj_dialogueBoxSpecial);
         }

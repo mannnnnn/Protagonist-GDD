@@ -274,6 +274,7 @@ with (obj_mouseController)
 
 // stop music
 dialogueStopAllSounds();
+playClickSound();
 
 // don't allow dialogue advance
 if (instanceof(obj_dialogue.display, obj_narration))

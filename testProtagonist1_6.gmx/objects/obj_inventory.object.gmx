@@ -114,6 +114,7 @@ if (state == OPEN)
     // set selected index
     if (index &gt;= 0 &amp;&amp; index &lt; ds_list_size(inventory))
     {
+        playClickSound();
         selected = index;
     }
     else
