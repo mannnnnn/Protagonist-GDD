@@ -22,6 +22,7 @@ ds_list_add(controlObjects, obj_map);
 ds_list_add(controlObjects, obj_storyData);
 ds_list_add(controlObjects, obj_music);
 ds_list_add(controlObjects, obj_buttons);
+ds_list_add(controlObjects, obj_triSoundLoop);
 
 // activate the control objects
 for (var i = 0; i < ds_list_size(controlObjects); i++)

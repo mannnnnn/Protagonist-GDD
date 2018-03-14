@@ -3,7 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="20" name="datafiles">
+  <datafiles number="21" name="datafiles">
     <datafile>
       <name>pause.protd</name>
       <exists>-1</exists>
@@ -225,6 +225,23 @@
       </ConfigOptions>
       <filename>run1.protd</filename>
     </datafile>
+    <datafile>
+      <name>punch.protd</name>
+      <exists>-1</exists>
+      <size>338</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>punch.protd</filename>
+    </datafile>
   </datafiles>
   <NewExtensions/>
   <sounds name="sound">
@@ -272,6 +289,7 @@
       <sound>sound\snd_introMusicFF</sound>
       <sound>sound\snd_sphinxxMeow</sound>
       <sound>sound\snd_syntaxMeow</sound>
+      <sound>sound\snd_oof</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -462,6 +480,7 @@
     <sprite>sprites\spr_banner</sprite>
     <sprite>sprites\spr_exitPuzzle</sprite>
     <sprite>sprites\spr_test</sprite>
+    <sprite>sprites\spr_dumbCircle</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="map">
@@ -629,6 +648,7 @@
         <script>scripts\hadesSpecialButtonExtravaganza.gml</script>
         <script>scripts\hadesSpecialExitingExtravaganza.gml</script>
         <script>scripts\hadesSpecialSaveExtravaganza.gml</script>
+        <script>scripts\hadesSpecialRetributionExtravaganza.gml</script>
       </scripts>
     </scripts>
     <scripts name="debug">
@@ -1004,6 +1024,7 @@
       <object>objects\obj_catSpell</object>
       <object>objects\obj_tearSpell</object>
       <object>objects\obj_dialogueSpell</object>
+      <object>objects\obj_testSpell</object>
     </objects>
     <object>objects\obj_particles</object>
     <object>objects\obj_music</object>
@@ -1048,8 +1069,8 @@
     <object>objects\obj_storyData</object>
     <object>objects\obj_triSoundLoop</object>
     <object>objects\obj_titleBanner</object>
+    <object>objects\obj_jokeCombatTest</object>
     <object>objects\obj_jokeTestAth</object>
-    <object>objects\obj_jokeTestCombat</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test</room>
