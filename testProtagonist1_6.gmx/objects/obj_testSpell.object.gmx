@@ -26,6 +26,12 @@
           <argument>
             <kind>1</kind>
             <string>/// create the test object
+if (!obj_combat.testAllowed)
+{
+    exit;
+}
+obj_combat.testAllowed = false;
+
 // get the paused surface
 surf = noone;
 if (!surface_exists(surf))

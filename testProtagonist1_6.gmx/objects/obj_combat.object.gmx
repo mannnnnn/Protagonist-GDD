@@ -31,6 +31,9 @@ active = false;
 handler = noone;
 
 music = noone;
+
+// combat control variables
+testAllowed = false;
 </string>
           </argument>
         </arguments>

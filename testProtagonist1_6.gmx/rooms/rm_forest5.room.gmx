@@ -65,6 +65,7 @@
     <instance objName="obj_jungleParticleSolid" x="896" y="448" name="inst_345250A8" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="obj_jungleParticleSolid" x="896" y="160" name="inst_08E4CD0F" locked="0" code="" scaleX="1" scaleY="2.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_jungleParticleSolid" x="832" y="160" name="inst_EDF80B08" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_visibleWall" x="512" y="64" name="inst_867AC661" locked="0" code="" scaleX="2.75268816947937" scaleY="2.46153855323792" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>

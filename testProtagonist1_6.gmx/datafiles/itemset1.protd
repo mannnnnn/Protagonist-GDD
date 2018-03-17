@@ -3,35 +3,7 @@
 //-----------CALLS TO JUMPS---------------
 //Example: jump itemName
 
-jump statDad
-jump statElem
-jump statLion
-jump statSign
-jump statNeko
-jump treeStump
-jump treeFruit
-jump rock1
-jump rock2
-jump rock3
-jump rockOut
-
-//set 2 start
-jump lockTree
-jump synPlay
-jump synYarn
-jump synSign
-jump synZero
-jump synFish
-
-//set 3 start
-jump sockRack
-jump craterThere
-jump laundryPile
-jump leafPile
-jump sockTree
-jump statDuck
-jump visibleWall
-
+"If you see this, contact Evans and tell him his code is broken."
 
 //----------LABELED JUMPS------------------
 
@@ -40,6 +12,23 @@ jump visibleWall
 //{
 //    "This is the example jump text."
 //}
+
+label warp
+{
+	"Do you want to jump in this magical spiral?"
+	menu
+	{
+		"Yes"
+		{
+			call hadesSpecialWarpExtravaganza()
+		}
+
+		"No"
+		{
+			"Good choice."
+		}
+	}
+}
 
 label statDad
 {

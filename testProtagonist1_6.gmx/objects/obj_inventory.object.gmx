@@ -36,11 +36,24 @@ for (var i = 0; i &lt; 10; i++)
 {
     // create test items
     createItem("box" + string(i), spr_box, 0, "Box " + string(i), "The " + string(i) + "th box.", false, createStats(i, i, i, i, i));
-    addItem("box" + string(i));
 }
-createItem("fruit", spr_duck, 0, "Fruit", "I am froot", false);
-createItem("bunny", spr_dust, 0, "Dust Bunny", "Don't eat it. It'll taste terrible.", false);
+createItem("fruit1", spr_froot, 0, "Fruit", "I am froot", false);
+createItem("fruit2", spr_froot, 1, "Fruit", "I am froot", false);
+createItem("fruit3", spr_froot, 2, "Fruit", "I am froot", false);
+createItem("book1", spr_bok, 0, "Spellbook", "I am book", false);
+createItem("book2", spr_bok, 1, "Spellbook", "I am book", false);
+createItem("book3", spr_bok, 2, "Spellbook", "I am book", false);
+createItem("book4", spr_bok, 3, "Spellbook", "I am book", false);
+createItem("Bunny", spr_dust, 0, "Dust Bunny", "Don't eat it. It'll taste terrible.", false);
 selected = noone;
+
+addItem("fruit1");
+addItem("fruit2");
+addItem("fruit3");
+addItem("book1");
+addItem("book2");
+addItem("book3");
+addItem("book4");
 </string>
           </argument>
         </arguments>
