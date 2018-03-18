@@ -455,6 +455,8 @@
       <sprite>sprites\spr_statDuck</sprite>
       <sprite>sprites\spr_visibleWall</sprite>
       <sprite>sprites\spr_apolloPlaying</sprite>
+      <sprite>sprites\spr_sphinxAnxiety1</sprite>
+      <sprite>sprites\spr_sphinxxAnxiety2</sprite>
     </sprites>
     <sprite>sprites\spr_duck</sprite>
     <sprites name="spells">
@@ -1071,6 +1073,8 @@
         <object>objects\obj_apolloPlaying</object>
         <object>objects\obj_syntaxPillar</object>
         <object>objects\obj_warp</object>
+        <object>objects\obj_sphinxxAnxiety1</object>
+        <object>objects\obj_sphinxxAnxiety2</object>
       </objects>
       <object>objects\obj_map</object>
     </objects>

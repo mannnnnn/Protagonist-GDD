@@ -8,18 +8,24 @@
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
   <bbox_left>1</bbox_left>
-  <bbox_right>160</bbox_right>
-  <bbox_top>5</bbox_top>
-  <bbox_bottom>96</bbox_bottom>
+  <bbox_right>158</bbox_right>
+  <bbox_top>1</bbox_top>
+  <bbox_bottom>98</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
     <TextureGroup0>0</TextureGroup0>
   </TextureGroups>
   <For3D>0</For3D>
-  <width>162</width>
+  <width>160</width>
   <height>100</height>
   <frames>
     <frame index="0">images\spr_sphinxx_0.png</frame>
+    <frame index="1">images\spr_sphinxx_1.png</frame>
+    <frame index="2">images\spr_sphinxx_2.png</frame>
+    <frame index="3">images\spr_sphinxx_3.png</frame>
+    <frame index="4">images\spr_sphinxx_4.png</frame>
+    <frame index="5">images\spr_sphinxx_5.png</frame>
+    <frame index="6">images\spr_sphinxx_6.png</frame>
   </frames>
 </sprite>
