@@ -1,4 +1,5 @@
 ///dialogueStop()
+
 // deactivate
 obj_dialogue.active = false;
 obj_dialogue.display.status = STOP;

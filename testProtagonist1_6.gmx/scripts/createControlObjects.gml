@@ -13,6 +13,7 @@ ds_list_add(controlObjects, obj_spellbook);
 ds_list_add(controlObjects, obj_saveMenu);
 ds_list_add(controlObjects, obj_loadMenu);
 ds_list_add(controlObjects, obj_quitter);
+ds_list_add(controlObjects, obj_argiope);
 ds_list_add(controlObjects, obj_debugTool);
 ds_list_add(controlObjects, obj_thumbnailSaver);
 ds_list_add(controlObjects, obj_combat);

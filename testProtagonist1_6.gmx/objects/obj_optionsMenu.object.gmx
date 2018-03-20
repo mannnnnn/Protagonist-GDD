@@ -37,6 +37,7 @@ ds_list_add(submenus, instance_nearest(0, 0, obj_inventory));
 ds_list_add(submenus, instance_nearest(0, 0, obj_spellbook));
 ds_list_add(submenus, instance_nearest(0, 0, obj_saveMenu));
 ds_list_add(submenus, instance_nearest(0, 0, obj_loadMenu));
+ds_list_add(submenus, instance_nearest(0, 0, obj_argiope));
 ds_list_add(submenus, instance_nearest(0, 0, obj_quitter));
 </string>
           </argument>

@@ -488,6 +488,15 @@
     <sprite>sprites\spr_submitButton</sprite>
     <sprite>sprites\spr_syntaxPillar</sprite>
     <sprite>sprites\spr_portal</sprite>
+    <sprites name="argiope">
+      <sprite>sprites\spr_dial</sprite>
+      <sprite>sprites\spr_godButtons</sprite>
+      <sprite>sprites\spr_athenaChest</sprite>
+      <sprite>sprites\spr_artemisChest</sprite>
+      <sprite>sprites\spr_apolloChest</sprite>
+      <sprite>sprites\spr_haesChest</sprite>
+      <sprite>sprites\spr_protagChest</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="map">
@@ -967,6 +976,7 @@
       <object>objects\obj_combat</object>
       <object>objects\obj_notifications</object>
       <object>objects\obj_notification</object>
+      <object>objects\obj_argiope</object>
     </objects>
     <objects name="transitions">
       <object>objects\obj_fadeTransition</object>

@@ -1,6 +1,5 @@
 ///playerCanMove()
 // determines whether or not the player should be allowed to move.
-
 // if inventory open, don't move.
 if (instance_exists(obj_inventory) && obj_inventory.state != CLOSED)
 {

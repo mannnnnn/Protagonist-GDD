@@ -389,7 +389,7 @@ display = instance_create(0, 0, obj_dialogueBox);
           <argument>
             <kind>1</kind>
             <string>/// pause menu
-if (!active &amp;&amp; !checkCombatActive() &amp;&amp; room != rm_test)
+if (!active &amp;&amp; !checkCombatActive() &amp;&amp; room != rm_test &amp;&amp; obj_argiope.state == CLOSED)
 {
     dialogueLoad("pause.protd");
     dialogueStart("", obj_dialogueBoxSpecial);
