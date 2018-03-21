@@ -42,6 +42,110 @@ animationDur = sprite_get_number(spr_protagChest) - 1;
 
 dummyX = 0;
 dummyY = 0;
+
+fadeTimer = 0;
+fadeDur = 7;
+displayDial = false;
+
+godAnimationTimer = 0;
+
+spr = spr_protagChest;
+dialogue = "";
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// init the list of gods and their animations
+
+buttonX = ds_list_create();
+buttonY = ds_list_create();
+buttonSpr = ds_list_create();
+buttonDialogue = ds_list_create();
+r = 64;
+
+buttonX[| APOLLO] = 186;
+buttonY[| APOLLO] = 124;
+buttonSpr[| APOLLO] = spr_apolloChest;
+buttonDialogue[| APOLLO] = "";
+
+buttonX[| ARTEMIS] = 358;
+buttonY[| ARTEMIS] = 124;
+buttonSpr[| ARTEMIS] = spr_artemisChest;
+buttonDialogue[| ARTEMIS] = "";
+
+buttonX[| ATHENA] = 107;
+buttonY[| ATHENA] = 278;
+buttonSpr[| ATHENA] = spr_athenaChest;
+buttonDialogue[| ATHENA] = "";
+
+buttonX[| HAES] = 454;
+buttonY[| HAES] = 278;
+buttonSpr[| HAES] = spr_haesChest;
+buttonDialogue[| HAES] = "";
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="53">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// handle click on god
+if (!displayDial || fadeTimer != fadeDur)
+{
+    exit;
+}
+
+// check if it was on a god
+var selected = noone;
+for (var i = 0; i &lt; ds_list_size(buttonX); i++)
+{
+    if (point_in_circle(cursor_get_x(), cursor_get_y(),
+    (getDisplayRoomWidth() - sprite_get_width(spr_dial)) * 0.5 + buttonX[| i],
+    (getDisplayRoomHeight() - sprite_get_height(spr_dial)) * 0.5 + buttonY[| i], r))
+    {
+        selected = i;
+    }
+}
+if (selected == noone)
+{
+    exit;
+}
+
+// set spr and dialogue to taht god's values
+displayDial = false;
+spr = buttonSpr[| selected];
+dialogue = buttonDialogue[| selected];
 </string>
           </argument>
         </arguments>
@@ -83,19 +187,54 @@ switch (state)
             dummyY = playerY() + 42;
             // deactivate the player
             instance_deactivate_object(obj_protagonist);
+            displayDial = true;
+            spr = spr_protagChest;
         }
         break;
     case OPEN:
         // draw dummy
-        draw_sprite(spr_protagChest, animationTimer, dummyX, dummyY);
+        if (godAnimationTimer == 0)
+        {
+            draw_sprite(spr_protagChest, animationTimer, dummyX, dummyY);
+        }
         animationTimer = clamp(animationTimer + animationSpd, 0, animationDur);
-        // then fade in the dial
-        
+        // if protagonist animation is done, display dial
+        if (animationTimer &gt;= animationDur)
+        {
+            if (displayDial)
+            {
+                fadeTimer = clamp(fadeTimer + 1, 0, fadeDur);
+            }
+            // fade dial goes false when a god is chosen
+            else
+            {
+                fadeTimer = clamp(fadeTimer - 1, 0, fadeDur);
+            }
+        }
+        draw_sprite_ext(spr_dial, 0, getDisplayRoomWidth() * 0.5, getDisplayRoomHeight() * 0.5, 1, 1, 0, c_white,
+        map_range(fadeTimer, 0, fadeDur, 0, 1));
+        // display god when dial is faded out
+        if (!displayDial &amp;&amp; fadeTimer == 0)
+        {
+            godAnimationTimer = clamp(godAnimationTimer + animationSpd, 0, sprite_get_number(spr) - 1);
+            draw_sprite(spr, godAnimationTimer, dummyX, dummyY);
+        }
         break;
     case CLOSING:
-        if (animationTimer &lt;= 0)
+        if (animationTimer &lt;= 0 &amp;&amp; godAnimationTimer &lt;= 0 &amp;&amp; fadeTimer &lt;= 0)
         {
             timer--;
+        }
+        else if (fadeTimer &gt; 0)
+        {
+            fadeTimer--;
+            draw_sprite_ext(spr_dial, 0, getDisplayRoomWidth() * 0.5, getDisplayRoomHeight() * 0.5, 1, 1, 0, c_white,
+            map_range(fadeTimer, 0, fadeDur, 0, 1));
+        }
+        else if (godAnimationTimer &gt; 0)
+        {
+            godAnimationTimer = clamp(godAnimationTimer - animationSpd, 0, sprite_get_number(spr) - 1);
+            draw_sprite(spr, godAnimationTimer, dummyX, dummyY);
         }
         else
         {

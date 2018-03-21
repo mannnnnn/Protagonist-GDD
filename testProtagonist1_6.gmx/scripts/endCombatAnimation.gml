@@ -4,4 +4,3 @@
 createRoomTransition(obj_map.map[# obj_map.X, obj_map.Y], obj_fadeTransition);
 // start normal music again
 updateForestMusic();
-

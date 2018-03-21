@@ -490,7 +490,7 @@
     <sprite>sprites\spr_portal</sprite>
     <sprites name="argiope">
       <sprite>sprites\spr_dial</sprite>
-      <sprite>sprites\spr_godButtons</sprite>
+      <sprite>sprites\spr_dialFace</sprite>
       <sprite>sprites\spr_athenaChest</sprite>
       <sprite>sprites\spr_artemisChest</sprite>
       <sprite>sprites\spr_apolloChest</sprite>
@@ -1116,7 +1116,7 @@
       <room>rooms\rm_hadesRules</room>
     </rooms>
   </rooms>
-  <constants number="93">
+  <constants number="97">
     <constant name="RIGHT">0</constant>
     <constant name="UP">1</constant>
     <constant name="LEFT">2</constant>
@@ -1210,6 +1210,10 @@
     <constant name="BUTTON_RD">4</constant>
     <constant name="BUTTON_HEDGE">5</constant>
     <constant name="BUTTON_VEDGE">6</constant>
+    <constant name="APOLLO">0</constant>
+    <constant name="ARTEMIS">1</constant>
+    <constant name="ATHENA">2</constant>
+    <constant name="HAES">3</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
