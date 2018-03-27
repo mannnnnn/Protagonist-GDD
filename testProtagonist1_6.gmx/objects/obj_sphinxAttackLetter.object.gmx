@@ -45,6 +45,8 @@ attackTargetY = getDisplayRoomHeight();
 
 rot = ((irandom_range(0, 1) * 2) - 1) * irandom_range(15, 30);
 spd = 15;
+
+spell = false;
 </string>
           </argument>
         </arguments>

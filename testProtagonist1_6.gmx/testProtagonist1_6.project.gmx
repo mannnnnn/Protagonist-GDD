@@ -290,6 +290,7 @@
       <sound>sound\snd_sphinxxMeow</sound>
       <sound>sound\snd_syntaxMeow</sound>
       <sound>sound\snd_oof</sound>
+      <sound>sound\snd_ding</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -461,9 +462,11 @@
     <sprite>sprites\spr_duck</sprite>
     <sprites name="spells">
       <sprite>sprites\spr_searSpell</sprite>
-      <sprite>sprites\spr_seaSprite</sprite>
+      <sprite>sprites\spr_seaSpell</sprite>
       <sprite>sprites\spr_catSpell</sprite>
       <sprite>sprites\spr_tearSpell</sprite>
+      <sprite>sprites\spr_rateSpell</sprite>
+      <sprite>sprites\spr_ratSpell</sprite>
     </sprites>
     <sprites name="buttons">
       <sprite>sprites\spr_buttonfill</sprite>
@@ -1043,6 +1046,9 @@
       <object>objects\obj_tearSpell</object>
       <object>objects\obj_dialogueSpell</object>
       <object>objects\obj_testSpell</object>
+      <object>objects\obj_rateSpell</object>
+      <object>objects\obj_rateSpellStar</object>
+      <object>objects\obj_ratSpell</object>
     </objects>
     <object>objects\obj_particles</object>
     <object>objects\obj_music</object>

@@ -19,7 +19,7 @@ for (var i = 0; i < n; i = i)
     {
         var c = string_char_at(str, i + 1);
         // pause if punctuation is seen
-        if (ds_map_exists(obj_dialogue.speakpause, c))
+        if (ds_map_exists(obj_dialogue.speakpause, c) && ((string_length(str) == i + 1) || string_char_at(str, i + 2) == ' '))
         {
             p = obj_dialogue.speakpause[? c];
         }

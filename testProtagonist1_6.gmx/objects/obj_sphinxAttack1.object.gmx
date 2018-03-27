@@ -106,6 +106,52 @@ duration = 20;
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>/// check if the sphinx is dead
+if (instance_exists(obj_combatPuzzle) &amp;&amp; obj_combatPuzzle.enemyHP &lt;= 0)
+{
+    with (obj_sphinxAttackLetter)
+    {
+        var col = merge_color(make_color_rgb(200, 228, 7), c_red, color_get_saturation(image_blend) / 255.0);
+        /// end and explode
+        effect_create_above(ef_explosion, x, y, image_xscale, c_black);
+        effect_create_above(ef_explosion, x, y, image_xscale, col);
+        // create fragments
+        var n = irandom_range(3, 6);
+        for (var i = 0; i &lt; 360; i += 360 / n)
+        {
+            var dir = i + irandom_range(-n / 360, n / 360);
+            var f = instance_create(GUIToRoomX(x), GUIToRoomY(y), obj_spellFragment);
+            f.dir = dir;
+            f.image_xscale = image_xscale;
+            f.image_yscale = image_yscale;
+            f.spd = f.spd * image_xscale;
+            f.image_blend = image_blend;
+        }
+        instance_destroy();
+    }
+    instance_destroy();
+    exit;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>/// choose an unstable letter to turn into an attack
 var attackLetters = ds_list_create();
 var succStart = typoStart;
@@ -121,7 +167,7 @@ with (obj_sphinxAttackLetter)
 
 if (!ds_list_empty(attackLetters))
 {
-timer++;
+    timer++;
     if (timer &gt; duration)
     {
         timer = 0;

@@ -87,7 +87,7 @@ enemyDamaged = 0;
 // when enemy is dead
 
 // attack if not attacking
-if (!instance_exists(obj_attack))
+if (enemyHP &gt; 0 &amp;&amp; !instance_exists(obj_attack))
 {
     instance_create(0, 0, obj_sphinxAttack1);
 }
