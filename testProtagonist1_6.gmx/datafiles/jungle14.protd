@@ -1,0 +1,46 @@
+//jungle14 (pre puzzle)
+//Characters: Apollo, Protagonist
+//Triggers in the fourth puzzle map
+
+//CHARACTERS
+character P
+{
+	name = "Protagonist"
+	side = left
+}
+character Ap
+{
+	name = "Apollo Who Doesn't Understand How Games Work"
+	side = right
+}
+
+//
+show P spr_defaultSpeak
+//
+
+P: "Last one?"
+
+//
+show Ap spr_talkApollo
+with Apollo_swing
+//
+
+Ap: "I'm pretty sure. We've almost got enough letters here to form a riddle."
+P: "This one looks big."
+Ap: "Solved it."
+P: "Why didn't you do this before I showed up? Couldn't you have gathered the riddle and left by now?"
+Ap: "Because the Great Apollo doesn't walk around forests talking to cats."
+Ap: "Only you were able to stoop to that level of embarrassment."
+Ap: "And we make a great team as a result."
+P: "Can you at least give me a hint?"
+Ap: "Nah, I don't want to make it too easy."
+//too is the keyword in this puzzle
+
+hide P
+with fade
+hide Ap
+with Apollo_swing
+
+wait for drawers
+exit
+

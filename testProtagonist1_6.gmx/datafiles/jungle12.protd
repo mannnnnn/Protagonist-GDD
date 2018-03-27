@@ -1,0 +1,45 @@
+//jungle12 (pre puzzle)
+//Characters: Apollo, Protagonist
+//Triggers in the third puzzle map
+
+//CHARACTERS
+character P
+{
+	name = "Protagonist"
+    side = left
+}
+character Ap
+{
+	name = "Apollo Who Is Not My Friend"
+	side = right
+}
+
+//
+show P spr_defaultSpeak
+//
+
+P: "Are these getting harder?"
+
+//
+show Ap spr_talkApollo
+with Apollo_swing
+//
+
+Ap: "Depends."
+Ap: "Maybe you're just getting dumber."
+P: "This one has more letters than the first two though."
+Ap: "I don't see a single letter here, and not a single stamp!"
+Ap: "How am I supposed to send my non-electronic mail?"
+Ap: "See what I did there? How I purposely misread that situation to act like you?"
+Ap: "It's ok bud, I don't mean to mock your meat brain, but you gotta start thinking outside the box."
+Ap: "Especially since Hades wants you in that box."
+//The error is in wants and Apollo is giving you a hint
+
+hide P
+with fade
+hide Ap
+with Apollo_swing
+
+wait for drawers
+exit
+

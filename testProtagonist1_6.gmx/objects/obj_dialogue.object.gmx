@@ -312,40 +312,6 @@ if (active)
           </argument>
         </arguments>
       </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// 1234567
-for (var i = ord('1'); i &lt;= ord('7'); i++)
-{
-    if (!checkDialogueActive() &amp;&amp; keyboard_check_pressed(i))
-    {
-        dialogueLoad("jungle" + chr(i) + ".protd");
-        dialogueStart();
-    }
-}
-if (!checkDialogueActive() &amp;&amp; keyboard_check_pressed(ord('8')))
-{
-    dialogueLoad("itemset1" + ".protd");
-    dialogueStart();
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
     </event>
     <event eventtype="7" enumb="4">
       <action>

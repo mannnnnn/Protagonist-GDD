@@ -1,0 +1,123 @@
+//jungle16
+//Characters: Apollo, Protagonist
+//Triggers in the fourth puzzle map
+
+//CHARACTERS
+character P
+{
+    name = "Protagonist"
+    side = left
+}
+character Ap
+{
+	name = "Apollo"
+	side = right
+}
+character H
+{
+	name = "Hades Who's Surprisingly Happy"
+	side = left
+}
+
+//
+show Ap spr_talkApollo
+with Apollo_swing
+//
+
+Ap: "So we know you can take down some Syntax Errors."
+Ap: "But the Sphinxx is going to be a little tougher than that, and I think you know that."
+Ap: "Tough for you that is, not for me."
+P: "I thought you didn't want to leave the jungle without solving the riddle."
+Ap: "I don't, I'm more just looking to make a quick buck."
+Ap: "Being your teacher brought me a lot of joy, but now it's time for you to go out and face the real world."
+Ap: "And doesn't look like you're going to cut it, so I made a friendly wager."
+Ap: "If you win, I have the honor of having taught a meat-brained mortal how to trump the incarnation of nuisances."
+Ap: "And in my opinion, that's a little more rewarding than solving some dumb riddle."
+Ap: "Also I don't want to spend a century here."
+Ap: "But hold on, this man isn't just clever, he's handsome."
+Ap: "Because if you lose, then Hades pays me ten bitmas. It's win-win for me."
+
+//
+show H spr_talkHades
+with Hades_swing
+//
+
+H: "And it's win-win for me too."
+H: "You die, and I lose money but I get to watch your spirit break. You live, and at least I have a few coins to ease my suffering."
+ 
+//
+hide H
+with Hades_swing
+show P spr_talkDefault
+//
+
+P: "I don't like this plan."
+Ap: "C'mon, you'll have lots of fun."
+Ap: "Think of it as a crashcourse into the life of a Protagonist."
+P: "Like a tutorial?"
+Ap: "No."
+Ap: "Think of it like... your first real challenge."
+Ap: "Aren't you excited?"
+P: "Am I just entertainment to you two?"
+Ap: "Of course not! You're also my student who has made me very proud."
+Ap: "Just look at all those Syntax Error craters you left behind in blind pursuit of your goal."
+P: "About that-"
+//if Athena || Artemis || Haes
+//if Athena xor Artemis xor Haes 
+Ap: "Anyways, I've got someone you should probably meet."
+// else 
+Ap: "Anyways, I've got a few folks I think you should meet."
+//
+Ap: "You see there are a few other gods sharing this world with me."
+Ap: "Most of us stayed in the original game, but some of us had our purposes for staying here."
+//
+
+//if Artemis
+    Ap: "My sister is off somewhere right now. She told me not to bother her-"
+Ap: "But I bet she wants to wager on this as well, and maybe she'll warm up to you or something I don't know."
+
+//if Athena
+
+    Ap: "I think I know where Athena ran off to, but she seemed busy."
+    Ap: "You seem to be on the same wavelength as her though. You should stop by and say hi."
+
+//if Haes
+    Ap: "There's this really cool dude who mostly ignores me named Haes."
+    Ap: "Maybe he can get you a weapon or something for the fight. He's pretty good with that stuff."
+
+//if Apollo
+    Ap: "And me, myself? I'm here to test my wits against this dastardly forest, and I'm going to solve the heck out of this place, even if there isn't a riddle."
+
+//end if statements
+
+Ap: "Here, I'll show you how to use that box of yours."
+P: "Hades wants me in the box, so I don't want to go in the box."
+Ap: "Hey now, don't go disobeying Hades on everything."
+Ap: "Hades just wants you gone forever."
+P: "I don't want to be gone forever!"
+Ap: "Oh right. Don't listen to Hades then."
+Ap: "But don't worry, I'm just gonna tweak the box a little."
+Ap: "See I made these cool stickers with faces on them."
+Ap: "You can use these to summon the corresponding gods if you want to chat with them."
+
+//if Apollo
+Ap: "Just look at my handsome face."
+//
+
+Ap: "Go ahead and try it out! Have fun chatting with everyone!"
+Ap: "If you're keen on not dying a terrible death, maybe you can get someone to help you out with that before the battle."
+Ap: "Because I've already got blood splash zone tickets."
+P: "Do I have blood?"
+Ap: "Eh, maybe. Maybe not. I guess we'll find out."
+P: "I'm gonna go appeal to some immortals before we have a chance of seeing."
+Ap: "Well if you find a way to defeat the Sphinxx, I'll be very proud."
+Ap: "And if not, well you're still doing me good, kid."
+Ap: "Sweet, sweet, bitmas I can't even spend here."
+
+hide P
+with fade
+hide Ap
+with Apollo_swing
+
+wait for drawers
+exit

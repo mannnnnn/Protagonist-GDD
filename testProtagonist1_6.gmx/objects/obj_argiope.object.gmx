@@ -83,22 +83,22 @@ r = 64;
 buttonX[| APOLLO] = 186;
 buttonY[| APOLLO] = 124;
 buttonSpr[| APOLLO] = spr_apolloChest;
-buttonDialogue[| APOLLO] = "jungle1.protd";
+buttonDialogue[| APOLLO] = "chooseApollo.protd";
 
 buttonX[| ARTEMIS] = 358;
 buttonY[| ARTEMIS] = 124;
 buttonSpr[| ARTEMIS] = spr_artemisChest;
-buttonDialogue[| ARTEMIS] = "jungle2.protd";
+buttonDialogue[| ARTEMIS] = "chooseArtemis.protd";
 
 buttonX[| ATHENA] = 107;
 buttonY[| ATHENA] = 278;
 buttonSpr[| ATHENA] = spr_athenaChest;
-buttonDialogue[| ATHENA] = "jungle3.protd";
+buttonDialogue[| ATHENA] = "chooseAthena.protd";
 
 buttonX[| HAES] = 454;
 buttonY[| HAES] = 278;
 buttonSpr[| HAES] = spr_haesChest;
-buttonDialogue[| HAES] = "jungle4.protd";
+buttonDialogue[| HAES] = "chooseHaes.protd";
 </string>
           </argument>
         </arguments>

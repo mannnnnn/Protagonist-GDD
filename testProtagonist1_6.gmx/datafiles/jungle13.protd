@@ -1,0 +1,54 @@
+//jungle13 (post puzzle)
+//Characters: Apollo, Protagonist
+//Triggers in the third puzzle map
+
+//CHARACTERS
+character P
+{
+	name = "Protagonist"
+	side = left
+}
+character Ap
+{
+	name = "Apollo Who Should Put The Mortal In The Box So Help Me"
+	side = right
+}
+
+//
+show P spr_defaultSpeak
+//
+
+P: "Booyah!"
+
+//
+show Ap spr_talkApollo
+with Apollo_swing
+//
+
+Ap: "Nice one! And guess what!"
+P: "What?!"
+Ap: "The Syntax Error nest is right up ahead!"
+P: "Is that good?"
+Ap: "You bet it is! The riddle is bound to be there!"
+P: "The riddle? But it's gone."
+Ap: "Oh you poor little kitten, why do you think I've been having you solve these little puzzles?"
+P: "Because it's a good learning experience and a lighthearted tutorial?"
+Ap: "What? No, screw tutorials. These little cats stole the Sphinxx's riddle."
+Ap: "Sure, Hades claims that the riddle never got coded into the game."
+Ap: "Sure, Hades says this map was abandoned in development, but you know what I say?"
+Ap: "I say Hades is challenging me."
+P: "Hades doesn't seem like the sort to lie."
+Ap: "Not to you, maybe. Hades is still hardwired to be your loving sidekick."
+Ap: "But Hades can pull one over me, no sweat. And this time, I've got it all figured out."
+Ap: "All we've gotta do is go solve that last Syntax Error, and we'll have the riddle!"
+P: "Really?!"
+Ap: "Yeah sure!"
+
+hide P
+with fade
+hide Ap
+with Apollo_swing
+
+wait for drawers
+exit
+
