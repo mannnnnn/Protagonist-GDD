@@ -104,14 +104,17 @@ if (object_index == obj_synHead)
 }
 
 // explode at the end
-if (!exploded &amp;&amp; obj_combatPuzzle.enemyHP &lt;= 0)
+if (instance_exists(obj_combatPuzzle))
 {
-    var centerX = x + (0.5 * sprite_width);
-    var centerY = y + (0.5 * sprite_height);
-    var dir = point_direction(getDisplayRoomWidth() * 0.5, getDisplayRoomHeight(), centerX, centerY);
-    VelX = lengthdir_x(20, dir);
-    VelY = lengthdir_y(20, dir);
-    exploded = true;
+    if (!exploded &amp;&amp; obj_combatPuzzle.enemyHP &lt;= 0)
+    {
+        var centerX = x + (0.5 * sprite_width);
+        var centerY = y + (0.5 * sprite_height);
+        var dir = point_direction(getDisplayRoomWidth() * 0.5, getDisplayRoomHeight(), centerX, centerY);
+        VelX = lengthdir_x(20, dir);
+        VelY = lengthdir_y(20, dir);
+        exploded = true;
+    }
 }
 
 x += VelX;

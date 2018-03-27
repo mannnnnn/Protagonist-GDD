@@ -26,7 +26,20 @@
           <argument>
             <kind>1</kind>
             <string>/// throw the player offscreen
+delayed = true;
+// do nothing for now if in combat or in transition
+if (checkCombatActive() || checkRoomTransition())
+{
+    exit;
+}
+
 // deactivate the real player
+if (!instance_exists(obj_protagonist))
+{
+    instance_destroy();
+    exit;
+}
+
 var spr = obj_protagonist.sprite_index;
 var img = obj_protagonist.image_index;
 var scaleX = obj_protagonist.image_xscale;
@@ -61,14 +74,53 @@ trans.timer = -35;
 // whether or not we're on the next room or not
 next = false;
 
-// block the wall
-obj_storyData.data[? "sphinxxWall"] = true;
+// block the wall if it isn't already false
+if (!ds_map_exists(obj_storyData.data, "sphinxxWall"))
+{
+    obj_storyData.data[? "sphinxxWall"] = true;
+}
+
+// since this ran, this is not being delayed due to in-combat or transition
+delayed = false;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
     <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// do nothing if being delayed and check for stop delaying
+if (delayed)
+{
+    if (!checkCombatActive() &amp;&amp; !checkRoomTransition())
+    {
+        event_perform(ev_create, 0);
+        delayed = false;
+    }
+    else
+    {
+        exit;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -96,6 +148,31 @@ if (next &amp;&amp; !instance_exists(grav))
       </action>
     </event>
     <event eventtype="7" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// do nothing if being delayed
+if (delayed)
+{
+    exit;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -145,6 +222,31 @@ grav.dustY = 30;
       </action>
     </event>
     <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// do nothing if being delayed
+if (delayed)
+{
+    exit;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>

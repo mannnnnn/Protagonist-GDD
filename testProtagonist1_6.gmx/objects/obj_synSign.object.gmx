@@ -29,6 +29,7 @@
 event_inherited();
 file = "itemset1.protd";
 name = "synSign";
+image_speed = 0;
 </string>
           </argument>
         </arguments>

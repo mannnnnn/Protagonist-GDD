@@ -51,6 +51,7 @@ godAnimationTimer = 0;
 
 spr = spr_protagChest;
 dialogue = "";
+playDialogue = true;
 </string>
           </argument>
         </arguments>
@@ -82,22 +83,53 @@ r = 64;
 buttonX[| APOLLO] = 186;
 buttonY[| APOLLO] = 124;
 buttonSpr[| APOLLO] = spr_apolloChest;
-buttonDialogue[| APOLLO] = "";
+buttonDialogue[| APOLLO] = "jungle1.protd";
 
 buttonX[| ARTEMIS] = 358;
 buttonY[| ARTEMIS] = 124;
 buttonSpr[| ARTEMIS] = spr_artemisChest;
-buttonDialogue[| ARTEMIS] = "";
+buttonDialogue[| ARTEMIS] = "jungle2.protd";
 
 buttonX[| ATHENA] = 107;
 buttonY[| ATHENA] = 278;
 buttonSpr[| ATHENA] = spr_athenaChest;
-buttonDialogue[| ATHENA] = "";
+buttonDialogue[| ATHENA] = "jungle3.protd";
 
 buttonX[| HAES] = 454;
 buttonY[| HAES] = 278;
 buttonSpr[| HAES] = spr_haesChest;
-buttonDialogue[| HAES] = "";
+buttonDialogue[| HAES] = "jungle4.protd";
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// if dialogue is done
+if (!playDialogue &amp;&amp; !checkDialogueActive())
+{
+    /// close
+    if (state == OPENING || state == OPEN)
+    {
+        state = CLOSING;
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -189,6 +221,7 @@ switch (state)
             instance_deactivate_object(obj_protagonist);
             displayDial = true;
             spr = spr_protagChest;
+            playDialogue = true;
         }
         break;
     case OPEN:
@@ -213,11 +246,33 @@ switch (state)
         }
         draw_sprite_ext(spr_dial, 0, getDisplayRoomWidth() * 0.5, getDisplayRoomHeight() * 0.5, 1, 1, 0, c_white,
         map_range(fadeTimer, 0, fadeDur, 0, 1));
+        for (var i = 0; i &lt; ds_list_size(buttonX); i++)
+        {
+            draw_sprite_ext(spr_dialFace, i, (getDisplayRoomWidth() - sprite_get_width(spr_dial)) * 0.5 + buttonX[| i],
+            (getDisplayRoomHeight() - sprite_get_height(spr_dial)) * 0.5 + buttonY[| i], 0.6, 0.6, 0, c_white,
+            map_range(fadeTimer, 0, fadeDur, 0, 1));
+        }
         // display god when dial is faded out
         if (!displayDial &amp;&amp; fadeTimer == 0)
         {
             godAnimationTimer = clamp(godAnimationTimer + animationSpd, 0, sprite_get_number(spr) - 1);
             draw_sprite(spr, godAnimationTimer, dummyX, dummyY);
+            if (godAnimationTimer &gt;= sprite_get_number(spr) - 1 &amp;&amp; playDialogue)
+            {
+                show_debug_message("DIALOGUE: " + dialogue);
+                playDialogue = false;
+                with (obj_optionsMenu)
+                {
+                    instance_destroy();
+                }
+                if (dialogue != "")
+                {
+                    dialogueUnhide();
+                    dialogueStop();
+                    dialogueLoad(dialogue);
+                    dialogueStart("", obj_dialogueBox);
+                }
+            }
         }
         break;
     case CLOSING:
@@ -230,6 +285,12 @@ switch (state)
             fadeTimer--;
             draw_sprite_ext(spr_dial, 0, getDisplayRoomWidth() * 0.5, getDisplayRoomHeight() * 0.5, 1, 1, 0, c_white,
             map_range(fadeTimer, 0, fadeDur, 0, 1));
+            for (var i = 0; i &lt; ds_list_size(buttonX); i++)
+            {
+                draw_sprite_ext(spr_dialFace, i, (getDisplayRoomWidth() - sprite_get_width(spr_dial)) * 0.5 + buttonX[| i],
+                (getDisplayRoomHeight() - sprite_get_height(spr_dial)) * 0.5 + buttonY[| i], 0.6, 0.6, 0, c_white,
+                map_range(fadeTimer, 0, fadeDur, 0, 1));
+            }
         }
         else if (godAnimationTimer &gt; 0)
         {
@@ -249,10 +310,6 @@ switch (state)
         if (timer &lt;= 0)
         {
             state = CLOSED;
-            with (obj_optionsMenu)
-            {
-                instance_destroy();
-            }
         }
         break;
 }
@@ -278,10 +335,14 @@ switch (state)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// close
-if (state == OPENING || state == OPEN)
+            <string>/// if dialogue is done
+if (!checkDialogueActive())
 {
-    state = CLOSING;
+    /// close
+    if (state == OPENING || state == OPEN)
+    {
+        state = CLOSING;
+    }
 }
 </string>
           </argument>

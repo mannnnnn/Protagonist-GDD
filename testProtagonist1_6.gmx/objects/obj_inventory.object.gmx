@@ -44,7 +44,7 @@ createItem("book1", spr_bok, 0, "Spellbook", "I am book", false);
 createItem("book2", spr_bok, 1, "Spellbook", "I am book", false);
 createItem("book3", spr_bok, 2, "Spellbook", "I am book", false);
 createItem("book4", spr_bok, 3, "Spellbook", "I am book", false);
-createItem("Bunny", spr_dust, 0, "Dust Bunny", "Don't eat it. It'll taste terrible.", false);
+createItem("bunny", spr_dust, 0, "Dust Bunny", "Don't eat it. It'll taste terrible.", false);
 selected = noone;
 
 addItem("fruit1");
