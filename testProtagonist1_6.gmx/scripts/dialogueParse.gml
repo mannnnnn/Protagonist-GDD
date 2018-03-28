@@ -2,7 +2,7 @@
 // returns whether to pause (true) or continue (false)
 var line = string_trim(argument0);
 
-//show_message("Parse: " + line);
+// show_debug_message("Parse: '" + line + "'");
 
 // split the line by words
 var split = ds_list_create();

@@ -27,7 +27,7 @@ while (!eof)
     str = string_replace_all(str, chr(10), "");
     str = string_replace_all(str, chr(13), "");
     // remove spaces
-    str = string_trim(str, "both", " ");
+    str = string_trim(str);
     
     // if non-empty
     if !(str == "")

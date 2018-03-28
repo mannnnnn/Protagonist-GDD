@@ -30,5 +30,5 @@ for (var i = ds_list_size(split) - 1; i >= 1; i--)
     split[| i] = string_replace(split[| i], replstr, "==");
     var value = evalBoolean(split[| i]);
     // set left side to that value
-    obj_dialogue.variables[? split[| i - 1]] = value;
+    obj_storyData.data[? split[| i - 1]] = value;
 }

@@ -1,29 +1,46 @@
-/// string_trim(input, side="both", char=" ")
+/// string_trim(input)
+var str = argument0;
+var length = string_length(str);
+var start = 1;
+var finish = length;
 
-var str = string(argument[0])
-var side = "both"
-var char = " "
-if argument_count >= 2 { if (argument[1] == "left" or argument[1] == "right" or argument[1] == "both") side = argument[1] }
-if argument_count == 3 { char = string(argument[2]) }
-var new_string = str
-if side == "left" or side == "both" {
-    var _start = 0
-    for(i=1;i <= string_length(new_string);i++){
-        if string_char_at(new_string, i) != char{
-            _start = i - 1
-            break
+// find first non-whitespace char
+for (var i = 1; i <= length; i++)
+{
+    start = i;
+    // space character, and chars 9-13 in ascii are whitespace
+    var c = string_char_at(str, i);
+    if (c == ' ' || (ord(c) >= 9 && ord(c) <= 13))
+    {
+    }
+    else
+    {
+        break;
+    }
+}
+
+// find last non-whitespace char
+for (var i = length; i >= max(1, start - 1); i--)
+{
+    finish = i;
+    // space character, and chars 9-13 in ascii are whitespace
+    var c = string_char_at(str, i);
+    if (c == ' ' || (ord(c) >= 9 && ord(c) <= 13))
+    {
+        if (i == max(1, start - 1))
+        {
+            finish--;
         }
     }
-    if _start != 0{new_string = string_delete(new_string,1,_start)}
-}
-if side == "right" or side == "both"{
-    var _end = 0
-    for(i=string_length(new_string);i > 0;i--){
-        if string_char_at(new_string, i) != char{
-            _end = i + 1
-            break
-        }
+    else
+    {
+        break;
     }
-    if _end != 0{new_string = string_delete(new_string,_end,string_length(new_string))}
 }
-return new_string
+
+// find the substring that is first to last
+if (start > finish)
+{
+    return "";
+}
+return string_copy(str, start, finish - start + 1);
