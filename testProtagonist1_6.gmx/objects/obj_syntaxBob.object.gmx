@@ -63,7 +63,7 @@ outro = snd_syntaxOutro1;
             <kind>1</kind>
             <string>/// destroy self if not needed
 event_inherited();
-if (ds_map_exists(obj_storyData.data, activeTracker) &amp;&amp; !obj_storyData.data[? activeTracker])
+if (checkFlag(activeTracker))
 {
     event_user(4);
 }
@@ -120,7 +120,7 @@ if (instance_exists(obj_dialogue.display) &amp;&amp; obj_dialogue.display.state 
     if (instance_exists(obj_protagonist) &amp;&amp; playerCanMove() &amp;&amp; distance_to_object(obj_protagonist) &lt; 20)
     {
         /// enter combat (AKA puzzle)
-        if (ds_map_exists(obj_storyData.data, activeTracker) &amp;&amp; !obj_storyData.data[? activeTracker])
+        if (checkFlag(activeTracker))
         {
             exit;
         }

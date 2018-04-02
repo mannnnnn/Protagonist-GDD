@@ -27,7 +27,8 @@
             <kind>1</kind>
             <string>/// everything depends on puzzle4
 puzzle = false;
-if (!checkFlag("puzzle4", true))
+// go to combat puzzle if puzzle4 has been solved
+if (checkFlag("puzzle4"))
 {
     puzzle = true;
 }

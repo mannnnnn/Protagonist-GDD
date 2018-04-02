@@ -1,3 +1,4 @@
 ///hadesSpecialSaveExtravaganza(int)
 // which intro to do next time.
-obj_storyData.data[? "intro"] = argument0;
+setFlag("intro", argument0);
+show_debug_message("Set to: " + string(argument0));

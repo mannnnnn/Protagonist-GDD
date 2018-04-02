@@ -1020,8 +1020,10 @@
     </scripts>
     <script>scripts\drawHealthBar.gml</script>
     <script>scripts\checkFlag.gml</script>
+    <script>scripts\setFlag.gml</script>
     <script>scripts\updateForestMusic.gml</script>
     <script>scripts\playClickSound.gml</script>
+    <script>scripts\initFlags.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shr_blur.shader</shader>
@@ -1043,6 +1045,7 @@
       <object>objects\obj_invisibleWall</object>
       <object>objects\obj_particleSolid</object>
       <object>objects\obj_jungleParticleSolid</object>
+      <object>objects\obj_sphinxxWall</object>
     </objects>
     <objects name="old">
       <object>objects\obj_greekScenes</object>
@@ -1184,7 +1187,6 @@
           <object>objects\obj_triggerDialogue5</object>
           <object>objects\obj_triggerDialogueAuto</object>
           <object>objects\obj_triggerPostSphinx</object>
-          <object>objects\obj_triggerChest</object>
         </objects>
       </objects>
       <object>objects\obj_optionsMenu</object>

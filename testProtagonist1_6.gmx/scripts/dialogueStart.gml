@@ -42,4 +42,10 @@ else
     // start
     obj_dialogue.active = true;
     dialogueAdvance();
+    // set flags to indicate that this dialogue was run
+    var fileSplit = string_split(obj_dialogue.file, ".", ds_list_create());
+    ds_list_delete(fileSplit, ds_list_size(fileSplit) - 1);
+    var dialogueFilename = string_join(fileSplit, ".");
+    ds_list_destroy(fileSplit);
+    setFlag(dialogueFilename, true);
 }

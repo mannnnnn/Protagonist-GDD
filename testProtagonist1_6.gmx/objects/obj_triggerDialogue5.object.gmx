@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>/// init tracker
-activeTracker = "dialogue5";
+activeTracker = "jungle5";
 script = "jungle5.protd";
 </string>
           </argument>
@@ -52,11 +52,12 @@ script = "jungle5.protd";
             <kind>1</kind>
             <string>/// trigger
 
-// activate once the protagonist is in the sigma forest room after the launch
-if (!instance_exists(obj_launch) &amp;&amp; playerCanMove())
+// activate when the player tries to move left
+// after talking to the sphinx to the apollo room
+if (playerCanMove())
 {
-    // do nothing if already triggered, or if puzzle4 is done, or if wall isn't up
-    if (checkFlag(activeTracker, false) || !checkFlag("puzzle4", true) || !checkFlag("sphinxxWall", true)) 
+    // do nothing if already triggered, or if jungle4 isn't done
+    if (checkFlag(activeTracker) || !checkFlag("jungle4"))
     {
         instance_destroy();
         exit;
@@ -64,7 +65,7 @@ if (!instance_exists(obj_launch) &amp;&amp; playerCanMove())
     // otherwise run it
     dialogueLoad(script);
     dialogueStart();
-    obj_storyData.data[? activeTracker] = true;
+    setFlag(activeTracker, true);
 }
 </string>
           </argument>

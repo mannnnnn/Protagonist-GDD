@@ -74,12 +74,6 @@ trans.timer = -35;
 // whether or not we're on the next room or not
 next = false;
 
-// block the wall if it isn't already false
-if (!ds_map_exists(obj_storyData.data, "sphinxxWall"))
-{
-    obj_storyData.data[? "sphinxxWall"] = true;
-}
-
 // since this ran, this is not being delayed due to in-combat or transition
 delayed = false;
 </string>

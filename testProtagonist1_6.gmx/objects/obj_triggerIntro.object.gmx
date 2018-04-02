@@ -19,7 +19,7 @@
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
-        <whoName>self</whoName>
+        <whoName>other</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
@@ -28,39 +28,35 @@
             <string>/// trigger which intro we're on
 
 // don't trigger anything if already launched
-if (ds_map_exists(obj_storyData.data, "launched") &amp;&amp; obj_storyData.data[? "launched"])
+if (checkFlag("launched"))
 {
     instance_destroy();
     exit;
 }
 
 // trigger the correct intro
-if (!ds_map_exists(obj_storyData.data, "intro"))
+switch (checkFlag("intro"))
 {
-    dialogueLoad("intro1.protd");
-    dialogueStart();
-    instance_destroy();
-}
-else
-{
-    switch (obj_storyData.data[? "intro"])
-    {
-        case 2:
-            dialogueLoad("intro2.protd");
-            dialogueStart();
-            instance_destroy();
-            break;
-        case 3:
-            dialogueLoad("intro3.protd");
-            dialogueStart();
-            instance_destroy();
-            break;
-        default:
-            dialogueLoad("intro1.protd");
-            dialogueStart();
-            instance_destroy();
-            break;
-    }
+    case 1:
+        dialogueLoad("intro1.protd");
+        dialogueStart();
+        instance_destroy();
+        break;
+    case 2:
+        dialogueLoad("intro2.protd");
+        dialogueStart();
+        instance_destroy();
+        break;
+    case 3:
+        dialogueLoad("intro3.protd");
+        dialogueStart();
+        instance_destroy();
+        break;
+    default:
+        dialogueLoad("intro1.protd");
+        dialogueStart();
+        instance_destroy();
+        break;
 }
 </string>
           </argument>

@@ -1,6 +1,11 @@
-///checkFlag(key, def)
-if (!ds_map_exists(obj_storyData.data, argument0))
+///checkFlag(key, ?def)
+var def = false;
+if (argument_count >= 2)
 {
-    return argument1;
+    def = argument[1];
 }
-return obj_storyData.data[? argument0];
+if (!ds_map_exists(obj_storyData.data, argument[0]))
+{
+    return def;
+}
+return obj_storyData.data[? argument[0]];

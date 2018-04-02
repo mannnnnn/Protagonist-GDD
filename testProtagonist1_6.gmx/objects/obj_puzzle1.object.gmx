@@ -56,7 +56,7 @@ puzzle = noone;
           <argument>
             <kind>1</kind>
             <string>/// end combat
-obj_storyData.data[? "puzzle1"] = false;
+setFlag("puzzle1", true);
 endCombat();
 </string>
           </argument>

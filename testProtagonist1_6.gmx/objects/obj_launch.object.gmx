@@ -116,7 +116,7 @@ instance_destroy();
             <string>/// crashed, so start the next phase
 state = OPENING;
 // set story data launch
-obj_storyData.data[? "launched"] = true;
+setFlag("launched", true);
 
 </string>
           </argument>

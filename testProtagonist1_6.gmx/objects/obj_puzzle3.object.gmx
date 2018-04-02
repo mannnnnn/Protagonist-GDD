@@ -52,7 +52,7 @@ typoStop = 19;
           <argument>
             <kind>1</kind>
             <string>/// end combat
-obj_storyData.data[? "puzzle3"] = false;
+setFlag("puzzle3", true);
 endCombat();
 </string>
           </argument>
