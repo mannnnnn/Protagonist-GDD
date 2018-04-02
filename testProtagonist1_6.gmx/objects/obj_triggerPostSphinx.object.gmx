@@ -216,6 +216,9 @@ grav.projVelX = -1;
 grav.projVelY = 0.25;
 grav.color = c_dkgray;
 grav.dustY = 30;
+
+// update music
+updateForestMusic();
 </string>
           </argument>
         </arguments>

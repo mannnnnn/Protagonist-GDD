@@ -4,138 +4,158 @@
 //CHARACTERS
 character P
 {
-        name = "Protagonist"
+	name = "Protagonist"
+	side = left
 }
+
 character Ar
 {
-        name = "Artemis"
+	name = "Artemis"
+	side = right
+}
+
+character ?
+{
+	name = "???"
+	side = right
 }
 
 show Ar spr_talkArtemis
-with artemis_swing
+with fade
 
+show P spr_defaultSpeak
+with fade
+
+arIntro = false
 
 if (arIntro == false)
 {
-"Hey you!"
-P: "?!"
-"You're the ferret who's been nabbing all the wildlife from around here!"
-P: "You're the-!"
-P: "No wait, I don't know you."
-P: "Who are you?"
-Ar: "The name's Artemis, and I'm the one who's been dealing with your nonsense all day."
-Ar: "I thought this place was cleaner than usual… where did all the dust bunnies go?"
-Ar: "Do you have no respect for how long it takes to collect dust in the middle of a forest?"
-P: "I just-"
-"Why in the world are you running around collecting rabbits off the ground anyways? What are you even planning to do with the poor things?"
-P: "Well I just wanted to-"
-P: "I mean I think I just-"
-P: "I think I ate one."
-Ar: "You… ate one?"
-Ar: "You picked a ball of sentient dust off the ground and you ate it?!"
-P: "Is it inside me now? I don't feel good about this."
-P: "I really didn't mean to do this. I just was pressing buttons and it seemed like the right thing to do."
-P: "I just wanted the stat boost."
-Ar: "So you picked a dust bunny off the ground and shoved it in your mouth?!"
-P: "I have a track record of making bad decisions and I don't think I've been alive for very long."
-Ar: "Alright."
-Ar: "Alright, okay."
-Ar: "Okay alright well now your soul has been attuned with the spirit of the dust bunny. You two will now live in tandem."
-P: "What."
-Ar: "You ate the dang thing what did you think was going to happen."
-P: "I thought it'd boost my attack stat, or something."
-Ar: "No, you just ate a magical creature. Don't worry, this is a good thing though. Now the dust bunny can be a part of the Protagonist."
-P: "I don't know how I feel about this."
-Ar: "Hey, don't worry about it, it's going to be kinda fun!"
-Ar: "In fact, I could teach you how to wield the power of the rabbit."
-P: "The power of the what now?"
-Ar: "Look, I know you know my brother Apollo, and he let me in on what's happening."
-Ar: "The Sphinxx and I got a history, you see, and I'm not too fond of that thing."
-Ar: "The real sphinx was a masterpiece, one of my favorite little beasties. I don't know where it went, but I miss it."
-Ar: "And I'd like to see this imposter punished."
-Ar: "But you are far too puny to pull that off."
-P: "Thanks."
-Ar: "Hey, I'm not trying to be rude. I'm just saying you've been running around yelling at cats all day and calling yourself a puzzlemaster."
-P: "I've also been eating piles of dust off the ground."
-Ar: "Yeah, that's my point."
-Ar: "I'll help you take down the Sphinxx by teaching you how to use the creatures around here to your advantage."
-Ar: "You don't have to eat mystical deities to get their powers you know, you can just talk to them."
-Ar: "And you can harness that power to use with your own magic. Practically any attribute will work."
-Ar: "The cuddliness of the kitties,"
-Ar: "The song of the birds."
-Ar: "The fire-breathing of the dust bunnies-"
-P: "The what!?"
-Ar: "Yeah those little buggers can be a bit of a handful."
-Ar: "But I think you could probably get the hang of it."
-Ar: "Besides, you've already eaten it, you might as well appease its vengeful spirit."
-P: "O-oh…"
-Ar: "Hah I'm just pulling your leg!"
-Ar: "A dust bunny spirit could consume your essence if it wanted to. The fact that it hasn't must mean that it likes you!"
-P: "Was that supposed to make me feel better?"
-Ar: "Take my help or not, I don't care. I'm just saying, you've got the potential to pet a lot of cute fuzzy animals."
-P: "Is that a skill?"
-Ar: "I guess that's for you to decide."
-Ar: "But in any case, make that decision quickly. I've got places to be."
-menu{
-    "Alright, I'll take you up on that help."
-    {
+	?: "Hey you!"
+	P: "?!"
+	?: "You're the ferret who's been nabbing all the wildlife from around here!"
+	P: "You're the-!"
+	P: "No wait, I don't know you."
+	P: "Who are you?"
+	show Ar spr_talkArtemis
+	with nothing
+	hide ?
+	with nothing
+	Ar: "The name's Artemis, and I'm the one who's been dealing with your nonsense all day."
+	Ar: "I thought this place was cleaner than usual... where did all the dust bunnies go?"
+	Ar: "Do you have no respect for how long it takes to collect dust in the middle of a forest?"
+	P: "I just-"
+	Ar: "Why in the world are you running around collecting rabbits off the ground anyways? What are you even planning to do with the poor things?"
+	P: "Well I just wanted to-"
+	P: "I mean I think I just-"
+	P: "I think I ate one."
+	Ar: "You… ate one?"
+	Ar: "You picked a ball of sentient dust off the ground and you ate it?!"
+	P: "Is it inside me now? I don't feel good about this."
+	P: "I really didn't mean to do this. I just was pressing buttons and it seemed like the right thing to do."
+	P: "I just wanted the stat boost."
+	Ar: "So you picked a dust bunny off the ground and shoved it in your mouth?!"
+	P: "I have a track record of making bad decisions and I don't think I've been alive for very long."
+	Ar: "Alright."
+	Ar: "Alright, okay."
+	Ar: "Okay alright well now your soul has been attuned with the spirit of the dust bunny. You two will now live in tandem."
+	P: "What."
+	Ar: "You ate the dang thing. What did you think was going to happen?"
+	P: "I thought it'd boost my attack stat, or something."
+	Ar: "No, you just ate a magical creature. Don't worry, this is a good thing though. Now the dust bunny can be a part of the Protagonist."
+	P: "I don't know how I feel about this."
+	Ar: "Hey, don't worry about it, it's going to be kinda fun!"
+	Ar: "In fact, I could teach you how to wield the power of the rabbit."
+	P: "The power of the what now?"
+	Ar: "Look, I know you know my brother Apollo, and he let me in on what's happening."
+	Ar: "The Sphinxx and I got a history, you see, and I'm not too fond of that thing."
+	Ar: "The real sphinx was a masterpiece, one of my favorite little beasties. I don't know where it went, but I miss it."
+	Ar: "And I'd like to see this imposter punished."
+	Ar: "But you are far too puny to pull that off."
+	P: "Thanks."
+	Ar: "Hey, I'm not trying to be rude. I'm just saying you've been running around yelling at cats all day and calling yourself a puzzlemaster."
+	P: "I've also been eating piles of dust off the ground."
+	Ar: "Yeah, that's my point."
+	Ar: "I'll help you take down the Sphinxx by teaching you how to use the creatures around here to your advantage."
+	Ar: "You don't have to eat mystical deities to get their powers you know, you can just talk to them."
+	Ar: "And you can harness that power to use with your own magic. Practically any attribute will work."
+	Ar: "The cuddliness of the kitties,"
+	Ar: "The song of the birds."
+	Ar: "The fire-breathing of the dust bunnies-"
+	P: "The what!?"
+	Ar: "Yeah those little buggers can be a bit of a handful."
+	Ar: "But I think you could probably get the hang of it."
+	Ar: "Besides, you've already eaten it, you might as well appease its vengeful spirit."
+	P: "O-oh…"
+	Ar: "Hah I'm just pulling your leg!"
+	Ar: "A dust bunny spirit could consume your essence if it wanted to. The fact that it hasn't must mean that it likes you!"
+	P: "Was that supposed to make me feel better?"
+	Ar: "Take my help or not, I don't care. I'm just saying, you've got the potential to pet a lot of cute fuzzy animals."
+	P: "Is that a skill?"
+	Ar: "I guess that's for you to decide."
+	Ar: "But in any case, make that decision quickly. I've got places to be."
+	menu
+	{
+		"Alright, I'll take you up on that help."
+		{
+			
+		}
+		"I'd like to think it over, if you don't mind."
+		{
+			Ar: "I actually do mind. I've got places to be."
+			Ar: "I'll help you out, but you'd better choose quickly."
+			Ar: "Come with me or don't, it's your choice."
+			menu
+			{
+				"Alright, let's do it."
+				{
+					Ar: "Wow, just like that, huh?"
+					Ar: "Well then, maybe you aren't so helpless afterall. You can at least think on your feet."
+					Ar: "Maybe we can have some fun, after all."
+					Ar: "What kind of magic has my brother taught you?"
+					P: "He gave me this weird book and told me to learn this magic language."
+					P: "I think he was using it as a diary before giving it to me."
+					P: "He talks a lot about cereal."
+					Ar: "Yeah give me that, that's worthless."
+					Ar: "Try this."
+					//add item Wildlife Guide
+					P: "It's empty."
+					Ar: "Yeah, you've got to fill it."
+					Ar: "It's a lot of the same stuff as Apollo should have taught you."
+					Ar: "Except I'll teach you how to harness the power of the dust bunny within you."
+					P: "Alright and how do I do that."
+					Ar: "Clap your hands together."
+					P: "Alright now what."
+					Ar: "You're done."
+					Ar: "Have fun with your new power."
+					//add letter R
+					P: "That's it?"
+					Ar: "Yeah."
+					P: "I sold my soul for this?"
+					Ar: "Hey, that's gonna give you a heck of a boost in battle."
+					Ar: "Go sear that Sphinxx and let me know how you do. I can't wait to watch that thing burn."
+					P: "Whoa I feel real fiery."
+					Ar: "Aw yeah, you're about to start out on the best adventure of your life, Protagonist!"
+					Ar: "I'll show you how to do all the coolest stunts with these animal spirits."
+					P: "Like eating a goat and doing a cartwheel?"
+					Ar: "Ok first of all, please don't eat anything else."
+					Ar: "And second of all you lucked out with the simplest command. We're gonna have to bust out a blackboard for the next set of magic calculations."
+					P: "That doesn't sound fun."
+					Ar: "It's not, but it's worth it for the ability to teleport."
+					P: "You can teleport? Whoa that's so cool!"
+					Ar: "Yeah! Check it out!"
 
-    }
-    "I'd like to think it over, if you don't mind."
-    {
-Ar: "I actually do mind. I've got places to be."
-Ar: "I'll help you out, but you'd better choose quickly."
-Ar: "Come with me or don't, it's your choice."
-menu
-{
-    "Alright, let's do it."
-    {
-Ar: "Wow, just like that, huh?"
-Ar: "Well then, maybe you aren't so helpless afterall. You can at least think on your feet."
-Ar: "Maybe we can have some fun, after all."
-Ar: "What kind of magic has my brother taught you?"
-P: "He gave me this weird book and told me to learn this magic language."
-P: "I think he was using it as a diary before giving it to me."
-P: "He talks a lot about cereal."
-Ar: "Yeah give me that, that's worthless."
-Ar: "Try this."
-//add item Wildlife Guide
-P: "It's empty."
-Ar: "Yeah, you've got to fill it."
-Ar: "It's a lot of the same stuff as Apollo should have taught you."
-Ar: "Except I'll teach you how to harness the power of the dust bunny within you."
-P: "Alright and how do I do that."
-Ar: "Clap your hands together."
-P: "Alright now what."
-Ar: "You're done."
-Ar: "Have fun with your new power."
-//add letter R
-P: "That's it?"
-Ar: "Yeah."
-P: "I sold my soul for this?"
-Ar: "Hey, that's gonna give you a heck of a boost in battle."
-Ar: "Go sear that Sphinxx and let me know how you do. I can't wait to watch that thing burn."
-P: "Whoa I feel real fiery."
-Ar: "Aw yeah, you're about to start out on the best adventure of your life, Protagonist!"
-Ar: "I'll show you how to do all the coolest stunts with these animal spirits."
-P: "Like eating a goat and doing a cartwheel?"
-Ar: "Ok first of all, please don't eat anything else."
-Ar: "And second of all you lucked out with the simplest command. We're gonna have to bust out a blackboard for the next set of magic calculations."
-P: "That doesn't sound fun."
-Ar: "It's not, but it's worth it for the ability to teleport."
-P: "You can teleport? Whoa that's so cool!"
-Ar: "Yeah! Check it out!"
-//hide Artemis
-P: "Wait."
-}
-    "I think I'll weigh some other options."
-    {
-Ar: "Cool. I'm out of here then."
-Ar: "Have fun."
-}
-}
-}
-}
+					hide Ar
+					with fade
 
-exit
+					P: "Wait."
+				}
+				"I think I'll weigh some other options."
+				{
+					Ar: "Cool. I'm out of here then."
+					Ar: "Have fun."
+				}
+			}
+		}
+	}
+	exit
 }

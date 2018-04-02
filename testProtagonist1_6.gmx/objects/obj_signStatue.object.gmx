@@ -3,7 +3,7 @@
   <spriteName>spr_signStatue</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-115</depth>
+  <depth>-90</depth>
   <persistent>0</persistent>
   <parentName>obj_interactable</parentName>
   <maskName>&lt;undefined&gt;</maskName>

@@ -115,6 +115,43 @@ if (keyboard_check(vk_control))
         </arguments>
       </action>
     </event>
+    <event eventtype="9" enumb="81">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// restart game and wipe save
+if (!debug)
+{
+    exit;
+}
+if (keyboard_check(vk_control))
+{
+    ds_map_destroy(obj_storyData.data);
+    obj_storyData.data = ds_map_create();
+    file_delete(getGlobalSavePath(obj_storyData.file));
+    game_restart();
+    file_delete(getGlobalSavePath(obj_storyData.file));
+    ds_map_destroy(obj_storyData.data);
+    obj_storyData.data = ds_map_create();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="9" enumb="80">
       <action>
         <libid>1</libid>

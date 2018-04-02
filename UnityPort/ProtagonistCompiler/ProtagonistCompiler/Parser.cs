@@ -8,8 +8,9 @@ namespace ProtagonistCompiler
 {
     public class Parser
     {
-        public ParseNode Parse(List<Token> tokens)
+        public ParseTree Parse(List<Token> tokens)
         {
+            ParseTree parseTree = new ParseTree();
             for (int i = 0; i < tokens.Count; i++)
             {
                 i = parseCharacters(tokens, i);
@@ -25,8 +26,8 @@ namespace ProtagonistCompiler
             return i;
         }
 
-        // tries to parse token as a character definition
-        private int parseCharacters(List<Token> tokens, int i)
+        // tries to parse token as a character definition, then add it to the parseTree
+        private int parseCharacters(List<Token> tokens, int i, ParseTree parseTree)
         {
             // if not a character definition, move on
             if (tokens[i].type != TokenType.CHARACTER)
@@ -41,6 +42,7 @@ namespace ProtagonistCompiler
             if (tokens[i].type == TokenType.NAME)
             {
                 ch = new CharacterDefinition(tokens[i].contents, tokens[i].contents, Side.RIGHT);
+                parseTree.characters.Add(ch.id, ch);
             }
             else
             {
@@ -123,6 +125,12 @@ namespace ProtagonistCompiler
             {
                 return i + 1;
             }
+        }
+
+        // tries to parse token as a label definition
+        private int parseLabels(List<Token> tokens, int i)
+        {
+
         }
 
         // skips newlines, whitespace, and comments

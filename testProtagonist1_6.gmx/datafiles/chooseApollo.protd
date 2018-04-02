@@ -1,19 +1,21 @@
 //chooseApollo - a scene in which you choose Apollo (or not)
 //Characters: Apollo, Hades, Protagonist
 
-//boolean apIntro = false
 //CHARACTERS
 character P
 {
-        name = "Protagonist"
+	name = "Protagonist"
+    side = left
 }
 character Ap
 {
-        name = "Apollo"
+	name = "Apollo"
+    side = right
 }
 character H
 {
-        name = "Hades"
+	name = "Hades"
+    side = left
 }
 
 //BEGIN DIALOGUE
@@ -21,147 +23,134 @@ show Ap spr_talkApollo
 with apollo_swing
 //
 
+apIntro = false
 
-
-
-
-if (apIntro == false)
+if (!apIntro)
 {
+	Ap: "Fifty seven and a half percent, check my math."
 
+	//
+	show H spr_talkHades
+	with hades_swing
+	//
 
-Ap: "Fifty seven and a half percent, check my math."
+	H: "It's fifty six and you know it. There's no way that squirt is going to take down my Sphinxx."
+	Ap: "Bring up the Protagonist's stats again, I'll show you."
+	H: "Here, knock yourself out. Protagonist only has an attack of three, and the Sphinxx has an attack of five."
+	Ap: "Yeah but check out the multiplier with these new spells."
+	H: "..."
+	H: "That's...more than I was expecting."
+	H: "But magic only counts if its used correctly, and you can't convince me that the grey meat cloud has a silver lining."
+	Ap: "Hey, don't talk about my prodigy like that! I know their capability, and I'm saying it's worth at least a percent and a half against that Sphinxx."
 
-//
-show H spr_talkHades
-with hades_swing
-//
+	//
+	hide H
+	with hades_swing
+	show P spr_defaultSpeak
+	//
 
-H: "It's fifty six and you know it. There's no way that squirt is going to take down my Sphinxx."
-Ap: "Bring up the Protagonist's stats again, I'll show you."
-H: "Here, knock yourself out. Protagonist only has an attack of three, and the Sphinxx has an attack of five."
-Ap: "Yeah but check out the multiplier with these new spells."
-H: "..."
-H: "That's...more than I was expecting."
-H: "But magic only counts if its used correctly, and you can't convince me that the grey meat cloud has a silver lining."
-Ap: "Hey, don't talk about my prodigee like that! I know their capability, and I'm saying it's worth at least a percent and a half against that Sphinxx."
+	P: "Is a percent and a half a lot?"
+	Ap: "Hey, whoa, I thought you were out doing other stuff."
+	P: "Did you do the math on this matchup? What are my stats? Did you really calculate all this?"
+	Ap: "Hey, whoa whoa whoa. We're still at the part of the story where I gotta harsh your mellow before marshin your mallow."
+	P: "What?"
+	Ap: "It's that classic coach and player situation, kid. I'm rootin' against you here, and I gotta act all tough."
+	Ap: "But then, when you triumph, I'll reveal that I knew you'd win the whole time."
+	P: "But... why don't you just root for me now?"
+	Ap: "Law of large numbers, sprout. Ol' Hades thinks that I'm losing my edge. I can't afford to mess up another calculation and let Hades take my spot as master mathematician."
+	P: "But you said the odds were in my favor!"
+	P: "I don't even get why I have to do this in the first place."
+	P: "I can't believe I might get killed just so you gods can have a bit of entertainment."
+	Ap: "Shushshsh... not so loud while Hades is around."
+	P: "Hades is always around. That's what Hades said."
+	Ap: "Yeah, but Hades isn't a mind reader. Let me spell it out for you."
+	Ap: "You probably think we look bad right now, wagering on your life."
+	Ap: "But trust me, we're the good guys."
+	Ap: "My buds and I? We were programmed here to help out the Protagonist. You and I had a very... special bond back in the real game."
+	Ap: "Even Hades is supposed to be looking out for you, in that special Hades way."
+	P: "So why am I being sent to my death? What happened to you all?"
+	Ap: "Tis' the burden of time, little mortal. We've all been caught up in our own little world for a long time, and things have gone stale."
+	Ap: "I wanted to stay here long enough until I could solve the Sphinxx's riddle, but now I'm itching to leave."
+	Ap: "I've lived here longer than you could remember and so have the others. We're bored."
+	Ap: "If you could kill a fly and win the lottery, would you do it?"
+	P: "Killing me will win the lottery?"
+	Ap: "The most precious thing in this place to us is change, and you're the Protagonist. It's kind of your job."
+	Ap: "So yeah, having you do anything new gives us the thrill we need after eons of living here."
+	Ap: "So win, lose, it doesn't matter."
+	Ap: "You cleared out the world of Syntax Errors way faster than I was thinking you would, and without solving the riddle."
+	Ap: "That means the last thing you can change in this jungle is either the presence of the Sphinx, or yourself."
+	Ap: "And you've got the gods' attention with either outcome, since we have nothing better to do."
 
-//
-hide H
-with hades_swing
-show P spr_talkDefault
-//
-
-
-P: "Is a percent and a half a lot?"
-Ap: "Hey, whoa, I thought you were out doing other stuff."
-P: "Did you do the math on this matchup? What are my stats? Did you really calculate all this?"
-Ap: "Hey, whoa whoa whoa. We're still at the part of the story where I gotta harsh your mellow before marshin your mallow."
-P: "What?"
-Ap: "It's that classic coach and player situation, kid. I'm rootin' against you here, and I gotta act all tough."
-Ap: "But then, when you triumph, I'll reveal that I knew you'd win the whole time."
-P: "But... why don't you just root for me now?"
-Ap: "Law of large numbers, sprout. Ol' Hades thinks that I'm losing my edge. I can't afford to mess up another calculation and let Hades take my spot as master mathematician."
-P: "But you said the odds were in my favor!"
-P: "I don't even get why I have to do this in the first place."
-P: "I can't believe I might get killed just so you gods can have a bit of entertainment."
-Ap: "Shushshsh... not so loud while Hades is around."
-P: "Hades is always around. That's what Hades said."
-Ap: "Yeah, but Hades isn't a mind reader. Let me spell it out for you."
-Ap: "You probably think we look bad right now, wagering on your life."
-Ap: "But trust me, we're the good guys."
-Ap: "My buds and I? We were programmed here to help out the Protagonist. You and I had a very... special bond back in the real game."
-Ap: "Even Hades is supposed to be looking out for you, in that special Hades way."
-P: "So why am I being sent to my death? What happened to you all?"
-Ap: "Tis' the burden of time, little mortal. We've all been caught up in our own little world for a long time, and things have gone stale."
-Ap: "I wanted to stay here long enough until I could solve the Sphinxx's riddle, but now I'm itching to leave."
-Ap: "I've lived here longer than you could remember and so have the others. We're bored."
-Ap: "If you could kill a fly and win the lottery, would you do it?"
-P: "Killing me will win the lottery?"
-Ap: "The most precious thing in this place to us is change, and you're the Protagonist. It's kind of your job."
-Ap: "So yeah, having you do anything new gives us the thrill we need after eons of living here."
-Ap: "So win, lose, it doesn't matter."
-Ap: "You cleared out the world of Syntax Errors way faster than I was thinking you would, and without solving the riddle."
-Ap: "That means the last thing you can change in this jungle is either the presence of the Sphinx, or yourself."
-Ap: "And you've got the gods' attention with either outcome, since we have nothing better to do."
-
-menu
-    {
-            "What if I gave you a choice?"
-            {
-                    Ap: "Huh?"
-            P: "You're a god, aren't you?"
-            Ap: "Yeah?"
-            P: "You can help me out in the fight."
-            Ap: "Yeah but-."
-            P: "Didn't you say I'm the only one who can influence this world? If you help me out, aren't you making the outcome?"
-P: "If you intervene in the fight, or help me out somehow, you could change the tide of the battle."
-Ap: "Does it work like that?"
-P: "Beats me, but isn't it worth a try?"
-Ap: "Look kid, you can't just bait me with this. We're talking about power here."
-Ap: "And I am very, very intrigued, but I gotta know you're all in."
-Ap: "Give me a minute to think."
-
-
-            }
-            "Well I'd better go prepare."
-            {
-                    Ap:"That's the spirit!"
-            }
-    
-hide P
-with fade
-hide Ap
-with Apollo_swing
-
-wait for drawers
-exit
+	menu
+	{
+		"What if I gave you a choice?"
+		{
+			Ap: "Huh?"
+			P: "You're a god, aren't you?"
+			Ap: "Yeah?"
+			P: "You can help me out in the fight."
+			Ap: "Yeah but-."
+			P: "Didn't you say I'm the only one who can influence this world? If you help me out, aren't you making the outcome?"
+			P: "If you intervene in the fight, or help me out somehow, you could change the tide of the battle."
+			Ap: "Does it work like that?"
+			P: "Beats me, but isn't it worth a try?"
+			Ap: "Look kid, you can't just bait me with this. We're talking about power here."
+			Ap: "And I am very, very intrigued, but I gotta know you're all in."
+			Ap: "Give me a minute to think."
+		}
+		"Well I'd better go prepare."
+		{
+				Ap:"That's the spirit!"
+		}
+	}
 }
-}
-//Else{
-Ap: "What's up little mortal?"
-    menu{
-        "Have you thought about helping me?"
-        {
-Ap: "Yeah, actually, I have."
-Ap: "Look here."
-Ap: "I'm willing to help you out, but on one condition."
-Ap: "When I look at you, I see a life expectancy of like 80 years."
-Ap: "And I'm not too crazy about signing on with someone with half the lifespan of a geoduck."
-Ap: "But... I gotta admit, you've got potential."
-Ap: "So I don't expect you do prove yourself right now, kid, but you'd better show me something later down on the line."
-Ap: "I want to know that Apollo didn't just sign on for some dumb shenanigan that's gonna make me the laughing stock of Hades for the next four years."
-Ap: "You think you can take me with you, and that you can prove to me that you're gonna be a stellar character?"
-Ap: "You think you've got what it takes to make this game fun again?"
-Ap: "Huh? Do ya?"
-
-menu
+else
 {
-    "Yes. (By choosing Apollo, you cannot choose any other help)"
-    {
-Ap: "Well."
-Ap: "Alright then! Let's get goin' kid! You passed the test!"
-P: "I did?!"
-Ap: "Yeahah! Now pop quiz, what am I gonna do to help you?"
-P: "Give me a magic sword?"
-Ap: "Nah, too cliche. We gotta have some presentation, gotta make it fun!"
-P: "Can we make it fun but also where I still get to leave the fight with my limbs intact?"
-Ap: "I'll keep it a mystery. Come on, live a little!"
-P: "That's exactly what I'm trying to do."
-Ap: "Come on and get in that Sphinxx zone. I'll show you the ropes."
-//sphinxxLock = false; (declared somewhere else)
-}
-"It'd take a lot more than me to make this game fun."
-{
-    Ap: "Well you can start by knocking out that Sphinxx."
-}
+	Ap: "What's up little mortal?"
+	menu   
+	{
+		"Have you thought about helping me?"
+		{
+			Ap: "Yeah, actually, I have."
+			Ap: "Look here."
+			Ap: "I'm willing to help you out, but on one condition."
+			Ap: "When I look at you, I see a life expectancy of like 80 years."
+			Ap: "And I'm not too crazy about signing on with someone with half the lifespan of a geoduck."
+			Ap: "But... I gotta admit, you've got potential."
+			Ap: "So I don't expect you do prove yourself right now, kid, but you'd better show me something later down on the line."
+			Ap: "I want to know that Apollo didn't just sign on for some dumb shenanigan that's gonna make me the laughing stock of Hades for the next four years."
+			Ap: "You think you can take me with you, and that you can prove to me that you're gonna be a stellar character?"
+			Ap: "You think you've got what it takes to make this game fun again?"
+			Ap: "Huh? Do ya?"
 
-
-
-}
-"I have no idea what I'm doing."
-        {
-        Ap: "Well that makes two of us!"
-Ap: "Oh no wait, that just makes one of us.
+			menu
+			{
+				"Yes. (By choosing Apollo, you cannot choose any other help)"
+				{
+					Ap: "Well."
+					Ap: "Alright then! Let's get goin' kid! You passed the test!"
+					P: "I did?!"
+					Ap: "Yeahah! Now pop quiz, what am I gonna do to help you?"
+					P: "Give me a magic sword?"
+					Ap: "Nah, too cliche. We gotta have some presentation, gotta make it fun!"
+					P: "Can we make it fun but also where I still get to leave the fight with my limbs intact?"
+					Ap: "I'll keep it a mystery. Come on, live a little!"
+					P: "That's exactly what I'm trying to do."
+					Ap: "Come on and get in that Sphinxx zone. I'll show you the ropes."
+					sphinxxLock = false
+				}
+				"It'd take a lot more than me to make this game fun."
+				{
+					Ap: "Well you can start by knocking out that Sphinxx."
+				}
+			}
+		}
+		"I have no idea what I'm doing."
+		{
+			Ap: "Well that makes two of us!"
+			Ap: "Oh no wait, that just makes one of us.
+		}
+	}
 }
 
 hide P
@@ -171,7 +160,3 @@ with Apollo_swing
 
 wait for drawers
 exit
-}
-
-
-
