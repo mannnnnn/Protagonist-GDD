@@ -8,6 +8,9 @@ setFlag("intro", 1);
 // launched: indicates whether the player has completed the launch animation sequence
 setFlag("launched", false);
 
+// whether or not the boss was defeated
+setFlag("sphinxxDefeated", false);
+
 // dialogueX: indicates whether or not player has completed the jungleX.protd dialogue.
 setFlag("jungle1", false);
 setFlag("jungle2", false);

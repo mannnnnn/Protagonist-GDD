@@ -100,7 +100,7 @@ if (!apIntro)
 		}
 		"Well I'd better go prepare."
 		{
-				Ap:"That's the spirit!"
+				Ap: "That's the spirit!"
 		}
 	}
 }

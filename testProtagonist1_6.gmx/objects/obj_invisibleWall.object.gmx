@@ -33,7 +33,7 @@ activeTracker = "";
 // dialogue, if it has any
 file = "itemset1.protd";
 name = "invisibleWall";
-value = false;
+value = true;
 </string>
           </argument>
         </arguments>

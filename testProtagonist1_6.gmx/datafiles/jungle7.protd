@@ -53,7 +53,7 @@ P: "It's looking at us."
 Ap: "What creature wouldn't be captivated by my beautiful body and your...grey...?"
 Ap: "Yeah, if you're going to be my wingman, maybe we should get you a face."
 Ap: "A good one, but not as good as mine."
-"The cat is blocking the path forward. I don't think we'll be able to pass through until we sate it."
+P: "The cat is blocking the path forward. I don't think we'll be able to pass through until we sate it."
 Ap: "How did you get all of that from a meow?"
 P: "I didn't. It's part of the game's puzzle."
 Ap: "I'm not playing a game. I'm here to prove myself against that dang Sphinxx."
@@ -94,7 +94,7 @@ with Hades_swing
 //
 
 
-P:"Syntax errors..."
+P: "Syntax errors..."
 
 //
 show Ap spr_talkApollo
@@ -112,7 +112,7 @@ Ap: "What the heckidodah?! I spent years learning how to do that!"
 Ap: "I'm so proud of this cat! It must have taken it centuries to learn to bend the universe to its whim!"
 Ap: "I'm gonna go pet it."
 P: "Is it dangerous?"
-"I can't understand magic languages."
+P: I can't understand magic languages."
 Ap: "Get a little closer, I'll show you the mighty knowledge of the Lovely Linguist Apollo"
 Ap: "I'm gonna be the best dang language teacher you've ever seen."
 Ap: "Mostly for the cat's sake though, not yours."

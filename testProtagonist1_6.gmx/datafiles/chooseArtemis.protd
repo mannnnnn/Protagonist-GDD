@@ -36,10 +36,6 @@ if (arIntro == false)
 	P: "You're the-!"
 	P: "No wait, I don't know you."
 	P: "Who are you?"
-	show Ar spr_talkArtemis
-	with nothing
-	hide ?
-	with nothing
 	Ar: "The name's Artemis, and I'm the one who's been dealing with your nonsense all day."
 	Ar: "I thought this place was cleaner than usual... where did all the dust bunnies go?"
 	Ar: "Do you have no respect for how long it takes to collect dust in the middle of a forest?"

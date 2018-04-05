@@ -26,12 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>/// everything depends on puzzle4
-puzzle = false;
-// go to combat puzzle if puzzle4 has been solved
-if (checkFlag("puzzle4"))
-{
-    puzzle = true;
-}
+puzzle = checkFlag("puzzle4");
 
 if (puzzle)
 {
