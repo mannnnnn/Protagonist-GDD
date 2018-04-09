@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-101</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -26,7 +26,207 @@
           <argument>
             <kind>1</kind>
             <string>/// end the demo
+// stop other music and play end music
+fadeTimer = 0;
+fadeDur = 90;
+state = OPENING;
 
+scrollPos = -getDisplayRoomHeight();
+scrollSpd = 5;
+
+// scroll credits
+// load in the file
+fname = "credits.protd";
+file = file_text_open_read(fname);
+text = ds_list_create();
+settings = ds_list_create();
+while (!file_text_eof(file))
+{
+    var line = file_text_readln(file);
+    line = string_trim(line);
+    if (string_count("-", line) &gt; 0)
+    {
+        // remove the category marker and add it
+        line = string_replace(line, "-", "");
+        line = string_trim(line);
+        ds_list_add(text, line);
+        // set it as a category marker
+        settings[| ds_list_size(text) - 1] = true;
+    }
+    else
+    {
+        // if it's just a normal line, add it
+        ds_list_add(text, line);
+        settings[| ds_list_size(text) - 1] = false;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// calculate sizes and positions
+textPosY = ds_list_create();
+
+draw_set_font(fnt_creditsCategory);
+categoryH = string_height("|") * 1.2;
+draw_set_font(fnt_creditsText);
+textH = string_height("|") * 1.2;
+spacing = 3 * textH;
+
+var currentY = 0;
+
+// calculate text y position
+for (var i = 0; i &lt; ds_list_size(text); i++)
+{
+    // if this is a category
+    if (settings[| i])
+    {
+        // put space above
+        currentY += spacing;
+        textPosY[| i] = currentY;
+        // then add the height of the category
+        currentY += categoryH;
+    }
+    // if this is normal text
+    else
+    {
+        // record current position
+        textPosY[| i] = currentY;
+        // add height of this text
+        currentY += textH;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// fade in
+
+switch (state)
+{
+    case OPENING:
+        fadeTimer++;
+        if (fadeTimer &gt;= fadeDur)
+        {
+            state = OPEN;
+        }
+        draw_set_alpha(min(1, fadeTimer / fadeDur));
+        draw_set_color(c_white);
+        draw_rectangle(0, 0, getDisplayRoomWidth(), getDisplayRoomHeight(), false);
+        break;
+    case OPEN:
+        fadeTimer = fadeDur;
+        draw_set_alpha(1);
+        draw_set_color(c_white);
+        draw_rectangle(0, 0, getDisplayRoomWidth(), getDisplayRoomHeight(), false);
+        break;
+    case CLOSING:
+        fadeTimer--;
+        if (fadeTimer &lt;= -fadeDur)
+        {
+            state = CLOSED;
+        }
+        draw_set_alpha(1);
+        draw_set_color(c_white);
+        draw_rectangle(0, 0, getDisplayRoomWidth(), getDisplayRoomHeight(), false);
+        draw_set_color(c_black);
+        draw_set_alpha(1 - min(1, max(0, fadeTimer) / fadeDur));
+        draw_rectangle(0, 0, getDisplayRoomWidth(), getDisplayRoomHeight(), false);
+        break;
+    case CLOSED:
+        game_end();
+        break;
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// if all faded in, start scrolling
+
+// if not all faded in, exit
+if (state != OPEN)
+{
+    exit;
+}
+
+scrollPos += scrollSpd;
+
+// draw the text
+draw_set_halign(fa_center);
+draw_set_valign(fa_center);
+draw_set_alpha(1);
+draw_set_color(c_black);
+for (var i = 0; i &lt; ds_list_size(text); i++)
+{
+    var currentPos = textPosY[| i];
+    // if text is within the screen scroll range
+    if (inrange(currentPos, scrollPos - categoryH, scrollPos + categoryH + getDisplayRoomHeight()))
+    {
+        draw_set_font(fnt_creditsText);
+        if (settings[| i])
+        {
+            draw_set_font(fnt_creditsCategory);
+        }
+        draw_text(getDisplayRoomWidth() * 0.5, currentPos - scrollPos, text[| i]);
+    }
+}
+
+// if all scrolled, close
+if (scrollPos &gt;= textPosY[| ds_list_size(textPosY) - 1] + 100)
+{
+    state = CLOSING;
+}
 </string>
           </argument>
         </arguments>

@@ -36,5 +36,11 @@ if (instance_exists(obj_triggerPostSphinx))
     return false;
 }
 
+// do nothing if credits are rolling
+if (instance_exists(obj_demoEnd))
+{
+    return false;
+}
+
 // if nothing is preventing the player from moving, then return true.
 return instance_exists(obj_protagonist);
