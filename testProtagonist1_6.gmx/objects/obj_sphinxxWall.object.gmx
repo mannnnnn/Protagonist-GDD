@@ -58,6 +58,11 @@ if (!checkFlag("jungle4") ||
 {
     instance_destroy();
 }
+// if time to choose a helper, then change script
+if (checkFlag("jungle16"))
+{
+    name = "apolloWall";
+}
 </string>
           </argument>
         </arguments>

@@ -1,6 +1,6 @@
 //jungle16
 //Characters: Apollo, Protagonist
-//Triggers in the fourth puzzle map
+//Triggers when you go back to the room
 
 //CHARACTERS
 character P
@@ -31,9 +31,9 @@ Ap: "So we know you can take down some Syntax Errors."
 Ap: "But the Sphinxx is going to be a little tougher than that, and I think you know that."
 Ap: "Tough for you that is, not for me."
 P: "I thought you didn't want to leave the jungle without solving the riddle."
-Ap: "I don't, I'm more just looking to make a quick buck."
+Ap: "I don't, but I'm more just looking to make a quick buck."
 Ap: "Being your teacher brought me a lot of joy, but now it's time for you to go out and face the real world."
-Ap: "And doesn't look like you're going to cut it, so I made a friendly wager."
+Ap: "And it doesn't look like you're going to cut it, so I made a friendly wager."
 Ap: "If you win, I have the honor of having taught a meat-brained mortal how to trump the incarnation of nuisances."
 Ap: "And in my opinion, that's a little more rewarding than solving some dumb riddle."
 Ap: "Also I don't want to spend a century here."

@@ -29,6 +29,8 @@
 event_inherited();
 file = "itemset1.protd";
 name = "syntaxCrater";
+image_xscale = 0.5;
+image_yscale = 0.5;
 </string>
           </argument>
         </arguments>
@@ -52,11 +54,9 @@ name = "syntaxCrater";
           <argument>
             <kind>1</kind>
             <string>/// draw centered
-image_xscale = 0.5;
-image_yscale = 0.5;
 draw_sprite_offset_ext(sprite_index, 0, x, y,
-sprite_width * 0.5, sprite_height * 0.5,
-image_xscale, image_yscale, 0, c_white, 1);
+sprite_width * 0.31, sprite_height * 0.5,
+image_xscale, image_yscale, image_angle, image_blend, 1);
 </string>
           </argument>
         </arguments>

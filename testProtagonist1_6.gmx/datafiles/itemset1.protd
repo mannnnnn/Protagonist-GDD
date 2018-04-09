@@ -29,6 +29,12 @@ character H
 //    "This is the example jump text."
 //}
 
+label apolloWall
+{
+	"My chances aren't looking so good."
+	"Maybe I should open up my menu, and look at the Argiope to try to get some help before fighting the Sphinx."
+}
+
 label syntaxCrater
 {
 	"The remains of the syntax error."

@@ -38,6 +38,12 @@ else
 }
 
 image_speed = 0;
+
+// if jungle17 has run, turn into true form
+if (checkFlag("jungle17"))
+{
+    image_index = sprite_get_number(sprite_index) - 1;
+}
 </string>
           </argument>
         </arguments>
@@ -69,6 +75,71 @@ else
 {
     event_perform_object(obj_interactable, ev_step, 0);
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="14">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// what to do if already completed
+var crater = instance_create(getX(id) + sprite_width * 0.5, getY(id) + sprite_height * 0.9, obj_syntaxCrater);
+crater.image_xscale = 1;
+crater.image_yscale = 1;
+crater.image_blend = c_blue;
+instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="13">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// what to do if just completed
+repeat(4)
+{
+    effect_create_above(ef_explosion, getX(id) + sprite_width * 0.5, getY(id) + sprite_height * 0.5, 3, c_black);
+    effect_create_above(ef_explosion, getX(id) + sprite_width * 0.5, getY(id) + sprite_height * 0.5, 3, c_blue);
+}
+
+setFlag("sphinxxDefeated", PUZZLE_COMPLETE);
+playSound(SFX, snd_meow);
+playSound(SFX, snd_explosion);
+var crater = instance_create(getX(id) + sprite_width * 0.5, getY(id) + sprite_height * 0.9, obj_syntaxCrater);
+crater.image_xscale = 1;
+crater.image_yscale = 1;
+crater.image_blend = c_blue;
+instance_destroy();
 </string>
           </argument>
         </arguments>

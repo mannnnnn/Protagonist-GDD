@@ -1015,6 +1015,7 @@
       <script>scripts\draw_texture_tiled.gml</script>
       <script>scripts\draw_text_outlined.gml</script>
       <script>scripts\reactivateControlObjects.gml</script>
+      <script>scripts\boolean.gml</script>
     </scripts>
     <scripts name="combat">
       <script>scripts\startCombatAnimation.gml</script>
@@ -1253,10 +1254,12 @@
       <object>objects\obj_triggerIntro</object>
       <object>objects\obj_triggerDialogue1</object>
       <object>objects\obj_triggerDialogue5</object>
+      <object>objects\obj_triggerDialogue16</object>
       <object>objects\obj_triggerDialogueWall</object>
       <object>objects\obj_triggerDialogueAuto</object>
+      <object>objects\obj_triggerDialogue17</object>
       <object>objects\obj_triggerPostSphinx</object>
-      <object>objects\obj_syntaxCrater</object>
+      <object>objects\obj_triggerPostPuzzle</object>
     </objects>
     <object>objects\obj_dustBunny</object>
     <object>objects\obj_dustBunnyCreator</object>
@@ -1275,6 +1278,7 @@
       <object>objects\obj_spellString</object>
       <object>objects\obj_spellHitEffect</object>
       <object>objects\obj_syntaxBob</object>
+      <object>objects\obj_syntaxCrater</object>
       <object>objects\obj_syntaxDancer</object>
       <objects name="puzzles">
         <object>objects\obj_puzzle</object>

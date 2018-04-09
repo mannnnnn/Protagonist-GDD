@@ -69,6 +69,7 @@
     <instance objName="obj_triggerDialogue5" x="256" y="160" name="inst_88675BAF" locked="0" code="" scaleX="0.5" scaleY="6.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_sphinxxWall" x="896" y="320" name="inst_9FC4EB1C" locked="0" code="" scaleX="0.5" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="obj_invisibleWall" x="32" y="320" name="inst_51BC7A58" locked="0" code="activeTracker = &quot;jungle4&quot;;&#xA;file = &quot;itemset1.protd&quot;;&#xA;name = &quot;hadesWall&quot;;&#xA;" scaleX="0.5" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="obj_triggerDialogue16" x="832" y="224" name="inst_405E607D" locked="0" code="" scaleX="0.5" scaleY="4.5" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>

@@ -8,8 +8,11 @@ setFlag("intro", 1);
 // launched: indicates whether the player has completed the launch animation sequence
 setFlag("launched", false);
 
-// whether or not the boss was defeated
-setFlag("sphinxxDefeated", false);
+// which gods the player qualifies for
+setFlag("ApQual", true);
+setFlag("ArQual", false);
+setFlag("AtQual", false);
+setFlag("HeQual", false);
 
 // which god chosen
 setFlag("Ap", false);
@@ -40,6 +43,8 @@ setFlag("jungle13", false);
 setFlag("jungle14", false);
 setFlag("jungle15", false);
 setFlag("jungle16", false);
+setFlag("jungle17", false);
+setFlag("jungle18", false);
 
 // puzzleX: indicates whether or not player has completed the Xth puzzle.
 setFlag("puzzle1", PUZZLE_UNSOLVED);
@@ -49,5 +54,8 @@ setFlag("puzzle4", PUZZLE_UNSOLVED);
 setFlag("puzzle5", PUZZLE_UNSOLVED);
 setFlag("puzzle6", PUZZLE_UNSOLVED);
 setFlag("puzzle7", PUZZLE_UNSOLVED);
+
+// whether or not the boss was defeated
+setFlag("sphinxxDefeated", PUZZLE_UNSOLVED);
 
 show_debug_message(json_encode(obj_storyData.data));

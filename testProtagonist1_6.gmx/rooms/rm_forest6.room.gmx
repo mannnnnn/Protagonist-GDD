@@ -68,6 +68,7 @@
     <instance objName="obj_sockTree" x="576" y="0" name="inst_3E2B116C" locked="0" code="" scaleX="1.77777779102325" scaleY="1.81132078170776" colour="4294967295" rotation="0"/>
     <instance objName="obj_rock1" x="128" y="384" name="inst_43DC6076" locked="0" code="" scaleX="1.68421053886414" scaleY="1.26315784454346" colour="4294967295" rotation="0"/>
     <instance objName="obj_laundryPile" x="704" y="416" name="inst_49A02EDA" locked="0" code="" scaleX="1.24271845817566" scaleY="1.14285719394684" colour="4294967295" rotation="0"/>
+    <instance objName="obj_triggerPostPuzzle" x="448" y="480" name="inst_829CF28F" locked="0" code="activeTracker = &quot;puzzle2&quot;;&#xA;script = &quot;jungle11.protd&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>

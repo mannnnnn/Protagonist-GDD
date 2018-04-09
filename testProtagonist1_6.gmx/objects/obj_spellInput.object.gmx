@@ -51,6 +51,9 @@ targetY = 0;
 // spell cast or not
 spellCast = false;
 
+// active or not
+active = true;
+
 // letters
 letters = ds_list_create();
 letterCooldowns = ds_map_create();
@@ -118,32 +121,21 @@ ds_list_destroy(spell);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// handle key presses
-
-// not waiting on an action to take
-if (action == "")
+            <string>/// recover broken letters
+// for every letter
+for (var i = 0; i &lt; ds_list_size(obj_spellInput.letters); i++)
 {
-    // check every keyboard letter
-    for (var i = ord('A'); i &lt;= ord('Z'); i++)
+    var c = obj_spellInput.letters[| i];
+    // if letter is broken, recover it slowly
+    var heat = obj_spellInput.letterCooldowns[? c];
+    if (heat &lt; 0)
     {
-        // if maxsize isn't met, and key is pressed, and player owns that letter, and it isn't broken
-        var char = string_lower(chr(i));
-        if (ds_list_size(spell) &lt; maxsize &amp;&amp; keyboard_check_pressed(i) &amp;&amp;
-        ds_map_exists(obj_playerStats.letters, char) &amp;&amp; 
-        obj_playerStats.letters[? char] &amp;&amp; obj_spellInput.letterCooldowns[? char] &gt;= 0)
-        {
-            ds_list_add(spell, createLetter(x + (ds_list_size(spell) * sprite_get_width(spr_Spells)), y, char));
-        }
+        obj_spellInput.letterCooldowns[? c] = min(obj_spellInput.letterCooldowns[? c] + 1, 0);
     }
-    
-    // delete letter on backspace
-    if (keyboard_check_pressed(vk_backspace))
+    // if letter is not broken, decrease heat slowly
+    if (heat &gt; 0)
     {
-        with(spell[| ds_list_size(spell) - 1])
-        {
-            instance_destroy();
-        }
-        ds_list_delete(spell, ds_list_size(spell) - 1);
+        obj_spellInput.letterCooldowns[? c] = max(obj_spellInput.letterCooldowns[? c] - 0.07, 0);
     }
 }
 </string>
@@ -226,21 +218,57 @@ if (action != "")
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// recover broken letters
-// for every letter
-for (var i = 0; i &lt; ds_list_size(obj_spellInput.letters); i++)
+            <string>/// only allow input if active
+if (!active || checkDialogueActive())
 {
-    var c = obj_spellInput.letters[| i];
-    // if letter is broken, recover it slowly
-    var heat = obj_spellInput.letterCooldowns[? c];
-    if (heat &lt; 0)
+    exit;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// handle key presses
+
+// not waiting on an action to take
+if (action == "")
+{
+    // check every keyboard letter
+    for (var i = ord('A'); i &lt;= ord('Z'); i++)
     {
-        obj_spellInput.letterCooldowns[? c] = min(obj_spellInput.letterCooldowns[? c] + 1, 0);
+        // if maxsize isn't met, and key is pressed, and player owns that letter, and it isn't broken
+        var char = string_lower(chr(i));
+        if (ds_list_size(spell) &lt; maxsize &amp;&amp; keyboard_check_pressed(i) &amp;&amp;
+        ds_map_exists(obj_playerStats.letters, char) &amp;&amp; 
+        obj_playerStats.letters[? char] &amp;&amp; obj_spellInput.letterCooldowns[? char] &gt;= 0)
+        {
+            ds_list_add(spell, createLetter(x + (ds_list_size(spell) * sprite_get_width(spr_Spells)), y, char));
+        }
     }
-    // if letter is not broken, decrease heat slowly
-    if (heat &gt; 0)
+    
+    // delete letter on backspace
+    if (keyboard_check_pressed(vk_backspace))
     {
-        obj_spellInput.letterCooldowns[? c] = max(obj_spellInput.letterCooldowns[? c] - 0.07, 0);
+        with(spell[| ds_list_size(spell) - 1])
+        {
+            instance_destroy();
+        }
+        ds_list_delete(spell, ds_list_size(spell) - 1);
     }
 }
 </string>
@@ -249,6 +277,31 @@ for (var i = 0; i &lt; ds_list_size(obj_spellInput.letters); i++)
       </action>
     </event>
     <event eventtype="6" enumb="53">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// only allow input if active
+if (!active || checkDialogueActive())
+{
+    exit;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -388,6 +441,31 @@ for (var i = 0; i &lt; ds_list_size(letters); i++)
       </action>
     </event>
     <event eventtype="9" enumb="13">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// only allow input if active
+if (!active || checkDialogueActive())
+{
+    exit;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>

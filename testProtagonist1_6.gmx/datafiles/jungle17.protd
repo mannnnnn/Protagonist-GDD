@@ -174,5 +174,11 @@ Ap: "I didn't realize we could do that."
 Ap: "Well kid, you knocked the Sphinxx's sock off."
 Ap: "Time to put on a show."
 
+hide Sp
+with fade
+
+hide Ap
+with fade
+
 wait for drawers
 exit

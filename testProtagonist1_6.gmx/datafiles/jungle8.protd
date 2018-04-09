@@ -11,7 +11,7 @@ character P
 }
 character Ap
 {
-	name = "Apollo The Teacher Of Squiggly Lines"
+	name = "Apollo, The Teacher Of Squiggly Lines"
 	side = right
 }
 
@@ -29,8 +29,8 @@ show P spr_defaultSpeak
 
 Ap: "Now, I'm just gonna throw you into the deep end here, so try to keep up."
 Ap: "All these letters you're seeing? They actually mean things."
-P:""
-Ap:""
+P: "..."
+Ap: "..."
 P: "Alright, but what do they mean?"
 Ap: "Usually objects, actions, references, or other syntax depending on the language."
 P: "Yes but what is the cat saying right now? What do those specific words mean."
@@ -59,6 +59,11 @@ P: "You did?"
 Ap: "Sure, let's go with that. Anyways, that Syntax Error needs to be taught a lesson as well. Show it the err of it's ways."
 P: "Did it do anything wrong?"
 Ap: "See for yourself."
+
+hide P
+with fade
+hide Ap
+with Apollo_swing
 
 wait for drawers
 exit

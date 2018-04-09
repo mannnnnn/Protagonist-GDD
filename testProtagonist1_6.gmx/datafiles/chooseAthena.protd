@@ -20,6 +20,7 @@ with fade
 
 if (!AtIntro)
 {
+	AtIntro = true
 	At: "What is this?"
 	At: "Who are you?"
 	P: "I was about to ask the same thing."

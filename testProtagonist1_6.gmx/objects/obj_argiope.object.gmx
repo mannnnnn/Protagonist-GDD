@@ -130,11 +130,7 @@ if (!playDialogue &amp;&amp; !checkDialogueActive())
         state = CLOSING;
     }
 }
-// don't draw artemis if you said no
-if (checkFlag("ArIntro"))
-{
-    buttonSpr[| ARTEMIS] = noone;
-}
+
 </string>
           </argument>
         </arguments>
@@ -172,11 +168,12 @@ for (var i = 0; i &lt; ds_list_size(buttonX); i++)
     (getDisplayRoomHeight() - sprite_get_height(spr_dial)) * 0.5 + buttonY[| i], r))
     {
         selected = i;
-    }
-    // no button press if you chose artemis
-    if (i == ARTEMIS &amp;&amp; checkFlag("ArIntro"))
-    {
-        selected = noone;
+        // no button press if you chose artemis
+        if (i == ARTEMIS &amp;&amp; checkFlag("ArIntro"))
+        {
+            show_debug_message("deselecting");
+            selected = noone;
+        }
     }
 }
 if (selected == noone)
@@ -258,9 +255,13 @@ switch (state)
         map_range(fadeTimer, 0, fadeDur, 0, 1));
         for (var i = 0; i &lt; ds_list_size(buttonX); i++)
         {
-            draw_sprite_ext(spr_dialFace, i, (getDisplayRoomWidth() - sprite_get_width(spr_dial)) * 0.5 + buttonX[| i],
-            (getDisplayRoomHeight() - sprite_get_height(spr_dial)) * 0.5 + buttonY[| i], 0.6, 0.6, 0, c_white,
-            map_range(fadeTimer, 0, fadeDur, 0, 1));
+            // only don't draw if it's artemis and ArIntro was already played
+            if (i != ARTEMIS || !checkFlag("ArIntro"))
+            {
+                draw_sprite_ext(spr_dialFace, i, (getDisplayRoomWidth() - sprite_get_width(spr_dial)) * 0.5 + buttonX[| i],
+                (getDisplayRoomHeight() - sprite_get_height(spr_dial)) * 0.5 + buttonY[| i], 0.6, 0.6, 0, c_white,
+                map_range(fadeTimer, 0, fadeDur, 0, 1));
+            }
         }
         // display god when dial is faded out
         if (!displayDial &amp;&amp; fadeTimer == 0)
@@ -269,7 +270,6 @@ switch (state)
             draw_sprite(spr, godAnimationTimer, dummyX, dummyY);
             if (godAnimationTimer &gt;= sprite_get_number(spr) - 1 &amp;&amp; playDialogue)
             {
-                show_debug_message("DIALOGUE: " + dialogue);
                 playDialogue = false;
                 with (obj_optionsMenu)
                 {

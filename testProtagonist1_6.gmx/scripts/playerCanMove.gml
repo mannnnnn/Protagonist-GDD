@@ -6,6 +6,12 @@ if (instance_exists(obj_inventory) && obj_inventory.state != CLOSED)
     return false;
 }
 
+// if waiting for a post puzzle trigger, player can't move
+if (instance_exists(obj_triggerPostPuzzle))
+{
+    return false;
+}
+
 // if dialogue is active, don't move
 if (instance_exists(obj_dialogue) && obj_dialogue.active)
 {

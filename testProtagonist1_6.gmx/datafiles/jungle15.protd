@@ -16,6 +16,7 @@ character Ap
 
 //
 show P spr_defaultSpeak
+with fade
 //
 
 P: "And we're done!"
@@ -54,8 +55,10 @@ Ap: "Find the storyline which you already abandoned?"
 Ap: "Hey kid, here's a newsflash, you're predictable."
 Ap: "I'll meet you outside where the Sphinxx is."
 
-//if vars Haes || Artemis
-// Ap: "I've got someone to introduce you to. You remind me of them."
+if (HeQual || ArQual)
+{
+	Ap: "I've got someone to introduce you to. You remind me of them."
+}
 
 P: "Who says I'm going to the Sphinxx at all? Maybe I'll just sit here and figure things out for myself."
 Ap: "Nice try kid, but games don't work like that."

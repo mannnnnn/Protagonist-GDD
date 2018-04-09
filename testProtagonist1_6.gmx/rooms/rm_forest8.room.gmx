@@ -67,6 +67,7 @@
     <instance objName="obj_syntaxPillar" x="608" y="192" name="inst_0DE1A4E8" locked="0" code="handler = obj_puzzle5;&#xA;activeTracker = &quot;puzzle5&quot;;&#xA;intro = snd_syntaxIntro2;&#xA;loop = snd_syntaxLoop2;&#xA;outro = snd_syntaxOutro2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_syntaxPillar" x="736" y="192" name="inst_BF2C55B6" locked="0" code="handler = obj_puzzle7;&#xA;activeTracker = &quot;puzzle7&quot;;&#xA;intro = snd_syntaxIntro2;&#xA;loop = snd_syntaxLoop2;&#xA;outro = snd_syntaxOutro2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_warp" x="664" y="320" name="inst_4C0BF2B0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_triggerPostPuzzle" x="288" y="320" name="inst_2595FF54" locked="0" code="activeTracker = &quot;puzzle4&quot;;&#xA;script = &quot;jungle15.protd&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>

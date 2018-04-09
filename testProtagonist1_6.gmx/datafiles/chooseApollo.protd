@@ -25,6 +25,7 @@ with apollo_swing
 
 if (!ApIntro)
 {
+	ApIntro = true
 	Ap: "Fifty seven and a half percent, check my math."
 
 	//
@@ -115,7 +116,7 @@ else
 			Ap: "When I look at you, I see a life expectancy of like 80 years."
 			Ap: "And I'm not too crazy about signing on with someone with half the lifespan of a geoduck."
 			Ap: "But... I gotta admit, you've got potential."
-			Ap: "So I don't expect you do prove yourself right now, kid, but you'd better show me something later down on the line."
+			Ap: "So I don't expect you to prove yourself right now, kid, but you'd better show me something later down on the line."
 			Ap: "I want to know that Apollo didn't just sign on for some dumb shenanigan that's gonna make me the laughing stock of Hades for the next four years."
 			Ap: "You think you can take me with you, and that you can prove to me that you're gonna be a stellar character?"
 			Ap: "You think you've got what it takes to make this game fun again?"

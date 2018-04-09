@@ -45,7 +45,10 @@ Ap: "This place is home to a lot of cats. I think the sphinx must like them."
 Ap: "What's more, they defy the very realm in which they live!"
 Ap: "And spookiest of all..."
 Ap: "They never talk."
-//*cat noise*
+
+play meow snd_meow
+wait 30
+
 Ap: "Huh."
 Ap: "Alright well scratch that. Thanks cat for making me look like an idiot."
 Ap: "They've always ignored me before"

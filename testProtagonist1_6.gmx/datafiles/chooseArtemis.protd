@@ -28,6 +28,7 @@ with fade
 
 if (!ArIntro)
 {
+	ArIntro = true
 	?: "Hey you!"
 	P: "?!"
 	?: "You're the ferret who's been nabbing all the wildlife from around here!"

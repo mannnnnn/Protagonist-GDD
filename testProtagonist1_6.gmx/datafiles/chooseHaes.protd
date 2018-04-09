@@ -26,6 +26,7 @@ with fade
 
 if (!HsIntro)
 {
+	HsIntro = true
 	P: "Excuse me?"
 	?: "hum hum hum"
 	P: "Hey excuse me?"
@@ -133,7 +134,7 @@ else
 			Hs: "You're about to be mauled by the Sphinxx, right?"
 			P: "How do you know that? And no, I'm feeling good about my odds."
 			Hs: "I'm a system process like Hades, I get to follow you around everywhere, except I don't get to speak and in theory you never get to see me."
-			Hs: "But thing game has been getting more and more corrupted everyday so who knows what makes sense anymore."
+			Hs: "But this game has been getting more and more corrupted every day, so who knows what makes sense anymore."
 			Hs: "And no, you're going to get creamed by that glorified Syntax Error."
 			Hs: "But not with my help."
 			P: "You're going to help me?"

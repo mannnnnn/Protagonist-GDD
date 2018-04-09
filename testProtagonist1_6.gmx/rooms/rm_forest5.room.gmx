@@ -69,6 +69,7 @@
     <instance objName="obj_triggerDialogueWall" x="640" y="416" name="inst_0E9EA71B" locked="0" code="activeTracker = &quot;jungle7&quot;;&#xA;script = &quot;jungle7.protd&quot;;&#xA;" scaleX="0.5" scaleY="2.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_triggerDialogueWall" x="320" y="416" name="inst_DA34270F" locked="0" code="activeTracker = &quot;jungle7&quot;;&#xA;script = &quot;jungle7.protd&quot;;&#xA;" scaleX="5.5" scaleY="0.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_triggerDialogueWall" x="320" y="416" name="inst_BE2B4F68" locked="0" code="activeTracker = &quot;jungle7&quot;;&#xA;script = &quot;jungle7.protd&quot;;&#xA;" scaleX="0.5" scaleY="2.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_triggerPostPuzzle" x="448" y="480" name="inst_CA443FFE" locked="0" code="activeTracker = &quot;puzzle1&quot;;&#xA;script = &quot;jungle9.protd&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>

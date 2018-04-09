@@ -30,8 +30,8 @@ event_inherited();
 
 playerHP = 100;
 playerMaxHP = 100;
-enemyHP = 500;
-enemyMaxHP = 500;
+enemyHP = 10;
+enemyMaxHP = 10;
 
 // move to a the boss cat room
 room = rm_boss1;
@@ -63,6 +63,31 @@ enemyDamaged = 0;
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// end combat, since sphinxx died
+setFlag("sphinxxDefeated", PUZZLE_SOLVED);
+endCombat();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -82,9 +107,15 @@ enemyDamaged = 0;
             <kind>1</kind>
             <string>/// when either HP reaches 0, end combat
 
-// when player is dead
+// when player is dead...
+// see playerDamage script
 
-// when enemy is dead
+// when enemy is dead, set the flag and exit the player from combat
+if (enemyHP &lt;= 0 &amp;&amp; alarm[0] &lt; 0 &amp;&amp; !checkFlag("sphinxxDefeated"))
+{
+    alarm[0] = 60;
+    prepareCombatEnd();
+}
 
 // attack if not attacking
 if (enemyHP &gt; 0 &amp;&amp; !instance_exists(obj_attack))
