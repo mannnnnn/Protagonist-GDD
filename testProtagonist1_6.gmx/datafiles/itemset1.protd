@@ -1,5 +1,21 @@
 //Items for the First Set of Puzzles
 
+character P
+{
+	name = "Protagonist"
+	side = left
+}
+character Ap
+{
+	name = "Apollo"
+	side = right
+}
+character H
+{
+	name = "Hades"
+	side = right
+}
+
 //-----------CALLS TO JUMPS---------------
 //Example: jump itemName
 
@@ -12,6 +28,35 @@
 //{
 //    "This is the example jump text."
 //}
+
+label hadesWall
+{
+	show P spr_defaultSpeak
+	with fade
+	P: "There's a wall here."
+	show H spr_talkHades
+	with hades_swing
+	H: "No, there isn't."
+	P: "Then why can't I go any further?"
+	H: "I can go past it just fine. It must be that you're defective. And by that I mean, yes, you are defective. You don't even have a face."
+	P: "Then how do I go left?"
+	H: "You can't."
+	P: "..."
+	H: "Wow. It looks like you finally realized there's no way forward. Congratulations. Now get in the box."
+}
+
+label hadesWall2
+{
+	show P spr_defaultSpeak
+	with fade
+	P: "There's a wall here."
+	show H spr_talkHades
+	with hades_swing
+	H: "Yes, there is. And you can't go past it. So get in the box."
+	P: "But what if I want to try answering the riddle again?"
+	H: "Did you really think that was going to work? What, did you think the Sphinx would just let you stroll in and try all 4 answers until you got the right one?"
+	H: "So, well done. You've blocked off the way forward. So get in the box."
+}
 
 label warp
 {

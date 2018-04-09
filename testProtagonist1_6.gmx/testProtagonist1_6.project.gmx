@@ -3,7 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="35" name="datafiles">
+  <datafiles number="37" name="datafiles">
     <datafile>
       <name>itemset1.protd</name>
       <exists>-1</exists>
@@ -396,6 +396,40 @@
       <filename>jungle16.protd</filename>
     </datafile>
     <datafile>
+      <name>jungle17.protd</name>
+      <exists>-1</exists>
+      <size>3946</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>jungle17.protd</filename>
+    </datafile>
+    <datafile>
+      <name>jungle18.protd</name>
+      <exists>-1</exists>
+      <size>7210</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>jungle18.protd</filename>
+    </datafile>
+    <datafile>
       <name>chooseApollo.protd</name>
       <exists>-1</exists>
       <size>6561</size>
@@ -622,6 +656,7 @@
       <sprite>sprites\spr_talkSphinx</sprite>
       <sprite>sprites\spr_talkArtemis</sprite>
       <sprite>sprites\spr_talkHaes</sprite>
+      <sprite>sprites\spr_talkTiger</sprite>
     </sprites>
     <sprite>sprites\spr_fire1</sprite>
     <sprite>sprites\spr_fire2</sprite>
@@ -892,6 +927,8 @@
         <script>scripts\hadesSpecialSaveExtravaganza.gml</script>
         <script>scripts\hadesSpecialRetributionExtravaganza.gml</script>
         <script>scripts\hadesSpecialWarpExtravaganza.gml</script>
+        <script>scripts\hadesSpecialSphinxExtravaganza.gml</script>
+        <script>scripts\hadesSpecialAwkwardExtravaganza.gml</script>
       </scripts>
     </scripts>
     <scripts name="debug">

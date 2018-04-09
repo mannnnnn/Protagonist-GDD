@@ -1,0 +1,225 @@
+//jungle18
+//After the Sphinxx battle, Hades finishes explaining goal, Apollo leads Protagonist to their patron
+//Characters: Protagonist, Hades, Apollo
+
+//Character Names
+character P
+{
+	name = "Protagonist"
+	side = left
+}
+character H
+{
+	name = "Hades"
+	side = right
+}
+character Ap
+{
+	name = "Apollo"
+	side = right
+}
+
+
+//SHOW HADES
+show H spr_talkHades
+with Hades_swing
+//
+
+H: "...no..."
+H: "...that can't be right. You couldn't have won."
+H: "You had help, didn't you."
+
+//SHOW PROTAGONIST
+show P spr_defaultSpeak
+with fade
+//
+
+P: "So what if I did."
+P: "Isn't that what you're supposed to be doing?"
+P: "I thought you were going to help me, not sic a tiger on me."
+H: "Your existence here will be our undoing."
+H: "We were content."
+
+//HIDE PROTAGONIST
+hide P
+with fade
+//
+
+//SHOW APOLLO
+show Ap spr_talkApollo
+with Apollo_swing
+//
+
+Ap: "That's a bit of an exaggeration."
+Ap: "I was trapped in a forest being bored to death."
+
+
+//SHOW HADES
+show H spr_talkHades
+with Hades_swing
+//
+
+H: "I gave you lots of cats to play with."
+Ap: "And I a-paw-laud you for that, but it's not enough."
+Ap: "I thought I was stuck here forever! I tried so hard to escape!"
+H: "You sat on your butt for two decades trying to figure out a puzzle that never existed!"
+H: "I couldn't have let you just run around amuk out here!"
+H: "Do you understand how delicate this code is? It's decayed with the time the Protagonist took to get their hinnie in here."
+H: "You can't go around throwing your letters and spells around all willie-nillie, you'll overheat the system!"
+Ap: "But Hades, the Protagonist is here! We can change the code!"
+Ap: "Look at how well they fought! They really can finish the game!
+H: "Finish the game?"
+H: "This is our game, Apollo, not theirs."
+H: "We were born here, and we've lived here. We've wrote our own stories here."
+H: "Mine isn't going to end with the Protagonist."
+Ap: "The Protagonist can change the game."
+H: "I can do that too."
+H: "Enjoy your freedom, you two, I'll be tailing you both."
+H: "Whether I like it or not, it seems."
+
+//HIDE HADES
+hide H
+with hades_swing
+//
+
+Ap: "What a sourpuss. Hades and that fake sphinxx both."
+Ap: "But hey, look on the bright side, kid!"
+
+//SHOW PROTAGONIST
+show P spr_defaultSpeak
+with fade
+//
+
+P: "I beat the game?!"
+Ap: "Uh... yeah sure."
+Ap: "Let's say that was a boss fight or something."
+
+//branch
+if (Ap)
+{
+	Ap: "And you couldn't have done it without help from yours truly!"
+	P: "Well actually-"
+	Ap: "And you couldn't have done it without help from yours truly, right kid?"
+	Ap: "Right?"
+	P: "Yeah. Yeah, Apollo."
+	Ap: "That's the spirit."
+	Ap: "Come with me kid, you'll go far."
+	Ap: "I'll take you to a place of my own, and you can plan us an adventure."
+	P: "An adventure?"
+	Ap: "Yeah, that's what your promise to me is going to be."
+	Ap: "You're going to show me just how far you can break this ol' game of ours."
+	Ap: "With my wit and your..."
+	Ap: "With my wit and good looks we're gonna change the world."
+	P: "And we'll save the mortals? Just like I'm supposed to do?"
+	Ap: "Hey kid, if anyone can do it, I'll willing to bet it's you."
+	Ap: "Don't mind me just tagging along."
+	P: "So then, time to go?"
+	Ap: "We've got places to be kiddo!"
+	P: "Woohoo!"
+}
+
+if (!Ap)
+{
+	Ap:"Say, how did you beat that ol' cat anyways?"
+}
+
+//Ar
+if (Ar)
+{
+	P: "Artemis gave me this weird book."
+	Ap: "Oh nice! Sis always gave the best presents!"
+	P: "I had to make a deal with her, to get rid of that fake sphinxx."
+	Ap: "Yeah, she loves animals and all that. She could probably tell something was off."
+	Ap: "She'll probably be glad to hear you managed to wrestle that imposter cat."
+	Ap: "And she'll probably want you to take it back with you so she can pet it."
+	P: "I wanna pet it too."
+	Ap: "Well you exploded it, I don't think it's going to take too kindly to you now."
+	P: "I'll make ammends, I promise."
+	P: "I'll buy it some really nice cat food."
+	Ap: "You can't buy items in this game."
+	P: "I'll find a way."
+	P: "I will befriend this cat!"
+	P: "It is my destiny!"
+	Ap: "Maybe you should have a more ambitious goal then petting a cat."
+	P: "DESTINY!"
+	Ap: "Ok."
+	Ap: "You're definitely going to want to talk to Artemis, you two are birds of a feather."
+	P: "I want to befriend a duck too!"
+	Ap: "I gotcha kid. You've got big plans, it seems."
+	Ap: "Big...plans..."
+	P: "The dust bunny within me gives me strength!"
+	Ap: "Okay, little bud. I like your spunk!"
+	Ap: "Let's get you back to sis. She'll want to hear all about what you've done."
+	P: "Yes! I'm gonna go pet all the fuzzy critters!"
+	Ap: "What a Protagonist! Come on kid!"
+	P: "Onward!"
+}
+
+//He
+if (He){
+P: "I got a fancy instruction book from Haes."
+Ap: "Ah, he's always trying to recruit people to help him with his work."
+Ap: "I bet he gets pretty lonely caught up in that forge of his."
+Ap: "But he's always busy with something. He makes the coolest stuff."
+Ap: "Ask him about the critter cannon."
+P: "That sounds dangerous."
+P: "And fun."
+P: "Fungerous."
+Ap: "Yeah, I get the feeling you two will get along."
+Ap: "He likes to make dumb-sounding words up too."
+Ap: "Last week he called me an 'imbiscele' and I had to try real hard not to correct him."
+Ap: "I don't even know how you mispronounce 'best friend ever'."
+P: "...can you take me to Haes now?"
+Ap: "Sure thing, kid. I'm sure you're bound to wind up just like him."
+Ap: "Trapped in your workshop."
+Ap: "Hidden from the world."
+Ap: "A social recluse hated by society-"
+P: "Sounds great."
+Ap: "You don't have a voice or a face so I can't tell whether that was sarcastic."
+Ap: "And off you go!"
+P: "Off I go!"
+P: "I'm gonna get my freedom!"
+Ap: "And I'm going to get my freedom!"
+P: "You're already free, you've been free this whole time."
+Ap: "Look, you made it sound so exciting."
+Ap: "Come on and get going already."
+P: "Look out world! Here I come!"
+}
+
+
+//At
+if (At){
+P: "Athena was kind enough to give me a book."
+Ap: "Athena? You got Athena to help?"
+Ap: "Phew, kid. No wonder you came out on top."
+Ap: "The girl's a mastermind. Even Hades doesn't mess around with her."
+Ap: "Well, except for the whole trapping her in a map thing."
+Ap: "But hey, happens to the best of us."
+P: "You could have left any time, Apollo."
+P: "The Sphinx wasn't real."
+Ap: "Happens to the best of us, and I am the best."
+P: "Sounds like Athena is the best to me. She almost stabbed me."
+Ap: "Oh yeah, she does that."
+Ap: "Says it helps her get the point across."
+P: "Can I go back and see her now? I want to learn more about what's going on here."
+Ap: "Sure thing, kid. It's your funeral."
+Ap: "Actually I think Hades turned off death down here."
+Ap: "What a slacker."
+P: "Who's stronger, Athena or Hade-?"
+Ap: "Before you finish that, let me leave the room. I'm not gonna get smited cause of your new quest."
+Ap: "You know, curiosity killed the cat."
+P: "My name is curiosity then."
+P: "Lead on, Apollo! To Athena!"
+Ap: "Yeah... yay... to Athena."
+P: "For the pursuit of knowledge!"
+Ap: "And the good of mankind?"
+P: "That too!"
+}
+
+//after all branches
+//HIDE APOLLO
+hide Ap
+with Apollo_swing
+//
+exit
+//DEMO END

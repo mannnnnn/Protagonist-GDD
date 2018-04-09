@@ -23,9 +23,7 @@ show Ap spr_talkApollo
 with apollo_swing
 //
 
-apIntro = false
-
-if (!apIntro)
+if (!ApIntro)
 {
 	Ap: "Fifty seven and a half percent, check my math."
 
@@ -100,7 +98,7 @@ if (!apIntro)
 		}
 		"Well I'd better go prepare."
 		{
-				Ap: "That's the spirit!"
+			Ap: "That's the spirit!"
 		}
 	}
 }
@@ -137,7 +135,7 @@ else
 					Ap: "I'll keep it a mystery. Come on, live a little!"
 					P: "That's exactly what I'm trying to do."
 					Ap: "Come on and get in that Sphinxx zone. I'll show you the ropes."
-					sphinxxLock = false
+					Ap = true
 				}
 				"It'd take a lot more than me to make this game fun."
 				{

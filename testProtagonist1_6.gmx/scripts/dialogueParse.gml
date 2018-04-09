@@ -122,17 +122,18 @@ if (line == "pause")
 // text speed
 if (split[| 0] == "text" && ds_list_size(split) >= 3)
 {
-    if (split[| 1] == "speed")
+    switch (split[| 1])
     {
-        return parseTextSpeed(line, split);
-    }
-    if (split[| 1] == "display")
-    {
-        return parseTextDisplay(line, split);
-    }
-    if (split[| 1] == "auto")
-    {
-        return parseTextAuto(line, split);
+        case "speed":
+            return parseTextSpeed(line, split);
+        case "display":
+            return parseTextDisplay(line, split);
+        case "auto":
+            return parseTextAuto(line, split);
+        case "side":
+            return parseCharacterSide(line, split);
+        default:
+            show_error("Invalid 'text' argument.", true);
     }
 }
 

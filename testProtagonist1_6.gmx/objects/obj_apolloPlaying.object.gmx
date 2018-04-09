@@ -31,6 +31,81 @@ file = "jungle6.protd";
 name = "";
 image_speed = 0.3;
 activeTracker = "jungle6";
+
+// destroy self if jungle6 has already run at the start
+startFlag = checkFlag(activeTracker);
+
+// trigger for when apollo awkwardly slides offscreen
+awkwardSlide = false;
+timer = 0;
+spd = 2.5;
+oscillation = 6;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// destroy self if jungle6 has already run at the start
+event_inherited();
+if (startFlag)
+{
+    instance_destroy();
+}
+// if it's time to apollo to awkwardly slide offscreen, then do it
+if (awkwardSlide)
+{
+    timer += oscillation;
+    phy_position_x -= spd * max(0, lengthdir_y(1, timer));
+    // skip some down time
+    if (timer mod 360 &gt;= 135 &amp;&amp; timer mod 360 &lt;= 135 + oscillation)
+    {
+        timer += 90;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// destroy if outside room after awkward slide
+if (awkwardSlide)
+{
+    instance_destroy();
+}
 </string>
           </argument>
         </arguments>

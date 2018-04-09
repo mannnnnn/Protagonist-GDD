@@ -1,0 +1,178 @@
+//jungle17
+//Precursor to the Sphinxx fight
+//Characters: Sphinxx, Protagonist, Hades, Apollo
+
+//Character Names
+character Sp
+{
+	name = "Sphinxx"
+	side = right
+}
+character P
+{
+	name = "Protagonist"
+	side = left
+}
+character H
+{
+	name = "Hades"
+	side = right
+}
+character Ap
+{
+	name = "Apollo"
+	side = right
+}
+
+//SHOW SPHINXX
+show Sp spr_talkSphinx
+with fade
+//
+
+Sp: "So, you return."
+
+//SHOW PROTAGONIST
+show P spr_defaultSpeak
+with fade
+//
+
+P: "Oh hey, this area really did get unlocked again."
+P: "How did you make that invisible wall to keep me from going this way after talking to you?"
+Sp: "I am the master of unnoticed obstacles."
+Sp: "From the very nature of my erroneous being."
+Sp: "To the vague and annoying lettering of my name."
+Sp: "Silent letters speak louder in the verse of the code."
+P: "That sounded very dramatic."
+P: "This whole situation is looking very dramatic."
+P: "Everything about this room looks like it wants to kill me."
+P: "And here I am armed with a book."
+P: "I feel like a sitting duck."
+Sp: "Duck?"
+P: "What?"
+Sp: "There is a duck?!"
+P: "...What?"
+Sp: "Oh please, oh please, I didn't mean it, I didn't mean it at all!"
+P: "?"
+Sp: "I was just told to come here and stop you from progressing!"
+Sp: "No harm no fowl, see?"
+P: "I don't see."
+
+//HIDE SPHINXX
+hide Sp
+with fade
+//
+
+//SHOW HADES
+show H spr_talkHades
+with Hades_swing
+//
+
+H:"Way to go, you broke my minion."
+H:"You really are the Protagonist."
+H: "You have the dumb luck of one, at least."
+
+//HIDE HADES
+hide H
+with hades_swing
+//
+
+show Ap spr_talkApollo
+with apollo_swing
+
+P: "I don't feel lucky, why is the Sphinxx a scardey cat now?"
+Ap: "Ducks are a bit of a sore topic for the errors in the game."
+Ap: "They sort of hold jurisdiction over-"
+Ap: "Everything and everyone."
+P: "I thought you two were gods."
+Ap: "Well those are our characters, at least."
+
+//HIDE APOLLO
+hide Ap
+with Apollo_swing
+//
+//SHOW HADES
+show H spr_talkHades
+with Hades_swing
+//
+
+H: "Stop expositing and get back in there."
+P: "Fight the Sphinxx?"
+H: "Just patched up the file. It should be up and ready to fight now."
+P: "That's concerning."
+H: "Not for me it's not. Go get em' tiger."
+
+
+//HIDE PROTAGONIST
+hide P
+with fade
+//
+
+//SHOW SPHINXX
+show Sp spr_talkSphinx
+with fade
+//
+
+Sp: "Duck?"
+H: "No, maul the kid."
+Sp: "Duck?!"
+H: "We just went over this, just-"
+Sp: "Can't do it anymore! I've gotta ditch the disguise!"
+Sp: "I don't want to get caught by the ducks, not again!"
+
+//HIDE SPHINXX
+hide Sp
+with fade
+//
+
+H: "What are you doing?!"
+
+//SPHINX TRANSFORM
+
+text side Ap left
+
+//SHOW APOLLO
+show Ap spr_talkApollo
+with Apollo_swing
+//
+
+Ap: "Y-You're not the sphinx!"
+H: "Of course it wasn't! I just threw a burlap sack over one of the syntax errors!"
+H: "I suppose I can't be too mad. I'm surprised that worked for as long as it did. How long have you been in here, Apollo?"
+Ap: "I was duped?!"
+Ap:"Fooled?!"
+Ap:"Me?!"
+H: "Shocking. I know."
+Ap: "But how could you?! To what means would you pull such a devious trick?!"
+H: "I needed to keep you busy somehow."
+H: "Believe it or not I don't really enjoy your company."
+Ap: "Oh Hades! Say it isn't so!"
+H: "Protagonist, for once can you actually jump into action."
+H: "I've still got money riding on this fight, and I don't like a disobedient error."
+P: "I don't really want to get involved here."
+H: "Well that's too bad! You've decided to stick your nose into everything else!"
+H: "Your nonexistent, stubborn little nose!"
+H: "You couldn't just go home, couldn't just leave us to our own lives."
+H: "You want to play the game, Protagonist? Let's play!"
+
+//HIDE HADES
+hide H
+with hades_swing
+//
+
+call hadesSpecialSphinxExtravaganza()
+wait 120
+
+//SHOW SPHINXX (Transformed)
+show Sp spr_talkTiger
+with fade
+//
+
+Sp: "menu_hades: OVERRIDE"
+Sp: "menu_hades: ATTACK"
+Ap: "Uh oh."
+Ap: "I didn't realize we could do that."
+Ap: "Well kid, you knocked the Sphinxx's sock off."
+Ap: "Time to put on a show."
+
+wait for drawers
+exit

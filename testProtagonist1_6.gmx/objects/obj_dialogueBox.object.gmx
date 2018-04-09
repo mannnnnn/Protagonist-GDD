@@ -424,7 +424,7 @@ switch(state)
         break;
     case CLOSING:
         // close if not waiting
-        if (!checkDialogueWait())
+        if (!checkDialogueWait() || checkDialogueHidden())
         {
             timer--;
         }

@@ -130,6 +130,11 @@ if (!playDialogue &amp;&amp; !checkDialogueActive())
         state = CLOSING;
     }
 }
+// don't draw artemis if you said no
+if (checkFlag("ArIntro"))
+{
+    buttonSpr[| ARTEMIS] = noone;
+}
 </string>
           </argument>
         </arguments>
@@ -167,6 +172,11 @@ for (var i = 0; i &lt; ds_list_size(buttonX); i++)
     (getDisplayRoomHeight() - sprite_get_height(spr_dial)) * 0.5 + buttonY[| i], r))
     {
         selected = i;
+    }
+    // no button press if you chose artemis
+    if (i == ARTEMIS &amp;&amp; checkFlag("ArIntro"))
+    {
+        selected = noone;
     }
 }
 if (selected == noone)

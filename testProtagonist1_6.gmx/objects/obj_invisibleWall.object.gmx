@@ -57,7 +57,7 @@ value = true;
           <argument>
             <kind>1</kind>
             <string>/// destroy self if not needed
-if (checkFlag(activeTracker) == value)
+if (evalBoolean(activeTracker) == value)
 {
     instance_destroy();
 }

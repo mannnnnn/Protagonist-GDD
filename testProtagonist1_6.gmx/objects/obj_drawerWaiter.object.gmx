@@ -59,6 +59,7 @@ with (obj_drawer)
 if (!exists)
 {
     instance_destroy();
+    dialogueAdvance();
 }
 </string>
           </argument>

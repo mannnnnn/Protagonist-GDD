@@ -18,15 +18,13 @@ character ?
 	side = right
 }
 
-hsIntro = false
-
 show P spr_defaultSpeak
 with fade
 
 show Hs spr_talkHaes
 with fade
 
-if (HsIntro == false)
+if (!HsIntro)
 {
 	P: "Excuse me?"
 	?: "hum hum hum"
@@ -156,6 +154,7 @@ else
 			Hs: "From now on, use the crafting manual. It'll let you cast spells that are NOUNS."
 			Hs: "You'll be able to create objects in battle, not just flimsy magic."
 			Hs: "You go try that out, and if you survive call me again. I'll set you up with a real quest."
+			He = true
 		}
 		"I have no idea what I'm doing."
 		{

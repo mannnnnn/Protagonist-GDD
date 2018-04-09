@@ -14,6 +14,7 @@ if (!dialogueCheckMenu() && !checkDialogueWait())
     {
         pause = dialogueNextAction();
     }
+    
     return true;
 }
 return false;

@@ -93,5 +93,10 @@ with fade
 hide Ap
 with Apollo_swing
 
-wait for drawers
+hide dialogue
+
+call hadesSpecialAwkwardExtravaganza()
+
+wait 230
+
 exit

@@ -5,9 +5,9 @@ var split = argument1;
 // if not enough args
 if (ds_list_size(split) < 4)
 {
-    show_error('Error in line "' + string(line) + '": character requires 3 arguments: character channel option value', true);
+    show_error('Error in line "' + string(line) + '": text side requires 2 arguments: text side channel value', true);
 }
-var channel = split[| 1];
+var channel = split[| 2];
 var side = string_lower(split[| 3]);
 var sideConst = noone;
 switch (side)

@@ -11,6 +11,18 @@ setFlag("launched", false);
 // whether or not the boss was defeated
 setFlag("sphinxxDefeated", false);
 
+// which god chosen
+setFlag("Ap", false);
+setFlag("Ar", false);
+setFlag("At", false);
+setFlag("He", false);
+
+// intro scripts
+setFlag("ApIntro", false);
+setFlag("ArIntro", false);
+setFlag("AtIntro", false);
+setFlag("HsIntro", false);
+
 // dialogueX: indicates whether or not player has completed the jungleX.protd dialogue.
 setFlag("jungle1", false);
 setFlag("jungle2", false);

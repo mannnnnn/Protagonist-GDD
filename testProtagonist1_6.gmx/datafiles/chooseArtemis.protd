@@ -26,9 +26,7 @@ with fade
 show P spr_defaultSpeak
 with fade
 
-arIntro = false
-
-if (arIntro == false)
+if (!ArIntro)
 {
 	?: "Hey you!"
 	P: "?!"
@@ -144,6 +142,7 @@ if (arIntro == false)
 					with fade
 
 					P: "Wait."
+					At = true
 				}
 				"I think I'll weigh some other options."
 				{

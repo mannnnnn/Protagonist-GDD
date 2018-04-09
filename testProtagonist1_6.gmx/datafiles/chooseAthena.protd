@@ -18,9 +18,7 @@ with fade
 show P spr_defaultSpeak
 with fade
 
-atIntro = false
-
-if (atIntro == false)
+if (!AtIntro)
 {
 	At: "What is this?"
 	At: "Who are you?"
@@ -120,6 +118,7 @@ if (atIntro == false)
 				At: "A nice, proper magic book, and hopefully a mind on those shoulders of yours."
 				At: "I'd wish you good luck, but you shouldn't need it."
 				At: "Go wipe the floor with those spells of yours. Once you're free, I'll show you where to go."
+				At = true
 			}
 
 			"I have no idea what I'm doing."
