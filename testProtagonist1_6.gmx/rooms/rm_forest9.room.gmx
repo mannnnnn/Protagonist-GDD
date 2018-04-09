@@ -7,7 +7,7 @@
   <hsnap>32</hsnap>
   <isometric>0</isometric>
   <speed>30</speed>
-  <persistent>-1</persistent>
+  <persistent>0</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code>createControlObjects();</code>
@@ -65,7 +65,7 @@
     <instance objName="obj_sphinxxAnxiety1" x="192" y="160" name="inst_9AEDFB36" locked="0" code="" scaleX="1.45454549789429" scaleY="1.42222225666046" colour="4294967295" rotation="0"/>
     <instance objName="obj_sphinxxAnxiety2" x="320" y="0" name="inst_AD59F551" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_sphinxxAnxiety1" x="736" y="160" name="inst_37F2776C" locked="0" code="" scaleX="-1.45000004768372" scaleY="1.42222225666046" colour="4294967295" rotation="0"/>
-    <instance objName="obj_triggerPostPuzzle" x="384" y="288" name="inst_04234AB7" locked="0" code="activeTracker = &quot;sphinxxDefeated&quot;;&#xA;script = &quot;jungle18.protd&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_triggerPostPuzzle" x="384" y="288" name="inst_04234AB7" locked="0" code="activeTracker = &quot;sphinxxDefeated&quot;;&#xA;script = &quot;jungle18.protd&quot;;&#xA;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_triggerDialogue17" x="128" y="352" name="inst_47F5AB6C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>

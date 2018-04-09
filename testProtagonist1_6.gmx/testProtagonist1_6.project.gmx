@@ -1181,62 +1181,77 @@
       <object>objects\obj_protagonist</object>
       <object>objects\obj_fakeProtagonist</object>
     </objects>
-    <objects name="gui">
-      <objects name="dialogue">
-        <object>objects\obj_dialogue</object>
-        <object>objects\obj_menu</object>
-        <objects name="drawers">
-          <object>objects\obj_drawer</object>
-          <object>objects\obj_fadeInDrawer</object>
-          <object>objects\obj_fadeOutDrawer</object>
-          <object>objects\obj_fadeInLeftDrawer</object>
-          <object>objects\obj_fadeInRightDrawer</object>
-          <object>objects\obj_jumpLeftDrawer</object>
-          <object>objects\obj_jumpRightDrawer</object>
-          <object>objects\obj_jumpOutDrawer</object>
-          <objects name="characterLRDrawers">
-            <object>objects\obj_hadesSwingInLDrawer</object>
-            <object>objects\obj_hadesSwingInRDrawer</object>
-            <object>objects\obj_hadesSwingOutDrawer</object>
-            <object>objects\obj_apolloSwingInLDrawer</object>
-            <object>objects\obj_apolloSwingInRDrawer</object>
-            <object>objects\obj_apolloSwingOutDrawer</object>
+    <objects name="control">
+      <objects name="gui">
+        <objects name="dialogue">
+          <object>objects\obj_dialogue</object>
+          <object>objects\obj_menu</object>
+          <objects name="drawers">
+            <object>objects\obj_drawer</object>
+            <object>objects\obj_fadeInDrawer</object>
+            <object>objects\obj_fadeOutDrawer</object>
+            <object>objects\obj_fadeInLeftDrawer</object>
+            <object>objects\obj_fadeInRightDrawer</object>
+            <object>objects\obj_jumpLeftDrawer</object>
+            <object>objects\obj_jumpRightDrawer</object>
+            <object>objects\obj_jumpOutDrawer</object>
+            <objects name="characterLRDrawers">
+              <object>objects\obj_hadesSwingInLDrawer</object>
+              <object>objects\obj_hadesSwingInRDrawer</object>
+              <object>objects\obj_hadesSwingOutDrawer</object>
+              <object>objects\obj_apolloSwingInLDrawer</object>
+              <object>objects\obj_apolloSwingInRDrawer</object>
+              <object>objects\obj_apolloSwingOutDrawer</object>
+            </objects>
+            <objects name="scene">
+              <object>objects\obj_sceneDrawer</object>
+              <object>objects\obj_fadeInSceneDrawer</object>
+              <object>objects\obj_fadeOutSceneDrawer</object>
+            </objects>
           </objects>
-          <objects name="scene">
-            <object>objects\obj_sceneDrawer</object>
-            <object>objects\obj_fadeInSceneDrawer</object>
-            <object>objects\obj_fadeOutSceneDrawer</object>
+          <object>objects\obj_dialogueBox</object>
+          <object>objects\obj_dialogueBoxSpecial</object>
+          <object>objects\obj_narration</object>
+          <object>objects\obj_dialogueStepper</object>
+          <objects name="waiters">
+            <object>objects\obj_stepWaiter</object>
+            <object>objects\obj_drawerWaiter</object>
           </objects>
+          <objects name="specialObjects">
+            <object>objects\obj_mouseController</object>
+          </objects>
+          <object>objects\obj_buttons</object>
         </objects>
-        <object>objects\obj_dialogueBox</object>
-        <object>objects\obj_dialogueBoxSpecial</object>
-        <object>objects\obj_narration</object>
-        <object>objects\obj_dialogueStepper</object>
-        <objects name="waiters">
-          <object>objects\obj_stepWaiter</object>
-          <object>objects\obj_drawerWaiter</object>
-        </objects>
-        <objects name="specialObjects">
-          <object>objects\obj_mouseController</object>
-        </objects>
-        <object>objects\obj_buttons</object>
+        <object>objects\obj_optionsMenu</object>
+        <object>objects\obj_inventory</object>
+        <object>objects\obj_spellbook</object>
+        <object>objects\obj_saveMenu</object>
+        <object>objects\obj_loadMenu</object>
+        <object>objects\obj_confWindow</object>
+        <object>objects\obj_notifications</object>
+        <object>objects\obj_notification</object>
+        <object>objects\obj_argiope</object>
+        <object>objects\obj_titleBanner</object>
       </objects>
-      <object>objects\obj_optionsMenu</object>
-      <object>objects\obj_inventory</object>
       <object>objects\obj_volume</object>
       <object>objects\obj_masterVolumeFader</object>
       <object>objects\obj_screenDimmer</object>
-      <object>objects\obj_spellbook</object>
-      <object>objects\obj_saveMenu</object>
-      <object>objects\obj_loadMenu</object>
       <object>objects\obj_quitter</object>
       <object>objects\obj_debugTool</object>
       <object>objects\obj_thumbnailSaver</object>
-      <object>objects\obj_confWindow</object>
       <object>objects\obj_combat</object>
-      <object>objects\obj_notifications</object>
-      <object>objects\obj_notification</object>
-      <object>objects\obj_argiope</object>
+      <object>objects\obj_playerStats</object>
+      <object>objects\obj_particles</object>
+      <object>objects\obj_music</object>
+      <object>objects\obj_triSoundLoop</object>
+      <object>objects\obj_storyData</object>
+      <objects name="misc">
+        <object>objects\obj_jokeCombatTest</object>
+        <object>objects\obj_jokeTestAth</object>
+        <object>objects\obj_gravityAnimation</object>
+        <object>objects\obj_hopAnimation</object>
+        <object>objects\obj_dustBunny</object>
+      </objects>
     </objects>
     <objects name="transitions">
       <object>objects\obj_fadeTransition</object>
@@ -1245,11 +1260,9 @@
       <object>objects\obj_slideTransition</object>
       <object>objects\obj_timedRoomTransition</object>
     </objects>
-    <object>objects\obj_animationStop</object>
-    <object>objects\obj_gravityAnimation</object>
-    <object>objects\obj_playerStats</object>
-    <object>objects\obj_hopAnimation</object>
     <objects name="scriptedTriggerObjects">
+      <object>objects\obj_intro</object>
+      <object>objects\obj_ffintro</object>
       <object>objects\obj_launch</object>
       <object>objects\obj_triggerIntro</object>
       <object>objects\obj_triggerDialogue1</object>
@@ -1260,13 +1273,10 @@
       <object>objects\obj_triggerDialogue17</object>
       <object>objects\obj_triggerPostSphinx</object>
       <object>objects\obj_triggerPostPuzzle</object>
+      <object>objects\obj_demoEnd</object>
     </objects>
-    <object>objects\obj_dustBunny</object>
-    <object>objects\obj_dustBunnyCreator</object>
-    <object>objects\obj_intro</object>
-    <object>objects\obj_ffintro</object>
-    <object>objects\obj_combatIntro</object>
     <objects name="combatSystem">
+      <object>objects\obj_combatIntro</object>
       <object>objects\obj_letter</object>
       <object>objects\obj_letterFired</object>
       <object>objects\obj_letterFaded</object>
@@ -1309,6 +1319,7 @@
     <objects name="spells">
       <object>objects\obj_spellEffect</object>
       <object>objects\obj_seedSpell</object>
+      <object>objects\obj_earthEffect</object>
       <object>objects\obj_seatSpell</object>
       <object>objects\obj_seaSpell</object>
       <object>objects\obj_searSpell</object>
@@ -1320,9 +1331,6 @@
       <object>objects\obj_rateSpellStar</object>
       <object>objects\obj_ratSpell</object>
     </objects>
-    <object>objects\obj_particles</object>
-    <object>objects\obj_music</object>
-    <object>objects\obj_earthEffect</object>
     <objects name="map">
       <objects name="interactables">
         <object>objects\obj_interactable</object>
@@ -1364,11 +1372,6 @@
       </objects>
       <object>objects\obj_map</object>
     </objects>
-    <object>objects\obj_storyData</object>
-    <object>objects\obj_triSoundLoop</object>
-    <object>objects\obj_titleBanner</object>
-    <object>objects\obj_jokeCombatTest</object>
-    <object>objects\obj_jokeTestAth</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test</room>

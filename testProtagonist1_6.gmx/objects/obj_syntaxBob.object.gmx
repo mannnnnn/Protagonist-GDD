@@ -101,7 +101,7 @@ if (checkFlag(activeTracker) == PUZZLE_SOLVED)
           <argument>
             <kind>1</kind>
             <string>/// what to do if already completed
-instance_create(getX(id) + sprite_width * 0.35, getY(id) + sprite_height * 0.5, obj_syntaxCrater);
+instance_create(getX(id) + sprite_width * 0.26, getY(id) + sprite_height * 0.5, obj_syntaxCrater);
 instance_destroy();
 </string>
           </argument>
@@ -134,7 +134,7 @@ repeat(3)
 setFlag(activeTracker, PUZZLE_COMPLETE);
 playSound(SFX, snd_meow);
 playSound(SFX, snd_explosion);
-instance_create(getX(id) + sprite_width * 0.35, getY(id) + sprite_height * 0.5, obj_syntaxCrater);
+instance_create(getX(id) + sprite_width * 0.26, getY(id) + sprite_height * 0.5, obj_syntaxCrater);
 instance_destroy();
 </string>
           </argument>

@@ -79,7 +79,7 @@ instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// do nothing here if already activated
+            <string>/// do nothing here if already activated
 if (alarm[9] &gt;= 0)
 {
     exit;
@@ -89,7 +89,7 @@ if (checkFlag(activeTracker) != PUZZLE_SOLVED)
 {
     instance_destroy();
 }
-// if puzzle is PUZZLE_SOLVED, then activate it
+/// if puzzle is PUZZLE_SOLVED, then activate it
 else
 {
     alarm[9] = delay;

@@ -16,7 +16,7 @@ character H
 character Ap
 {
 	name = "Apollo"
-	side = right
+	side = left
 }
 
 
@@ -53,12 +53,6 @@ with Apollo_swing
 Ap: "That's a bit of an exaggeration."
 Ap: "I was trapped in a forest being bored to death."
 
-
-//SHOW HADES
-show H spr_talkHades
-with Hades_swing
-//
-
 H: "I gave you lots of cats to play with."
 Ap: "And I a-paw-laud you for that, but it's not enough."
 Ap: "I thought I was stuck here forever! I tried so hard to escape!"
@@ -67,7 +61,7 @@ H: "I couldn't have let you just run around amuk out here!"
 H: "Do you understand how delicate this code is? It's decayed with the time the Protagonist took to get their hinnie in here."
 H: "You can't go around throwing your letters and spells around all willie-nillie, you'll overheat the system!"
 Ap: "But Hades, the Protagonist is here! We can change the code!"
-Ap: "Look at how well they fought! They really can finish the game!
+Ap: "Look at how well they fought! They really can finish the game!"
 H: "Finish the game?"
 H: "This is our game, Apollo, not theirs."
 H: "We were born here, and we've lived here. We've wrote our own stories here."
@@ -84,6 +78,8 @@ with hades_swing
 
 Ap: "What a sourpuss. Hades and that fake sphinxx both."
 Ap: "But hey, look on the bright side, kid!"
+
+text side P right
 
 //SHOW PROTAGONIST
 show P spr_defaultSpeak
@@ -117,8 +113,7 @@ if (Ap)
 	Ap: "We've got places to be kiddo!"
 	P: "Woohoo!"
 }
-
-if (!Ap)
+else
 {
 	Ap:"Say, how did you beat that ol' cat anyways?"
 }
@@ -221,7 +216,10 @@ if (At)
 //after all branches
 //HIDE APOLLO
 hide Ap
-with Apollo_swing
+with fade
 //
+
+create obj_demoEnd
+
 exit
 //DEMO END
