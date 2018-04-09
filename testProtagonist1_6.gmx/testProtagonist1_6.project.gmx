@@ -546,6 +546,8 @@
       <sound>sound\snd_syntaxMeow</sound>
       <sound>sound\snd_oof</sound>
       <sound>sound\snd_ding</sound>
+      <sound>sound\snd_explosion</sound>
+      <sound>sound\snd_meow</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -1217,14 +1219,6 @@
           <object>objects\obj_mouseController</object>
         </objects>
         <object>objects\obj_buttons</object>
-        <objects name="scriptedTriggerObjects">
-          <object>objects\obj_launch</object>
-          <object>objects\obj_triggerIntro</object>
-          <object>objects\obj_triggerDialogue1</object>
-          <object>objects\obj_triggerDialogue5</object>
-          <object>objects\obj_triggerDialogueAuto</object>
-          <object>objects\obj_triggerPostSphinx</object>
-        </objects>
       </objects>
       <object>objects\obj_optionsMenu</object>
       <object>objects\obj_inventory</object>
@@ -1254,6 +1248,16 @@
     <object>objects\obj_gravityAnimation</object>
     <object>objects\obj_playerStats</object>
     <object>objects\obj_hopAnimation</object>
+    <objects name="scriptedTriggerObjects">
+      <object>objects\obj_launch</object>
+      <object>objects\obj_triggerIntro</object>
+      <object>objects\obj_triggerDialogue1</object>
+      <object>objects\obj_triggerDialogue5</object>
+      <object>objects\obj_triggerDialogueWall</object>
+      <object>objects\obj_triggerDialogueAuto</object>
+      <object>objects\obj_triggerPostSphinx</object>
+      <object>objects\obj_syntaxCrater</object>
+    </objects>
     <object>objects\obj_dustBunny</object>
     <object>objects\obj_dustBunnyCreator</object>
     <object>objects\obj_intro</object>
@@ -1384,7 +1388,7 @@
       <room>rooms\rm_hadesRules</room>
     </rooms>
   </rooms>
-  <constants number="97">
+  <constants number="100">
     <constant name="RIGHT">0</constant>
     <constant name="UP">1</constant>
     <constant name="LEFT">2</constant>
@@ -1482,6 +1486,9 @@
     <constant name="ARTEMIS">1</constant>
     <constant name="ATHENA">2</constant>
     <constant name="HAES">3</constant>
+    <constant name="PUZZLE_UNSOLVED">0</constant>
+    <constant name="PUZZLE_SOLVED">1</constant>
+    <constant name="PUZZLE_COMPLETE">2</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

@@ -42,12 +42,12 @@ setFlag("jungle15", false);
 setFlag("jungle16", false);
 
 // puzzleX: indicates whether or not player has completed the Xth puzzle.
-setFlag("puzzle1", false);
-setFlag("puzzle2", false);
-setFlag("puzzle3", false);
-setFlag("puzzle4", false);
-setFlag("puzzle5", false);
-setFlag("puzzle6", false);
-setFlag("puzzle7", false);
+setFlag("puzzle1", PUZZLE_UNSOLVED);
+setFlag("puzzle2", PUZZLE_UNSOLVED);
+setFlag("puzzle3", PUZZLE_UNSOLVED);
+setFlag("puzzle4", PUZZLE_UNSOLVED);
+setFlag("puzzle5", PUZZLE_UNSOLVED);
+setFlag("puzzle6", PUZZLE_UNSOLVED);
+setFlag("puzzle7", PUZZLE_UNSOLVED);
 
 show_debug_message(json_encode(obj_storyData.data));

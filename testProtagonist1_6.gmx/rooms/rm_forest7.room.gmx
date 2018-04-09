@@ -65,7 +65,7 @@
     <instance objName="obj_jungleParticleSolid" x="64" y="160" name="inst_53AB820B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_jungleParticleSolid" x="832" y="160" name="inst_D3D1597F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_synSign" x="224" y="48" name="inst_E196B45D" locked="0" code="" scaleX="1.43283581733704" scaleY="1.45454549789429" colour="4294967295" rotation="0"/>
-    <instance objName="obj_synSign" x="512" y="32" name="inst_29F5A557" locked="0" code="image_index = 1;&#xA;" scaleX="1.43283581733704" scaleY="1.57575762271881" colour="4294967295" rotation="0"/>
+    <instance objName="obj_synSign" x="512" y="32" name="inst_29F5A557" locked="0" code="image_index = 1;&#xA;name = &quot;synSign2&quot;;&#xA;" scaleX="1.43283581733704" scaleY="1.57575762271881" colour="4294967295" rotation="0"/>
     <instance objName="obj_leafPile" x="96" y="384" name="inst_83FA2CCB" locked="0" code="" scaleX="1.58415842056274" scaleY="1.33333337306976" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>

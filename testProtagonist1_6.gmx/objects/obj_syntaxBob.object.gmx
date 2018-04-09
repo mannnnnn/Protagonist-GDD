@@ -63,9 +63,20 @@ outro = snd_syntaxOutro1;
             <kind>1</kind>
             <string>/// destroy self if not needed
 event_inherited();
-if (checkFlag(activeTracker))
+// if puzzle fully gone, then destroy self
+if (checkFlag(activeTracker) == PUZZLE_COMPLETE)
 {
     event_user(4);
+}
+// if puzzle was just solved and has yet to play
+// the cat destruction graphic, play it
+if (checkFlag(activeTracker) == PUZZLE_SOLVED)
+{
+    // when the screen transition stops, explode it
+    if (!checkRoomTransition())
+    {
+        event_user(3);
+    }
 }
 </string>
           </argument>
@@ -89,7 +100,41 @@ if (checkFlag(activeTracker))
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// what to do if already solved
+            <string>/// what to do if already completed
+instance_create(getX(id) + sprite_width * 0.5, getY(id) + sprite_height * 0.5, obj_syntaxCrater);
+instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="13">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// what to do if just completed
+repeat(3)
+{
+    effect_create_above(ef_explosion, getX(id) + sprite_width * 0.5, getY(id) + sprite_height * 0.5, 1, c_black);
+}
+
+setFlag(activeTracker, PUZZLE_COMPLETE);
+playSound(SFX, snd_meow);
+playSound(SFX, snd_explosion);
+instance_create(getX(id) + sprite_width * 0.5, getY(id) + sprite_height * 0.5, obj_syntaxCrater);
 instance_destroy();
 </string>
           </argument>

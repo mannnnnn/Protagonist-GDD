@@ -52,7 +52,7 @@ typoStop = 17;
           <argument>
             <kind>1</kind>
             <string>/// end combat
-setFlag("puzzle6", true);
+setFlag("puzzle6", PUZZLE_SOLVED);
 endCombat();
 </string>
           </argument>

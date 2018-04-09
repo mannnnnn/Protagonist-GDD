@@ -29,6 +29,59 @@ character H
 //    "This is the example jump text."
 //}
 
+label syntaxCrater
+{
+	"The remains of the syntax error."
+	"This crater looks awfully similar to the one that your rocket ship made."
+	"Maybe Hades is getting lazy with these images?"
+}
+
+label synSign2
+{
+	"These signs are kind of cute. But what are they doing here?"
+	"You get the feline that they were supposed to be ominous."
+	"Who do they think they're kitten?"
+}
+
+label rockM1
+{
+	"You just like making rock puns, don't you?"
+	"Your sense of humor is starting to erode."	
+}
+
+label rockM2
+{
+	"It kinda looks like a pyramid, doesn't it?"
+	"You're incapable of looking at the sky, so this is the closest thing you have to cloudwatching."
+	"Interpreting shapes out of rocks is your only creative solace."
+	"Look, that one looks like Hades!"	
+}
+
+label rockM3
+{
+	"This rock is an inspiration."
+	"It's stronger than you."
+	"Tougher than you."
+	"Boulder than you."
+}
+
+label rockM4
+{
+	"There's a cat on this rock."
+	"At least you think it's a cat."
+	"And now that you think about it you can't be sure that's a rock either."
+	"Nothing is concrete in this world."
+}
+
+label statSign2
+{
+	"There must be danger up ahead."
+	"But you've come so far, no point in stopping now."
+	"It's not like you value you life or anything."
+	"You're the Protagonist."
+	"What could possibly go wrong?"	
+}
+
 label hadesWall
 {
 	show P spr_defaultSpeak

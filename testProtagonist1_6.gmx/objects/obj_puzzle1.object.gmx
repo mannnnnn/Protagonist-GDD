@@ -56,7 +56,7 @@ puzzle = noone;
           <argument>
             <kind>1</kind>
             <string>/// end combat
-setFlag("puzzle1", true);
+setFlag("puzzle1", PUZZLE_SOLVED);
 endCombat();
 </string>
           </argument>
