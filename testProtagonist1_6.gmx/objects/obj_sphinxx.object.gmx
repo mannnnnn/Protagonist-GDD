@@ -44,6 +44,11 @@ if (checkFlag("jungle17"))
 {
     image_index = sprite_get_number(sprite_index) - 1;
 }
+
+/// music
+intro = snd_sphinxxIntro;
+loop = snd_sphinxxLoop;
+outro = noone;
 </string>
           </argument>
         </arguments>

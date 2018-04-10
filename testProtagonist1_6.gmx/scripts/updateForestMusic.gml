@@ -37,6 +37,11 @@ for (var i = 0; i < ds_list_size(obj_music.music); i++)
     {
         volume = 1;
     }
+    // stop all music while credits roll
+    if (instance_exists(obj_demoEnd))
+    {
+        volume = 0;
+    }
     audio_sound_gain(obj_music.music[| i], volume, duration);
 }
 
@@ -64,6 +69,11 @@ for (var i = 0; i < ds_list_size(obj_music.sfx); i++)
     if (obj_music.currentSfx == i)
     {
         volume = 1;
+    }
+    // stop all music while credits roll
+    if (instance_exists(obj_demoEnd))
+    {
+        volume = 0;
     }
     audio_sound_gain(obj_music.sfx[| i], volume, duration);
 }

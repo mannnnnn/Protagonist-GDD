@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>/// end the demo
 // stop other music and play end music
+updateForestMusic();
+
 fadeTimer = 0;
 fadeDur = 90;
 state = OPENING;
@@ -168,6 +170,9 @@ switch (state)
         draw_rectangle(0, 0, getDisplayRoomWidth(), getDisplayRoomHeight(), false);
         break;
     case CLOSED:
+        draw_set_color(c_black);
+        draw_set_alpha(1);
+        draw_rectangle(0, 0, getDisplayRoomWidth(), getDisplayRoomHeight(), false);
         game_end();
         break;
 }

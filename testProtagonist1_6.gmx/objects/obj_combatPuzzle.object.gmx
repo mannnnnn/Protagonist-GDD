@@ -30,8 +30,8 @@ event_inherited();
 
 playerHP = 100;
 playerMaxHP = 100;
-enemyHP = 10;
-enemyMaxHP = 10;
+enemyHP = 200;
+enemyMaxHP = 200;
 
 // move to a the boss cat room
 room = rm_boss1;
@@ -115,6 +115,12 @@ if (enemyHP &lt;= 0 &amp;&amp; alarm[0] &lt; 0 &amp;&amp; !checkFlag("sphinxxDef
 {
     alarm[0] = 60;
     prepareCombatEnd();
+    playSound(SFX, snd_explosion);
+    playSound(SFX, snd_meow);
+    with (obj_syntaxBoss)
+    {
+        // maybe make an explosion later
+    }
 }
 
 // attack if not attacking
