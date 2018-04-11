@@ -8,7 +8,7 @@ if (argument_count >= 1 && is_string(argument[0]))
 }
 
 // change display object if necessary
-var displayObj = obj_dialogueBox;
+var displayObj = obj_dialogueBoxSpecial;
 if (argument_count >= 2)
 {
     displayObj = argument[1];

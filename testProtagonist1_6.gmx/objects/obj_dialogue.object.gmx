@@ -58,7 +58,7 @@ line = noone;
 active = false;
 
 // init drawer
-display = instance_create(0, 0, obj_dialogueBox);
+display = instance_create(0, 0, obj_dialogueBoxSpecial);
 
 // current file path
 file = "";
@@ -309,7 +309,7 @@ if (active)
           <argument>
             <kind>1</kind>
             <string>/// init drawer
-display = instance_create(0, 0, obj_dialogueBox);
+display = instance_create(0, 0, obj_dialogueBoxSpecial);
 </string>
           </argument>
         </arguments>

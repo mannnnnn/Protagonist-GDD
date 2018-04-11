@@ -30,8 +30,8 @@ event_inherited();
 handler = noone;
 
 // make dialogue depth go down
-oldDepth = obj_dialogueBox.depth;
-obj_dialogueBox.depth = 1;
+oldDepth = obj_dialogue.display.depth;
+obj_dialogue.display.depth = 1;
 with (obj_drawer)
 {
     depth = obj_dialogue.display.depth + object_get_depth(object_index);
@@ -208,7 +208,7 @@ ds_list_destroy(selected);
 ds_list_destroy(selectedTimer);
 
 // make dialogue depth go down
-obj_dialogueBox.depth = oldDepth;
+obj_dialogue.display.depth = oldDepth;
 with (obj_drawer)
 {
     depth = obj_dialogue.display.depth + object_get_depth(object_index);

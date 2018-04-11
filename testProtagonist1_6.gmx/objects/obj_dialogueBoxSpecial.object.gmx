@@ -68,7 +68,7 @@ if (instance_exists(dimmer))
 }
 dimmer = noone;
 masterVolumeFader(MUSIC, 1, volumeDur);
-playSound(SFX, specialEndSound);
+// playSound(SFX, specialEndSound);
 // reactivate the combat objects and free the surface
 if (checkCombatActive())
 {
@@ -107,7 +107,7 @@ if (checkCombatActive())
 dimmer = screenDimmer(screenDim, screenDur);
 masterVolumeFader(MUSIC, volumeFade, volumeDur);
 // play the starting ding
-playSound(SFX, specialStartSound);
+// playSound(SFX, specialStartSound);
 // deactivate the combat objects and save image to surface
 if (checkCombatActive())
 {
