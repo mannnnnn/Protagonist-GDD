@@ -69,7 +69,7 @@ n = ds_list_size(submenus);
 textBorder = 5;
 draw_set_font(fnt_dialogue);
 // width is what the dialogue sprite doesn't take up
-var sprSize = 400;
+var sprSize = 375;
 width = (room_width - sprSize) - edgeBorder;
 // height is text height + textBorder
 height = string_height("|") + (2 * textBorder);

@@ -145,7 +145,7 @@ for (var i = 0; i &lt; n; i++)
 // option button separation
 optionSepW = 20;
 optionSepH = 30;
-optionBorder = 10;
+optionBorder = 30;
 
 // totals width of all options
 optionsW = (2 * optionBorder) + (n * optionW) + ((n - 1) * optionSepW);
@@ -210,7 +210,7 @@ if (state == OPENING || state == OPEN || state == CLOSING)
     draw_set_font(fnt_dialogue);
     draw_set_color(c_white);
     draw_set_alpha(t_textAlpha);
-    draw_text(textX, textY, text);
+    draw_text_outlined(textX, textY, text);
     
     // draw options
     for (var i = 0; i &lt; n &amp;&amp; t_optionW &gt; 0; i++)
@@ -236,7 +236,7 @@ if (state == OPENING || state == OPEN || state == CLOSING)
         draw_set_font(fnt_dialogue);
         draw_set_color(c_white);
         draw_set_alpha(t_textAlpha);
-        draw_text(optionX + (0.5 * optionW), optionY + (0.5 * t_optionH), option);
+        draw_text_outlined(optionX + (0.5 * optionW), optionY + (0.5 * t_optionH), option);
     }
 }
 </string>

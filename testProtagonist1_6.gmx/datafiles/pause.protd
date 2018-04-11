@@ -6,7 +6,7 @@ character Hades
 show Hades spr_talkHades
 with fade
 
-Hades: "Howdy. Welcome to Ye Olde Pause Menu."
+Hades: "Great. It's you again."
 
 menu pause
 

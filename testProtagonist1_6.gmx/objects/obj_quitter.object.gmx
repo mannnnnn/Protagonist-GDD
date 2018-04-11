@@ -28,9 +28,9 @@
             <string>/// init draw
 event_inherited();
 
-name = "Quit";
+name = "Get in the box and exit the game";
 
-text = "Are you sure you want to quit?"
+text = "Please click Yes to win the game."
 
 state = CLOSED;
 
