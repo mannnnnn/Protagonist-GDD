@@ -45,6 +45,8 @@ hide P
 with fade
 //
 
+play music snd_credits snd_credits
+
 //SHOW APOLLO
 show Ap spr_talkApollo
 with Apollo_swing

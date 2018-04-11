@@ -315,8 +315,8 @@ switch (state)
         map_range(fadeTimer, 0, fadeDur, 0, 1));
         for (var i = 0; i &lt; ds_list_size(buttonX); i++)
         {
-            // only don't draw if you don't meet the qualifications for the god
-            if (!checkFlag(buttonActive[| i]))
+            // only draw if you meet the qualifications for the god
+            if (checkFlag(buttonActive[| i]))
             {
                 draw_sprite_ext(spr_dialFace, i, (getDisplayRoomWidth() - sprite_get_width(spr_dial)) * 0.5 + buttonX[| i],
                 (getDisplayRoomHeight() - sprite_get_height(spr_dial)) * 0.5 + buttonY[| i], 0.6, 0.6, 0, c_white,

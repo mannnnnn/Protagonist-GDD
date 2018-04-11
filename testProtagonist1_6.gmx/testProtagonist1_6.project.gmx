@@ -562,6 +562,12 @@
     </sounds>
     <sound>sound\snd_sphinxxIntro</sound>
     <sound>sound\snd_sphinxxLoop</sound>
+    <sound>sound\snd_taut1</sound>
+    <sound>sound\snd_taut2</sound>
+    <sound>sound\snd_taut3</sound>
+    <sound>sound\snd_apolloIntro</sound>
+    <sound>sound\snd_apolloLoop</sound>
+    <sound>sound\snd_credits</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="SceneSprites">
@@ -1407,7 +1413,7 @@
       <room>rooms\rm_hadesRules</room>
     </rooms>
   </rooms>
-  <constants number="100">
+  <constants number="104">
     <constant name="RIGHT">0</constant>
     <constant name="UP">1</constant>
     <constant name="LEFT">2</constant>
@@ -1492,6 +1498,10 @@
     <constant name="MUSIC_FOREST1">0</constant>
     <constant name="MUSIC_FOREST2">1</constant>
     <constant name="MUSIC_FOREST3">2</constant>
+    <constant name="MUSIC_FOREST4">3</constant>
+    <constant name="MUSIC_FOREST5">4</constant>
+    <constant name="MUSIC_FOREST6">5</constant>
+    <constant name="MUSIC_FOREST7">6</constant>
     <constant name="MUSIC_FORESTSFX1">0</constant>
     <constant name="MUSIC_FORESTSFX2">1</constant>
     <constant name="BUTTON_FILL">0</constant>

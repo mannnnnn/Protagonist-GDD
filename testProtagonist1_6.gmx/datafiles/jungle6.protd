@@ -32,6 +32,9 @@ show P spr_defaultSpeak
 //
 
 P: "Hello?"
+
+call updateForestMusic()
+
 ?: "Hey Protagonist, how goes it?"
 ?: "Whoahoho- hang on here."
 ?: "I summoned the Protagonist with my magically delicious lyre-playing?"

@@ -71,13 +71,9 @@ P: "Am I just entertainment to you two?"
 Ap: "Of course not! You're also my student who has made me very proud."
 Ap: "Just look at all those Syntax Error craters you left behind in blind pursuit of your goal."
 
-Athena = true
-Artemis = true
-Haes = true
-Apollo = true
-if (Athena || Artemis || Haes)
+if (AtQual || ArQual || HeQual)
 {
-	if ((Athena && !Artemis && !Haes) || (!Athena && Artemis && !Haes) || (!Athena && !Artemis && Haes))
+	if ((AtQual && !ArQual && !HeQual) || (!AtQual && ArQual && !HeQual) || (!AtQual && !ArQual && HeQual))
 	{
 		Ap: "Anyways, I've got someone you should probably meet."
 	}
@@ -88,22 +84,22 @@ if (Athena || Artemis || Haes)
 	Ap: "You see, there are a few other gods sharing this world with me."
 	Ap: "Most of us stayed in the original game, but some of us had our purposes for staying here."
 
-	if (Artemis)
+	if (ArQual)
 	{
 		Ap: "My sister is off somewhere right now. She told me not to bother her-"
 		Ap: "But I bet she wants to wager on this as well, and maybe she'll warm up to you or something I don't know."
 	}
-	if (Athena)
+	if (AtQual)
 	{
 		Ap: "I think I know where Athena ran off to, but she seemed busy."
 		Ap: "You seem to be on the same wavelength as her though. You should stop by and say hi."
 	}
-	if (Haes)
+	if (HeQual)
 	{
 		Ap: "There's this really cool dude who mostly ignores me named Haes."
 		Ap: "Maybe he can get you a weapon or something for the fight. He's pretty good with that stuff."
 	}
-	if (Apollo)
+	if (ApQual)
 	{
 		Ap: "And me, myself? I'm here to test my wits against this dastardly forest, and I'm going to solve the heck out of this place, even if there isn't a riddle."
 	}
