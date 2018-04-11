@@ -29,7 +29,7 @@
 event_inherited();
 file = "jungle6.protd";
 name = "";
-image_speed = 0.3;
+image_speed = 0.2;
 activeTracker = "jungle6";
 
 // destroy self if jungle6 has already run at the start

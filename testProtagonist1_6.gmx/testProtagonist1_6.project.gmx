@@ -585,6 +585,7 @@
     <sound>sound\snd_apolloIntro</sound>
     <sound>sound\snd_apolloLoop</sound>
     <sound>sound\snd_credits</sound>
+    <sound>sound\snd_main1</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="SceneSprites">
