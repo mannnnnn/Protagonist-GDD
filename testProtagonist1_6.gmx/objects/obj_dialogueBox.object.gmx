@@ -326,9 +326,9 @@ if (obj_dialogue.active &amp;&amp; allowAdvance)
 
 draw_set_font(fnt_dialogue);
 // partially open
-var t_startY = map_range(timer, 0, duration, mean(startY, startY + width), startY);
-var t_height = map_range(timer, 0, duration, 0, height);
-var t_nameH = map_range(timer, 0, duration, 0, string_height("|") + (2 * nameTextBorder));
+var t_startY = clamp(map_range(timer, 0, duration, mean(startY, startY + width), startY), startY, mean(startY, startY + width));
+var t_height = clamp(map_range(timer, 0, duration, 0, height), 0, height);
+var t_nameH = clamp(map_range(timer, 0, duration, 0, string_height("|") + (2 * nameTextBorder)), 0, string_height("|") + (2 * nameTextBorder));
 var t_textalpha = map_range(timer, 0, duration, -2, 1);
 
 // find left name box position

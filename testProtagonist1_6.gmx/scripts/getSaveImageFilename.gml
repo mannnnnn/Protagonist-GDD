@@ -1,2 +1,0 @@
-///getSaveImageFilename()
-return "savimg.png";

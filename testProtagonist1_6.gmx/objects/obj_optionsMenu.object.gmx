@@ -36,7 +36,6 @@ submenus = ds_list_create();
 ds_list_add(submenus, instance_nearest(0, 0, obj_inventory));
 ds_list_add(submenus, instance_nearest(0, 0, obj_spellbook));
 ds_list_add(submenus, instance_nearest(0, 0, obj_saveMenu));
-ds_list_add(submenus, instance_nearest(0, 0, obj_loadMenu));
 if (checkFlag("jungle16") &amp;&amp;
 !(checkFlag("Ar") || checkFlag("At") || checkFlag("Ap") || checkFlag("He")))
 {

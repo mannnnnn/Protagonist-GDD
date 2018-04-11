@@ -1,2 +1,0 @@
-///getSaveDataFilename()
-return "data.protsav";

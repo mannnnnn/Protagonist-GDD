@@ -994,17 +994,6 @@
       <script>scripts\createConfWindow.gml</script>
     </scripts>
     <scripts name="save">
-      <script>scripts\getSavePath.gml</script>
-      <script>scripts\checkSavePath.gml</script>
-      <script>scripts\getSaveDataFilename.gml</script>
-      <script>scripts\getSaveImageFilename.gml</script>
-      <script>scripts\drawSaveTile.gml</script>
-      <script>scripts\saveGame.gml</script>
-      <script>scripts\loadGame.gml</script>
-      <script>scripts\saveThumbnailImage.gml</script>
-      <script>scripts\clearSaveSpritetableEntry.gml</script>
-      <script>scripts\drawSaveNameplate.gml</script>
-      <script>scripts\interactSaveGame.gml</script>
       <script>scripts\getGlobalSavePath.gml</script>
       <script>scripts\saveStoryData.gml</script>
       <script>scripts\loadStoryData.gml</script>
@@ -1242,20 +1231,18 @@
         <object>objects\obj_optionsMenu</object>
         <object>objects\obj_inventory</object>
         <object>objects\obj_spellbook</object>
-        <object>objects\obj_saveMenu</object>
-        <object>objects\obj_loadMenu</object>
         <object>objects\obj_confWindow</object>
         <object>objects\obj_notifications</object>
         <object>objects\obj_notification</object>
         <object>objects\obj_argiope</object>
         <object>objects\obj_titleBanner</object>
+        <object>objects\obj_saveMenu</object>
       </objects>
       <object>objects\obj_volume</object>
       <object>objects\obj_masterVolumeFader</object>
       <object>objects\obj_screenDimmer</object>
       <object>objects\obj_quitter</object>
       <object>objects\obj_debugTool</object>
-      <object>objects\obj_thumbnailSaver</object>
       <object>objects\obj_combat</object>
       <object>objects\obj_playerStats</object>
       <object>objects\obj_particles</object>
