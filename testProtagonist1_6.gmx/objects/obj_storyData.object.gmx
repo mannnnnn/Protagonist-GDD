@@ -29,16 +29,17 @@
 data = ds_map_create();
 
 interaction = ds_grid_create(4, 3);
+dustBunny = ds_grid_create(4, 3);
+pickedUp = ds_grid_create(4, 3);
 for (var i = 0; i &lt; ds_grid_width(interaction); i++)
 {
     for (var j = 0; j &lt; ds_grid_height(interaction); j++)
     {
         interaction[# i, j] = ds_map_create();
+        dustBunny[# i, j] = false;
+        pickedUp[# i, j] = false;
     }
 }
-dustBunny = ds_grid_create(4, 3);
-pickedUp = ds_grid_create(4, 3);
-
 interID = 0;
 
 //load
@@ -108,6 +109,52 @@ if (instance_exists(obj_dialogue.display) &amp;&amp; obj_dialogue.display.state 
         }
     }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// handle which gods are available
+
+// if all puzzles solved, activate athena
+if (!checkFlag("AtQual"))
+{
+    var athena = true;
+    for (var i = 1; i &lt;= 7; i++)
+    {
+        if (!checkFlag("puzzle" + string(i)))
+        {
+            athena = false;
+        }
+    }
+    if (athena)
+    {
+        setFlag("AtQual", true);
+    }
+}
+
+// artemis is activated when a bunny is consumed
+// occurs by inventory
+
+// apollo is always active
+
+// haes is activated when all bunnies are collected but none are consumed
+
 </string>
           </argument>
         </arguments>

@@ -78,27 +78,60 @@ buttonX = ds_list_create();
 buttonY = ds_list_create();
 buttonSpr = ds_list_create();
 buttonDialogue = ds_list_create();
+buttonActive = ds_list_create();
 r = 64;
 
 buttonX[| APOLLO] = 186;
 buttonY[| APOLLO] = 124;
 buttonSpr[| APOLLO] = spr_apolloChest;
 buttonDialogue[| APOLLO] = "chooseApollo.protd";
+buttonActive[| APOLLO] = "ApQual";
 
 buttonX[| ARTEMIS] = 358;
 buttonY[| ARTEMIS] = 124;
 buttonSpr[| ARTEMIS] = spr_artemisChest;
 buttonDialogue[| ARTEMIS] = "chooseArtemis.protd";
+buttonActive[| ARTEMIS] = "ArQual";
 
 buttonX[| ATHENA] = 107;
 buttonY[| ATHENA] = 278;
 buttonSpr[| ATHENA] = spr_athenaChest;
 buttonDialogue[| ATHENA] = "chooseAthena.protd";
+buttonActive[| ATHENA] = "AtQual";
 
 buttonX[| HAES] = 454;
 buttonY[| HAES] = 278;
 buttonSpr[| HAES] = spr_haesChest;
 buttonDialogue[| HAES] = "chooseHaes.protd";
+buttonActive[| HAES] = "HeQual";
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// clean up
+ds_list_destroy(buttonX);
+ds_list_destroy(buttonY);
+ds_list_destroy(buttonSpr);
+ds_list_destroy(buttonActive);
+ds_list_destroy(buttonDialogue);
 </string>
           </argument>
         </arguments>
@@ -168,10 +201,9 @@ for (var i = 0; i &lt; ds_list_size(buttonX); i++)
     (getDisplayRoomHeight() - sprite_get_height(spr_dial)) * 0.5 + buttonY[| i], r))
     {
         selected = i;
-        // no button press if you chose artemis
-        if (i == ARTEMIS &amp;&amp; checkFlag("ArIntro"))
+        // no button press if you chose a god you don't meet the qualifications for
+        if (!checkFlag(buttonActive[| i]))
         {
-            show_debug_message("deselecting");
             selected = noone;
         }
     }
@@ -185,6 +217,34 @@ if (selected == noone)
 displayDial = false;
 spr = buttonSpr[| selected];
 dialogue = buttonDialogue[| selected];
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// clean up
+ds_list_destroy(buttonX);
+ds_list_destroy(buttonY);
+ds_list_destroy(buttonSpr);
+ds_list_destroy(buttonActive);
+ds_list_destroy(buttonDialogue);
 </string>
           </argument>
         </arguments>
@@ -255,8 +315,8 @@ switch (state)
         map_range(fadeTimer, 0, fadeDur, 0, 1));
         for (var i = 0; i &lt; ds_list_size(buttonX); i++)
         {
-            // only don't draw if it's artemis and ArIntro was already played
-            if (i != ARTEMIS || !checkFlag("ArIntro"))
+            // only don't draw if you don't meet the qualifications for the god
+            if (!checkFlag(buttonActive[| i]))
             {
                 draw_sprite_ext(spr_dialFace, i, (getDisplayRoomWidth() - sprite_get_width(spr_dial)) * 0.5 + buttonX[| i],
                 (getDisplayRoomHeight() - sprite_get_height(spr_dial)) * 0.5 + buttonY[| i], 0.6, 0.6, 0, c_white,

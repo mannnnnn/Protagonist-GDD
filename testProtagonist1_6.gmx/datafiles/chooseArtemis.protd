@@ -149,6 +149,7 @@ if (!ArIntro)
 				{
 					Ar: "Cool. I'm out of here then."
 					Ar: "Have fun."
+					ArQual = false
 				}
 			}
 		}

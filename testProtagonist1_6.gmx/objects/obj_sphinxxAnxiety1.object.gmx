@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-76</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_interactable</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,7 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>/// slow animation
+event_inherited();
 image_speed = 0.6;
+name = "sphinxAnx1";
 </string>
           </argument>
         </arguments>
@@ -49,38 +51,12 @@ image_speed = 0.6;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// adjust depth
-depthify();
-
-// if sphinxx is gone, destroy self
+            <string>/// if sphinxx is gone, destroy self
+event_inherited();
 if (!instance_exists(obj_sphinxx))
 {
     instance_destroy();
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// draw self
-draw_self();
 </string>
           </argument>
         </arguments>

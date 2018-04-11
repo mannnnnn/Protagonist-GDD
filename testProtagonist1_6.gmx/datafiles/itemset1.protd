@@ -102,6 +102,14 @@ label hadesWall
 	H: "You can't."
 	P: "..."
 	H: "Wow. It looks like you finally realized there's no way forward. Congratulations. Now get in the box."
+
+	hide H
+	with hades_swing
+	hide P
+	with fade
+
+	wait for drawers
+	exit
 }
 
 label hadesWall2
@@ -115,6 +123,14 @@ label hadesWall2
 	P: "But what if I want to try answering the riddle again?"
 	H: "Did you really think that was going to work? What, did you think the Sphinx would just let you stroll in and try all 4 answers until you got the right one?"
 	H: "So, well done. You've blocked off the way forward. So get in the box."
+	
+	hide H
+	with hades_swing
+	hide P
+	with fade
+	
+	wait for drawers
+	exit
 }
 
 label warp
@@ -341,4 +357,12 @@ label visibleWall
 	"If you're the protagonist, and a wall blocks your way... is it an antagonist?"
 	"The wall is beginning to look a bit nervous."
 	"The wall doesn't mean you any trouble, for now."
+}
+
+label sphinxAnx1
+{
+	"This looks broken."
+	"Better not interact with it."
+	"Better not lick it."
+	"Better not reflect on the fact it tastes like the blood, sweat, and tears of game programmers."
 }

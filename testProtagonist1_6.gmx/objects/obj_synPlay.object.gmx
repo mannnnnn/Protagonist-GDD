@@ -3,7 +3,7 @@
   <spriteName>spr_synPlay</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-220</depth>
+  <depth>-100</depth>
   <persistent>0</persistent>
   <parentName>obj_interactable</parentName>
   <maskName>&lt;undefined&gt;</maskName>
