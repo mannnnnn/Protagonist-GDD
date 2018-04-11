@@ -158,7 +158,7 @@ switch (state)
         break;
     case CLOSING:
         fadeTimer--;
-        if (fadeTimer &lt;= -fadeDur)
+        if (fadeTimer &lt;= -fadeDur * 0.3)
         {
             state = CLOSED;
         }
@@ -231,6 +231,14 @@ for (var i = 0; i &lt; ds_list_size(text); i++)
 if (scrollPos &gt;= textPosY[| ds_list_size(textPosY) - 1] + 100)
 {
     state = CLOSING;
+    if (obj_triSoundLoop.introSnd != noone)
+    {
+        audio_sound_gain(obj_triSoundLoop.introSnd, 0, 4000);
+    }
+    if (obj_triSoundLoop.loopSnd != noone)
+    {
+        audio_sound_gain(obj_triSoundLoop.loopSnd, 0, 4000);
+    }
 }
 </string>
           </argument>

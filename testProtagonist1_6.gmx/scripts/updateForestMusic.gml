@@ -11,7 +11,7 @@ if (ds_list_empty(obj_music.music))
     obj_music.music[| MUSIC_FOREST7] = audio_play_sound(snd_apolloLoop, 7, true);
     obj_music.sfx[| MUSIC_FORESTSFX1] = audio_play_sound(snd_jungle, 1, true);
     obj_music.sfx[| MUSIC_FORESTSFX2] = audio_play_sound(snd_junglePurr, 1, true);
-    duration = 1;
+    duration = 0;
 }
 
 var currentRoom = obj_map.map[# obj_map.X, obj_map.Y];
@@ -83,7 +83,7 @@ for (var i = 0; i < ds_list_size(obj_music.music); i++)
         }
     }
     // stop all music while credits roll
-    if (instance_exists(obj_demoEnd))
+    if (instance_exists(obj_demoEnd) || checkFlag("sphinxxDefeated"))
     {
         volume = 0;
     }
@@ -116,7 +116,7 @@ for (var i = 0; i < ds_list_size(obj_music.sfx); i++)
         volume = 1;
     }
     // stop all music while credits roll
-    if (instance_exists(obj_demoEnd))
+    if (instance_exists(obj_demoEnd) || checkFlag("sphinxxDefeated"))
     {
         volume = 0;
     }

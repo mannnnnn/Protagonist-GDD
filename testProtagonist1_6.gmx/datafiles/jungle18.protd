@@ -223,5 +223,6 @@ with fade
 
 create obj_demoEnd
 
-exit
+hide dialogue
+wait -4
 //DEMO END
