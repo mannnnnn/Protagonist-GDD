@@ -139,14 +139,12 @@ if (!debug)
 }
 if (keyboard_check(vk_control))
 {
-    ds_map_destroy(obj_storyData.data);
-    obj_storyData.data = ds_map_create();
+    ds_map_clear(obj_storyData.data);
     initFlags();
-    file_delete(getGlobalSavePath(obj_storyData.file));
+    file_delete(obj_storyData.file);
     game_restart();
-    file_delete(getGlobalSavePath(obj_storyData.file));
-    ds_map_destroy(obj_storyData.data);
-    obj_storyData.data = ds_map_create();
+    file_delete(obj_storyData.file);
+    ds_map_clear(obj_storyData.data);
     initFlags();
 }
 </string>
