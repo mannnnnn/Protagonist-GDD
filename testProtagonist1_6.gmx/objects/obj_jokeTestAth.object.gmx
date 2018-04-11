@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-10000</depth>
+  <depth>1</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -28,6 +28,14 @@
             <string>/// inherit from spell effect
 event_inherited();
 handler = noone;
+
+// make dialogue depth go down
+oldDepth = obj_dialogueBox.depth;
+obj_dialogueBox.depth = 1;
+with (obj_drawer)
+{
+    depth = obj_dialogue.display.depth + object_get_depth(object_index);
+}
 </string>
           </argument>
         </arguments>
@@ -102,8 +110,8 @@ ansIndent = string_width("    ");
 scrollPos = -border;
 
 // turn-in button
-buttonH = 64;
-buttonW = 240;
+buttonH = 120;
+buttonW = 308;
 </string>
           </argument>
         </arguments>
@@ -198,6 +206,19 @@ ds_list_destroy(answers);
 ds_list_destroy(questions);
 ds_list_destroy(selected);
 ds_list_destroy(selectedTimer);
+
+// make dialogue depth go down
+obj_dialogueBox.depth = oldDepth;
+with (obj_drawer)
+{
+    depth = obj_dialogue.display.depth + object_get_depth(object_index);
+}
+
+// close menu if it is acting as one
+if (!checkCombatActive())
+{
+    closeDialogueMenu();
+}
 </string>
           </argument>
         </arguments>
@@ -249,7 +270,7 @@ questions = ds_list_create();
 answers = ds_list_create();
 
 ds_list_add(questions, "Q: What was the extra letter in the first puzzle?");
-ds_list_add(selected, noone);
+ans = ds_list_create();
 ds_list_add(ans, "A: O");
 ds_list_add(ans, "B: M");
 ds_list_add(ans, "C: L");
@@ -294,7 +315,7 @@ ds_list_add(answers, ans);
           <argument>
             <kind>1</kind>
             <string>/// check for question selection
-if (checkDialogueActive())
+if (checkCombatPause())
 {
     exit;
 }
@@ -334,15 +355,24 @@ var buttonX = (getDisplayRoomWidth() - buttonW) * 0.5;
 var buttonY = -scrollPos + questionY + h;
 if (point_in_rectangle(X, Y, buttonX, buttonY, buttonX + buttonW, buttonY + buttonH))
 {
-    // turn in
-    state = CLOSING;
+    // check for athTest
+    if (!checkCombatActive())
+    {
+        instance_create(0, 0, obj_getStabbed);
+        state = CLOSING;
+    }
+    else
+    {
+        // turn in
+        state = CLOSING;
+    }
 }
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -383,6 +413,7 @@ switch(state)
             // destroy window once it closes, since it's done
             instance_destroy();
             state = CLOSED;
+            exit;
         }
         break;
     default:
@@ -478,11 +509,7 @@ for (var i = 0; i &lt; ds_list_size(questions); i++)
 }
 
 // draw the turn-in button
-drawButtonRect((getDisplayRoomWidth() - buttonW) * 0.5, -scrollPos + questionY + h, buttonW, buttonH, obj_buttons.button, c_white, c_white, alpha, alpha);
-draw_set_halign(fa_center);
-draw_set_valign(fa_center);
-draw_set_color(c_white);
-draw_text_outlined(getDisplayRoomWidth() * 0.5, -scrollPos + questionY + h + (buttonH * 0.5), "Turn in");
+draw_sprite_stretched(spr_turnInButton, 0, (getDisplayRoomWidth() - buttonW) * 0.5, -scrollPos + questionY + h, buttonW, buttonH);
 </string>
           </argument>
         </arguments>
@@ -534,6 +561,29 @@ if (mouse_in_rect(barXMin, barY, barXMax - barXMin, barH))
         barDrag = true;
     }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// do nothing
 </string>
           </argument>
         </arguments>

@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-10</depth>
+  <depth>-200</depth>
   <persistent>0</persistent>
   <parentName>obj_timedRoomTransition</parentName>
   <maskName>&lt;undefined&gt;</maskName>

@@ -56,54 +56,43 @@ if (!AtIntro)
 	{
 		"Yeah, I'll take the test"
 		{
-				call hadesSpecialTestingExtravaganza()
-
-				// show At spr_stabbyAthena
-				// with nothing
-
-				At: "!"
-				P: "Whoa whoa whoa!"
-				P: "Were you about to stab me?"
-				At: "Yes. Duck."
-				P: "Whoa hang on, can you please not stab me?"
-				At: "I mean that is an option, I suppose."
-				At: "But you were distracted."
-				P: "Because you told me to take a test!"
-				At: "Yes. Congrats on passing it, it seems."
-				P: "I passed? But I didn't finish the test you-"
-				At: "The test wasn't the piece of paper that spawned in front of you."
-				P: "It was to minimize the test?"
-				At: "Well, mostly it was to catch me before I stabbed you."
-				At: "If you were just looking at the test then you wouldn't have seen me."
-				At: "And boy were you a sitting duck."
-				At: "But good job. I might spare you life today."
-				P: "Oh... yay."
-				At: "Here's the deal. I think you can help me out."
-				At: "You just have to think a little bigger."
-				P: "Bigger?"
-				At: "Yeah, you've got to see the bigger picture. Think beyond the initial quest you've been given."
-				At: "Have you noticed anything off about this world?"
-				P: "I don't have a face."
-				At: "No that's normal."
-				At: "Well, that's not normal. But I don't care about that."
-				At: "I was more referring to the fact that the trees are made of gold."
-				P: "Oh that."
-				P: "I thought that was just part of the aethstetic."
-				At: "It's not."
-				At: "Come with me, and I'll show you what is happening to this place."
-				P: "That's... quite the offer? Is that a good offer for me?"
-				At: "Maybe it is, maybe it isn't. Just be happy I've extended this offer."
+			jump athenaTest
+		}
+		"I don't need any more tests in my life."
+		{ 
+			At: "Good luck to you then."
+		}
+	}
+}
+else if (!testComplete)
+{
+	if (!testTaken)
+	{
+		At: "Are you ready to take the test this time?"
+		menu
+		{
+			"Yeah, I'll take the test"
+			{
+				jump athenaTest
 			}
 			"I don't need any more tests in my life."
 			{ 
 				At: "Good luck to you then."
 			}
 		}
-		exit
+	}
+	else
+	{
+		At: "Come to take the test again?"
+		P: "What happened last time?"
+		At: "That's for you to figure out. Here you go. Try again."
+		jump athenaTest
 	}
 }
+// if completed the test
 else
 {
+	At: "Do you accept my offer?"
 	menu
 	{
 		"Yes"
@@ -126,10 +115,54 @@ else
 			At: "Go wipe the floor with those spells of yours. Once you're free, I'll show you where to go."
 			At = true
 		}
-
 		"I have no idea what I'm doing."
 		{
 			At: "Alright then. Maybe another time."
 		}
 	}
+}
+
+label athenaTest
+{
+	testTaken = true
+	call hadesSpecialTestExtravaganza()
+	menu obj_jokeTestAth
+	call hadesSpecialTestExtravaganza()
+
+	// show At spr_stabbyAthena
+	// with nothing
+
+	At: "!"
+	P: "Whoa whoa whoa!"
+	P: "Were you about to stab me?"
+	At: "Yes. Duck."
+	P: "Whoa hang on, can you please not stab me?"
+	At: "I mean that is an option, I suppose."
+	At: "But you were distracted."
+	P: "Because you told me to take a test!"
+	At: "Yes. Congrats on passing it, it seems."
+	P: "I passed? But I didn't finish the test you-"
+	At: "The test wasn't the piece of paper that spawned in front of you."
+	P: "It was to minimize the test?"
+	At: "Well, mostly it was to catch me before I stabbed you."
+	At: "If you were just looking at the test then you wouldn't have seen me."
+	At: "And boy were you a sitting duck."
+	At: "But good job. I might spare you life today."
+	P: "Oh... yay."
+	At: "Here's the deal. I think you can help me out."
+	At: "You just have to think a little bigger."
+	P: "Bigger?"
+	At: "Yeah, you've got to see the bigger picture. Think beyond the initial quest you've been given."
+	At: "Have you noticed anything off about this world?"
+	P: "I don't have a face."
+	At: "No that's normal."
+	At: "Well, that's not normal. But I don't care about that."
+	At: "I was more referring to the fact that the trees are made of gold."
+	P: "Oh that."
+	P: "I thought that was just part of the aethstetic."
+	At: "It's not."
+	At: "Come with me, and I'll show you what is happening to this place."
+	P: "That's... quite the offer? Is that a good offer for me?"
+	At: "Maybe it is, maybe it isn't. Just be happy I've extended this offer."
+	testComplete = true
 }

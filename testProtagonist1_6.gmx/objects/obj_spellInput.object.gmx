@@ -219,7 +219,7 @@ if (action != "")
           <argument>
             <kind>1</kind>
             <string>/// only allow input if active
-if (!active || checkDialogueActive())
+if (!active || checkCombatPause())
 {
     exit;
 }
@@ -294,7 +294,7 @@ if (action == "")
           <argument>
             <kind>1</kind>
             <string>/// only allow input if active
-if (!active || checkDialogueActive())
+if (!active || checkCombatPause())
 {
     exit;
 }
@@ -458,7 +458,7 @@ for (var i = 0; i &lt; ds_list_size(letters); i++)
           <argument>
             <kind>1</kind>
             <string>/// only allow input if active
-if (!active || checkDialogueActive())
+if (!active || checkCombatPause())
 {
     exit;
 }

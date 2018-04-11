@@ -209,7 +209,7 @@ label treeFruit
 		"Glowing spheres are my favorite fruit"
 		{
 			"That's the spirit."
-			inventory add fruit
+			call hadesSpecialFruitExtravaganza()
 		}
 
 		"I'm going to consult my nutritionist first"

@@ -11,9 +11,7 @@
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code>createControlObjects();
-/// test hands
-createHand(192, room_height, 1, 0, 90, 100);
-createHand(736, room_height, -1, -90, 0, 100);</code>
+createHands();</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>

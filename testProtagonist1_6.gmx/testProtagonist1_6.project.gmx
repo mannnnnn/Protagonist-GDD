@@ -797,6 +797,7 @@
       <sprite>sprites\spr_protagChest</sprite>
     </sprites>
     <sprite>sprites\spr_biggerBun</sprite>
+    <sprite>sprites\spr_turnInButton</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="map">
@@ -969,6 +970,8 @@
         <script>scripts\hadesSpecialWarpExtravaganza.gml</script>
         <script>scripts\hadesSpecialSphinxExtravaganza.gml</script>
         <script>scripts\hadesSpecialAwkwardExtravaganza.gml</script>
+        <script>scripts\hadesSpecialFruitExtravaganza.gml</script>
+        <script>scripts\hadesSpecialTestExtravaganza.gml</script>
       </scripts>
     </scripts>
     <scripts name="debug">
@@ -1064,6 +1067,8 @@
       <script>scripts\combatDamage.gml</script>
       <script>scripts\runCombat.gml</script>
       <script>scripts\playerDamage.gml</script>
+      <script>scripts\createHands.gml</script>
+      <script>scripts\checkCombatPause.gml</script>
     </scripts>
     <scripts name="spells">
       <script>scripts\createSpell.gml</script>
@@ -1299,6 +1304,7 @@
       <object>objects\obj_triggerPostSphinx</object>
       <object>objects\obj_triggerPostPuzzle</object>
       <object>objects\obj_demoEnd</object>
+      <object>objects\obj_getStabbed</object>
     </objects>
     <objects name="combatSystem">
       <object>objects\obj_combatIntro</object>

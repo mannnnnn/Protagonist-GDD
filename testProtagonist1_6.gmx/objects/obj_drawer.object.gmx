@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-99</depth>
+  <depth>1</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -64,6 +64,8 @@ side = 0;
 
 // which channel this is on
 channel = "";
+
+depth = obj_dialogue.display.depth + object_get_depth(object_index);
 
 </string>
           </argument>

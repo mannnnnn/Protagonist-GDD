@@ -83,7 +83,7 @@ image_xscale, image_yscale, image_angle, image_blend, image_alpha);
           <argument>
             <kind>1</kind>
             <string>/// only move hand if not in dialogue
-if (checkDialogueActive())
+if (checkCombatPause())
 {
     exit;
 }

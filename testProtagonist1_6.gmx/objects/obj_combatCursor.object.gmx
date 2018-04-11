@@ -53,7 +53,7 @@ exitable = true;
           <argument>
             <kind>1</kind>
             <string>/// only move cursor if not in dialogue
-if (checkDialogueActive())
+if (checkCombatPause())
 {
     exit;
 }
@@ -125,16 +125,25 @@ if (exitable)
 {
     if (mouse_in_rect(getDisplayRoomWidth() - 32, 0, 32, 32))
     {
+        draw_set_alpha(1);
         draw_sprite(spr_exitPuzzle, 1, getDisplayRoomWidth() - 32, 0);
         if (mouse_check_button_pressed(mb_left))
         {
             playClickSound();
-            dialogueLoad("run1.protd");
-            dialogueStart("", obj_dialogueBoxSpecial);
+            if (checkCombatActive())
+            {
+                dialogueLoad("run1.protd");
+                dialogueStart("", obj_dialogueBoxSpecial);
+            }
+            else
+            {
+                obj_jokeTestAth.state = CLOSING;
+            }
         }
     }
     else
     {
+        draw_set_alpha(1);   
         draw_sprite(spr_exitPuzzle, 0, getDisplayRoomWidth() - 32, 0);
     }
 }
