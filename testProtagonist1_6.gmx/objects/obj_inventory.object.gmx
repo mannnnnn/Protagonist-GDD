@@ -47,13 +47,7 @@ createItem("book4", spr_bok, 3, "Spellbook", "I am book", false);
 createItem("bunny", spr_biggerBun, 0, "Dust Bunny", "Don't eat it. It'll taste terrible.", true);
 selected = noone;
 
-addItem("fruit1");
-addItem("fruit2");
-addItem("fruit3");
 addItem("book1");
-addItem("book2");
-addItem("book3");
-addItem("book4");
 </string>
           </argument>
         </arguments>

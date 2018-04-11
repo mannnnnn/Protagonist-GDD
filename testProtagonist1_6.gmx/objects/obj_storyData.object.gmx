@@ -149,12 +149,23 @@ if (!checkFlag("AtQual"))
 }
 
 // artemis is activated when a bunny is consumed
-// occurs by inventory
+// occurs by inventory useItem(item) method
 
 // apollo is always active
+setFlag("ApQual", true);
 
 // haes is activated when all bunnies are collected but none are consumed
-
+// check inventory to see if there are 8
+var bunnyCount = 0;
+for (var i = 0; i &lt; ds_list_size(obj_inventory.inventory); i++)
+{
+    var item = obj_inventory.inventory[| i];
+    if (item[| ITEM_IDENTIFIER] == "bunny")
+    {
+        bunnyCount += 1;
+    }
+}
+setFlag("HeQual", (bunnyCount &gt;= 8));
 </string>
           </argument>
         </arguments>
