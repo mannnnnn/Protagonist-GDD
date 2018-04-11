@@ -1,5 +1,6 @@
-/// save story data map
-var fname = getGlobalSavePath(obj_storyData.file);
+///saveStoryData
+// save story data map
+var fname = obj_storyData.file;
 var file = file_text_open_write(fname);
 // add player position data
 setFlag("posX", playerX());
@@ -18,7 +19,14 @@ for (var i = 0; i < n; i++)
 }
 // add inventory data
 var invMap = ds_map_create();
-ds_map_add_list(invMap, "0", obj_inventory.inventory);
+// create a copy
+var invList = ds_list_create();
+for (var i = 0; i < ds_list_size(obj_inventory.inventory); i++)
+{
+    var item = obj_inventory.inventory[| i];
+    invList[| i] = item[| ITEM_IDENTIFIER];
+}
+ds_map_add_list(invMap, "0", invList);
 setFlag("inventory", json_encode(invMap));
 ds_map_destroy(invMap);
 // save

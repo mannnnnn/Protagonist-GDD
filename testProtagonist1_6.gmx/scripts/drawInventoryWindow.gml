@@ -9,7 +9,7 @@ var cellHeight = argument6;
 var totalWidth = argument7;
 var totalHeight = argument8;
 var descHeight = argument9;
-var inventory = argument10;
+var inventoryList = argument10;
 var selected = argument11;
 var drawText = argument12;
 var textBorder = argument13;
@@ -29,11 +29,16 @@ for (var i = 0; i < width; i++)
         var index = XYToIndex(i, j, width);
         if (index == selected)
         {
-            drawInventoryRectColor(X, Y, cellWidth, cellHeight, B, c_white, 0.3);
+            var hAlpha = 0.3;
+            if (draw_get_alpha() <= 0.99)
+            {
+                hAlpha = 0;
+            }
+            drawInventoryRectColor(X, Y, cellWidth, cellHeight, B, c_white, hAlpha);
         }
-        if (index >= 0 && index < ds_list_size(inventory))
+        if (index >= 0 && index < ds_list_size(inventoryList))
         {
-            var item = inventory[| index];
+            var item = inventoryList[| index];
             draw_sprite_stretched(item[| ITEM_SPRITE], item[| ITEM_IMAGE], X + B, Y + B, cellWidth - B, cellHeight - B);
         }
     }
@@ -43,6 +48,7 @@ for (var i = 0; i < width; i++)
 var X = getNthCell(startX, border, cellWidth, 0);
 var Y = getNthCell(startY, border, cellHeight, height);
 var descWidth = totalWidth - (border * 2); 
+var descHeight = totalWidth * 0.25;
 
 // image box/desc box horizontal separation
 var imgdescSep = 2 * B;
@@ -54,13 +60,13 @@ drawInventoryRect(X, Y, descHeight, descHeight, B);
 drawInventoryRect(X + descHeight + imgdescSep, Y, descWidth - descHeight - imgdescSep, descHeight, B);
 
 // draw selected item
-if (selected >= 0 && selected < ds_list_size(inventory))
+if (selected >= 0 && selected < ds_list_size(inventoryList))
 {
     // settings
     draw_set_color(c_white);
     draw_set_font(fnt_inventory);
     // draw item image
-    var item = inventory[| selected];
+    var item = inventoryList[| selected];
     draw_sprite_stretched(item[| ITEM_SPRITE], item[| ITEM_IMAGE], X + B, Y + B, descHeight - B, descHeight - B);
     if (drawText)
     {

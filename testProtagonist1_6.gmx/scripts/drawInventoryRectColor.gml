@@ -7,4 +7,4 @@ var B = argument4;
 var col = argument5;
 var alpha = argument6;
 
-drawButtonRectHighlight(X, Y, W - 6, H - 6, obj_buttons.button, c_white, c_white, 1, 1, col, alpha);
+drawButtonRectHighlight(X, Y, W - 6, H - 6, obj_buttons.button, c_white, c_white, draw_get_alpha(), draw_get_alpha(), col, alpha);

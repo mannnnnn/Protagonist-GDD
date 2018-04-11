@@ -63,7 +63,7 @@ if (ds_map_exists(obj_storyData.data, "inventory"))
     ds_list_clear(obj_inventory.inventory);
     for (var i = 0; i < ds_list_size(list); i++)
     {
-        ds_list_add(obj_inventory.inventory, list[| i]);
+        ds_list_add(obj_inventory.inventory, obj_inventory.items[? list[| i]]);
     }
     ds_map_destroy(invMap);
 }

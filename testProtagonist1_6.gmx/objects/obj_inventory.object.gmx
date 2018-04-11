@@ -44,7 +44,7 @@ createItem("book1", spr_bok, 0, "Spellbook", "I am book", false);
 createItem("book2", spr_bok, 1, "Spellbook", "I am book", false);
 createItem("book3", spr_bok, 2, "Spellbook", "I am book", false);
 createItem("book4", spr_bok, 3, "Spellbook", "I am book", false);
-createItem("bunny", spr_dust, 0, "Dust Bunny", "Don't eat it. It'll taste terrible.", false);
+createItem("bunny", spr_biggerBun, 0, "Dust Bunny", "Don't eat it. It'll taste terrible.", true);
 selected = noone;
 
 addItem("fruit1");
@@ -96,6 +96,10 @@ startY = (room_height - totalHeight) * 0.5;
 
 duration = 10;
 timer = 0;
+
+buttonW = 128;
+buttonH = 48;
+buttonB = 30;
 </string>
           </argument>
         </arguments>
@@ -121,6 +125,24 @@ timer = 0;
             <string>/// set selected at mouse click
 if (state == OPEN)
 {
+    // if selected item is usable
+    if (selected != noone)
+    {
+        var item = inventory[| selected];
+        if (item[| ITEM_USABLE])
+        {
+            var buttonX = getDisplayRoomWidth() - buttonB - buttonW - 80;
+            var buttonY = getDisplayRoomHeight() - buttonB - buttonH - 25;
+            if (mouse_check_button_pressed(mb_left) &amp;&amp; mouse_in_rect(buttonX, buttonY, buttonW, buttonH))
+            {
+                // use the item if clicked
+                ds_list_delete(inventory, selected);
+                useItem(item[| ITEM_IDENTIFIER]);
+                selected = noone;
+            }
+        }
+    }
+    // otherwise
     var X = getNthCellInverse(startX, border, cellWidth, cursor_get_x());
     var Y = getNthCellInverse(startY, border, cellHeight, cursor_get_y());
     var index = XYToIndex(X, Y, width);
@@ -159,7 +181,9 @@ if (state == OPEN)
             <kind>1</kind>
             <string>/// draw inventory window
 // temporary calculations
-var t_totalWidth = map_range(timer, 0, duration, 0, totalWidth);
+var t_totalWidth = totalWidth;
+var t_alpha = map_range(timer, 0, duration, -1, 1);
+t_alpha = max(0, t_alpha) * max(0, t_alpha);
 var t_totalHeight = map_range(timer, 0, duration, 0, totalHeight);
 var t_descHeight = t_totalHeight / 3;
 
@@ -174,7 +198,7 @@ var t_border = map_range(timer, 0, duration, 1, 6);
 var t_cellWidth = (t_totalWidth - ((width + 1) * t_border)) / width;
 var t_cellHeight = (t_totalHeight - t_descHeight - ((height + 2) * t_border)) / height;
 
-draw_set_alpha(1);
+draw_set_alpha(t_alpha);
 
 switch(state)
 {
@@ -182,6 +206,7 @@ switch(state)
         timer = 0;
         break;
     case OPENING:
+        draw_set_alpha(t_alpha);
         drawInventoryWindow(t_startX, t_startY, t_border, width, height, t_cellWidth, t_cellHeight, t_totalWidth, t_totalHeight, t_descHeight, inventory, selected, false, textBorder);
         timer++;
         if (timer &gt;= duration)
@@ -192,8 +217,32 @@ switch(state)
     case OPEN:
         timer = duration;
         drawInventoryWindow(startX, startY, border, width, height, cellWidth, cellHeight, totalWidth, totalHeight, descHeight, inventory, selected, true, textBorder);
+        // draw the use button
+        // if selected item is usable
+        if (selected != noone)
+        {
+            var item = inventory[| selected];
+            if (item[| ITEM_USABLE])
+            {
+                var buttonX = getDisplayRoomWidth() - buttonB - buttonW - 80;
+                var buttonY = getDisplayRoomHeight() - buttonB - buttonH - 25;
+                if (mouse_in_rect(buttonX, buttonY, buttonW, buttonH))
+                {
+                    drawButtonRectHighlight(buttonX, buttonY, buttonW, buttonH, obj_buttons.button, c_white, c_white, 1, 1, c_white, 0.3);
+                }
+                else
+                {
+                    drawButtonRect(buttonX, buttonY, buttonW, buttonH, obj_buttons.button, c_white, c_white, 1, 1);
+                }
+                draw_set_font(fnt_inventory);
+                draw_set_halign(fa_center);
+                draw_set_valign(fa_center);
+                draw_text_outlined(buttonX + 0.5 * buttonW, buttonY + 0.5 * buttonH + 3, "Use");
+            }
+        }
         break;
     case CLOSING:
+        draw_set_alpha(t_alpha);
         drawInventoryWindow(t_startX, t_startY, t_border, width, height, t_cellWidth, t_cellHeight, t_totalWidth, t_totalHeight, t_descHeight, inventory, selected, false, textBorder);
         timer--;
         if (timer &lt; 0)

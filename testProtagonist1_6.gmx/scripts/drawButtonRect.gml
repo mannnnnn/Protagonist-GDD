@@ -19,6 +19,7 @@ var colOutline = argument6;
 var alphaFill = argument7;
 var alphaOutline = argument8;
 
+var oldAlpha = draw_get_alpha();
 draw_set_alpha(1);
 
 // fill
@@ -42,3 +43,5 @@ draw_sprite_ext(button[| BUTTON_LU], 0, X, Y, 1, 1, 0, colOutline, alphaOutline)
 draw_sprite_ext(button[| BUTTON_LD], 0, X, Y + H, 1, 1, 0, colOutline, alphaOutline);
 draw_sprite_ext(button[| BUTTON_RU], 0, X + W, Y, 1, 1, 0, colOutline, alphaOutline);
 draw_sprite_ext(button[| BUTTON_RD], 0, X + W, Y + H, 1, 1, 0, colOutline, alphaOutline);
+
+draw_set_alpha(oldAlpha);

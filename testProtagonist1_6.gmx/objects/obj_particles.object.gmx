@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-1000</depth>
   <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -32,6 +32,9 @@ systems = ds_map_create();
 // fire particle system
 systems[? PARTSYS_PUZ] = part_system_create();
 systems[? PARTSYS_MAP] = part_system_create();
+systems[? PARTSYS_UI] = part_system_create();
+part_system_automatic_draw(systems[? PARTSYS_UI], false);
+part_system_depth(systems[? PARTSYS_UI], -1000);
 part_system_depth(systems[? PARTSYS_PUZ], -100);
 part_system_depth(systems[? PARTSYS_MAP], 10000);
 
@@ -41,11 +44,12 @@ effects[? PARTEFF_CINDER] = part_type_create();
 effects[? PARTEFF_SEAR] = createParticleTypeSearBack();
 effects[? PARTEFF_SEA] = createParticleTypeSeaBack();
 effects[? PARTEFF_JUNGLE] = createParticleTypeJungle();
+effects[? PARTEFF_DUST] = createParticleTypeDust();
 
 emitters = ds_map_create();
 emitters[? PARTSYS_PUZ] = part_emitter_create(systems[? PARTSYS_PUZ]);
 emitters[? PARTSYS_MAP] = part_emitter_create(systems[? PARTSYS_MAP]);
-
+emitters[? PARTSYS_UI] = part_emitter_create(systems[? PARTSYS_UI]);
 </string>
           </argument>
         </arguments>
@@ -111,6 +115,30 @@ part_type_blend(cinderEffect, 1);
 part_type_direction(cinderEffect, 80, 110, 0.01, 0.01);
 part_type_speed(cinderEffect, 6, 8, 0, 0);
 part_type_life(cinderEffect, 45, 75);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// draw particles of the UI particle system
+part_system_drawit(systems[? PARTSYS_UI]);
 </string>
           </argument>
         </arguments>

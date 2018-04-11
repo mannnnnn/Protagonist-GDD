@@ -43,7 +43,7 @@ for (var i = 0; i &lt; ds_grid_width(interaction); i++)
 interID = 0;
 
 //load
-file = "sd.protsav";
+file = getGlobalSavePath("sd.protsav");
 /// init variables
 initFlags();
 // try to load data if possible

@@ -37,8 +37,8 @@ hop = noone;
 n = 10;
 
 // physics
-velMin = 5;
-velMax = 10;
+velMin = 6;
+velMax = 16;
 vel = irandom_range(velMin, velMax);
 acc = -0.7;
 </string>
@@ -97,7 +97,7 @@ if (timer &gt;= duration)
     // choose a place to hop to
     if (!ds_list_empty(list))
     {
-        var chosenAngle = list[| irandom_range(0, ds_list_size(list))];
+        var chosenAngle = list[| irandom_range(0, ds_list_size(list) - 1)];
         ds_list_destroy(list);
         if (!is_undefined(chosenAngle))
         {
