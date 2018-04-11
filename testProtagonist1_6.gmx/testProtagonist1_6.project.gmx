@@ -3,7 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="38" name="datafiles">
+  <datafiles number="39" name="datafiles">
     <datafile>
       <name>credits.protd</name>
       <exists>-1</exists>
@@ -514,6 +514,23 @@
       </ConfigOptions>
       <filename>chooseHaes.protd</filename>
     </datafile>
+    <datafile>
+      <name>debug.protsav</name>
+      <exists>-1</exists>
+      <size>1321</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>debug.protsav</filename>
+    </datafile>
   </datafiles>
   <NewExtensions/>
   <sounds name="sound">
@@ -998,7 +1015,6 @@
       <script>scripts\getGlobalSavePath.gml</script>
       <script>scripts\saveStoryData.gml</script>
       <script>scripts\loadStoryData.gml</script>
-      <script>scripts\createDebugSave.gml</script>
     </scripts>
     <scripts name="general">
       <script>scripts\drawOutlineRectExt.gml</script>

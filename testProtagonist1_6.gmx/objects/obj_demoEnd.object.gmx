@@ -233,11 +233,11 @@ if (scrollPos &gt;= textPosY[| ds_list_size(textPosY) - 1] + 100)
     state = CLOSING;
     if (obj_triSoundLoop.introSnd != noone)
     {
-        audio_sound_gain(obj_triSoundLoop.introSnd, 0, 4000);
+        audio_sound_gain(obj_triSoundLoop.introSnd, 0, 3500);
     }
     if (obj_triSoundLoop.loopSnd != noone)
     {
-        audio_sound_gain(obj_triSoundLoop.loopSnd, 0, 4000);
+        audio_sound_gain(obj_triSoundLoop.loopSnd, 0, 3500);
     }
 }
 </string>

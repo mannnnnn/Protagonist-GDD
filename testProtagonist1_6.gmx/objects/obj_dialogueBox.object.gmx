@@ -212,6 +212,10 @@ if (obj_dialogue.active &amp;&amp; allowAdvance)
     else
     {
         textshow += 20;
+        if (obj_debugTool.debug)
+        {
+            textshow += 1000;
+        }
     }
 }
 </string>

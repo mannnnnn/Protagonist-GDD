@@ -161,7 +161,7 @@ with hades_swing
 
 call hadesSpecialSphinxExtravaganza()
 call updateForestMusic()
-wait 120
+wait 100
 
 // SHOW SPHINXX (Transformed)
 show Sp spr_talkTiger

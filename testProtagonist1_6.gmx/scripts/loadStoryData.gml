@@ -5,7 +5,7 @@ if (argument_count >= 1)
 {
     datafile = argument[0];
 }
-var fname = getGlobalSavePath(datafile);
+var fname = datafile;
 if (!file_exists(fname))
 {
     return false;

@@ -58,4 +58,3 @@ setFlag("puzzle7", PUZZLE_UNSOLVED);
 // whether or not the boss was defeated
 setFlag("sphinxxDefeated", PUZZLE_UNSOLVED);
 
-show_debug_message(json_encode(obj_storyData.data));
