@@ -340,7 +340,7 @@ switch (state)
                     dialogueUnhide();
                     dialogueStop();
                     dialogueLoad(dialogue);
-                    dialogueStart("", obj_dialogueBoxSpecial);
+                    dialogueStart("", obj_dialogueBox);
                 }
             }
         }

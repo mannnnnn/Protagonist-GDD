@@ -8,7 +8,6 @@ controlObjects = ds_list_create();
 ds_list_add(controlObjects, obj_inventory);
 ds_list_add(controlObjects, obj_dialogue);
 ds_list_add(controlObjects, obj_volume);
-ds_list_add(controlObjects, obj_playerStats);
 ds_list_add(controlObjects, obj_spellbook);
 ds_list_add(controlObjects, obj_saveMenu);
 ds_list_add(controlObjects, obj_quitter);

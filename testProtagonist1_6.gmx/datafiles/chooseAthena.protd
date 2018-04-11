@@ -104,7 +104,9 @@ else
 			At: "What have you been using to cast spells so far?"
 			P: "Apollo gave me this book."
 			At: "Yeah that book's useless. Try this one on for size."
-			//add item Roam Tome
+			inventory remove book1
+			call notify("You got the Roam Tome!")
+			inventory add book2
 			P: "This looks nice."
 			At: "Don't lose it, it'll give you the edge you need in battle."
 			At: "At least, I hope so."

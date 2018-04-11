@@ -292,7 +292,7 @@ label synFish
 	"If you cast your line in you're bound to catch something good."
 	"In fact, you're the 1 millionth person to visit this ol' Phishing hole!"
 	"You've won a free Apple product!"
-	inventory add fruit
+	call hadesSpecialFruitExtravaganza()
 }
 
 label duckBox

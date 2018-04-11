@@ -57,13 +57,16 @@ active = true;
 // letters
 letters = ds_list_create();
 letterCooldowns = ds_map_create();
-var key = ds_map_find_first(obj_playerStats.letters);
-for (var i = 0; i &lt; ds_map_size(obj_playerStats.letters); i++)
+var key = ds_map_find_first(obj_spellbook.letters);
+for (var i = 0; i &lt; ds_map_size(obj_spellbook.letters); i++)
 {
-    var index = spellSearchInsert(key, letters);
-    ds_list_insert(letters, index, key);
-    letterCooldowns[? key] = 0;
-    key = ds_map_find_next(obj_playerStats.letters, key);
+    if (obj_spellbook.letters[? key])
+    {
+        var index = spellSearchInsert(key, letters);
+        ds_list_insert(letters, index, key);
+        letterCooldowns[? key] = 0;
+    }
+    key = ds_map_find_next(obj_spellbook.letters, key);
 }
 letterCooldowns[? key] = irandom_range(0, 100);
 recovery = 800;
@@ -254,8 +257,8 @@ if (action == "")
         // if maxsize isn't met, and key is pressed, and player owns that letter, and it isn't broken
         var char = string_lower(chr(i));
         if (ds_list_size(spell) &lt; maxsize &amp;&amp; keyboard_check_pressed(i) &amp;&amp;
-        ds_map_exists(obj_playerStats.letters, char) &amp;&amp; 
-        obj_playerStats.letters[? char] &amp;&amp; obj_spellInput.letterCooldowns[? char] &gt;= 0)
+        ds_map_exists(obj_spellbook.letters, char) &amp;&amp; 
+        obj_spellbook.letters[? char] &amp;&amp; obj_spellInput.letterCooldowns[? char] &gt;= 0)
         {
             ds_list_add(spell, createLetter(x + (ds_list_size(spell) * sprite_get_width(spr_Spells)), y, char));
         }

@@ -18,34 +18,30 @@ if (obj_dialogue.display.object_index != displayObj)
     obj_dialogue.display = instance_create(0, 0, displayObj);
 }
 
-// does nothing if already started
+// stops dialogue if already started
 if (checkDialogueActive())
 {
-    
+    dialogueStop();
 }
-// otherwise start
-else
+if (jump != "")
 {
-    if (jump != "")
+    // if it doesn't exist, throw error
+    if (!ds_map_exists(obj_dialogue.labels, jump))
     {
-        // if it doesn't exist, throw error
-        if (!ds_map_exists(obj_dialogue.labels, jump))
-        {
-            show_error("The label " + string(jump) + " is not defined.", true);
-        }
-        var label = obj_dialogue.labels[? jump];
-        // goto the specified line
-        obj_dialogue.line = label[| LABEL_LINE];
+        show_error("The label " + string(jump) + " is not defined.", true);
     }
-    // prepare dialogue display for start
-    obj_dialogue.display.status = START;
-    // start
-    obj_dialogue.active = true;
-    dialogueAdvance();
-    // set flags to indicate that this dialogue was run
-    var fileSplit = string_split(obj_dialogue.file, ".", ds_list_create());
-    ds_list_delete(fileSplit, ds_list_size(fileSplit) - 1);
-    var dialogueFilename = string_join(fileSplit, ".");
-    ds_list_destroy(fileSplit);
-    setFlag(dialogueFilename, true);
+    var label = obj_dialogue.labels[? jump];
+    // goto the specified line
+    obj_dialogue.line = label[| LABEL_LINE];
 }
+// prepare dialogue display for start
+obj_dialogue.display.status = START;
+// start
+obj_dialogue.active = true;
+dialogueAdvance();
+// set flags to indicate that this dialogue was run
+var fileSplit = string_split(obj_dialogue.file, ".", ds_list_create());
+ds_list_delete(fileSplit, ds_list_size(fileSplit) - 1);
+var dialogueFilename = string_join(fileSplit, ".");
+ds_list_destroy(fileSplit);
+setFlag(dialogueFilename, true);

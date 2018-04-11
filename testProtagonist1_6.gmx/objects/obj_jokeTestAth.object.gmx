@@ -411,6 +411,13 @@ switch(state)
         if (timer &lt; 0)
         {
             // destroy window once it closes, since it's done
+            /// draw surface
+            if (surface_exists(surf))
+            {
+                draw_set_alpha(1);
+                draw_set_color(c_white);
+                draw_surface(surf, 0, 0);
+            }
             instance_destroy();
             state = CLOSED;
             exit;
@@ -444,6 +451,8 @@ switch(state)
             <string>/// draw surface
 if (surface_exists(surf))
 {
+    draw_set_alpha(1);
+    draw_set_color(c_white);
     draw_surface(surf, 0, 0);
 }
 </string>

@@ -54,7 +54,7 @@ typoStop = 12;
             <string>/// display dialogue if you haven't seen it before
 obj_spellInput.active = true;
 dialogueLoad("jungle14.protd");
-dialogueStart();
+dialogueStart("", obj_dialogueBox);
 </string>
           </argument>
         </arguments>

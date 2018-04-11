@@ -834,6 +834,7 @@
       <script>scripts\removeItem.gml</script>
       <script>scripts\getItemIndex.gml</script>
       <script>scripts\useItem.gml</script>
+      <script>scripts\checkItem.gml</script>
     </scripts>
     <scripts name="player">
       <script>scripts\playerX.gml</script>
@@ -1000,17 +1001,6 @@
       <script>scripts\createTriSoundLoop.gml</script>
       <script>scripts\stopTriSoundLoop.gml</script>
     </scripts>
-    <scripts name="stats">
-      <script>scripts\createStats.gml</script>
-      <script>scripts\setPlayerStat.gml</script>
-      <script>scripts\setStat.gml</script>
-      <script>scripts\getPlayerStat.gml</script>
-      <script>scripts\getStat.gml</script>
-      <script>scripts\incrementPlayerStat.gml</script>
-      <script>scripts\incrementStat.gml</script>
-      <script>scripts\getPlayerStatTotal.gml</script>
-      <script>scripts\printPlayerStats.gml</script>
-    </scripts>
     <scripts name="optionsMenu">
       <script>scripts\drawOptionsMenu.gml</script>
       <script>scripts\reopenOptionsMenu.gml</script>
@@ -1080,6 +1070,7 @@
     <scripts name="notifications">
       <script>scripts\createNotification.gml</script>
       <script>scripts\addNotification.gml</script>
+      <script>scripts\notify.gml</script>
     </scripts>
     <script>scripts\createFireEffect.gml</script>
     <script>scripts\createEarthEffect.gml</script>
@@ -1271,7 +1262,6 @@
       <object>objects\obj_quitter</object>
       <object>objects\obj_debugTool</object>
       <object>objects\obj_combat</object>
-      <object>objects\obj_playerStats</object>
       <object>objects\obj_particles</object>
       <object>objects\obj_music</object>
       <object>objects\obj_triSoundLoop</object>

@@ -92,7 +92,7 @@ if (!ArIntro)
 	{
 		"Alright, I'll take you up on that help."
 		{
-			
+			jump accept
 		}
 		"I'd like to think it over, if you don't mind."
 		{
@@ -103,6 +103,7 @@ if (!ArIntro)
 			{
 				"Alright, let's do it."
 				{
+					label accept
 					Ar: "Wow, just like that, huh?"
 					Ar: "Well then, maybe you aren't so helpless afterall. You can at least think on your feet."
 					Ar: "Maybe we can have some fun, after all."
@@ -122,7 +123,9 @@ if (!ArIntro)
 					P: "Alright now what."
 					Ar: "You're done."
 					Ar: "Have fun with your new power."
-					//add letter R
+					inventory remove book1
+					call notify("You got the Wildlife Guide!")
+					inventory add book3
 					P: "That's it?"
 					Ar: "Yeah."
 					P: "I sold my soul for this?"

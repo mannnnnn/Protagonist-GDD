@@ -242,6 +242,13 @@ if (keyboard_check(vk_control))
 {
     room_restart();
 }
+if (keyboard_check(vk_shift))
+{
+    with (obj_syntaxBob)
+    {
+        setFlag(activeTracker, PUZZLE_SOLVED);
+    }
+}
 </string>
           </argument>
         </arguments>

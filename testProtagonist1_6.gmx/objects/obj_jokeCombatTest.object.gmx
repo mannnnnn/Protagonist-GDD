@@ -58,7 +58,7 @@ selectedTimer[| 2] &gt;= 5)
 {
     punchHades = true;
     dialogueLoad("punch.protd");
-    dialogueStart("", obj_dialogueBoxSpecial);
+    dialogueStart("", obj_dialogueBox);
 }
 </string>
           </argument>

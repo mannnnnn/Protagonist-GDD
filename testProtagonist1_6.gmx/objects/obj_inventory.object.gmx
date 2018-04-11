@@ -35,15 +35,15 @@ inventory = ds_list_create();
 for (var i = 0; i &lt; 10; i++)
 {
     // create test items
-    createItem("box" + string(i), spr_box, 0, "Box " + string(i), "The " + string(i) + "th box.", false, createStats(i, i, i, i, i));
+    createItem("box" + string(i), spr_box, 0, "Box " + string(i), "The " + string(i) + "th box.", false);
 }
-createItem("fruit1", spr_froot, 0, "Fruit", "I am froot", false);
-createItem("fruit2", spr_froot, 1, "Fruit", "I am froot", false);
-createItem("fruit3", spr_froot, 2, "Fruit", "I am froot", false);
-createItem("book1", spr_bok, 0, "Spellbook", "I am book", false);
-createItem("book2", spr_bok, 1, "Spellbook", "I am book", false);
-createItem("book3", spr_bok, 2, "Spellbook", "I am book", false);
-createItem("book4", spr_bok, 3, "Spellbook", "I am book", false);
+createItem("fruit1", spr_froot, 0, "Fruit", "Some oddly colored 'Froot'. It's not very useful. It looks too artificially colored to eat.", false);
+createItem("fruit2", spr_froot, 1, "Fruit", "Some oddly colored 'Froot'. It looks too sour to eat.", false);
+createItem("fruit3", spr_froot, 2, "Fruit", "Some oddly colored 'Froot'. It's not very useful. You can't even eat it.", false);
+createItem("book1", spr_bok, 0, "Spellbook", "You're not sure where you got this book from, but you should probably hang on to it.", false);
+createItem("book2", spr_bok, 1, "Roam Tome", "A spellbook given to you by Athena. Allows you to use the letter D, because you avoided getting D-capitated by Athena during the test.", false);
+createItem("book3", spr_bok, 2, "Wildlife Guide", "A spellbook given to you by Artemis. Allows you to use the letter R. This book is highly sought after by aspiring pirates.", false);
+createItem("book4", spr_bok, 3, "Crafting Manual", "A spellbook given to you by Haes. Allows you to use nouns, but you can no longer use verbs for some reason.", false);
 createItem("bunny", spr_biggerBun, 0, "Dust Bunny", "Don't eat it. It'll taste terrible.", true);
 selected = noone;
 
@@ -231,7 +231,7 @@ switch(state)
                 draw_set_font(fnt_inventory);
                 draw_set_halign(fa_center);
                 draw_set_valign(fa_center);
-                draw_text_outlined(buttonX + 0.5 * buttonW, buttonY + 0.5 * buttonH + 3, "Use");
+                draw_text_outlined(buttonX + 0.5 * buttonW, buttonY + 0.5 * buttonH + 3, "Eat");
             }
         }
         break;

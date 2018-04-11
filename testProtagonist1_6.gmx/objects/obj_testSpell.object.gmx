@@ -50,6 +50,7 @@ with (obj_letter)
 }
 
 surface_copy(surf, 0, 0, application_surface);
+/*
 surface_set_target(surf);
 var this = id;
 with (all)
@@ -67,8 +68,10 @@ with (all)
         event_perform(ev_draw, ev_gui);
     }
 }
-surface_reset_target();
 
+surface_reset_target();
+*/
+found = false;
 // pause combat
 instance_deactivate_all(true);
 reactivateControlObjects();

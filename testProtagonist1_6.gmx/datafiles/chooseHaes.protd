@@ -149,7 +149,9 @@ else
 			Hs: "Apollo relies too much on his own ego. Look at how none of these spells use anything material."
 			Hs: "If you want to win in this fight, try using this book."
 			//book sound effect
-			//add item Crafting Manual
+			inventory remove book1
+			notify("You got the Crafting Manual!")
+			inventory add book4
 			Hs: "When you cast spells, use the environment around you to your advantage."
 			Hs: "Don't just run around throwing fireballs and lightning bolts at people, that's basic."
 			Hs: "From now on, use the crafting manual. It'll let you cast spells that are NOUNS."

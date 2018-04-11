@@ -7,6 +7,7 @@ character H
 show H spr_talkHades
 with Hades_swing
 
-H: "Leave pls"
+H: "If you're going to run away, you might as well just exit the game."
+H: "And might I remind you, there's a very well labeled button in your menu that does just that."
 call runCombat()
 exit

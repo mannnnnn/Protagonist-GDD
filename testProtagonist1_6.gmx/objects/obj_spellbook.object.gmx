@@ -108,6 +108,36 @@ entryPosY[# 1, 2] = 238;
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>/// letters here
+letters = ds_map_create();
+letters[? 's'] = true;
+letters[? 'e'] = true;
+letters[? 'a'] = true;
+letters[? 'c'] = true;
+letters[? 't'] = true;
+letters[? 'r'] = true;
+letters[? 'd'] = true;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>/// add spells here!
 createSpell("cat", obj_catSpell);
 createSpell("seat", obj_seatSpell);
@@ -150,6 +180,51 @@ graphic[? "sear"] = 3;
 graphic[? "seat"] = 4;
 graphic[? "seed"] = 5;
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// keep track of which letters player is allowed to use
+
+letters[? 'd'] = false;
+letters[? 'r'] = false;
+
+// if athena spellbook is in there, use D
+if (checkItem("book2"))
+{
+    letters[? 'd'] = true;
+}
+
+// if artemis spellbook is in there, use R
+if (checkItem("book3"))
+{
+    letters[? 'r'] = true;
+}
+
+// if haes spellbook is in there, use both D and R
+if (checkItem("book4"))
+{
+    letters[? 'd'] = true;
+    letters[? 'r'] = true;
+}
 </string>
           </argument>
         </arguments>
