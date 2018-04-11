@@ -956,6 +956,7 @@
       <script>scripts\checkDsMemLeak.gml</script>
       <script>scripts\saveScreenshot.gml</script>
       <script>scripts\listToStr.gml</script>
+      <script>scripts\mapToStr.gml</script>
     </scripts>
     <script>scripts\test_script.gml</script>
     <scripts name="transition">
@@ -1022,6 +1023,7 @@
       <script>scripts\setNumber.gml</script>
       <script>scripts\draw_texture_tiled.gml</script>
       <script>scripts\draw_text_outlined.gml</script>
+      <script>scripts\draw_text_ext_outlined.gml</script>
       <script>scripts\reactivateControlObjects.gml</script>
       <script>scripts\boolean.gml</script>
     </scripts>

@@ -55,7 +55,7 @@
     <instance objName="obj_invisibleWall" x="416" y="576" name="inst_4C07B1D0" locked="0" code="activeTracker = &quot;puzzle2&quot;;&#xA;" scaleX="2" scaleY="0.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_jungleParticleSolid" x="576" y="0" name="inst_AFBC06D5" locked="0" code="" scaleX="6" scaleY="2.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_jungleParticleSolid" x="0" y="0" name="inst_D1F44E4E" locked="0" code="" scaleX="6" scaleY="2.5" colour="4294967295" rotation="0"/>
-    <instance objName="obj_jungleParticleSolid" x="832" y="160" name="inst_5D261991" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_jungleParticleSolid" x="864" y="160" name="inst_5D261991" locked="0" code="" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_jungleParticleSolid" x="64" y="160" name="inst_D3A7B82A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_jungleParticleSolid" x="0" y="160" name="inst_D7162769" locked="0" code="" scaleX="1" scaleY="6.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_jungleParticleSolid" x="64" y="512" name="inst_C070DA49" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -64,11 +64,17 @@
     <instance objName="obj_jungleParticleSolid" x="896" y="160" name="inst_369A45D7" locked="0" code="" scaleX="1" scaleY="6.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_jungleParticleSolid" x="832" y="512" name="inst_BB2A1C04" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_rockTop" x="576" y="32" name="inst_F1532779" locked="0" code="" scaleX="1.98963725566864" scaleY="1.98963725566864" colour="4294967295" rotation="0"/>
-    <instance objName="obj_sockRack" x="32" y="128" name="inst_DF701448" locked="0" code="" scaleX="1.85507249832153" scaleY="1.58677685260773" colour="4294967295" rotation="0"/>
-    <instance objName="obj_sockTree" x="576" y="0" name="inst_3E2B116C" locked="0" code="" scaleX="1.77777779102325" scaleY="1.81132078170776" colour="4294967295" rotation="0"/>
-    <instance objName="obj_rock1" x="128" y="384" name="inst_43DC6076" locked="0" code="" scaleX="1.68421053886414" scaleY="1.26315784454346" colour="4294967295" rotation="0"/>
-    <instance objName="obj_laundryPile" x="704" y="416" name="inst_49A02EDA" locked="0" code="" scaleX="1.24271845817566" scaleY="1.14285719394684" colour="4294967295" rotation="0"/>
+    <instance objName="obj_sockRack" x="32" y="128" name="inst_DF701448" locked="0" code="dustBunny = true;&#xA;" scaleX="1.85507249832153" scaleY="1.58677685260773" colour="4294967295" rotation="0"/>
+    <instance objName="obj_sockTree" x="576" y="0" name="inst_3E2B116C" locked="0" code="dustBunny = true;&#xA;" scaleX="1.77777779102325" scaleY="1.81132078170776" colour="4294967295" rotation="0"/>
+    <instance objName="obj_rock1" x="128" y="384" name="inst_43DC6076" locked="0" code="dustBunny = true;&#xA;" scaleX="1.68421053886414" scaleY="1.26315784454346" colour="4294967295" rotation="0"/>
+    <instance objName="obj_laundryPile" x="704" y="416" name="inst_49A02EDA" locked="0" code="dustBunny = true;&#xA;" scaleX="1.24271845817566" scaleY="1.14285719394684" colour="4294967295" rotation="0"/>
     <instance objName="obj_triggerPostPuzzle" x="448" y="480" name="inst_829CF28F" locked="0" code="activeTracker = &quot;puzzle2&quot;;&#xA;script = &quot;jungle11.protd&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="608" y="160" name="inst_C3EC2883" locked="0" code="" scaleX="0.5" scaleY="1.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="736" y="352" name="inst_76A9DDFC" locked="0" code="" scaleX="2.5" scaleY="0.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="800" y="288" name="inst_C344FE73" locked="0" code="" scaleX="1.5" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="768" y="320" name="inst_87793138" locked="0" code="" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="640" y="192" name="inst_181C3A36" locked="0" code="" scaleX="1" scaleY="0.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="640" y="224" name="inst_DCA3E63C" locked="0" code="" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>

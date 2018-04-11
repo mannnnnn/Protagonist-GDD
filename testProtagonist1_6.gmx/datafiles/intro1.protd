@@ -123,13 +123,11 @@ H: "Game's over. Thanks for stopping by. And don't do it again."
 
 H: "We've got our own little thing going on here, so no games please."
 
-H: "I'll just take this and-"
+H: "I'll just take this and exit you out."
 
 call hadesSpecialSaveExtravaganza(2)
 call hadesSpecialExitingExtravaganza()
 
 wait -4
-
-H: "-exit you out."
 
 exit

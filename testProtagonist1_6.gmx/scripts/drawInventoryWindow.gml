@@ -66,10 +66,10 @@ if (selected >= 0 && selected < ds_list_size(inventory))
     {
         draw_set_halign(fa_center);
         draw_set_valign(fa_top);
-        draw_text_ext(X + (descHeight * 0.5) + B, Y + textBorder, item[| ITEM_NAME], -1, descHeight - (textBorder * 2));
+        draw_text_ext_outlined(X + (descHeight * 0.5) + B, Y + textBorder, item[| ITEM_NAME], -1, descHeight - (textBorder * 2));
         // draw item desc
         draw_set_halign(fa_left);
         draw_set_valign(fa_top);
-        draw_text_ext(X + descHeight + imgdescSep + B + textBorder, Y + textBorder, item[| ITEM_DESC], -1, descWidth - descHeight - (2 * textBorder) - imgdescSep);
+        draw_text_ext_outlined(X + descHeight + imgdescSep + B + textBorder, Y + textBorder, item[| ITEM_DESC], -1, descWidth - descHeight - (2 * textBorder) - imgdescSep);
     }
 }
