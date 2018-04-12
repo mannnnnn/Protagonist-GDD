@@ -22,7 +22,7 @@ show P spr_defaultSpeak
 with fade
 
 show Hs spr_talkHaes
-with fade
+with haes_swing
 
 if (!HsIntro)
 {
@@ -166,3 +166,11 @@ else
 	}
 }
 
+hide P
+with fade
+
+hide Hs
+with haes_swing
+
+wait for drawers
+exit

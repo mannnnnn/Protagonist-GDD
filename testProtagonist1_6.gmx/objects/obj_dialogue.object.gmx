@@ -170,12 +170,25 @@ drawerKeywords[? "hades_swing"] = createDrawerKeyword(obj_hadesSwingInLDrawer, o
 drawerKeywords[? "Hades_swing"] = createDrawerKeyword(obj_hadesSwingInLDrawer, obj_hadesSwingInRDrawer);
 drawerKeywords[? "apollo_swing"] = createDrawerKeyword(obj_apolloSwingInLDrawer, obj_apolloSwingInRDrawer);
 drawerKeywords[? "Apollo_swing"] = createDrawerKeyword(obj_apolloSwingInLDrawer, obj_apolloSwingInRDrawer);
+drawerKeywords[? "artemis_swing"] = createDrawerKeyword(obj_artemisSwingInLDrawer, obj_artemisSwingInRDrawer);
+drawerKeywords[? "Artemis_swing"] = createDrawerKeyword(obj_artemisSwingInLDrawer, obj_artemisSwingInRDrawer);
+drawerKeywords[? "athena_swing"] = createDrawerKeyword(obj_athenaSwingInLDrawer, obj_athenaSwingInRDrawer);
+drawerKeywords[? "Athena_swing"] = createDrawerKeyword(obj_athenaSwingInLDrawer, obj_athenaSwingInRDrawer);
+drawerKeywords[? "haes_swing"] = createDrawerKeyword(obj_haesSwingInLDrawer, obj_haesSwingInRDrawer);
+drawerKeywords[? "Haes_swing"] = createDrawerKeyword(obj_haesSwingInLDrawer, obj_haesSwingInRDrawer);
+
 drawerHideKeywords[? "nothing"] = createDrawerKeyword(obj_jumpOutDrawer, obj_jumpOutDrawer);
 drawerHideKeywords[? "fade"] = createDrawerKeyword(obj_fadeOutDrawer, obj_fadeOutDrawer);
 drawerHideKeywords[? "hades_swing"] = createDrawerKeyword(obj_hadesSwingOutDrawer, obj_hadesSwingOutDrawer);
 drawerHideKeywords[? "Hades_swing"] = createDrawerKeyword(obj_hadesSwingOutDrawer, obj_hadesSwingOutDrawer);
 drawerHideKeywords[? "apollo_swing"] = createDrawerKeyword(obj_apolloSwingOutDrawer, obj_apolloSwingOutDrawer);
 drawerHideKeywords[? "Apollo_swing"] = createDrawerKeyword(obj_apolloSwingOutDrawer, obj_apolloSwingOutDrawer);
+drawerHideKeywords[? "artemis_swing"] = createDrawerKeyword(obj_artemisSwingOutDrawer, obj_artemisSwingOutDrawer);
+drawerHideKeywords[? "Artemis_swing"] = createDrawerKeyword(obj_artemisSwingOutDrawer, obj_artemisSwingOutDrawer);
+drawerHideKeywords[? "athena_swing"] = createDrawerKeyword(obj_athenaSwingOutDrawer, obj_athenaSwingOutDrawer);
+drawerHideKeywords[? "Athena_swing"] = createDrawerKeyword(obj_athenaSwingOutDrawer, obj_athenaSwingOutDrawer);
+drawerHideKeywords[? "haes_swing"] = createDrawerKeyword(obj_haesSwingOutDrawer, obj_haesSwingOutDrawer);
+drawerHideKeywords[? "Haes_swing"] = createDrawerKeyword(obj_haesSwingOutDrawer, obj_haesSwingOutDrawer);
 
 sceneDrawerKeywords[? "fade"] = obj_fadeInSceneDrawer;
 sceneDrawerHideKeywords[? "fade"] = obj_fadeOutSceneDrawer;

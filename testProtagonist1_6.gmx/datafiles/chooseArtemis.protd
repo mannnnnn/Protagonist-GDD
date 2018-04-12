@@ -21,7 +21,7 @@ character ?
 }
 
 show Ar spr_talkArtemis
-with fade
+with artemis_swing
 
 show P spr_defaultSpeak
 with fade
@@ -143,7 +143,7 @@ if (!ArIntro)
 					Ar: "Yeah! Check it out!"
 
 					hide Ar
-					with fade
+					with artemis_swing
 
 					P: "Wait."
 					At = true
@@ -157,5 +157,10 @@ if (!ArIntro)
 			}
 		}
 	}
-	exit
 }
+
+hide P
+with fade
+
+wait for drawers
+exit

@@ -13,7 +13,7 @@ character At
 }
 
 show At spr_talkAthena
-with fade
+with athena_swing
 
 show P spr_defaultSpeak
 with fade
@@ -168,3 +168,12 @@ label athenaTest
 	At: "Maybe it is, maybe it isn't. Just be happy I've extended this offer."
 	testComplete = true
 }
+
+hide At
+with athena_swing
+
+hide P
+wth fade
+
+wait for drawers
+exit
