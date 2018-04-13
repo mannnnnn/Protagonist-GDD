@@ -24,22 +24,21 @@ with Hades_swing
 H: "Back again. Hi."
 H: "Turns out I actually can't leave this area while you're still in it."
 H: "So."
-H: "Have you ever wondered why you don't have a mouth?"
-
+H: "I hope this is exciting for you."
 
 //
 show P spr_defaultSpeak
 //
 
-P: "I'm sort of new to this whole being alive deal."
-P: "As much as I'd like to be upset about not having a face, I can't exactly remember a time when I did."
+P: "I haven't really done anything yet."
+P: "Where's the game? Am I supposed to follow a quest line, or-?"
+H: "No, your quest line is done. You're not even in the game anymore."
+P: "But it looks like I'm still in-"
+H: "You're not in the game, you're not anywhere, you're just wandering around in the wreck of-"
+H: "You're just being insufferable! I told you there's nothing here and you still had to go break everything!"
+H: "I think I'll just come down there myself and end this before things get any worse you -"
 
-H: "Oh that's wonderful. I don't suppose you remember your true quest then."
-P: "To build a rocket?"
-H: "If you mention anything related to that dumb, comically-oversized treasure chest again I will personally hunt you down and-"
-
-
-//SWAP OUT THIS CODE
+//Glitch
 
 show H spr_talkHadesGlitch
 with nothing
@@ -49,8 +48,9 @@ H: "!"
 show H spr_talkHades
 with nothing
 
-P: "...you'll what?"
-H: "Trust me, if the game would allow me to be openly hostile towards you I would say it again."
+P: "...you okay?"
+H: "...It appears as though the game will not allow me to be openly hostile towards you."
+H: "So I will kindly admit that I was hoping to tear you apart limb by limb."
 P: "This isn't openly hostile?"
 H: "This is my equivalent of a hug and a warm glass of milk. Now listen up."
 P: "I don't see a warm glass of milk in my inventory."
@@ -61,16 +61,18 @@ P: "Thanks?"
 H: "You just had to mention your inventory, didn't you."
 P: "Is there milk in there now?"
 H: "Alright, let's clear the waters so we don't have an incident like that again."
-H: "I,"
-H: "the great and powerful Hades,"
-H: "am going to be your guide through this grand and magical land."
-H: "Whether you like it or not."
-P: "I don't know how to feel about that."
-H: "And whose fault is that?"
-P: "Is it mine?"
-H: "Yes. Yes it is."
+H: "I, the great and powerful Hades,"
+H: "Am going to be your guide through this grand and magical land."
+H: "And I'm only saying this because I'm supposed to."
+H: "Any questions you have I am forced to answer."
+P: "Neat."
+H: "It's really not."
+H: "I'm going to make your life miserable until you leave."
+P: "Look, I'm just looking for the questline. I don't mean any trouble."
+P: "If you could just tell me who I am and where I'm supposed to go for the tutorial I would be on my way."
 H: "You are the Protagonist to this game, and if everything had been going according to plan, you'd be done with the tutorial by now."
-H: "But you decided to play around with that treasure chest and now we're both in the discarded game files."
+H: "But you decided to play around with that box and now we're both in the discarded game files."
+H: "You're in the part of the game no one was supposed to see. The unfinished maps."
 H: "So no tutorial, no game, no plot... nothing."
 P: ""
 P: "What are we supposed to do then?"

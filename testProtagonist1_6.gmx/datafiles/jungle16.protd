@@ -38,7 +38,7 @@ Ap: "If you win, I have the honor of having taught a meat-brained mortal how to 
 Ap: "And in my opinion, that's a little more rewarding than solving some dumb riddle."
 Ap: "Also I don't want to spend a century here."
 Ap: "But hold on, this man isn't just clever, he's handsome."
-Ap: "Because if you lose, then Hades pays me ten bitmas. It's win-win for me."
+Ap: "Because if you lose, then a special someone pays me ten bitmas. It's win-win for me."
 
 hide Ap
 with Apollo_swing
@@ -48,7 +48,9 @@ show H spr_talkHades
 with Hades_swing
 //
 
-H: "And it's win-win for me too."
+H: "He caught up with me, I had no choice."
+H: "Curse you for bringing me back here."
+H: "But, the deal is a win-win for me too."
 H: "You die, and I lose money but I get to watch your spirit break. You live, and at least I have a few coins to ease my suffering."
  
 //

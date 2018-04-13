@@ -43,12 +43,8 @@ P: "That's- hold on I don't have a mouth. How did that happen?"
 P: "I'm a rocket scientist?"
 
 ?: "I truly hope not."
-?: "But unfortunately I"
-?: "Cannot"
-?: "Disprooooveeee"
-?: "...that."
+?: "But unfortunately I cannot disprove that."
 ?: ""
-
 P:""
 P:"So I might be a rocket scientist?"
 
@@ -72,8 +68,8 @@ H: "..."
 H: "When did I get a name above the dialogue box."
 
 P: "About when you told me you weren't the narrator."
-H: "Well that's it for me. Have fun playing with the incomplete maps."
-H: "And don't pull up the menu, if you don't mind."
+H: "Well that's it for me."
+H: "Have fun playing with the incomplete maps."
 
 //
 hide H

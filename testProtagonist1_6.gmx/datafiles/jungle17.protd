@@ -38,23 +38,23 @@ with fade
 
 P: "Oh hey, this area really did get unlocked again."
 P: "How did you make that invisible wall to keep me from going this way after talking to you?"
-Sp: "I am the master of unnoticed obstacles."
-Sp: "From the very nature of my erroneous being."
-Sp: "To the vague and annoying lettering of my name."
-Sp: "Silent letters speak louder in the verse of the code."
+Sp: "I am the master of unnnoticed obstacles."
+Sp: "From the verry nature of my erroneous being."
+Sp: "To the vaggue and annoying lettering of my name."
+Sp: "Silent letters speak louder in the verrse of the code."
 P: "That sounded very dramatic."
 P: "This whole situation is looking very dramatic."
 P: "Everything about this room looks like it wants to kill me."
 P: "And here I am armed with a book."
 P: "I feel like a sitting duck."
-Sp: "Duck?"
+Sp: "Ducck?"
 P: "What?"
-Sp: "There is a duck?!"
+Sp: "There is a ducck?!"
 P: "...What?"
-Sp: "Oh please, oh please, I didn't mean it, I didn't mean it at all!"
+Sp: "Oh please, oh please, I didn't mmean it, I didn't mean it at all!"
 P: "?"
-Sp: "I was just told to come here and stop you from progressing!"
-Sp: "No harm no fowl, see?"
+Sp: "I was just told to come here and stop you from progresssing!"
+Sp: "No harm no fowwl, see?"
 P: "I don't see."
 
 //HIDE SPHINXX
@@ -69,7 +69,7 @@ with Hades_swing
 
 H:"Way to go, you broke my minion."
 H:"You really are the Protagonist."
-H: "You have the dumb luck of one, at least."
+H:"You have the dumb luck of one, at least."
 
 //HIDE HADES
 hide H
@@ -112,12 +112,12 @@ show Sp spr_talkSphinx
 with fade
 //
 
-Sp: "Duck?"
+Sp: "Duckk?"
 H: "No, maul the kid."
-Sp: "Duck?!"
+Sp: "Duckk?!"
 H: "We just went over this, just-"
-Sp: "Can't do it anymore! I've gotta ditch the disguise!"
-Sp: "I don't want to get caught by the ducks, not again!"
+Sp: "Can't do it anymmore! I've gotta ditch the disguise!"
+Sp: "I don't want to get caught by the duccks, not again!"
 
 //HIDE SPHINXX
 hide Sp

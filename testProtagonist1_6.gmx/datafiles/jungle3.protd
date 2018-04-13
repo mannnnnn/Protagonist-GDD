@@ -47,11 +47,11 @@ P: "-can ask you for advice?"
 H: "Oh Sweet Sezu, you're actually going to stay here."
 H: "No, you cannot ask me for-"
 
-//SWAP OUT THIS CODE
+//glitch
 show H spr_talkHadesGlitch
 with nothing
 H: "!"
-//SWAP OUT THIS CODE
+//unglitch
 show H spr_talkHades
 with nothing
 
@@ -81,8 +81,9 @@ P: "What am I supposed to be looking at then?"
 H: "You're supposed to be understanding the constraints of the world you're stuck in."
 H: "At one point, you were supposed to save this world. And you had all the tools you needed to do it."
 H: "You had me, your loving guide,"
-H: "And your character traits."
-H: "But now you've escaped into a spot where you're not supposed to be, and the game doesn't know how to handle that."
+H: "And your character traits, skills, systems, all that jazz."
+H: "But now you've escaped into a spot where you're not supposed to be."
+H: "The game doesn't know how to handle that."
 H: "You've got no purpose, and you've got nothing. You don't even have yourself."
 P: ""
 P: "At least I still have you?"

@@ -31,15 +31,13 @@ P: "What is that?"
 show S spr_talkSphinx
 //
 
-S: "What iss that?"
 S: "What are you doing in my forrest?"
 P: "I was sort of hoping you would know that."
-P: "As far as I'm aware, I'm supposed to be doing nothing."
-P: "But I was supposed to do something."
-P: "And now I'm not allowed to do anything?"
+P: "As far as I'm aware, I'm supposed to be leaving."
 S: "Do you wish to pass?"
 P: "That seems like a good starting point on a grand quest."
 S: "Welll you can't."
+P: "Wow."
 P: "This seems like a great game so far."
 P: "All I've done is been told I can't do things."
 S: "I have been the guardian of this gate ever since the herallding of my existence."
@@ -49,11 +47,9 @@ S: "And I have been entrussted with divine knowledge, befit only for one cunning
 P: "So I need to fight you?"
 S: "Answer my riddle, and you shall pass unscatthed through my realm."
 P: "I do enjoy having all my limbs intact."
-P: "I still miss having a mouth."
-P: "And eyes."
-P: "Anyways I'll solve your riddle."
+P: "I'll solve your riddle."
 S: "Be warned, should you fail, you will be cast into the forrest. Forever to wander until enlightenment strikes."
-P: "That sounds painful."
+P: "I think I'm going to be stuck to wander regardless, so I'll give it a shot."
 
 //
 hide S
@@ -81,12 +77,10 @@ show S spr_talkSphinx
 
 S: "Have you prepared yourself for the riddle of the Sphinxx?"
 P: "How prepared do I need to be?"
-P: "Should I do some jumping jacks?"
-S: "I am unfamilliar with the notion of the summation of jacks who are jumping, but math is a good logical warmup."
 P: "Am I ready?"
 menu
 {
-	"Let's outthink the Sphinxx"
+	"Let's outthinks the Sphinxx"
 	{
 	}
 
@@ -105,7 +99,7 @@ S: "Do you have the ansswer?"
 P: "Did you say something?"
 S: "I asked if you have the ansswer yet."
 P: "I haven't heard the riddle yet."
-S: "I will repeaat myself once out of the just nature of my being."
+S: "I will repeaat myself once out of the generous nature of my being."
 S: "The ridddle is as follows:"
 S: "Error: SyntaxError: Unexpected token"
 P: "I think something's wrong here."
@@ -121,9 +115,9 @@ with Hades_swing
 H: "Unfinished maps."
 H: "Unfinished characters."
 H: "And hence, unfinished puzzles."
-P: "Whoa, what?! What am I supposed to do then?!"
-H: "A wise god once said:"
-H: "GET INTO THE BOX AND END THE GAME."
+P: "Whoa, what?! How is that fair?"
+H: "It's not. You're not supposed to be here."
+H: "Even in a world centered around you, you've managed to find a place where you cannot progress."
 P: "You're the Narrator! Don't you have the riddle? Somewhere?"
 H: "Ah yes, here we are."
 H: "The riddle is as follows:"

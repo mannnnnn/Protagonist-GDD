@@ -33,8 +33,10 @@ with Apollo_swing
 
 Ap: "Cat exploded. Great job sport."
 P: "Where did it go? What did I do?"
-Ap: "Who cares, it was cool. Let's goooooo."
-P: "Hang on. Hades!"
+Ap: "Who cares, it was cool. Let's go do it again!"
+Ap: "I've got a plan!"
+P: "Hang on."
+P: "Hades!"
 
 //
 hide Ap
@@ -43,7 +45,8 @@ show H spr_talkHades
 with Hades_swing
 //
 
-H: "I can't believe you're already abusing this power."
+H: "I can't believe you're already abusing this power to summon me."
+H: "Are we absolutely sure you aren't the villian in all this?"
 P: "Where did the cat go?"
 H: "Syntax error, not cat. You fixed the syntax error in its speech, so its freed."
 P: "Oh good."
@@ -61,7 +64,9 @@ show Ap spr_talkApollo
 with Apollo_swing
 //
 
-Ap: "I'd never do those things to you."
+Ap: "Hades! Don't ignore me!"
+Ap: "Aw."
+Ap: "You know, I'd never do those things to you."
 Ap: "Mostly because I forgot what you said."
 P: "Ok buddy, thanks."
 
