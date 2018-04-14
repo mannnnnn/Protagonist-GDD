@@ -127,6 +127,9 @@ with fade
 H: "What are you doing?!"
 
 //SPHINX TRANSFORM
+call hadesSpecialSphinxExtravaganza()
+call updateForestMusic()
+wait 100
 
 text side Ap left
 
@@ -158,10 +161,6 @@ H: "You want to play the game, Protagonist? Let's play!"
 hide H
 with hades_swing
 //
-
-call hadesSpecialSphinxExtravaganza()
-call updateForestMusic()
-wait 100
 
 // SHOW SPHINXX (Transformed)
 show Sp spr_talkTiger

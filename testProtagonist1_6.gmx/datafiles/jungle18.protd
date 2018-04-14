@@ -25,7 +25,7 @@ show H spr_talkHades
 with Hades_swing
 //
 
-H: "...no..."
+H: "...No..."
 H: "...that can't be right. You couldn't have won."
 H: "You had help, didn't you?"
 
@@ -44,8 +44,6 @@ H: "We were content."
 hide P
 with fade
 //
-
-play music snd_credits snd_credits
 
 //SHOW APOLLO
 show Ap spr_talkApollo
@@ -81,6 +79,7 @@ with hades_swing
 Ap: "What a sourpuss. Hades and that fake sphinxx both."
 Ap: "But hey, look on the bright side, kid!"
 
+play music snd_credits snd_credits
 text side P right
 
 //SHOW PROTAGONIST
