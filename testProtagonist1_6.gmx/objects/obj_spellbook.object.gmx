@@ -152,6 +152,7 @@ createSpell("rate", obj_rateSpell);
 createSpell("rat", obj_ratSpell);
 createSpell("arc", obj_arcSpell);
 createSpell("ace", obj_aceSpell);
+createSpell("card", obj_cardSpell);
 </string>
           </argument>
         </arguments>

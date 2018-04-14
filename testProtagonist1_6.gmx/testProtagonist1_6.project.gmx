@@ -766,6 +766,7 @@
     <sprite>sprites\spr_duck</sprite>
     <sprites name="spells">
       <sprite>sprites\spr_searSpell</sprite>
+      <sprite>sprites\spr_cardSpell</sprite>
       <sprite>sprites\spr_seaSpell</sprite>
       <sprite>sprites\spr_aceSpell</sprite>
       <sprite>sprites\spr_arcSpell</sprite>
@@ -1370,6 +1371,7 @@
       <object>objects\obj_seatSpell</object>
       <object>objects\obj_seaSpell</object>
       <object>objects\obj_arcSpell</object>
+      <object>objects\obj_cardSpell</object>
       <object>objects\obj_aceSpell</object>
       <object>objects\obj_searSpell</object>
       <object>objects\obj_catSpell</object>
