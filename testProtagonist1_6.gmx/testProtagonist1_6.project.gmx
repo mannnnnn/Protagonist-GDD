@@ -571,11 +571,11 @@
       <sound>sound\snd_introMusicIntro</sound>
       <sound>sound\snd_introMusicFF</sound>
       <sound>sound\snd_sphinxxMeow</sound>
-      <sound>sound\snd_syntaxMeow</sound>
+      <sound>sound\snd_meow</sound>
       <sound>sound\snd_oof</sound>
       <sound>sound\snd_ding</sound>
       <sound>sound\snd_explosion</sound>
-      <sound>sound\snd_meow</sound>
+      <sound>sound\snd_meowOld</sound>
     </sounds>
     <sound>sound\snd_sphinxxIntro</sound>
     <sound>sound\snd_sphinxxLoop</sound>
@@ -647,7 +647,13 @@
         <sprite>sprites\spr_rock1</sprite>
         <sprite>sprites\spr_rock2</sprite>
         <sprite>sprites\spr_rock3</sprite>
+        <sprite>sprites\spr_rock5</sprite>
+        <sprite>sprites\spr_rock6</sprite>
         <sprite>sprites\spr_rock4</sprite>
+        <sprite>sprites\spr_rockM1</sprite>
+        <sprite>sprites\spr_rockM2</sprite>
+        <sprite>sprites\spr_rockM3</sprite>
+        <sprite>sprites\spr_rockM4</sprite>
         <sprite>sprites\spr_rockOut</sprite>
         <sprite>sprites\spr_stump1</sprite>
         <sprite>sprites\spr_tree1</sprite>
@@ -1387,6 +1393,12 @@
         <object>objects\obj_rock2</object>
         <object>objects\obj_rock3</object>
         <object>objects\obj_rock4</object>
+        <object>objects\obj_rock5</object>
+        <object>objects\obj_rock6</object>
+        <object>objects\obj_rockM1</object>
+        <object>objects\obj_rockM2</object>
+        <object>objects\obj_rockM3</object>
+        <object>objects\obj_rockM4</object>
         <object>objects\obj_rockOut</object>
         <object>objects\obj_bellSetA</object>
         <object>objects\obj_bellSetB</object>

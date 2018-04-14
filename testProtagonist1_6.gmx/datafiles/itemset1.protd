@@ -243,6 +243,21 @@ label rock4
 	"You could even say that it rocks."
 }
 
+label rock5
+{
+	"If you don't know what your official quest is, then you might not be wrong in just kicking every rock."
+	"You're just probably wrong."
+	"It's not much of an ingenious plan, but it could be igneous."
+}
+
+label rock6
+{
+	"This is productive"
+	"You're being very productive."
+	"You're just a stone's throw away to completing your main objectives."
+}
+
+
 label rockOut
 {
 	"Who would throw this perfectly good rock out of a game file. Look at it."
