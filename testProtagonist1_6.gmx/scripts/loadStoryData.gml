@@ -31,6 +31,23 @@ if (ds_map_exists(obj_storyData.data, "mapY"))
 {
     obj_map.Y = checkFlag("mapY");
 }
+// help data
+if (ds_map_exists(obj_storyData.data, "help"))
+{
+    obj_map.help = checkFlag("help");
+}
+if (ds_map_exists(obj_storyData.data, "helpSpr"))
+{
+    obj_map.helpSpr = checkFlag("helpSpr");
+}
+if (ds_map_exists(obj_storyData.data, "helpImg"))
+{
+    obj_map.helpImg = checkFlag("helpImg");
+}
+if (ds_map_exists(obj_storyData.data, "helpTarget"))
+{
+    obj_map.helpTarget = checkFlag("helpTarget");
+}
 // load dust bunny data
 var n = ds_grid_width(obj_storyData.dustBunny) * ds_grid_height(obj_storyData.dustBunny);
 for (var i = 0; i < n; i++)

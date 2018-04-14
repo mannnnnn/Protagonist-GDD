@@ -197,7 +197,7 @@ if (obj_dialogue.active)
           <argument>
             <kind>1</kind>
             <string>/// skip dialogue by holding Ctrl
-if (obj_dialogue.active &amp;&amp; allowAdvance)
+if (dialogueAllowAdvance())
 {
     // if done with current string
     if (string_length(currentText) &gt;= string_length(text) - 1)
@@ -241,7 +241,7 @@ if (obj_dialogue.active &amp;&amp; allowAdvance)
           <argument>
             <kind>1</kind>
             <string>/// advance dialogue by mouse click
-if (obj_dialogue.active &amp;&amp; allowAdvance)
+if (dialogueAllowAdvance())
 {
     // if done with current string
     if (string_length(currentText) &gt;= string_length(text) - 1)
@@ -500,7 +500,7 @@ if (surface_exists(surf))
           <argument>
             <kind>1</kind>
             <string>/// advance dialogue by space press
-if (obj_dialogue.active &amp;&amp; allowAdvance)
+if (dialogueAllowAdvance())
 {
     // if done with current string
     if (string_length(currentText) &gt;= string_length(text) - 1)
@@ -540,7 +540,7 @@ if (obj_dialogue.active &amp;&amp; allowAdvance)
           <argument>
             <kind>1</kind>
             <string>/// advance dialogue by esc press
-if (obj_dialogue.active &amp;&amp; allowAdvance)
+if (dialogueAllowAdvance())
 {
     // if done with current string
     if (string_length(currentText) &gt;= string_length(text) - 1)

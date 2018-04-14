@@ -131,6 +131,8 @@ P: "Well meow I'm just feline underappreciated."
 Ap: "I never appreciated you in the first place."
 Ap: "Hold on, was that a pun?"
 
+call hadesSpecialHelpingExtravaganza(1)
+
 hide P
 with fade
 hide Ap

@@ -7,6 +7,11 @@ setFlag("posX", playerX());
 setFlag("posY", playerY());
 setFlag("mapX", obj_map.X);
 setFlag("mapY", obj_map.Y);
+// help data
+setFlag("help", obj_map.help);
+setFlag("helpSpr", obj_map.helpSpr);
+setFlag("helpImg", obj_map.helpImg);
+setFlag("helpTarget", obj_map.helpTarget);
 // add dust bunny data
 var n = ds_grid_width(obj_storyData.dustBunny) * ds_grid_height(obj_storyData.dustBunny);
 for (var i = 0; i < n; i++)

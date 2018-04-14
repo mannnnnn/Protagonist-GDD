@@ -41,10 +41,17 @@ if (entry[| DRAWER_QUEUE_TYPE] == DRAWER_QUEUE_TYPE_NORMAL)
         {
             var keyword = obj_dialogue.drawerKeywords[? type];
             var char = obj_dialogue.characters[? channel];
-            var side = char[| CHARACTER_SIDE];
-            if (is_undefined(side))
+            if (is_undefined(char))
             {
                 side = RIGHT;
+            }
+            else
+            {
+                var side = char[| CHARACTER_SIDE];
+                if (is_undefined(side))
+                {
+                    side = RIGHT;
+                }
             }
             obj = keyword[| side];
         }

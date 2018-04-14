@@ -41,4 +41,13 @@ if (argument_count >= 4)
 }
 trans.duration = duration;
 
+// transfer help data from obj_map to this
+if (obj_map.help && (obj_map.helpTarget == noone || obj_map.helpTarget == target))
+{
+    trans.pause = true;
+    trans.pauseSprite = obj_map.helpSpr;
+    trans.pauseImage = obj_map.helpImg;
+    obj_map.help = false;
+}
+
 return trans;

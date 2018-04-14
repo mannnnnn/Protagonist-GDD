@@ -801,6 +801,7 @@
     </sprites>
     <sprite>sprites\spr_biggerBun</sprite>
     <sprite>sprites\spr_turnInButton</sprite>
+    <sprite>sprites\spr_help</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="map">
@@ -945,6 +946,7 @@
         <script>scripts\dialogueRemoveAllSteppers.gml</script>
         <script>scripts\dialogueWait.gml</script>
         <script>scripts\checkDialogueWait.gml</script>
+        <script>scripts\dialogueAllowAdvance.gml</script>
       </scripts>
       <scripts name="drawers">
         <script>scripts\removeDrawer.gml</script>
@@ -976,6 +978,7 @@
         <script>scripts\hadesSpecialAwkwardExtravaganza.gml</script>
         <script>scripts\hadesSpecialFruitExtravaganza.gml</script>
         <script>scripts\hadesSpecialTestExtravaganza.gml</script>
+        <script>scripts\hadesSpecialHelpingExtravaganza.gml</script>
       </scripts>
     </scripts>
     <scripts name="debug">
@@ -988,6 +991,7 @@
     <scripts name="transition">
       <script>scripts\createRoomTransition.gml</script>
       <script>scripts\checkRoomTransition.gml</script>
+      <script>scripts\setHelpTransition.gml</script>
     </scripts>
     <scripts name="effects">
       <script>scripts\shineEffect.gml</script>

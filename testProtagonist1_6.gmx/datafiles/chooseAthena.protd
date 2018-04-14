@@ -169,11 +169,13 @@ label athenaTest
 	testComplete = true
 }
 
+call hadesSpecialHelpingExtravaganza(2)
+
 hide At
 with athena_swing
 
 hide P
-wth fade
+with fade
 
 wait for drawers
 exit

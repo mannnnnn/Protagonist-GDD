@@ -152,6 +152,8 @@ else
 	}
 }
 
+call hadesSpecialHelpingExtravaganza(2)
+
 hide P
 with fade
 

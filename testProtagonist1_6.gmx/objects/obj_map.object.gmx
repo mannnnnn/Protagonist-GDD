@@ -33,6 +33,12 @@ posY = getDisplayRoomHeight() * 0.5;
 
 // not all transitions move the player to one of the left/right/up/down positions.
 movePlayer = false;
+
+// handle transition setting
+help = false;
+helpSpr = noone;
+helpImg = noone;
+helpTarget = noone;
 </string>
           </argument>
         </arguments>

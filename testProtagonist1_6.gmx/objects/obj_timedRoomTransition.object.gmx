@@ -33,6 +33,12 @@ duration = 15;
 openSpeed = 1;
 closeSpeed = 1;
 state = OPENING;
+
+pause = false;
+pauseSprite = noone;
+pauseImage = noone;
+pauseTimer = 0;
+pauseDur = 30;
 </string>
           </argument>
         </arguments>
@@ -66,11 +72,41 @@ switch(state)
         timer += openSpeed;
         if (timer &gt;= duration)
         {
-            state = CLOSING;
-            // transition room
-            if (room_exists(target))
+            if (pause)
             {
-                room = target;
+                state = OPEN;
+                pauseTimer = 0;
+            }
+            else
+            {
+                state = CLOSING;
+                // transition room
+                if (room_exists(target))
+                {
+                    room = target;
+                }
+            }
+        }
+        break;
+    case OPEN:
+        if (pause)
+        {
+            if (pauseTimer &lt; pauseDur)
+            {
+                pauseTimer++;
+            }
+        }
+        else
+        {
+            pauseTimer--;
+            if (pauseTimer &lt;= 0)
+            {
+                state = CLOSING;
+                // transition room
+                if (room_exists(target))
+                {
+                    room = target;
+                }
             }
         }
         break;
@@ -87,6 +123,33 @@ switch(state)
         show_error("Invalid room transition state: " + string(state), true);
         state = CLOSED;
         break;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="53">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// no pause anymore
+if (state == OPEN &amp;&amp; pauseTimer &gt;= pauseDur)
+{
+    pause = false;
 }
 </string>
           </argument>

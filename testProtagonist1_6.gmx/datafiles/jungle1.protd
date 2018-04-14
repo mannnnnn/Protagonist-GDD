@@ -80,6 +80,8 @@ P: "Cool."
 P: "I guess I'll just relax in this... forest."
 P: "In the smoldering wreck of my science."
 
+call hadesSpecialHelpingExtravaganza(0)
+
 hide P
 
 wait for drawers

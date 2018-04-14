@@ -42,6 +42,12 @@ timer = 0;
 // immobilize player with its own existence (see playerCanMove())
 
 state = OPENING;
+
+pauseTimer = 0;
+pauseDur = 30;
+pause = false;
+pauseSprite = noone;
+pauseImage = noone;
 </string>
           </argument>
         </arguments>
@@ -64,6 +70,33 @@ state = OPENING;
             <kind>1</kind>
             <string>/// handler target to call with prepareCombat
 handler = noone;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="53">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// close help menu if applicable
+if (state == OPEN &amp;&amp; pauseTimer == pauseDur)
+{
+    pause = false;
+}
 </string>
           </argument>
         </arguments>
@@ -93,10 +126,17 @@ if (state == OPENING)
     if (timer &gt;= duration)
     {
         surface_free(surf);
-        state = CLOSING;
-        // transition room
-        room = rm_test2;
-        prepareCombat(handler);
+        if (pause)
+        {
+            state = OPEN;
+        }
+        else
+        {
+            state = CLOSING;
+            // transition room
+            room = rm_test2;
+            prepareCombat(handler);
+        }
     }
     // draw to surface
     if (!surface_exists(surf))
@@ -142,7 +182,35 @@ if (state == OPENING)
           <argument>
             <kind>1</kind>
             <string>/// draw closing
-/// draw opening
+
+if (state == OPEN)
+{
+    if (pause)
+    {
+        pauseTimer++;
+        if (pauseTimer &gt;= pauseDur)
+        {
+            pauseTimer = pauseDur;
+        }
+    }
+    else
+    {
+        pauseTimer--;
+        if (pauseTimer &lt;= 0)
+        {
+            state = CLOSING;
+            // transition room
+            room = rm_test2;
+            prepareCombat(handler);
+        }
+    }
+    draw_set_color(c_black);
+    draw_set_alpha(1);
+    draw_rectangle(0, 0, w, h, false);
+    draw_set_alpha(pauseTimer / pauseDur);
+    draw_sprite_stretched(pauseSprite, pauseImage, 0, 0, getDisplayRoomWidth(), getDisplayRoomHeight());
+}
+
 if (state == CLOSING)
 {
     timer--;
