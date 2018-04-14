@@ -94,7 +94,7 @@ draw_set_valign(fa_center);
 
 drawButtonRect(posX, posY, 2 * w, h, obj_buttons.button, c_white, c_white, 1, 1);
 draw_set_color(c_white);
-draw_text_outlined(posX + w, posY + (0.5 * h), "New Game");
+draw_text_outlined(posX + w, posY + (0.6 * h), "New Game");
 // handle new game click
 if (mouse_in_rect(posX, posY, 2 * w, h) &amp;&amp; mouse_check_button_pressed(mb_left))
 {
@@ -113,7 +113,7 @@ if (mouse_in_rect(posX, posY, 2 * w, h) &amp;&amp; mouse_check_button_pressed(mb
 }
 
 drawButtonRect(posX, posY + 100, 2 * w, h, obj_buttons.button, c_white, c_white, 1, 1);
-draw_text_outlined(posX + w, posY + 100 + (0.5 * h), "Debug Mode");
+draw_text_outlined(posX + w, posY + 100 + (0.6 * h), "Debug Mode");
 // handle debug click
 if (mouse_in_rect(posX, posY + 100, 2 * w, h) &amp;&amp; mouse_check_button_pressed(mb_left))
 {

@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-200</depth>
   <persistent>0</persistent>
-  <parentName>obj_roomTransition</parentName>
+  <parentName>self</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -34,6 +34,8 @@ holdSpd = 3;
 state = OPENING;
 
 timer = 0;
+
+duration = fadeDur;
 
 playSound(SFX, snd_oof);
 </string>

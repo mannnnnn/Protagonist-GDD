@@ -133,30 +133,30 @@ if (instance_number(obj_protagonist) &gt; 0 &amp;&amp; playerCanMove())
     {
         if (!checkRoomTransition())
         {
-            var side = noone;
+            var transSide = noone;
             if (playerX() &lt; left)
             {
-                side = LEFT;
+                transSide = LEFT;
                 X -= 1;
             }
             else if (playerX() &gt; right)
             {
-                side = RIGHT;
+                transSide = RIGHT;
                 X += 1;
             }
             else if (playerY() &lt; upper)
             {
-                side = UP;
+                transSide = UP;
                 Y -= 1;
             }
             else if (playerY() &gt; lower)
             {
-                side = DOWN;
+                transSide = DOWN;
                 Y += 1;
             }
             // create room transition
             var trans = createRoomTransition(map[# X, Y], obj_blackSlideTransition, true);
-            trans.side = side;
+            trans.side = transSide;
             // set music
             updateForestMusic();
         }

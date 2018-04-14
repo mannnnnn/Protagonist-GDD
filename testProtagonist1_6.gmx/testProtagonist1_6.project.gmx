@@ -575,7 +575,6 @@
       <sound>sound\snd_oof</sound>
       <sound>sound\snd_ding</sound>
       <sound>sound\snd_explosion</sound>
-      <sound>sound\snd_meowOld</sound>
     </sounds>
     <sound>sound\snd_sphinxxIntro</sound>
     <sound>sound\snd_sphinxxLoop</sound>

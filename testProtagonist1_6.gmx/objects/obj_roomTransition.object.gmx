@@ -33,6 +33,8 @@ target = noone;
 timer = 0;
 duration = 0;
 persistent = true;
+
+side = LEFT;
 </string>
           </argument>
         </arguments>
