@@ -767,6 +767,7 @@
     <sprites name="spells">
       <sprite>sprites\spr_searSpell</sprite>
       <sprite>sprites\spr_seaSpell</sprite>
+      <sprite>sprites\spr_aceSpell</sprite>
       <sprite>sprites\spr_arcSpell</sprite>
       <sprite>sprites\spr_catSpell</sprite>
       <sprite>sprites\spr_tearSpell</sprite>
@@ -1369,6 +1370,7 @@
       <object>objects\obj_seatSpell</object>
       <object>objects\obj_seaSpell</object>
       <object>objects\obj_arcSpell</object>
+      <object>objects\obj_aceSpell</object>
       <object>objects\obj_searSpell</object>
       <object>objects\obj_catSpell</object>
       <object>objects\obj_tearSpell</object>
