@@ -153,6 +153,7 @@ createSpell("rat", obj_ratSpell);
 createSpell("arc", obj_arcSpell);
 createSpell("ace", obj_aceSpell);
 createSpell("card", obj_cardSpell);
+createSpell("sad", obj_sadSpell);
 </string>
           </argument>
         </arguments>

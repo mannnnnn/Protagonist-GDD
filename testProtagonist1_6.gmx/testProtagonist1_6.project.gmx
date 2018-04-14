@@ -768,6 +768,7 @@
       <sprite>sprites\spr_searSpell</sprite>
       <sprite>sprites\spr_cardSpell</sprite>
       <sprite>sprites\spr_seaSpell</sprite>
+      <sprite>sprites\spr_sadSpell</sprite>
       <sprite>sprites\spr_aceSpell</sprite>
       <sprite>sprites\spr_arcSpell</sprite>
       <sprite>sprites\spr_catSpell</sprite>
@@ -1372,6 +1373,7 @@
       <object>objects\obj_seaSpell</object>
       <object>objects\obj_arcSpell</object>
       <object>objects\obj_cardSpell</object>
+      <object>objects\obj_sadSpell</object>
       <object>objects\obj_aceSpell</object>
       <object>objects\obj_searSpell</object>
       <object>objects\obj_catSpell</object>
