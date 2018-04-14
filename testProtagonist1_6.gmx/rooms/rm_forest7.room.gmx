@@ -51,7 +51,7 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="obj_statNeko" x="64" y="144" name="inst_263B6DFB" locked="0" code="dustBunny = true;&#xA;" scaleX="1.35211265087128" scaleY="1.24271845817566" colour="4294967295" rotation="0"/>
+    <instance objName="obj_statNeko" x="96" y="224" name="inst_263B6DFB" locked="0" code="dustBunny = true;" scaleX="1.80281686782837" scaleY="1.70873785018921" colour="4294967295" rotation="0"/>
     <instance objName="obj_syntaxBob" x="832" y="288" name="inst_D3E0F91F" locked="0" code="handler = obj_puzzle3;&#xA;activeTracker = &quot;puzzle3&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_invisibleWall" x="896" y="320" name="inst_5B2ADFEF" locked="0" code="activeTracker = &quot;puzzle3&quot;;&#xA;" scaleX="0.5" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="obj_jungleParticleSolid" x="0" y="0" name="inst_AABC88FE" locked="0" code="" scaleX="6" scaleY="2.5" colour="4294967295" rotation="0"/>
@@ -66,8 +66,10 @@
     <instance objName="obj_jungleParticleSolid" x="832" y="160" name="inst_D3D1597F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_synSign" x="224" y="48" name="inst_E196B45D" locked="0" code="dustBunny = true;&#xA;" scaleX="1.43283581733704" scaleY="1.45454549789429" colour="4294967295" rotation="0"/>
     <instance objName="obj_synSign" x="512" y="32" name="inst_29F5A557" locked="0" code="dustBunny = true;&#xA;image_index = 1;&#xA;name = &quot;synSign2&quot;;&#xA;" scaleX="1.43283581733704" scaleY="1.57575762271881" colour="4294967295" rotation="0"/>
-    <instance objName="obj_leafPile" x="96" y="384" name="inst_83FA2CCB" locked="0" code="dustBunny = true;&#xA;" scaleX="1.58415842056274" scaleY="1.33333337306976" colour="4294967295" rotation="0"/>
     <instance objName="obj_triggerPostPuzzle" x="768" y="352" name="inst_CEDDD703" locked="0" code="activeTracker = &quot;puzzle3&quot;;&#xA;script = &quot;jungle13.protd&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_synZero" x="448" y="416" name="inst_D4C8DCFF" locked="0" code="dustBunny = true;&#xA;" scaleX="1.27272725105286" scaleY="1.23076927661896" colour="4294967295" rotation="0"/>
+    <instance objName="obj_bellSetA" x="160" y="32" name="inst_2D2D5EED" locked="0" code="" scaleX="1.80281686782837" scaleY="1.74545454978943" colour="4294967295" rotation="0"/>
+    <instance objName="obj_bellSetB" x="640" y="32" name="inst_C0D87F40" locked="0" code="" scaleX="1.77777779102325" scaleY="1.71428573131561" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>

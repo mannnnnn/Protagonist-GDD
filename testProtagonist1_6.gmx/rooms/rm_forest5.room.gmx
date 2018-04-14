@@ -51,8 +51,8 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="obj_synFish" x="224" y="192" name="inst_F74DFEC1" locked="0" code="dustBunny = true;&#xA;" scaleX="1.25139665603638" scaleY="1.14285719394684" colour="4294967295" rotation="0"/>
-    <instance objName="obj_treeFruit" x="32" y="32" name="inst_68B85F33" locked="0" code="dustBunny = true;&#xA;" scaleX="1.39130437374115" scaleY="1.14285719394684" colour="4294967295" rotation="0"/>
+    <instance objName="obj_synFish" x="160" y="192" name="inst_F74DFEC1" locked="0" code="dustBunny = true;" scaleX="1.25139665603638" scaleY="1.14285719394684" colour="4294967295" rotation="0"/>
+    <instance objName="obj_treeFruit" x="32" y="32" name="inst_68B85F33" locked="0" code="dustBunny = true;" scaleX="0.927536249160767" scaleY="0.912087917327881" colour="4294967295" rotation="0"/>
     <instance objName="obj_invisibleWall" x="416" y="576" name="inst_F73A462D" locked="0" code="activeTracker = &quot;puzzle1&quot;;&#xA;" scaleX="2" scaleY="0.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_syntaxBob" x="448" y="544" name="inst_68763A29" locked="0" code="handler = obj_puzzle1;&#xA;activeTracker = &quot;puzzle1&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_jungleParticleSolid" x="0" y="0" name="inst_55F5ADDE" locked="0" code="" scaleX="15" scaleY="2.5" colour="4294967295" rotation="0"/>
@@ -65,11 +65,13 @@
     <instance objName="obj_jungleParticleSolid" x="896" y="448" name="inst_345250A8" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="obj_jungleParticleSolid" x="896" y="160" name="inst_08E4CD0F" locked="0" code="" scaleX="1" scaleY="2.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_jungleParticleSolid" x="832" y="160" name="inst_EDF80B08" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_visibleWall" x="512" y="64" name="inst_867AC661" locked="0" code="dustBunny = true;&#xA;" scaleX="2.75268816947937" scaleY="2.46153855323792" colour="4294967295" rotation="0"/>
     <instance objName="obj_triggerDialogueWall" x="640" y="416" name="inst_0E9EA71B" locked="0" code="activeTracker = &quot;jungle7&quot;;&#xA;script = &quot;jungle7.protd&quot;;&#xA;" scaleX="0.5" scaleY="2.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_triggerDialogueWall" x="320" y="416" name="inst_DA34270F" locked="0" code="activeTracker = &quot;jungle7&quot;;&#xA;script = &quot;jungle7.protd&quot;;&#xA;" scaleX="5.5" scaleY="0.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_triggerDialogueWall" x="320" y="416" name="inst_BE2B4F68" locked="0" code="activeTracker = &quot;jungle7&quot;;&#xA;script = &quot;jungle7.protd&quot;;&#xA;" scaleX="0.5" scaleY="2.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_triggerPostPuzzle" x="448" y="480" name="inst_CA443FFE" locked="0" code="activeTracker = &quot;puzzle1&quot;;&#xA;script = &quot;jungle9.protd&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_rock4" x="672" y="416" name="inst_68000A30" locked="0" code="dustBunny = true;" scaleX="1.12280702590942" scaleY="0.842105269432068" colour="4294967295" rotation="0"/>
+    <instance objName="obj_rockM1" x="416" y="128" name="inst_EA5567FA" locked="0" code="dustBunny = true;" scaleX="1.64102566242218" scaleY="1.65517246723175" colour="4294967295" rotation="0"/>
+    <instance objName="obj_leafPile" x="608" y="160" name="inst_C1929B67" locked="0" code="dustBunny = true;&#xA;" scaleX="1.60000002384186" scaleY="1.60000002384186" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>

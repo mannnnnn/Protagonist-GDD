@@ -3,8 +3,8 @@
   <caption></caption>
   <width>960</width>
   <height>640</height>
-  <vsnap>32</vsnap>
-  <hsnap>32</hsnap>
+  <vsnap>1</vsnap>
+  <hsnap>1</hsnap>
   <isometric>0</isometric>
   <speed>30</speed>
   <persistent>0</persistent>
@@ -51,9 +51,9 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="obj_synPlay" x="128" y="32" name="inst_59C8DFA5" locked="0" code="dustBunny = true;&#xA;" scaleX="1.15315318107605" scaleY="1.31506848335266" colour="4294967295" rotation="0"/>
-    <instance objName="obj_synYarn" x="448" y="384" name="inst_0510817C" locked="0" code="dustBunny = true;&#xA;" scaleX="1.24271845817566" scaleY="1.22137403488159" colour="4294967295" rotation="0"/>
-    <instance objName="obj_syntaxBob" x="224" y="352" name="inst_687E20D9" locked="0" code="handler = obj_puzzle4;&#xA;activeTracker = &quot;puzzle4&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_synPlay" x="96" y="0" name="inst_59C8DFA5" locked="0" code="dustBunny = true;" scaleX="1.36036038398743" scaleY="1.45000004768372" colour="4294967295" rotation="0"/>
+    <instance objName="obj_synYarn" x="427" y="1" name="inst_0510817C" locked="0" code="dustBunny = true;" scaleX="1.6599999666214" scaleY="1.824427485466" colour="4294967295" rotation="0"/>
+    <instance objName="obj_syntaxBob" x="320" y="320" name="inst_687E20D9" locked="0" code="handler = obj_puzzle4;&#xA;activeTracker = &quot;puzzle4&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_jungleParticleSolid" x="0" y="0" name="inst_8774D421" locked="0" code="" scaleX="15" scaleY="2.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_jungleParticleSolid" x="832" y="160" name="inst_8B2382B0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_jungleParticleSolid" x="896" y="160" name="inst_B70D1531" locked="0" code="" scaleX="1" scaleY="6.5" colour="4294967295" rotation="0"/>
@@ -63,11 +63,12 @@
     <instance objName="obj_jungleParticleSolid" x="64" y="512" name="inst_522E56AE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_jungleParticleSolid" x="0" y="160" name="inst_824FADF9" locked="0" code="" scaleX="1" scaleY="2.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_jungleParticleSolid" x="64" y="160" name="inst_12A6E563" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_syntaxPillar" x="672" y="128" name="inst_76CA3F53" locked="0" code="handler = obj_puzzle6;&#xA;activeTracker = &quot;puzzle6&quot;;&#xA;intro = snd_syntaxIntro2;&#xA;loop = snd_syntaxLoop2;&#xA;outro = snd_syntaxOutro2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_syntaxPillar" x="608" y="192" name="inst_0DE1A4E8" locked="0" code="handler = obj_puzzle5;&#xA;activeTracker = &quot;puzzle5&quot;;&#xA;intro = snd_syntaxIntro2;&#xA;loop = snd_syntaxLoop2;&#xA;outro = snd_syntaxOutro2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_syntaxPillar" x="736" y="192" name="inst_BF2C55B6" locked="0" code="handler = obj_puzzle7;&#xA;activeTracker = &quot;puzzle7&quot;;&#xA;intro = snd_syntaxIntro2;&#xA;loop = snd_syntaxLoop2;&#xA;outro = snd_syntaxOutro2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_warp" x="664" y="320" name="inst_4C0BF2B0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_syntaxPillar" x="671" y="131" name="inst_76CA3F53" locked="0" code="handler = obj_puzzle6;&#xA;activeTracker = &quot;puzzle6&quot;;&#xA;intro = snd_syntaxIntro2;&#xA;loop = snd_syntaxLoop2;&#xA;outro = snd_syntaxOutro2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_syntaxPillar" x="610" y="195" name="inst_0DE1A4E8" locked="0" code="handler = obj_puzzle5;&#xA;activeTracker = &quot;puzzle5&quot;;&#xA;intro = snd_syntaxIntro2;&#xA;loop = snd_syntaxLoop2;&#xA;outro = snd_syntaxOutro2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_syntaxPillar" x="734" y="193" name="inst_BF2C55B6" locked="0" code="handler = obj_puzzle7;&#xA;activeTracker = &quot;puzzle7&quot;;&#xA;intro = snd_syntaxIntro2;&#xA;loop = snd_syntaxLoop2;&#xA;outro = snd_syntaxOutro2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_warp" x="658" y="309" name="inst_4C0BF2B0" locked="0" code="" scaleX="1.08108103275299" scaleY="1.18918919563293" colour="4294967295" rotation="0"/>
     <instance objName="obj_triggerPostPuzzle" x="288" y="320" name="inst_2595FF54" locked="0" code="activeTracker = &quot;puzzle4&quot;;&#xA;script = &quot;jungle15.protd&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_rockM4" x="347" y="424" name="inst_C5CD4D05" locked="0" code="dustBunny = true;&#xA;" scaleX="1.67999994754791" scaleY="1.5762711763382" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>
