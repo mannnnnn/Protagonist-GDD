@@ -11,7 +11,7 @@ if (index == noone)
 }
 else if (index == -1)
 {
-    show_error("Error in createSpell: Spell " + str + " has fucked up code.", true);
+    show_error("Error in createSpell: Spell " + str + " has hecked up code.", true);
 }
 ds_list_insert(obj_spellbook.spells, index, str);
 // add false discovered entry

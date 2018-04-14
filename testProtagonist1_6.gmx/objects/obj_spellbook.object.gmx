@@ -150,6 +150,7 @@ createSpell("seed", obj_seedSpell);
 createSpell("test", obj_testSpell);
 createSpell("rate", obj_rateSpell);
 createSpell("rat", obj_ratSpell);
+createSpell("arc", obj_arcSpell);
 </string>
           </argument>
         </arguments>

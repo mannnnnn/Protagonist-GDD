@@ -767,6 +767,7 @@
     <sprites name="spells">
       <sprite>sprites\spr_searSpell</sprite>
       <sprite>sprites\spr_seaSpell</sprite>
+      <sprite>sprites\spr_arcSpell</sprite>
       <sprite>sprites\spr_catSpell</sprite>
       <sprite>sprites\spr_tearSpell</sprite>
       <sprite>sprites\spr_rateSpell</sprite>
@@ -1087,6 +1088,7 @@
     <script>scripts\createEarthEffect.gml</script>
     <scripts name="particles">
       <script>scripts\createParticleTypeSeaBack.gml</script>
+      <script>scripts\createParticleTypeArc.gml</script>
       <script>scripts\createParticleTypeDust.gml</script>
       <script>scripts\createParticleTypeSearBack.gml</script>
       <script>scripts\createParticleTypeJungle.gml</script>
@@ -1366,6 +1368,7 @@
       <object>objects\obj_earthEffect</object>
       <object>objects\obj_seatSpell</object>
       <object>objects\obj_seaSpell</object>
+      <object>objects\obj_arcSpell</object>
       <object>objects\obj_searSpell</object>
       <object>objects\obj_catSpell</object>
       <object>objects\obj_tearSpell</object>
