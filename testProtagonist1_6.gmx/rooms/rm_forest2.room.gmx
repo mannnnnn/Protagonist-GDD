@@ -65,6 +65,12 @@
     <instance objName="obj_jungleParticleSolid" x="64" y="160" name="inst_A5F26F44" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_jungleParticleSolid" x="832" y="160" name="inst_133835DC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_triggerDialogueAuto" x="256" y="256" name="inst_D6965D3E" locked="0" code="script = &quot;jungle2.protd&quot;;&#xA;activeTracker = &quot;jungle2&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_rock5" x="160" y="352" name="inst_887CB780" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_rock6" x="224" y="160" name="inst_93892F97" locked="0" code="" scaleX="1.41025638580322" scaleY="1.55172419548035" colour="4294967295" rotation="0"/>
+    <instance objName="obj_rockM1" x="544" y="192" name="inst_C83FB094" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_rockM2" x="704" y="224" name="inst_43BD47FF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_rockM3" x="800" y="320" name="inst_06568C0B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_rockM4" x="224" y="448" name="inst_3E342A4A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>
