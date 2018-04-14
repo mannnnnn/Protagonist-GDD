@@ -51,8 +51,8 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="obj_statLion" x="576" y="160" name="inst_38F14412" locked="0" code="dustBunny = true;&#xA;" scaleX="1.23076927661896" scaleY="1.36170208454132" colour="4294967295" rotation="0"/>
-    <instance objName="obj_lockTree" x="128" y="0" name="inst_6008358A" locked="0" code="dustBunny = true;&#xA;" scaleX="1.174311876297" scaleY="1.20754718780518" colour="4294967295" rotation="0"/>
+    <instance objName="obj_statLion" x="576" y="96" name="inst_38F14412" locked="0" code="dustBunny = true;" scaleX="1.30769228935242" scaleY="1.34408605098724" colour="4294967295" rotation="0"/>
+    <instance objName="obj_lockTree" x="96" y="-96" name="inst_6008358A" locked="0" code="dustBunny = true;&#xA;" scaleX="1.47000002861023" scaleY="1.56981134414673" colour="4294967295" rotation="0"/>
     <instance objName="obj_jungleParticleSolid" x="896" y="448" name="inst_C11CDE3D" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="obj_jungleParticleSolid" x="896" y="160" name="inst_8C5DB8DF" locked="0" code="" scaleX="1" scaleY="2.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_jungleParticleSolid" x="832" y="512" name="inst_E6EFC8A9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -65,6 +65,8 @@
     <instance objName="obj_jungleParticleSolid" x="832" y="160" name="inst_C149C173" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_apolloPlaying" x="32" y="320" name="inst_ACAF840D" locked="0" code="" scaleX="0.829015552997589" scaleY="0.842105269432068" colour="4294967295" rotation="0"/>
     <instance objName="obj_invisibleWall" x="32" y="320" name="inst_E4EF6BC2" locked="0" code="activeTracker = &quot;jungle6&quot;;&#xA;value = true;&#xA;" scaleX="0.5" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="obj_rock2" x="416" y="160" name="inst_112FBBC3" locked="0" code="dustBunny = true;&#xA;" scaleX="0.82051283121109" scaleY="1.1034482717514" colour="4294967295" rotation="0"/>
+    <instance objName="obj_rock3" x="544" y="416" name="inst_D09804BE" locked="0" code="dustBunny = true;&#xA;" scaleX="1.53846156597137" scaleY="2.10344839096069" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>
