@@ -775,6 +775,7 @@
       <sprite>sprites\spr_tearSpell</sprite>
       <sprite>sprites\spr_rateSpell</sprite>
       <sprite>sprites\spr_ratSpell</sprite>
+      <sprite>sprites\spr_sedateSpell</sprite>
     </sprites>
     <sprites name="buttons">
       <sprite>sprites\spr_buttonfill</sprite>
@@ -1377,6 +1378,7 @@
       <object>objects\obj_aceSpell</object>
       <object>objects\obj_searSpell</object>
       <object>objects\obj_catSpell</object>
+      <object>objects\obj_sedateSpell</object>
       <object>objects\obj_tearSpell</object>
       <object>objects\obj_dialogueSpell</object>
       <object>objects\obj_testSpell</object>

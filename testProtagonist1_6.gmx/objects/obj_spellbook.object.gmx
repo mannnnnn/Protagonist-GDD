@@ -154,6 +154,7 @@ createSpell("arc", obj_arcSpell);
 createSpell("ace", obj_aceSpell);
 createSpell("card", obj_cardSpell);
 createSpell("sad", obj_sadSpell);
+createSpell("sedate", obj_sedateSpell);
 </string>
           </argument>
         </arguments>
