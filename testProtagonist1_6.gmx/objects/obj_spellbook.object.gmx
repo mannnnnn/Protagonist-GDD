@@ -187,6 +187,10 @@ graphic[? "seed"] = 5;
 graphic[? "arc"] = 6;
 graphic[? "rate"] = 7;
 graphic[? "rat"] = 8;
+graphic[? "ace"] = 9;
+graphic[? "card"] = 10;
+graphic[? "sad"] = 11;
+graphic[? "sedate"] = 12;
 
 </string>
           </argument>

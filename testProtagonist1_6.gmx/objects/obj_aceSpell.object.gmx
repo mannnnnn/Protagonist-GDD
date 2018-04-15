@@ -149,7 +149,14 @@ repeat(10)
 
 combatEndCast(targetX, targetY, action);
 combatLastCast(targetX, targetY, action);
+
+if (5 == irandom_range(1, 32)){
+combatDamage(targetX, targetY, 200);
+}
+else{
 combatDamage(targetX, targetY, 1);
+}
+
 instance_destroy();
 </string>
           </argument>
