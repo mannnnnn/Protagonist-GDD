@@ -28,9 +28,17 @@ with Apollo_swing
 
 Ap: "Yeah-ha-hah! Way to go little mortal! I knew you could do it!"
 P: "It was actually an 'f', not a 'u'"
+show Ap spr_talkApolloAnnoy
+with nothing
+//
+
 Ap: "Hey watch your language. This game doesn't allow swearing."
 Ap: "Hades and I have been trying to fix that for years."
 P: "You and Hades hang out?"
+show Ap spr_talkApollo
+with nothing
+//
+
 Ap: "Aw yeah, Hades is great."
 Ap: "Hades told me all about this place so I could test my wicked intellect on that Sphinxx's riddle."
 P: "About that, maybe we could try to find a different way to-"

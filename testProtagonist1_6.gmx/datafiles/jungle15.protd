@@ -35,25 +35,44 @@ Ap: "Hey kid?"
 P: "Yeah?"
 Ap: "What were those letters again?"
 P: "We got a 'l', 'f', 'h', and an 'o'."
+show Ap spr_talkApolloAnnoy
+with nothing
+//
 Ap: "Hey yeah, I don't think those fit together."
 Ap: "lfho, lfoh, lofh, olfh, fhol, fhlo..."
 P: "Those don't sound like words."
 Ap: "Are you kidding me?! I can't believe this."
 Ap: "Another dead end."
+show Ap spr_talkApollo
+with nothing
+//
 Ap: "...alright kid, new strategy."
 P: "Stop looking for the nonexistent riddle?" 
 Ap: "Better."
 Ap: "You're going to use your newly founded word-slinging powers to go beat up the Sphinxx."
 P: "I'm going to what?"
+show Ap spr_talkApolloAnnoy
+with nothing
+//
 Ap: "Hey, you're the best at what you do."
+show Ap spr_talkApollo
+with nothing
+//
+
 Ap: "And apparently what you do is explode cats for nothing but your own selfish desires."
 P: "I was doing this to help!"
 Ap: "Pshaw, come on and drop the act. You're the Protagonist."
 Ap: "Beating up stuff and solving puzzles is your job."
 P: "Look, I just want to get out of here to-"
+show Ap spr_talkApolloAnnoy
+with nothing
+//
 Ap: "To what? Beat up more monsters and solve more puzzles?"
 Ap: "Find the storyline which you already abandoned?"
 Ap: "Hey kid, here's a newsflash, you're predictable."
+show Ap spr_talkApollo
+with nothing
+//
 Ap: "I'll meet you outside where the Sphinxx is."
 
 if (HeQual || ArQual)

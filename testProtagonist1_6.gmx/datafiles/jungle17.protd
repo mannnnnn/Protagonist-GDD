@@ -80,6 +80,9 @@ show Ap spr_talkApollo
 with apollo_swing
 
 P: "I don't feel lucky, why is the Sphinxx a scardey cat now?"
+show Ap spr_talkApolloAnnoy
+with nothing
+//
 Ap: "Ducks are a bit of a sore topic for the errors in the game."
 Ap: "They sort of hold jurisdiction over-"
 Ap: "Everything and everyone."
@@ -97,9 +100,16 @@ with Hades_swing
 
 H: "Stop expositing and get back in there."
 P: "Fight the Sphinxx?"
+show H spr_talkHadesHappy
+with nothing
+//
+
 H: "Just patched up the file. It should be up and ready to fight now."
 P: "That's concerning."
 H: "Not for me it's not. Go get em' tiger."
+show H spr_talkHades
+with nothing
+//
 
 
 //HIDE PROTAGONIST
@@ -134,7 +144,7 @@ wait 100
 text side Ap left
 
 //SHOW APOLLO
-show Ap spr_talkApollo
+show Ap spr_talkApolloAnnoy
 with Apollo_swing
 //
 
@@ -151,9 +161,6 @@ H: "Believe it or not I don't really enjoy your company."
 Ap: "Oh Hades! Say it isn't so!"
 H: "Protagonist, for once can you actually jump into action."
 H: "I've still got money riding on this fight, and I don't like a disobedient error."
-P: "I don't really want to get involved here."
-H: "Well that's too bad! You've decided to stick your nose into everything else!"
-H: "Your nonexistent, stubborn little nose!"
 H: "You couldn't just go home, couldn't just leave us to our own lives."
 H: "You want to play the game, Protagonist? Let's play!"
 
@@ -171,6 +178,10 @@ Sp: "menu_hades: OVERRIDE"
 Sp: "menu_hades: ATTACK"
 Ap: "Uh oh."
 Ap: "I didn't realize we could do that."
+show Ap spr_talkApollo
+with nothing
+//
+
 Ap: "Well kid, you knocked the Sphinxx's sock off."
 Ap: "Time to put on a show."
 

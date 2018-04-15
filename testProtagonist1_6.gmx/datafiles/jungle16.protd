@@ -15,7 +15,7 @@ character Ap
 }
 character H
 {
-	name = "Hades Who's Surprisingly Happy"
+	name = "Hades"
 	side = right
 }
 
@@ -36,7 +36,14 @@ Ap: "Being your teacher brought me a lot of joy, but now it's time for you to go
 Ap: "And it doesn't look like you're going to cut it, so I made a friendly wager."
 Ap: "If you win, I have the honor of having taught a meat-brained mortal how to trump the incarnation of nuisances."
 Ap: "And in my opinion, that's a little more rewarding than solving some dumb riddle."
+show Ap spr_talkApolloAnnoy
+with nothing
+//
 Ap: "Also I don't want to spend a century here."
+show Ap spr_talkApollo
+with nothing
+//
+
 Ap: "But hold on, this man isn't just clever, he's handsome."
 Ap: "Because if you lose, then a special someone pays me ten bitmas. It's win-win for me."
 
@@ -50,6 +57,10 @@ with Hades_swing
 
 H: "He caught up with me, I had no choice."
 H: "Curse you for bringing me back here."
+show H spr_talkHadesHappy
+with nothing
+//
+
 H: "But, the deal is a win-win for me too."
 H: "You die, and I lose money but I get to watch your spirit break. You live, and at least I have a few coins to ease my suffering."
  
@@ -112,7 +123,14 @@ P: "Hades wants me in the box, so I don't want to go in the box."
 Ap: "Hey now, don't go disobeying Hades on everything."
 Ap: "Hades just wants you gone forever."
 P: "I don't want to be gone forever!"
+show Ap spr_talkApolloAnnoy
+with nothing
+//
 Ap: "Oh right. Don't listen to Hades then."
+show Ap spr_talkApollo
+with nothing
+//
+
 Ap: "But don't worry, I'm just gonna tweak the box a little."
 Ap: "See I made these cool stickers with faces on them."
 Ap: "You can use these to summon the corresponding gods if you want to chat with them."

@@ -30,6 +30,10 @@ Ap: "Solved it!"
 P: "What is it?"
 Ap: "Go on and figure it out! I believe in you!"
 P: "There's multiple 'u's I don't know which one to believe is the error."
+show Ap spr_talkApolloAnnoy
+with nothing
+//
+
 Ap: "Oh boy, I'm going to pull up a chair."
 
 hide P

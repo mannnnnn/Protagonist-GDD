@@ -33,9 +33,17 @@ Ap: "You bet it is! The riddle is bound to be there!"
 P: "The riddle? But it's gone."
 Ap: "Oh you poor little kitten, why do you think I've been having you solve these little puzzles?"
 P: "Because it's a good learning experience and a lighthearted tutorial?"
+show Ap spr_talkApolloAnnoy
+with nothing
+//
+
 Ap: "What? No, screw tutorials. These little cats stole the Sphinxx's riddle."
 Ap: "Sure, Hades claimed that the riddle never got coded into the game."
 Ap: "Sure, Hades said this map was abandoned in development, but you know what I say?"
+show Ap spr_talkApollo
+with nothing
+//
+
 Ap: "I say Hades is challenging me."
 P: "Hades doesn't seem to care that you exist."
 Ap: "What? No! Hades and I are best buds!"

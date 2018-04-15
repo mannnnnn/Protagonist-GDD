@@ -63,9 +63,16 @@ with Hades_swing
 show Ap spr_talkApollo
 with Apollo_swing
 //
+show Ap spr_talkApolloAnnoy
+with nothing
+//
 
 Ap: "Hades! Don't ignore me!"
 Ap: "Aw."
+
+show Ap spr_talkApollo
+with nothing
+//
 Ap: "You know, I'd never do those things to you."
 Ap: "Mostly because I forgot what you said."
 P: "Ok buddy, thanks."

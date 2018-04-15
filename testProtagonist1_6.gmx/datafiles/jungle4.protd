@@ -119,10 +119,21 @@ P: "Whoa, what?! How is that fair?"
 H: "It's not. You're not supposed to be here."
 H: "Even in a world centered around you, you've managed to find a place where you cannot progress."
 P: "You're the Narrator! Don't you have the riddle? Somewhere?"
+
+show H spr_talkHadesHappy
+with nothing
+//
+
+
 H: "Ah yes, here we are."
 H: "The riddle is as follows:"
 H: "Error: SyntaxError: Unexpected token"
 H: "I hope that helps."
+
+show H spr_talkHades
+with nothing
+//
+
 P: "So I have to solve a riddle,"
 P: "That doesn't exist,"
 P: "Or I'm going to be trapped here forever?"

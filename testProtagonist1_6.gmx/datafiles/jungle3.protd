@@ -15,12 +15,18 @@ character H
 }
 
 
-//BEGIN DIALOGUE
-show H spr_talkHades
+//change expression
+show H spr_talkHadesHappy
 with Hades_swing
 //
 
 H: "Hah! Finally fixed that pesky namecard."
+
+//change expression
+show H spr_talkHades
+with nothing
+//
+
 H: "So I've noticed that you're still here."
 H: "Did you know that I'm hardcoded to follow you around?"
 H: "Cards on the table, I am literally your menu."

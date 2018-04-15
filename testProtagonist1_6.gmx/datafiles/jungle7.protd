@@ -33,9 +33,17 @@ show P spr_defaultSpeak
 //
 
 P: "What's that thing over there?"
+show Ap spr_talkApolloAnnoy
+with nothing
+//
+
 Ap: "Hey, hey, you're in the presence of a god, pay attention."
 P: "I thought you were a video game character."
 Ap: "Pay attention or I'll smite you."
+show Ap spr_talkApollo
+with nothing
+//
+
 Ap: "We should start solving the riddle by solving the real puzzle of the forest."
 Ap: "These cats."
 P: "I was just asking about them-"
@@ -48,13 +56,27 @@ Ap: "They never talk."
 play meow snd_meow
 wait 30
 
+show Ap spr_talkApolloAnnoy
+with nothing
+//
 Ap: "Huh."
 Ap: "Alright well scratch that. Thanks cat for making me look like an idiot."
 Ap: "They've always ignored me before"
 P: "It's looking at us."
+show Ap spr_talkApollo
+with nothing
+//
 Ap: "Of course it is."
 Ap: "What creature wouldn't be captivated by my beautiful body and your...grey...?"
+show Ap spr_talkApolloAnnoy
+with nothing
+//
+
 Ap: "Yeah, if you're going to be my wingman, maybe we should get you a face."
+show Ap spr_talkApollo
+with nothing
+//
+
 Ap: "A good one, but not as good as mine."
 
 //
@@ -83,6 +105,10 @@ H: "Yes, yes, alright. The Syntax Errors aren't here to give you a puzzle. They 
 P: "How do we get around them then?"
 H: "That's for you to figure out."
 P: "You haven't been useful at all, then."
+show H spr_talkHadesHappy
+with nothing
+//
+
 H: "Thank god. I was afraid I was helping you for a moment there."
 
 
@@ -101,12 +127,26 @@ with Apollo_swing
 Ap: "Hey Hades!"
 Ap: "Hades!"
 Ap: "Wait up!"
+show Ap spr_talkApolloAnnoy
+with nothing
+//
 Ap: "...aw."
 Ap: "I haven't seen Hades in forever!"
+show Ap spr_talkApollo
+with nothing
+//
+
 Ap: "Hades! Come back! We can go grab lunch!" 
 P: "Hey Apollo, can you help me out?"
+show Ap spr_talkApolloAnnoy
+with nothing
+//
 Ap: "Oh right, you wanted to do things."
 P: "Yeah, help me figure out what to do with this cat... er, Syntax Error."
+show Ap spr_talkApollo
+with nothing
+//
+
 Ap: "Well, syntax is the formation of sentences, yes? Does that mean-"
 //*cat noise*
 Ap:"OH! OH! OH! Did you see THAT?!"
@@ -129,6 +169,10 @@ Ap: "I'm gonna be the best dang language teacher you've ever seen."
 Ap: "Mostly for the cat's sake though, not yours."
 P: "Well meow I'm just feline underappreciated."
 Ap: "I never appreciated you in the first place."
+show Ap spr_talkApolloAnnoy
+with nothing
+//
+
 Ap: "Hold on, was that a pun?"
 
 call hadesSpecialHelpingExtravaganza(1)

@@ -693,9 +693,11 @@
       <sprite>sprites\spr_talkAthena</sprite>
       <sprite>sprites\spr_talkAthenaLite</sprite>
       <sprite>sprites\spr_talkApollo</sprite>
+      <sprite>sprites\spr_talkApolloAnnoy</sprite>
       <sprite>sprites\spr_talkApolloLite</sprite>
       <sprite>sprites\spr_talkHades</sprite>
       <sprite>sprites\spr_talkHadesGlitch</sprite>
+      <sprite>sprites\spr_talkHadesHappy</sprite>
       <sprite>sprites\spr_talkHadesLite</sprite>
       <sprite>sprites\spr_talkSphinx</sprite>
       <sprite>sprites\spr_talkArtemis</sprite>

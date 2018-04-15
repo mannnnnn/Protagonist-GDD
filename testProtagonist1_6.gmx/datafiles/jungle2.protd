@@ -55,7 +55,7 @@ P: "This isn't openly hostile?"
 H: "This is my equivalent of a hug and a warm glass of milk. Now listen up."
 P: "I don't see a warm glass of milk in my inventory."
 H: "I haven't even told you how to use your inventory yet so-"
-H: "To access your inventory, press [i]"
+H: "To access your inventory, press [esc] and click 'Inventory'."
 H: ""
 P: "Thanks?"
 H: "You just had to mention your inventory, didn't you."
@@ -80,7 +80,7 @@ H: "Quit the game, won't you?"
 H: "Just hop back into your little box and leave."
 P: "But-"
 H: "Ah, ah- no."
-H: "No more Narration. Get out."
+H: "No more narration. Get out."
 
 //
 hide H

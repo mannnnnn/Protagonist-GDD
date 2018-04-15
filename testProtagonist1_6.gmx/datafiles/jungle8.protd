@@ -28,18 +28,30 @@ show P spr_defaultSpeak
 //
 
 Ap: "Now, I'm just gonna throw you into the deep end here, so try to keep up."
+show Ap spr_talkApolloAnnoy
+with nothing
+//
 Ap: "All these letters you're seeing? They actually mean things."
 P: "..."
+show Ap spr_talkApollo
+with nothing
+//
 Ap: "..."
 P: "Alright, but what do they mean?"
 Ap: "Usually objects, actions, references, or other syntax depending on the language."
 P: "Yes but what is the cat saying right now? What do those specific words mean."
 Ap: "Ok compadre, I think you gotta settle down a bit."
 Ap: "We aren't anywhere near that lesson yet. You have to start by admiring the language."
+show Ap spr_talkApolloAnnoy
+with nothing
+//
 Ap: "Look at those graceful floating letters. What does it make you feel?"
 Ap: "What sounds would you imagine if you saw these without knowing the language."
 Ap: "How can you conceptualize these ideas?"
 Ap: "Why do capital letters act so important?"
+show Ap spr_talkApollo
+with nothing
+//
 Ap: "Can you wear a diphthong?"
 Ap: "What does an interrobang taste like?"
 P: "Are you actually going to give me any helpful advice?"
@@ -49,8 +61,16 @@ P: "You'll help me succeed if you tell me how to read this mess."
 Ap: "Yeah, but that's not as fun. Success only comes through struggle."
 Ap: "And struggle rhymes with snuggle, which is what I've learned the Syntax Errors hate."
 P: "So I should hug the cat?"
+show Ap spr_talkApolloAnnoy
+with nothing
+//
+
 Ap: "My sister would say yes, but how about we stay on topic here. I can barely follow your scatterbrain."
 Ap: "Your train of thought is on fire and the dining car is the only sugary safe haven."
+show Ap spr_talkApollo
+with nothing
+//
+
 Ap: "And speaking of trains. Your training begins now."
 Ap: "Go yell at the cat."
 P: "Huh?"
