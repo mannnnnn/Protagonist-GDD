@@ -130,6 +130,7 @@ if (ds_map_exists(obj_dialogue.characters, channel))
     talkFocus = true;
     initScaleX = setNumber(initScaleX, scaleX);
     initScaleY = setNumber(initScaleY, scaleY);
+    image = clamp(image, 0, 1);
     
     var char = obj_dialogue.characters[? channel];
     // check if person side matches
@@ -168,7 +169,7 @@ if (ds_map_exists(obj_dialogue.characters, channel))
         if (talkTimer &gt; talkDuration)
         {
             talkTimer = 0;
-            image = !image;
+            image = !clamp(image, 0, 1);
         }
     }
     else

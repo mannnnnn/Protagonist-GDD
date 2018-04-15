@@ -19,6 +19,16 @@ var ang = angle;
 var alp = alpha;
 var sid = side;
 
+// preserve talk vars always
+var oldtalkTimer = talkTimer;
+var oldtalkDuration = talkDuration;
+var oldtalkFocus = talkFocus;
+var oldtalkFocusDuration = talkFocusDuration;
+var oldtalkFocusGray = talkFocusGray;
+var oldtalkFocusScale = talkFocusScale;
+var oldinitScaleX = initScaleX;
+var oldinitScaleY = initScaleY;
+
 // change
 instance_change(obj, true);
 
@@ -53,4 +63,15 @@ if (preserveSide)
 {
     side = sid;
 }
+
+// preserve talk vars always
+talkTimer = oldtalkTimer;
+talkDuration = oldtalkDuration;
+talkFocus = oldtalkFocus;
+talkFocusDuration = oldtalkFocusDuration;
+talkFocusGray = oldtalkFocusGray;
+talkFocusScale = oldtalkFocusScale;
+initScaleX = oldinitScaleX;
+initScaleY = oldinitScaleY;
+
 return id;
