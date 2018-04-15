@@ -213,7 +213,7 @@
     <option_androidtv_use_test_ads>false</option_androidtv_use_test_ads>
     <option_argumenterrors>True</option_argumenterrors>
     <option_audioGroupCount>1</option_audioGroupCount>
-    <option_author></option_author>
+    <option_author>Protagonist Development Team GDD</option_author>
     <option_backimage>nil</option_backimage>
     <option_borderless>True</option_borderless>
     <option_changed>false</option_changed>
@@ -663,7 +663,7 @@
     <option_xbone_ratings>"&lt;mx:Ratings Category=""game""&gt;","&lt;!-- Insert your title ratings here --&gt;","&lt;!-- See ""Title Ratings for Xbox One"" white paper --&gt;","&lt;!-- from developer.xboxlive.com for details --&gt;",&lt;/mx:Ratings&gt;</option_xbone_ratings>
     <option_xbone_require_audio_recording>False</option_xbone_require_audio_recording>
     <option_xbone_require_game_chat>False</option_xbone_require_game_chat>
-    <option_xbone_require_xbox_live>0</option_xbone_require_xbox_live>
+    <option_xbone_require_xbox_live>True</option_xbone_require_xbox_live>
     <option_xbone_revision_version>0</option_xbone_revision_version>
     <option_xbone_scale>-1</option_xbone_scale>
     <option_xbone_service_config_id></option_xbone_service_config_id>
