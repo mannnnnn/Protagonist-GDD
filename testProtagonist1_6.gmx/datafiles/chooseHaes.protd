@@ -34,20 +34,33 @@ if (!HsIntro)
 	P: "Hey can you hear me?"
 	?: "Of course I can. I always can."
 	P:" So you're just ignoring me?"
+
+show Hs spr_talkHaesHappy
+with nothing
+
 	?: "Ooh, Protagonist must be having a spat with Hades again. They never did get along well."
 	P: "Who are you?"
 	Hs: "I'm Haes, thanks for asking. Master blacksmith, dragon creator, and invisible to the eyes of the world."
 	P: "Well I don't have eyes... but I can see you."
+
+show Hs spr_talkHaes
+with nothing
+
 	Hs: "That almost sounded like a direct response to me."
 	P: "It was a direct response to you. That's how most conversations work."
 	Hs: ""
 	P: ""
-	Hs: "heh"
+show Hs spr_talkHaesHappy
+with nothing
+
+	Hs: "heh."
 	Hs: "hah okay, Protagonist."
 	Hs: "What's my name?"
-	P: "I don't know, you haven't said it yet."
-	Hs: "My name is Haes, now what's my name."
 	P: "Haes?"
+
+show Hs spr_talkHaes
+with nothing
+
 	Hs: "Okay, that was weird."
 	Hs: "Protagonist, what are you holding in your inventory right now?"
 	P: "A whole bunch of dust bunnies, I think. I just sort of found them here."
@@ -62,8 +75,16 @@ if (!HsIntro)
 	P: "Apollo let me in. He said I should talk to you."
 	Hs: "Ah, so you somehow got to the discarded game files. That would explain it."
 	Hs: "Allow me to introduce myself properly, I suppose."
+
+show Hs spr_talkHaesHappy
+with nothing
+
 	Hs: "I've been serving as your crafting menu for the past few years."
 	P: "I have a crafting menu?"
+
+show Hs spr_talkHaes
+with nothing
+
 	Hs: "Well you would have unlocked it if you had been playing the game. Since you're here though, and out of the files..."
 	Hs: "My guess is you've somehow lost all the preset unlocks of the game, including your skills, your systems, and evidently your appearance."
 	Hs: "Did you even choose your character?"
@@ -75,17 +96,33 @@ if (!HsIntro)
 	P: "They didn't even give me a face!"
 	Hs: "Well we can fix that."
 	Hs: "Tell you what, kid... I've been in your shoes before."
+
+show Hs spr_talkHaesHappy
+with nothing
+
 	Hs: "How about I help you out."
 	P: "Do you have a spare face around here somewhere?"
+
+show Hs spr_talkHaes
+with nothing
+
 	Hs: "Yes, but that's beside the point."
 	Hs: "What you've done here, well it's kind of exceptional."
 	Hs: "You've got guts bypassing the game to come pester the gods in the scrapped game files."
+
+show Hs spr_talkHaesHappy
+with nothing
+
 	Hs: "But I'd reckon you were looking for something a bit...more."
 	P: "There's more?"
 	Hs: "There's always more, kid. There's always something to find, or forge, or forget."
 	Hs: "All you've gotta do is get your resources in order, and you can do anything."
 	Hs: "I bet you could even get out of the game altogether."
 	P: "Why would I want to do that?"
+
+show Hs spr_talkHaes
+with nothing
+
 	Hs: "That's your opinion. I'm just saying it's an option."
 	Hs: "And if you're interested-"
 	Hs: "I'll get you there, if you're willing to run a few errands for me."
@@ -124,6 +161,9 @@ else
 {
 	Hs: "Back again? You give some thought to it?"
 	P: "You can grant me...freedom?"
+show Hs spr_talkHaesHappy
+with nothing
+
 	Hs: "Maybe even a face too. I just need someone on the outside to start putting things in motion."
 	Hs: "You want to be that person?"
 	menu
@@ -131,6 +171,11 @@ else
 		"Yes. (By choosing Haes, you cannot choose any other help)"
 		{
 			Hs: "And there you have it."
+
+show Hs spr_talkHaes
+with nothing
+
+
 			Hs: "You're about to be mauled by the Sphinxx, right?"
 			P: "How do you know that? And no, I'm feeling good about my odds."
 			Hs: "I'm a system process like Hades, I get to follow you around everywhere, except I don't get to speak and in theory you never get to see me."
@@ -138,7 +183,15 @@ else
 			Hs: "And no, you're going to get creamed by that glorified Syntax Error."
 			Hs: "But not with my help."
 			P: "You're going to help me?"
+
+show Hs spr_talkHaesHappy
+with nothing
+
 			Hs: "You aren't going to be much use to me if you're dead."
+
+show Hs spr_talkHaes
+with nothing
+
 			Hs: "Sorry, that came out a bit grim, but it's true."
 			Hs: "You learned some magic from Apollo, right?"
 			P: "Yeah, I learned how to cast some spells."
@@ -161,6 +214,9 @@ else
 		}
 		"I have no idea what I'm doing."
 		{
+show Hs spr_talkHaes
+with nothing
+
 			Hs: "Yeah, I'm starting to piece that together."
 		}
 	}
