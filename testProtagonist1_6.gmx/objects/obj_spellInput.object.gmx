@@ -408,6 +408,11 @@ listW = (sprite_get_width(spr_Spells) * spellScale * ds_list_size(letters)) + (2
 listH = (sprite_get_height(spr_Spells) * spellScale * 1) + (2 * bordH);
 
 posX = getDisplayRoomWidth() - listW - 40;
+// for athena test, make room for the minimize button
+if (!checkCombatActive())
+{
+    posX -= 36;
+}
 posY = 8;
 
 draw_set_alpha(1);

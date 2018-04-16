@@ -142,6 +142,7 @@ if (exitable)
             else
             {
                 obj_jokeTestAth.state = CLOSING;
+                instance_create(0, 0, obj_getStabbed);
             }
         }
     }
@@ -149,6 +150,44 @@ if (exitable)
     {
         draw_set_alpha(1);   
         draw_sprite(spr_exitPuzzle, 0, getDisplayRoomWidth() - 32, 0);
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// draw minimize button on Athena test
+if (exitable &amp;&amp; !checkCombatActive())
+{
+    if (mouse_in_rect(getDisplayRoomWidth() - 68, 0, 32, 32))
+    {
+        draw_set_alpha(1);
+        draw_sprite(spr_exitPuzzle, 3, getDisplayRoomWidth() - 68, 0);
+        if (mouse_check_button_pressed(mb_left))
+        {
+            obj_jokeTestAth.state = CLOSING;
+        }
+    }
+    else
+    {
+        draw_set_alpha(1);   
+        draw_sprite(spr_exitPuzzle, 2, getDisplayRoomWidth() - 68, 0);
     }
 }
 </string>
