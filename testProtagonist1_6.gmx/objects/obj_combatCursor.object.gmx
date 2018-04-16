@@ -30,6 +30,10 @@ angle = 0;
 spd = -4;
 // exitable
 exitable = true;
+
+// apollo button
+apolloPress = false;
+apolloUsed = false;
 </string>
           </argument>
         </arguments>
@@ -145,6 +149,60 @@ if (exitable)
     {
         draw_set_alpha(1);   
         draw_sprite(spr_exitPuzzle, 0, getDisplayRoomWidth() - 32, 0);
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// draw apollo button if necessary
+if (checkFlag("Ap") &amp;&amp; exitable)
+{
+    var size = 96;
+    var abPosX = getDisplayRoomWidth() - size;
+    var abPosY = getDisplayRoomHeight() - size;
+    // if apollo not already used
+    if (!apolloUsed)
+    {
+        draw_sprite_stretched(spr_apolloButton, apolloPress, abPosX, abPosY, size, size);
+        // check for press
+        if (!mouse_in_rect(abPosX, abPosY, size, size))
+        {
+            apolloPress = false;
+        }
+        if (mouse_check_button_pressed(mb_left) &amp;&amp; mouse_in_rect(abPosX, abPosY, size, size))
+        {
+            apolloPress = true;
+        }
+        // released on the button
+        if (mouse_check_button_released(mb_left) &amp;&amp; apolloPress &amp;&amp; mouse_in_rect(abPosX, abPosY, size, size))
+        {
+            // apollo button was pressed
+            // create the apollo chariot
+            instance_create(0, 0, obj_apolloChariot);
+            apolloUsed = true;
+        }
+    }
+    // if already used, no press and draw gray button
+    else
+    {
+        draw_sprite_stretched_ext(spr_apolloButton, 0, abPosX, abPosY, size, size, c_dkgray, 1);
     }
 }
 </string>

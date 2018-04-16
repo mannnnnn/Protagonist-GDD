@@ -109,6 +109,10 @@ duration = 20;
             <string>/// check if the sphinx is dead
 if (instance_exists(obj_combatPuzzle) &amp;&amp; obj_combatPuzzle.enemyHP &lt;= 0)
 {
+    with (obj_spellString)
+    {
+        instance_destroy();
+    }
     with (obj_sphinxAttackLetter)
     {
         var col = merge_color(make_color_rgb(200, 228, 7), c_red, color_get_saturation(image_blend) / 255.0);

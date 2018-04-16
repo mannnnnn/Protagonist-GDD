@@ -814,6 +814,8 @@
     <sprite>sprites\spr_biggerBun</sprite>
     <sprite>sprites\spr_turnInButton</sprite>
     <sprite>sprites\spr_help</sprite>
+    <sprite>sprites\spr_apolloButton</sprite>
+    <sprite>sprites\spr_apolloChariot</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="map">
@@ -1387,6 +1389,7 @@
       <object>objects\obj_rateSpell</object>
       <object>objects\obj_rateSpellStar</object>
       <object>objects\obj_ratSpell</object>
+      <object>objects\obj_apolloChariot</object>
     </objects>
     <objects name="map">
       <objects name="interactables">
