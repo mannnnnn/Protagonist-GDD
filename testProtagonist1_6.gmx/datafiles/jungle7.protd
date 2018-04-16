@@ -20,6 +20,9 @@ character H
 	side = right
 }
 
+create stepper intro obj_synIntro
+next intro
+next intro
 
 //BEGIN DIALOGUE
 show Ap spr_talkApollo
@@ -36,6 +39,7 @@ P: "What's that thing over there?"
 show Ap spr_talkApolloAnnoy
 with nothing
 //
+
 
 Ap: "Hey, hey, you're in the presence of a god, pay attention."
 P: "I thought you were a video game character."
@@ -148,12 +152,14 @@ with nothing
 //
 
 Ap: "Well, syntax is the formation of sentences, yes? Does that mean-"
-//*cat noise*
-Ap:"OH! OH! OH! Did you see THAT?!"
-P: "The letters?"
-Ap: "The cat is speaking! It's speaking in magic!"
+
+play meow snd_meow
+next intro
+
+Ap: "Whoa! Did you see that!? Those letters?!"
+Ap: "This cat can speak code! It's a magic cat!"
 Ap: "What the heckidodah?! I spent years learning how to do that!"
-Ap: "I'm so proud of this cat! It must have taken it centuries to learn to bend the universe to its whim!"
+Ap: "I'm so proud of it! It must have taken this poor widdle kitty centuries to learn to bend the universe to its whim!"
 Ap: "I'm gonna go pet it."
 P: "Is it dangerous?"
 Ap: "Oh, undoubtedly."

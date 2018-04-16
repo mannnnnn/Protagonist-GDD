@@ -589,6 +589,7 @@
   <sprites name="sprites">
     <sprites name="SceneSprites">
       <sprite>sprites\spr_greekScenes</sprite>
+      <sprite>sprites\spr_syntaxScenes</sprite>
       <sprite>sprites\spr_BlastOff</sprite>
       <sprite>sprites\spr_silhouettes</sprite>
       <sprite>sprites\spr_fastScenes</sprite>
@@ -1311,6 +1312,7 @@
     </objects>
     <objects name="scriptedTriggerObjects">
       <object>objects\obj_intro</object>
+      <object>objects\obj_synIntro</object>
       <object>objects\obj_ffintro</object>
       <object>objects\obj_launch</object>
       <object>objects\obj_triggerIntro</object>
