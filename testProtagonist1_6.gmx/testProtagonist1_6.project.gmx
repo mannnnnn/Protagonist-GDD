@@ -703,6 +703,7 @@
       <sprite>sprites\spr_talkHadesLite</sprite>
       <sprite>sprites\spr_talkSphinx</sprite>
       <sprite>sprites\spr_talkArtemis</sprite>
+      <sprite>sprites\spr_talkArtemisHappy</sprite>
       <sprite>sprites\spr_talkArtemisLite</sprite>
       <sprite>sprites\spr_talkHaes</sprite>
       <sprite>sprites\spr_talkHaesLite</sprite>

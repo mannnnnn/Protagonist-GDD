@@ -43,7 +43,7 @@ if (!ArIntro)
 	P: "Well I just wanted to-"
 	P: "I mean I think I just-"
 	P: "I think I ate one."
-	Ar: "You… ate one?"
+	Ar: "You ate one?"
 	Ar: "You picked a ball of sentient dust off the ground and you ate it?!"
 	P: "Is it inside me now? I don't feel good about this."
 	P: "I really didn't mean to do this. I just was pressing buttons and it seemed like the right thing to do."
@@ -54,6 +54,10 @@ if (!ArIntro)
 	Ar: "Alright, okay."
 	Ar: "Okay alright well now your soul has been attuned with the spirit of the dust bunny. You two will now live in tandem."
 	P: "What."
+
+show Ar spr_talkArtemisHappy
+with nothing
+
 	Ar: "You ate the dang thing. What did you think was going to happen?"
 	P: "I thought it'd boost my attack stat, or something."
 	Ar: "No, you just ate a magical creature. Don't worry, this is a good thing though. Now the dust bunny can be a part of the Protagonist."
@@ -61,15 +65,30 @@ if (!ArIntro)
 	Ar: "Hey, don't worry about it, it's going to be kinda fun!"
 	Ar: "In fact, I could teach you how to wield the power of the rabbit."
 	P: "The power of the what now?"
+
+show Ar spr_talkArtemis
+with nothing
+
 	Ar: "Look, I know you know my brother Apollo, and he let me in on what's happening."
 	Ar: "The Sphinxx and I got a history, you see, and I'm not too fond of that thing."
 	Ar: "The real sphinx was a masterpiece, one of my favorite little beasties. I don't know where it went, but I miss it."
 	Ar: "And I'd like to see this imposter punished."
 	Ar: "But you are far too puny to pull that off."
 	P: "Thanks."
+
+show Ar spr_talkArtemisHappy
+with nothing
+
 	Ar: "Hey, I'm not trying to be rude. I'm just saying you've been running around yelling at cats all day and calling yourself a puzzlemaster."
 	P: "I've also been eating piles of dust off the ground."
+show Ar spr_talkArtemis
+with nothing
+
 	Ar: "Yeah, that's my point."
+
+show Ar spr_talkArtemisHappy
+with nothing
+
 	Ar: "I'll help you take down the Sphinxx by teaching you how to use the creatures around here to your advantage."
 	Ar: "You don't have to eat mystical deities to get their powers you know, you can just talk to them."
 	Ar: "And you can harness that power to use with your own magic. Practically any attribute will work."
@@ -77,15 +96,34 @@ if (!ArIntro)
 	Ar: "The song of the birds."
 	Ar: "The fire-breathing of the dust bunnies-"
 	P: "The what!?"
+show Ar spr_talkArtemis
+with nothing
+
 	Ar: "Yeah those little buggers can be a bit of a handful."
+
+show Ar spr_talkArtemisHappy
+with nothing
+
 	Ar: "But I think you could probably get the hang of it."
+show Ar spr_talkArtemis
+with nothing
+
 	Ar: "Besides, you've already eaten it, you might as well appease its vengeful spirit."
-	P: "O-oh…"
+
+	P: "O-oh."
+
+show Ar spr_talkArtemisHappy
+with nothing
+
 	Ar: "Hah I'm just pulling your leg!"
 	Ar: "A dust bunny spirit could consume your essence if it wanted to. The fact that it hasn't must mean that it likes you!"
 	P: "Was that supposed to make me feel better?"
 	Ar: "Take my help or not, I don't care. I'm just saying, you've got the potential to pet a lot of cute fuzzy animals."
 	P: "Is that a skill?"
+
+show Ar spr_talkArtemis
+with nothing
+
 	Ar: "I guess that's for you to decide."
 	Ar: "But in any case, make that decision quickly. I've got places to be."
 	menu
@@ -104,6 +142,9 @@ if (!ArIntro)
 				"Alright, let's do it."
 				{
 					label accept
+show Ar spr_talkArtemisHappy
+with nothing
+
 					Ar: "Wow, just like that, huh?"
 					Ar: "Well then, maybe you aren't so helpless afterall. You can at least think on your feet."
 					Ar: "Maybe we can have some fun, after all."
@@ -111,7 +152,13 @@ if (!ArIntro)
 					P: "He gave me this weird book and told me to learn this magic language."
 					P: "I think he was using it as a diary before giving it to me."
 					P: "He talks a lot about cereal."
+show Ar spr_talkArtemis
+with nothing
+
 					Ar: "Yeah give me that, that's worthless."
+show Ar spr_talkArtemisHappy
+with nothing
+
 					Ar: "Try this."
 					//add item Wildlife Guide
 					P: "It's empty."
