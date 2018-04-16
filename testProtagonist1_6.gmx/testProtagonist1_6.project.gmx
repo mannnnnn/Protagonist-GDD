@@ -692,6 +692,7 @@
       <sprite>sprites\spr_syntaxSpeak</sprite>
       <sprite>sprites\spr_defaultSpeak</sprite>
       <sprite>sprites\spr_talkAthena</sprite>
+      <sprite>sprites\spr_stabAthena</sprite>
       <sprite>sprites\spr_talkAthenaLite</sprite>
       <sprite>sprites\spr_talkApollo</sprite>
       <sprite>sprites\spr_talkApolloAnnoy</sprite>

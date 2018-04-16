@@ -126,6 +126,9 @@ else
 
 label athenaTest
 {
+	show At spr_stabAthena
+	with athena_swing
+
 	testTaken = true
 	call hadesSpecialTestExtravaganza()
 	menu obj_jokeTestAth
