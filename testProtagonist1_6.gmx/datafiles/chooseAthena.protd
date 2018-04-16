@@ -126,6 +126,9 @@ else
 
 label athenaTest
 {
+	show At spr_stabAthena
+	with athena_swing
+
 	testTaken = true
 	call hadesSpecialTestExtravaganza()
 	menu obj_jokeTestAth
@@ -149,6 +152,10 @@ label athenaTest
 	At: "Well, mostly it was to catch me before I stabbed you."
 	At: "If you were just looking at the test then you wouldn't have seen me."
 	At: "And boy were you a sitting duck."
+
+ show At spr_talkAthena
+ with nothing
+
 	At: "But good job. I might spare you life today."
 	P: "Oh... yay."
 	At: "Here's the deal. I think you can help me out."
