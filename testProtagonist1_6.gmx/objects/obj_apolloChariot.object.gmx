@@ -26,8 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>/// apollo chariot that zooms by
-startPos = getDisplayRoomWidth() + sprite_width;
-endPos = -sprite_width;
+endPos = getDisplayRoomWidth() + sprite_width;
+startPos = -sprite_width;
 timer = 0;
 duration = 25;
 damage = 75;
@@ -35,7 +35,7 @@ damage = 75;
 // screen fade orange
 fadeTimer = 0;
 fadeDur = 10;
-alphaMax = 0.5;
+alphaMax = 0.1;
 
 state = OPENING;
 

@@ -178,7 +178,7 @@ if (checkFlag("Ap") &amp;&amp; exitable)
     var abPosX = getDisplayRoomWidth() - size;
     var abPosY = getDisplayRoomHeight() - size;
     // if apollo not already used
-    if (!apolloUsed)
+    if (!apolloUsed &amp;&amp; (obj_combatPuzzle.playerHP&lt;(obj_combatPuzzle.playerMaxHP/2)))
     {
         draw_sprite_stretched(spr_apolloButton, apolloPress, abPosX, abPosY, size, size);
         // check for press
