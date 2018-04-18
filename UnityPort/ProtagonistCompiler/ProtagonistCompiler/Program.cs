@@ -18,25 +18,16 @@ namespace ProtagonistCompiler
 
         static void m()
         {
-            Stopwatch stopwatch = new Stopwatch();
             Tokenizer tokenizer = new Tokenizer();
             List<Token> tokens = new List<Token>();
             Console.WriteLine("start.");
-            int n = 1000;
-            stopwatch.Start();
-            for (int i = 0; i < n; i++)
+            int n = 1;
+            using (StreamReader sr = new StreamReader("testcase.protd"))
             {
-                using (StreamReader sr = new StreamReader("testcase.protd"))
-                {
-                    tokens = tokenizer.Tokenize(sr);
-                }
+                tokens = tokenizer.Tokenize(sr);
             }
-            stopwatch.Stop();
-            foreach (Token token in tokens)
-            {
-                Console.WriteLine(token);
-            }
-            Console.WriteLine("complete in " + stopwatch.ElapsedMilliseconds / (double)n);
+            Parser p = new Parser();
+            p.Parse(tokens);
             Console.ReadLine();
         }
     }
