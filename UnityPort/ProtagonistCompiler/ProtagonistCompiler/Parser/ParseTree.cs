@@ -10,6 +10,6 @@ namespace ProtagonistCompiler
     {
         public Dictionary<String, CharacterDefinition> characters = new Dictionary<String, CharacterDefinition>();
         public Dictionary<String, LabelDefinition> labels = new Dictionary<String, LabelDefinition>();
-        public ParseNode root;
+        public List<ParseStatement> instructions = new List<ParseStatement>();
     }
 }

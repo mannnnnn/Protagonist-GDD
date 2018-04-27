@@ -37,6 +37,7 @@ namespace ProtagonistCompiler
                 new TokenRegex("&?&", TokenType.AND),
                 // matches | or ||
                 new TokenRegex("\\|?\\|", TokenType.OR),
+                new TokenRegex("!=", TokenType.NOTCOMPARE),
                 new TokenRegex("!", TokenType.NOT),
                 new TokenRegex(",", TokenType.COMMA),
                 // matches any valid string of letters or a variable name

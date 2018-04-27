@@ -15,10 +15,11 @@ namespace ProtagonistCompiler
     public class LabelDefinition
     {
         public string id;
-        public ParseNode node;
+        public ListNode node;
         public LabelType type;
+        public int location = int.MinValue;
 
-        public LabelDefinition(string id, ParseNode node, LabelType type)
+        public LabelDefinition(string id, ListNode node, LabelType type)
         {
             this.id = id;
             this.node = node;
