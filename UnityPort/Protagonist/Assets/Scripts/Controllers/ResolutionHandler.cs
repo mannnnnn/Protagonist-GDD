@@ -16,6 +16,7 @@ public class ResolutionHandler : MonoBehaviour {
 
     //Scale on (0, 1] of default window's hieght scale (fraction of the screen)
     public float DEFAULT_RESOLUTION_SCALE;
+    public bool DEBUG_MODE_NOSCALE;
 
 
     //data about background texture
@@ -57,7 +58,9 @@ public class ResolutionHandler : MonoBehaviour {
 
         PositionCamera();
 
-        SetInitialResolution();
+        if (!DEBUG_MODE_NOSCALE) {
+            SetInitialResolution();
+        }
 
         ScaleView();
     }
