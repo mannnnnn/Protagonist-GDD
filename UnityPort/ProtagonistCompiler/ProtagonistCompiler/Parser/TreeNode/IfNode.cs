@@ -6,26 +6,24 @@ using System.Threading.Tasks;
 
 namespace ProtagonistCompiler
 {
-    // an if statement consists of a conditional jump statement, and then two code blocks
+    // an if statement consists of a conditional jump statement, and then one or more code blocks
     public class IfNode : ParseNode
     {
-        public BooleanNode conditionNode;
-        public ListNode ifNodes;
-        public ListNode elseNodes;
-        public IfNode(ListNode ifNodes, ListNode elseNodes)
+        public List<BooleanNode> conditions;
+        public List<ListNode> contents;
+        public IfNode(List<BooleanNode> conditions, List<ListNode> contents)
         {
-            this.ifNodes = ifNodes;
-            this.elseNodes = elseNodes;
+            this.conditions = conditions;
+            this.contents = contents;
         }
 
         public IEnumerator<ParseStatement> GetEnumerator(int current)
         {
-            // add the branch statement
+            // for every branch
+            foreach (ListNode content in contents)
+            {
 
-            // set the branch statement true case to the if
-            // add the if-statement branch
-            // set the branch case false to the else case if it exists, otherwise set it to the end
-            // add the else-statement branch
+            }
             return null;
         }
     }

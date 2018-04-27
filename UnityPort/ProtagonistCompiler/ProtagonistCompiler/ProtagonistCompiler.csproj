@@ -62,6 +62,7 @@
     <Compile Include="Parser\TreeNode\BooleanOperations\AndBooleanNode.cs" />
     <Compile Include="Parser\TreeNode\BooleanOperations\AccessBooleanNode.cs" />
     <Compile Include="Parser\TreeNode\BooleanOperations\BooleanNode.cs" />
+    <Compile Include="Parser\TreeNode\MenuNode.cs" />
     <Compile Include="Parser\TreeNode\ParseNode.cs" />
     <Compile Include="Parser\Parser.cs" />
     <Compile Include="Parser\StateMachine\ParserStateMachine.cs" />

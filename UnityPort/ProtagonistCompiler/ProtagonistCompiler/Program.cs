@@ -21,19 +21,19 @@ namespace ProtagonistCompiler
             Tokenizer tokenizer = new Tokenizer();
             List<Token> tokens = new List<Token>();
             Console.WriteLine("start.");
-            using (StreamReader sr = new StreamReader("testcase.protd"))
+            int n = 1;
+            Stopwatch timer = new Stopwatch();
+            timer.Start();
+            for (int i = 0; i < n; i++)
             {
-                tokens = tokenizer.Tokenize(sr);
+                using (StreamReader sr = new StreamReader("testcase.protd"))
+                {
+                    tokens = tokenizer.Tokenize(sr);
+                }
+                Parser p = new Parser();
+                ParseTree tree = p.Parse(tokens);
             }
-            Parser p = new Parser();
-            ParseTree tree = p.Parse(tokens);
-            Console.ReadLine();
-
-            // execute instructions
-            foreach (ParseStatement s in tree.instructions)
-            {
-                s.Execute();
-            }
+            Console.WriteLine("time: " + timer.ElapsedMilliseconds / (double)n);
             Console.ReadLine();
         }
     }

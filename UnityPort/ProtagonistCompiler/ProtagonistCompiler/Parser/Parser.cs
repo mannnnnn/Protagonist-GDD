@@ -87,24 +87,19 @@ namespace ProtagonistCompiler
         // tries to parse a normal statement, and appends it to the parseNode
         private int parseStatement(List<Token> tokens, int i, ListNode listNode)
         {
-            // if it's whitespace, advance to non-whitespace token
-            if (tokens[i].isWhitespace())
+            // skip to non-whitespace
+            i = skip(tokens, i);
+            // if done, return list size
+            if (checkDeclarationFinish(tokens, i))
             {
-                // skip to non-whitespace
-                i = skip(tokens, i + 1);
-                // if done, return list size
-                if (checkDeclarationFinish(tokens, i))
-                {
-                    return tokens.Count;
-                }
+                return tokens.Count;
             }
 
             // first handle branching statements
-            // parse if-else
-
+            ParseIf(tokens, i, listNode);
             // parse menu
+            ParseMenu(tokens, i, listNode);
 
-            
             // otherwise, parse the non-branching statement
             i = stateMachine.Process(tokens, i, listNode);
             return i;
@@ -243,18 +238,7 @@ namespace ProtagonistCompiler
                 label.type = LabelType.CALL;
                 List<Token> labelContents = getBracketContents(tokens, i);
                 // read label definition
-                // parse each statement as usual and build its pseudo-parseTree
-                for (int j = 1; j < labelContents.Count - 1; j += 0)
-                {
-                    int start = j;
-                    // parse the statement
-                    j = parseStatement(labelContents, j, label.node);
-                    // advance if necessary
-                    if (start == j)
-                    {
-                        j++;
-                    }
-                }
+                ParseTokenListStatements(labelContents, label.node);
                 // parsed many-statement label definition, so skip the tokens we just parsed
                 return i + labelContents.Count;
             }
@@ -302,7 +286,145 @@ namespace ProtagonistCompiler
             return i;
         }
 
-        // get all contents of brackets, beginning with open bracket at index start
+        // parses a list of statements and stores their result in the ListNode.
+        private void ParseTokenListStatements(List<Token> tokens, ListNode node)
+        {
+            // parse each statement as usual and build its pseudo-parseTree
+            for (int j = 1; j < tokens.Count - 1; j += 0)
+            {
+                int start = j;
+                // parse the statement
+                j = parseStatement(tokens, j, node);
+                // advance if necessary
+                if (start == j)
+                {
+                    j++;
+                }
+            }
+        }
+
+        // parses a single menu statement and all of its related blocks.
+        private int ParseMenu(List<Token> tokens, int i, ListNode node)
+        {
+            // if not a menu statement, we're done
+            if (tokens[i].type != TokenType.MENU)
+            {
+                return i;
+            }
+            // create the entry list that we will add to
+            List<MenuEntry> entries = new List<MenuEntry>();
+            List<ListNode> contents = new List<ListNode>();
+            // start parsing the menu entries
+            for (i = skip(tokens, i + 1); i < tokens.Count; i = skip(tokens, i + 1))
+            {
+                // if start bracket is seen, continue
+                if (tokens[i].type == TokenType.BRACK_OPEN)
+                {
+                    continue;
+                }
+                // if end bracket is seen, we're done
+                if (tokens[i].type == TokenType.BRACK_CLOSE)
+                {
+                    break;
+                }
+                // if a string is seen, then parse it and its contents
+                if (tokens[i].type == TokenType.STRING_FULL)
+                {
+                    // get the string
+                    string option = tokens[i].contents.Substring(1, tokens[i].contents.Length - 2);
+                    i = skip(tokens, i + 1);
+                    // get the bracket contents
+                    if (tokens[i].type != TokenType.BRACK_OPEN)
+                    {
+                        throw new ParseError("Menu options must be followed by open brace");
+                    }
+                    List<Token> bracketContents = getBracketContents(tokens, i);
+                    i += bracketContents.Count;
+                    
+                    // parse the bracket contents
+                    ListNode content = new ListNode();
+                    ParseTokenListStatements(bracketContents, content);
+
+                    // add to menu node data lists
+                    entries.Add(new MenuEntry(option));
+                    contents.Add(content);
+                }
+            }
+            node.children.Add(new MenuNode(entries, contents));
+            return i;
+        }
+
+        // parses a single if statement and all of its related contents and else-if/else statements.
+        private int ParseIf(List<Token> tokens, int i, ListNode node)
+        {
+            // if not an if statement, we're done
+            if (tokens[i].type != TokenType.IF)
+            {
+                return i;
+            }
+            // init if-node components
+            List<BooleanNode> conditions = new List<BooleanNode>();
+            List<ListNode> contents = new List<ListNode>();
+
+            bool finished = false;
+            while (!finished)
+            {
+                // if we're on neither if nor else, we're done with the loop
+                if (tokens[i].type != TokenType.ELSE && tokens[i].type != TokenType.IF)
+                {
+                    break;
+                }
+                // if we're currently on else, then we will finish at the end of this...
+                // unless it's an else if, in which case we may not finish
+                if (tokens[i].type == TokenType.ELSE)
+                {
+                    finished = true;
+                }
+                i = skip(tokens, i + 1);
+                if (tokens[i].type == TokenType.IF)
+                {
+                    finished = false;
+                    i = skip(tokens, i + 1);
+                }
+                // when seeing an if/else-if token, then keep finding tokens until the parens run out
+                // then turn those condition tokens into a evaluatable boolean expression
+                if (!finished)
+                {
+                    if (tokens[i].type != TokenType.PAREN_OPEN)
+                    {
+                        throw new ParseError("Conditional statement must be followed by an open parentheses");
+                    }
+                    List<Token> parenContents = getParenContents(tokens, i);
+                    i += parenContents.Count;
+                    conditions.Add(ParserStateMachine.ParseBoolean(parenContents));
+                }
+                // if parsing just a normal else statement, it always run, so give it the default true
+                else
+                {
+                    conditions.Add(new AccessBooleanNode("true"));
+                }
+                // then get bracket contents
+                if (tokens[i].type != TokenType.BRACK_OPEN)
+                {
+                    throw new ParseError("Conditional statement conditions must be followed by an open bracket");
+                }
+                List<Token> bracketContents = getBracketContents(tokens, i);
+                i += bracketContents.Count;
+                // add the contents to the if node
+                ListNode content = new ListNode();
+                ParseTokenListStatements(bracketContents, content);
+                contents.Add(content);
+            }
+            // make sure the if statement is valid
+            if (conditions.Count == 0 || contents.Count == 0 || conditions.Count != contents.Count)
+            {
+                throw new ParseError("Invalid conditional structure.");
+            }
+            node.children.Add(new IfNode(conditions, contents));
+            return i;
+        }
+
+        // get all contents of a pair of brackets, beginning with open bracket at index start
         private List<Token> getBracketContents(List<Token> tokens, int start)
         {
             List<Token> contents = new List<Token>();
@@ -325,6 +447,32 @@ namespace ProtagonistCompiler
             }
             // if we've reached the end of the file, and no end bracket was found
             throw new ParseError("Error: SyntaxError: Mismatched brackets");
+        }
+
+        // get all contents of a pair of parens, beginning with the open paren at index start
+        private List<Token> getParenContents(List<Token> tokens, int start)
+        {
+            int i = start;
+            List<Token> contents = new List<Token>();
+            
+            for (int parenDepth = 0; i < tokens.Count; i++)
+            {
+                contents.Add(tokens[i]);
+                if (tokens[i].type == TokenType.PAREN_OPEN)
+                {
+                    parenDepth++;
+                }
+                if (tokens[i].type == TokenType.PAREN_CLOSE)
+                {
+                    parenDepth--;
+                }
+                // if we go back to 0 on a close paren, exit
+                if (parenDepth == 0)
+                {
+                    return contents;
+                }
+            }
+            throw new ParseError("Error: SyntaxError: Mismatched parentheses");
         }
     }
 
