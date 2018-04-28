@@ -20,5 +20,10 @@ namespace ProtagonistCompiler
             Console.WriteLine(text);
             return true;
         }
+
+        public override string ToString()
+        {
+            return text;
+        }
     }
 }

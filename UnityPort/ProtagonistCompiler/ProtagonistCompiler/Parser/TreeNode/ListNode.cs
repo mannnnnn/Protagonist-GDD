@@ -20,6 +20,7 @@ namespace ProtagonistCompiler
                 IEnumerator<ParseStatement> statements = child.GetEnumerator(current);
                 while (statements.MoveNext())
                 {
+                    current++;
                     yield return statements.Current;
                 }
             }

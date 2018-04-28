@@ -70,7 +70,7 @@ namespace ProtagonistCompiler
                     parseTree.instructions.Add(labelInstr.Current);
                 }
                 // add return at the end
-
+                parseTree.instructions.Add(new ReturnStatement());
             }
             // print results
             foreach (CharacterDefinition cd in parseTree.characters.Values)
@@ -96,9 +96,9 @@ namespace ProtagonistCompiler
             }
 
             // first handle branching statements
-            ParseIf(tokens, i, listNode);
+            i = ParseIf(tokens, i, listNode);
             // parse menu
-            ParseMenu(tokens, i, listNode);
+            i = ParseMenu(tokens, i, listNode);
 
             // otherwise, parse the non-branching statement
             i = stateMachine.Process(tokens, i, listNode);
@@ -358,6 +358,7 @@ namespace ProtagonistCompiler
         private int ParseIf(List<Token> tokens, int i, ListNode node)
         {
             // if not an if statement, we're done
+            i = skip(tokens, i);
             if (tokens[i].type != TokenType.IF)
             {
                 return i;
@@ -369,6 +370,7 @@ namespace ProtagonistCompiler
             bool finished = false;
             while (!finished)
             {
+                i = skip(tokens, i);
                 // if we're on neither if nor else, we're done with the loop
                 if (tokens[i].type != TokenType.ELSE && tokens[i].type != TokenType.IF)
                 {
@@ -398,15 +400,16 @@ namespace ProtagonistCompiler
                     i += parenContents.Count;
                     conditions.Add(ParserStateMachine.ParseBoolean(parenContents));
                 }
-                // if parsing just a normal else statement, it always run, so give it the default true
+                // if parsing just a normal else statement, it always runs, so give it the default true
                 else
                 {
                     conditions.Add(new AccessBooleanNode("true"));
                 }
                 // then get bracket contents
+                i = skip(tokens, i);
                 if (tokens[i].type != TokenType.BRACK_OPEN)
                 {
-                    throw new ParseError("Conditional statement conditions must be followed by an open bracket");
+                    throw new ParseError("Conditional statement conditions must be followed by an open bracket, found " + tokens[i].type);
                 }
                 List<Token> bracketContents = getBracketContents(tokens, i);
                 i += bracketContents.Count;

@@ -21,12 +21,36 @@ namespace ProtagonistCompiler
         {
             // MenuBranch statement, jumping to one of the given blocks
             // then, each blocks jumps to the end
-            return null;
+            List<JumpStatement> endBr = new List<JumpStatement>();
+            MenuBranchStatement br = new MenuBranchStatement(entries);
+            current++;
+            yield return br;
+            for (int i = 0; i < contents.Count; i++)
+            {
+                entries[i].location = current;
+                // iterate through every statement in the children
+                IEnumerator<ParseStatement> statements = contents[i].GetEnumerator(current);
+                while (statements.MoveNext())
+                {
+                    current++;
+                    yield return statements.Current;
+                }
+                // add an jump to the end of the menu choice body to the end of the menu
+                JumpStatement jmp = new JumpStatement(int.MinValue);
+                endBr.Add(jmp);
+                current++;
+                yield return jmp;
+            }
+            // set the end-br jumps to the right location
+            foreach (JumpStatement jmp in endBr)
+            {
+                jmp.location = current;
+            }
         }
     }
 
     // one entry in a menu branch
-    public struct MenuEntry
+    public class MenuEntry
     {
         public string text;
         public int location;

@@ -6,18 +6,17 @@ using System.Threading.Tasks;
 
 namespace ProtagonistCompiler
 {
-    // queue up a hide until the next with statement
-    public class HideStatement : ParseStatement
+    public class StopStatement : ParseStatement
     {
-        string channel = "";
-        public HideStatement(string channel)
+        public string channel;
+        public StopStatement(string channel)
         {
             this.channel = channel;
         }
 
         public override bool Execute()
         {
-            Console.WriteLine("Queueing: hide sprite on channel " + channel);
+            Console.WriteLine("Stop sound on channel " + channel);
             return false;
         }
     }

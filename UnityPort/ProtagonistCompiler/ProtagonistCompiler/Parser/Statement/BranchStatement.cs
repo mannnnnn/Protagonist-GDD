@@ -12,16 +12,14 @@ namespace ProtagonistCompiler
         public int branchIf = 0;
         public int branchElse = 0;
 
+        public BranchStatement(BooleanNode condition)
+        {
+            this.condition = condition;
+        }
+
         public override bool Execute()
         {
-            if (condition.Evaluate())
-            {
-                Console.WriteLine("Jump to if branch: " + branchIf);
-            }
-            else
-            {
-                Console.WriteLine("Or jump to else branch: " + branchElse);
-            }
+            Console.WriteLine("if -> " + branchIf + ", " + "else -> " + branchElse);
             return false;
         }
     }

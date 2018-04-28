@@ -36,27 +36,35 @@ namespace ProtagonistCompiler
             // SHOW -> CHANNEL -> SPR
             start.edges[TokenType.SHOW] =
                 CreateLinkedStateMachine(new List<TokenType> { TokenType.NAME, TokenType.NAME },
-                new StateMachineNodeNameDisplay());
+                new StateMachineNodeShow());
             // HIDE -> CHANNEL
             start.edges[TokenType.HIDE] =
                 CreateLinkedStateMachine(new List<TokenType> { TokenType.NAME },
-                new StateMachineNodeNameDisplay());
-            // HIDE -> CHANNEL
+                new StateMachineNodeHide());
+            // JUMP -> LABEL
             start.edges[TokenType.JUMP] =
                 CreateLinkedStateMachine(new List<TokenType> { TokenType.NAME },
-                new StateMachineNodeNameDisplay());
+                new StateMachineNodeJump());
             // WITH -> EFFECT
             start.edges[TokenType.WITH] =
                 CreateLinkedStateMachine(new List<TokenType> { TokenType.NAME },
-                new StateMachineNodeNameDisplay());
+                new StateMachineNodeWith());
             // PLAY -> CHANNEL -> SND
             start.edges[TokenType.PLAY] =
                 CreateLinkedStateMachine(new List<TokenType> { TokenType.NAME, TokenType.NAME },
-                new StateMachineNodeNameDisplay());
+                new StateMachineNodePlay());
             // STOP -> CHANNEL
             start.edges[TokenType.STOP] =
                 CreateLinkedStateMachine(new List<TokenType> { TokenType.NAME },
-                new StateMachineNodeNameDisplay());
+                new StateMachineNodeStop());
+            // PAUSE
+            start.edges[TokenType.PAUSE] =
+                CreateLinkedStateMachine(new List<TokenType> { },
+                new StateMachineNodePause());
+            // EXIT
+            start.edges[TokenType.EXIT] =
+                CreateLinkedStateMachine(new List<TokenType> { },
+                new StateMachineNodeExit());
         }
 
         // process one statement

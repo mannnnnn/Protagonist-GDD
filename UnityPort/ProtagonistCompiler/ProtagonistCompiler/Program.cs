@@ -32,6 +32,13 @@ namespace ProtagonistCompiler
                 }
                 Parser p = new Parser();
                 ParseTree tree = p.Parse(tokens);
+                int c = 0;
+                foreach (ParseStatement s in tree.instructions)
+                {
+                    Console.Write(c + ": ");
+                    s.Execute();
+                    c++;
+                }
             }
             Console.WriteLine("time: " + timer.ElapsedMilliseconds / (double)n);
             Console.ReadLine();
