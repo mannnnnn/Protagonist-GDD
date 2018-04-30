@@ -29,7 +29,7 @@ namespace ProtagonistCompiler
                 return false;
             }
             // TODO: access some dictionary somewhere
-            return true;
+            return false;
         }
     }
 }

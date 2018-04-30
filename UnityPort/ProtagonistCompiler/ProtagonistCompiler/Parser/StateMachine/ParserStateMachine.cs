@@ -147,7 +147,7 @@ namespace ProtagonistCompiler
             Stack<Token> opStack = new Stack<Token>();
             foreach (Token token in tokens)
             {
-                switch(token.type)
+                switch (token.type)
                 {
                     // variable
                     case TokenType.NAME:
@@ -163,7 +163,7 @@ namespace ProtagonistCompiler
                     case TokenType.COMPARE:
                     case TokenType.NOTCOMPARE:
                         // pop off operators with higher precedence, until an open paren is reached
-                        while (opStack.Peek().type != TokenType.PAREN_OPEN
+                        while (opStack.Count >= 1 && opStack.Peek().type != TokenType.PAREN_OPEN
                             && ((opStack.Peek().type == TokenType.NOT)
                             || ((int)opStack.Peek().type < (int)token.type)))
                         {
@@ -186,6 +186,11 @@ namespace ProtagonistCompiler
                         opStack.Pop();
                         break;
                 }
+            }
+            // take opStack and push it to output
+            while (opStack.Count > 0)
+            {
+                output.Add(opStack.Pop());
             }
             // turn the output of the Shunting-Yard algorithm into a parse tree
             Stack<BooleanNode> evalStack = new Stack<BooleanNode>();
@@ -218,17 +223,18 @@ namespace ProtagonistCompiler
                             break;
                     }
                 }
-                if (evalStack.Count != 1)
+                if (evalStack.Count < 1)
                 {
                     throw new InvalidOperationException();
                 }
             }
-            catch (InvalidOperationException)
+            catch (InvalidOperationException e)
             {
                 throw new ParseError("Error parsing statement " + string.Join(", ", tokens) + ", invalid syntax.");
             }
             // return the final result
-            return evalStack.Pop();
+            BooleanNode first = evalStack.Peek();
+            return first;
         }
     }
 }
