@@ -40,7 +40,9 @@ public class Fader : MonoBehaviour {
 		myTex.SetPixel (0, 0, fadeColor);
 		myTex.Apply ();
         //Print Texture
-		GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), myTex);
+        Vector3 topLeft = ResolutionHandler.GetInstance().MapViewToScreenPoint(new Vector2(0, 0));
+        Vector3 size = ResolutionHandler.GetInstance().MapViewToScreenPoint(new Vector2(1, 1)) - topLeft;
+        GUI.DrawTexture (new Rect (topLeft, size), myTex);
         //Fade in and out control
         if (isFadeIn)
 			alpha = Mathf.Lerp (alpha, -0.1f, fadeDamp * Time.deltaTime);

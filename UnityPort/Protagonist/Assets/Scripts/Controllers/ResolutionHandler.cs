@@ -20,14 +20,14 @@ public class ResolutionHandler : MonoBehaviour {
 
 
     //data about background texture
-    GameObject roomBackgroud;
-    public SpriteRenderer mapTexture;
+    GameObject roomBackground;
+    public SpriteRenderer mapSprite;
 
     public float PixelsPerUU
     {
         get
         {
-            return mapTexture.sprite.texture.width / mapTexture.GetComponent<Renderer>().bounds.size.x;
+            return mapSprite.sprite.texture.width / mapSprite.bounds.size.x;
         }
     }
 
@@ -39,22 +39,36 @@ public class ResolutionHandler : MonoBehaviour {
         }
     }
 
-    //dimenstions of mapTexture in Unity Units
+    //dimensions of mapTexture in Unity Units
     public Vector2 MapDimensions
     {
         get
         {
             return new Vector2(
-                mapTexture.GetComponent<Renderer>().bounds.size.x,
-                mapTexture.GetComponent<Renderer>().bounds.size.y
+                mapSprite.bounds.size.x,
+                mapSprite.bounds.size.y
+            );
+        }
+    }
+    // center of the background
+    public Vector2 MapCenter
+    {
+        get
+        {
+            return new Vector2(
+                mapSprite.bounds.center.x,
+                mapSprite.bounds.center.y
             );
         }
     }
 
+
     void Start()
     {
-        roomBackgroud = GameObject.FindGameObjectWithTag("RoomBackground");
-        mapTexture = roomBackgroud.GetComponent<SpriteRenderer>();
+        instance = this;
+        Debug.Log("THIS HAS RUN");
+        roomBackground = GameObject.FindGameObjectWithTag("RoomBackground");
+        mapSprite = roomBackground.GetComponent<SpriteRenderer>();
 
         PositionCamera();
 
@@ -63,6 +77,8 @@ public class ResolutionHandler : MonoBehaviour {
         }
 
         ScaleView();
+        Debug.Log(mapSprite.bounds.center);
+        Debug.Log(MapViewToWorldPoint(new Vector2(0.5f, 0.5f)));
     }
 
 
@@ -93,15 +109,15 @@ public class ResolutionHandler : MonoBehaviour {
     //Conversion from World Coordinates (Unity Units)
     public Vector3 MapToWorldPoint(Vector3 point)
     {
-        float newX = Mathf.Lerp(-MapDimensions.x / 2f, MapDimensions.x / 2f, point.x);
-        float newY = Mathf.Lerp(-MapDimensions.y / 2f, MapDimensions.y / 2f, point.y / MapHeightToWidthRatio);
+        float newX = Mathf.Lerp(-MapDimensions.x / 2f, MapDimensions.x / 2f, point.x) + MapCenter.x;
+        float newY = Mathf.Lerp(-MapDimensions.y / 2f, MapDimensions.y / 2f, point.y / MapHeightToWidthRatio) + MapCenter.y;
         return new Vector3(newX, newY, point.z);
     }
 
     public Vector3 WorldToMapPoint(Vector3 point)
     {
-        float newX = (point.x / MapDimensions.x) + 0.5f;
-        float newY = Mathf.Lerp(0, MapHeightToWidthRatio, (point.y / MapDimensions.y) + 0.5f);
+        float newX = ((point.x - MapCenter.x) / MapDimensions.x) + 0.5f;
+        float newY = Mathf.Lerp(0, MapHeightToWidthRatio, ((point.y - MapCenter.y) / MapDimensions.y) + 0.5f);
         return new Vector3(newX, newY, point.z);
     }
 
@@ -115,7 +131,7 @@ public class ResolutionHandler : MonoBehaviour {
 
     public Vector3 MapViewToWorldPoint(Vector3 point)
     {
-        point.y *= MapHeightToWidthRatio; //transalte to Map Coords
+        point.y *= MapHeightToWidthRatio; //translate to Map Coords
         return MapToWorldPoint(point);
     }
       
@@ -169,7 +185,7 @@ public class ResolutionHandler : MonoBehaviour {
 
     private void PositionCamera()
     {
-        Camera.main.transform.position = new Vector3(mapTexture.transform.position.x, mapTexture.transform.position.y, Camera.main.transform.position.z);
+        Camera.main.transform.position = new Vector3(mapSprite.transform.position.x, mapSprite.transform.position.y, Camera.main.transform.position.z);
     }
 
     /**
@@ -232,15 +248,8 @@ public class ResolutionHandler : MonoBehaviour {
     {
         if (instance == null)
         {
-            instance = new ResolutionHandler();
-            Debug.Log("ResolutionHandler instance is null, reinitializing...");
+            throw new InvalidOperationException("There are no objects in the room with the ResolutionHandler behavior.");
         }
         return instance;
-    }
-
-    //TODO: fix duplicate assignment for instance == null case
-    public ResolutionHandler()
-    {
-        instance = this;
     }
 }
