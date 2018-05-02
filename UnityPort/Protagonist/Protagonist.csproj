@@ -307,8 +307,9 @@
     <Compile Include="Assets\Scripts\Controllers\ResolutionHandler.cs" />
     <Compile Include="Assets\Scripts\Door.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
-    <Compile Include="Assets\Store Assets\Simple Scene Fade Load System\Scripts\Fader.cs" />
-    <Compile Include="Assets\Store Assets\Simple Scene Fade Load System\Scripts\Initiate.cs" />
+    <Compile Include="Assets\Scripts\SceneTransitions\SceneTransition.cs" />
+    <Compile Include="Assets\Scripts\SceneTransitions\SceneTransitions.cs" />
+    <Compile Include="Assets\Scripts\SceneTransitions\SlideTransition.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.2\Editor\Resources\Styles\Main_Dark.uss" />

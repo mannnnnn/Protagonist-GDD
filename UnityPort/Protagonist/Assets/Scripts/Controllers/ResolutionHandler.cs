@@ -66,7 +66,6 @@ public class ResolutionHandler : MonoBehaviour {
     void Start()
     {
         instance = this;
-        Debug.Log("THIS HAS RUN");
         roomBackground = GameObject.FindGameObjectWithTag("RoomBackground");
         mapSprite = roomBackground.GetComponent<SpriteRenderer>();
 
@@ -77,8 +76,6 @@ public class ResolutionHandler : MonoBehaviour {
         }
 
         ScaleView();
-        Debug.Log(mapSprite.bounds.center);
-        Debug.Log(MapViewToWorldPoint(new Vector2(0.5f, 0.5f)));
     }
 
 
