@@ -29,6 +29,51 @@ public class SceneTransitions
         NONE, LEFT, RIGHT, UP, DOWN
     }
 
+    // converts a Side to a cardinal vector
+    public static Vector2Int ToVector2Int(Side side)
+    {
+        switch (side)
+        {
+            case Side.LEFT:
+                return Vector2Int.left;
+            case Side.RIGHT:
+                return Vector2Int.right;
+            case Side.UP:
+                return Vector2Int.up;
+            case Side.DOWN:
+                return Vector2Int.down;
+            default:
+                return Vector2Int.zero;
+        }
+    }
+
+    // converts a world coordinate direction to a Side
+    public static Side ToSide(Vector2 direction)
+    {
+        if (Mathf.Abs(direction.x) >= Mathf.Abs(direction.y))
+        {
+            if (direction.x > 0)
+            {
+                return Side.RIGHT;
+            }
+            else
+            {
+                return Side.LEFT;
+            }
+        }
+        else
+        {
+            if (direction.y > 0)
+            {
+                return Side.UP;
+            }
+            else
+            {
+                return Side.DOWN;
+            }
+        }
+    }
+
     // creates a scene transition to a given scene, using the SceneTransition of type T.
     // if target scene is null, then just plays a scene transition with no objective.
     public static SceneTransition Transition<T>(Time time, string targetScene) where T : SceneTransition

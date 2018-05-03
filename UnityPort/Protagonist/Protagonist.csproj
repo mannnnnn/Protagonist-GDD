@@ -303,10 +303,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Controllers\MapController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Map\Map.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Map\MapController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Map\MapScenes.cs" />
     <Compile Include="Assets\Scripts\Controllers\ResolutionHandler.cs" />
-    <Compile Include="Assets\Scripts\Door.cs" />
-    <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\DoorBehavior.cs" />
+    <Compile Include="Assets\Scripts\PlayerBehavior.cs" />
     <Compile Include="Assets\Scripts\SceneTransitions\SceneTransition.cs" />
     <Compile Include="Assets\Scripts\SceneTransitions\SceneTransitions.cs" />
     <Compile Include="Assets\Scripts\SceneTransitions\SlideTransition.cs" />

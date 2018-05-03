@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class PlayerBehavior : MonoBehaviour {
 
     //player walk speed in UU
     public float movementSpeed = 0.5f;
@@ -26,7 +26,7 @@ public class Player : MonoBehaviour {
         animator = GetComponent<Animator>();
 
         stateTriggerMap = new Dictionary<string, string>();
-        //TODO: replace with lambda?
+
         stateTriggerMap.Add("PlayerWalkUp", "WalkUp");
         stateTriggerMap.Add("PlayerWalkDown", "WalkDown");
         stateTriggerMap.Add("PlayerWalkLeft", "WalkLeft");
@@ -68,9 +68,5 @@ public class Player : MonoBehaviour {
         {
             animator.SetTrigger(stateTriggerMap[currentState.ToString()]);
         }
-
-        
     }
-
-
 }
