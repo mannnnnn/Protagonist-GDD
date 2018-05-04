@@ -18,7 +18,6 @@ public class ResolutionHandler : MonoBehaviour {
     public float DEFAULT_RESOLUTION_SCALE;
     public bool DEBUG_MODE_NOSCALE;
 
-
     //data about background texture
     GameObject roomBackground;
     public SpriteRenderer mapSprite;
@@ -61,7 +60,6 @@ public class ResolutionHandler : MonoBehaviour {
             );
         }
     }
-
 
     void Start()
     {

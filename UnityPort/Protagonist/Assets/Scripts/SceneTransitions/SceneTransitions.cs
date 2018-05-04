@@ -79,6 +79,7 @@ public class SceneTransitions
     public static SceneTransition Transition<T>(Time time, string targetScene) where T : SceneTransition
     {
         GameObject obj = new GameObject();
+        obj.tag = "SceneTransition";
         SceneTransition trans = obj.AddComponent<T>();
         obj.name = "Scene Transition " + typeof(T).FullName;
         trans.inDuration = time.inDuration;

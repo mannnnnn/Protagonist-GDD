@@ -38,12 +38,19 @@ public class PlayerBehavior : MonoBehaviour {
         }
     }
 
+    private Vector2 GetInputVelocity()
+    {
+        // TODO: if player is not in control
+        // if player is in control
+        float xInput = Input.GetAxisRaw("Horizontal");
+        float yInput = Input.GetAxisRaw("Vertical");
+        return movementSpeed * new Vector2(xInput, yInput);
+    }
+
     private void Move()
     {
         // get input
-        float xInput = Input.GetAxisRaw("Horizontal");
-        float yInput = Input.GetAxisRaw("Vertical");
-        Vector2 velocity = movementSpeed * new Vector2(xInput, yInput);
+        Vector2 velocity = GetInputVelocity();
 
         // move the player
         rb.MovePosition(rb.position + (velocity * Time.deltaTime));
