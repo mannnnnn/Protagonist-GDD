@@ -15,13 +15,9 @@ public class DoorBehavior : MonoBehaviour
             SceneTransitions.Side side = SceneTransitions.ToSide(direction);
             Vector2Int cardinal = SceneTransitions.ToVector2Int(side);
             // go to the given scene in the map
-            Debug.Log("old " + MapController.GetInstance().Position);
-            Debug.Log("old " + MapController.GetInstance().map[MapController.GetInstance().Position]);
             MapController.GetInstance().Position += new Vector2Int(cardinal.x, -cardinal.y);
             SceneTransition trans = SceneTransitions.Transition<SlideTransition>(new SceneTransitions.Time(0.4f, 0.25f, 0.4f), MapController.GetInstance().map[MapController.GetInstance().Position]);
             trans.side = side;
-            Debug.Log("new " + MapController.GetInstance().Position);
-            Debug.Log("new " + MapController.GetInstance().map[MapController.GetInstance().Position]);
         }
     }
 }
