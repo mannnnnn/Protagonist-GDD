@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerBehavior : MonoBehaviour {
@@ -10,64 +11,72 @@ public class PlayerBehavior : MonoBehaviour {
     public float walkAnimSpeed = 1f;
 
     private Animator animator;
-    
-    //define different animation states of the animator for setting logic
-    private enum AnimationState
-    {
-        PlayerWalkUp,
-        PlayerWalkDown,
-        PlayerWalkLeft,
-        PlayerWalkRight
-    }
-    //map states to animator triggers
-    private Dictionary<string, string> stateTriggerMap;
 
-    private void Start () {
+    // rigidbody2D component
+    private Rigidbody2D rb;
+
+    // for debug purposes, don't move on the first few frames
+    // while loading in, the game tends to be very framey, leading to movement jumps across walls
+    int ready = 3;
+
+    private void Start ()
+    {
         animator = GetComponent<Animator>();
 
-        stateTriggerMap = new Dictionary<string, string>();
-
-        stateTriggerMap.Add("PlayerWalkUp", "WalkUp");
-        stateTriggerMap.Add("PlayerWalkDown", "WalkDown");
-        stateTriggerMap.Add("PlayerWalkLeft", "WalkLeft");
-        stateTriggerMap.Add("PlayerWalkRight", "WalkRight");
-	}
-
-    private void Update () {
-        Move();
+        rb = GetComponent<Rigidbody2D>();
     }
 
-
-    private void Move()
+    private void Update ()
     {
-        float xInput = Input.GetAxisRaw("Horizontal");
-        float yInput = Input.GetAxisRaw("Vertical");
-
-        // 0.8f accounts for mapview coords vs world coords
-        Vector3 velocity = movementSpeed * new Vector3(xInput * 0.8f, yInput, 0);
-
-        //TODO: normalize to ensure that diagonal movement isn't faster
-        GetComponent<Rigidbody2D>().MovePosition(transform.position + (velocity * Time.deltaTime)); 
-
-        //change Animator state if needed
-        animator.speed = (velocity.magnitude == 0) ? 0f : walkAnimSpeed;
-
-        //find current state based on velocity vector
-        //behavior based on what was observed in GML implementation.
-        AnimationState currentState;
-        if (velocity.x != 0)
+        if (ready <= 0)
         {
-            currentState = velocity.x > 0 ? AnimationState.PlayerWalkRight : AnimationState.PlayerWalkLeft;
+            Move();
         }
         else
         {
-            currentState = velocity.y > 0 ? AnimationState.PlayerWalkUp : AnimationState.PlayerWalkDown;
+            ready--;
+        }
+    }
+
+    private void Move()
+    {
+        // get input
+        float xInput = Input.GetAxisRaw("Horizontal");
+        float yInput = Input.GetAxisRaw("Vertical");
+        Vector2 velocity = movementSpeed * new Vector2(xInput, yInput);
+
+        // move the player
+        rb.MovePosition(rb.position + (velocity * Time.deltaTime));
+
+        //change Animator state if needed
+        string state = "Idle";
+        if (velocity.magnitude > movementSpeed * 0.1f)
+        {
+            // move if not idle
+            state = "Move";
+        }
+        
+        // take cardinal vector of velocity, and plug into Animator blend tree
+        Vector2 cardinal = Vector2.zero;
+        if (Mathf.Abs(velocity.x) >= Mathf.Abs(velocity.y))
+        {
+            cardinal = new Vector2(Math.Sign(velocity.x), 0);
+        }
+        else
+        {
+            cardinal = new Vector2(0, Math.Sign(velocity.y));
+        }
+        if (cardinal != Vector2.zero)
+        {
+            animator.SetFloat("VelocityX", cardinal.x);
+            animator.SetFloat("VelocityY", cardinal.y);
         }
 
-        AnimatorStateInfo state = animator.GetCurrentAnimatorStateInfo(0);
-        if (animator.speed != 0 && !state.IsName(currentState.ToString()))
+        // set animator move/idle state
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        if (!stateInfo.IsName(state))
         {
-            animator.SetTrigger(stateTriggerMap[currentState.ToString()]);
+            animator.SetTrigger(state);
         }
     }
 }
