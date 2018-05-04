@@ -43,10 +43,11 @@ public class PlayerBehavior : MonoBehaviour {
         float xInput = Input.GetAxisRaw("Horizontal");
         float yInput = Input.GetAxisRaw("Vertical");
 
-        Vector3 velocity = movementSpeed * new Vector3(xInput, yInput, 0);
+        // 0.8f accounts for mapview coords vs world coords
+        Vector3 velocity = movementSpeed * new Vector3(xInput * 0.8f, yInput, 0);
 
-        //TODO: normalize to ensure that diagnonal movement isn't faster
-        GetComponent<Rigidbody2D>().MovePosition( transform.position + (velocity * Time.deltaTime)); 
+        //TODO: normalize to ensure that diagonal movement isn't faster
+        GetComponent<Rigidbody2D>().MovePosition(transform.position + (velocity * Time.deltaTime)); 
 
         //change Animator state if needed
         animator.speed = (velocity.magnitude == 0) ? 0f : walkAnimSpeed;

@@ -307,6 +307,7 @@
     <Compile Include="Assets\Scripts\Controllers\Map\MapController.cs" />
     <Compile Include="Assets\Scripts\Controllers\Map\MapScenes.cs" />
     <Compile Include="Assets\Scripts\Controllers\ResolutionHandler.cs" />
+    <Compile Include="Assets\Scripts\Depth2DBehavior.cs" />
     <Compile Include="Assets\Scripts\DoorBehavior.cs" />
     <Compile Include="Assets\Scripts\PlayerBehavior.cs" />
     <Compile Include="Assets\Scripts\SceneTransitions\SceneTransition.cs" />
