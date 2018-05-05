@@ -61,7 +61,7 @@ public class ResolutionHandler : MonoBehaviour {
         }
     }
 
-    void Start()
+    void Awake()
     {
         instance = this;
         roomBackground = GameObject.FindGameObjectWithTag("RoomBackground");

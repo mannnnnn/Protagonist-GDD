@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerBehavior : MonoBehaviour {
 
     //player walk speed in UU
-    public float movementSpeed = 0.5f;
+    public float movementSpeed = 2f;
     public float walkAnimSpeed = 1f;
 
     private Animator animator;
@@ -40,7 +40,15 @@ public class PlayerBehavior : MonoBehaviour {
 
     private Vector2 GetInputVelocity()
     {
-        // TODO: if player is not in control
+        GameObject obj = GameObject.FindGameObjectWithTag("SceneTransition");
+        if (obj != null)
+        {
+            SlideTransition slide = obj.GetComponent<SlideTransition>();
+            if (slide != null)
+            {
+                return slide.playerMovement;
+            }
+        }
         // if player is in control
         float xInput = Input.GetAxisRaw("Horizontal");
         float yInput = Input.GetAxisRaw("Vertical");
@@ -51,6 +59,7 @@ public class PlayerBehavior : MonoBehaviour {
     {
         // get input
         Vector2 velocity = GetInputVelocity();
+        Debug.Log(velocity);
 
         // move the player
         rb.MovePosition(rb.position + (velocity * Time.deltaTime));

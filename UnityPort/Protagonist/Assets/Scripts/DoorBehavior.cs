@@ -5,10 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class DoorBehavior : MonoBehaviour
 {
+    bool active;
+    void Start()
+    {
+        active = true;
+    }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        // make sure collided with a player, this is active, and no SceneTransitions exist
+        if (collision.tag == "Player" && active && GameObject.FindGameObjectWithTag("SceneTransition") == null)
         {
+            // can only activate once
+            active = false;
             // get direction from door to center of screen
             Vector2 direction = gameObject.transform.position - ResolutionHandler.GetInstance().MapViewToWorldPoint(new Vector2(0.5f, 0.5f));
             // cardinally normalize the direction vector
@@ -16,7 +25,7 @@ public class DoorBehavior : MonoBehaviour
             Vector2Int cardinal = SceneTransitions.ToVector2Int(side);
             // go to the given scene in the map
             MapController.GetInstance().Position += new Vector2Int(cardinal.x, -cardinal.y);
-            SceneTransition trans = SceneTransitions.Transition<SlideTransition>(new SceneTransitions.Time(0.4f, 0.25f, 0.4f), MapController.GetInstance().map[MapController.GetInstance().Position]);
+            SceneTransition trans = SceneTransitions.Transition<SlideTransition>(new SceneTransitions.Time(1f, 0.25f, 1f), MapController.GetInstance().map[MapController.GetInstance().Position]);
             trans.side = side;
         }
     }

@@ -178,7 +178,7 @@ public class SceneTransition : MonoBehaviour
     }
 
     // when the scene changes, go from hold state to out state
-    void SceneChange(Scene scene, LoadSceneMode mode)
+    protected virtual void SceneChange(Scene scene, LoadSceneMode mode)
     {
         state = State.OUT;
     }
