@@ -756,6 +756,7 @@
       <sprite>sprites\spr_treeFruit</sprite>
       <sprite>sprites\spr_treeStump</sprite>
       <sprite>sprites\spr_bellSetA</sprite>
+      <sprite>sprites\spr_flyButter</sprite>
       <sprite>sprites\spr_bellSetB</sprite>
       <sprite>sprites\spr_craterThere</sprite>
       <sprite>sprites\spr_laundryPile</sprite>
@@ -1441,6 +1442,7 @@
         <object>objects\obj_apolloPlaying</object>
         <object>objects\obj_syntaxPillar</object>
         <object>objects\obj_warp</object>
+        <object>objects\obj_flyButter</object>
         <object>objects\obj_sphinxxAnxiety1</object>
         <object>objects\obj_sphinxxAnxiety2</object>
       </objects>
