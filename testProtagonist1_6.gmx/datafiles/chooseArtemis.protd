@@ -193,7 +193,7 @@ with nothing
 					with artemis_swing
 
 					P: "Wait."
-					At = true
+					Ar = true
 				}
 				"I think I'll weigh some other options."
 				{

@@ -155,6 +155,8 @@ createSpell("ace", obj_aceSpell);
 createSpell("card", obj_cardSpell);
 createSpell("sad", obj_sadSpell);
 createSpell("sedate", obj_sedateSpell);
+createSpell("red", obj_redSpell);
+createSpell("dad", obj_dadSpell);
 </string>
           </argument>
         </arguments>

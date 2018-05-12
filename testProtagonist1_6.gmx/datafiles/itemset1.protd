@@ -31,6 +31,7 @@ character H
 
 label apolloWall
 {
+	"Hm."
 	"My chances aren't looking so good."
 	"Maybe I should open up my menu, and look at the Argiope to try to get some help before fighting the Sphinx."
 }
@@ -92,6 +93,7 @@ label hadesWall
 {
 	show P spr_defaultSpeak
 	with fade
+	P: "Huh."
 	P: "There's a wall here."
 	show H spr_talkHades
 	with hades_swing
@@ -116,6 +118,7 @@ label hadesWall2
 {
 	show P spr_defaultSpeak
 	with fade
+	P: "Huh?"
 	P: "There's a wall here."
 	show H spr_talkHades
 	with hades_swing
