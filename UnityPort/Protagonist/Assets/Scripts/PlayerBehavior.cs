@@ -59,7 +59,6 @@ public class PlayerBehavior : MonoBehaviour {
     {
         // get input
         Vector2 velocity = GetInputVelocity();
-        Debug.Log(velocity);
 
         // move the player
         rb.MovePosition(rb.position + (velocity * Time.deltaTime));

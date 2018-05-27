@@ -303,6 +303,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AdjustUIBehavior.cs" />
     <Compile Include="Assets\Scripts\Controllers\Map\Map.cs" />
     <Compile Include="Assets\Scripts\Controllers\Map\MapController.cs" />
     <Compile Include="Assets\Scripts\Controllers\Map\MapScenes.cs" />

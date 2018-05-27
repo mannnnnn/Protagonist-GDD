@@ -9,6 +9,8 @@ TagManager:
   - Door
   - ResolutionHandler
   - SceneTransition
+  - DialogueBox
+  - NameBox
   layers:
   - Default
   - TransparentFX
