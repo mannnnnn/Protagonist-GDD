@@ -1,0 +1,234 @@
+//chooseHaes - a scene in which you choose Haes (or not)
+//Characters: Haes, Protagonist
+
+//CHARACTERS
+character P
+{
+	name = "Protagonist"
+	side = left
+}
+character Hs
+{
+	name = "Haes"
+	side = right
+}
+character ?
+{
+	name = "???"
+	side = right
+}
+
+show P spr_defaultSpeak
+with fade
+
+show Hs spr_talkHaes
+with haes_swing
+
+if (!HsIntro)
+{
+	HsIntro = true
+	P: "Excuse me?"
+	?: "hum hum hum"
+	P: "Hey excuse me?"
+	?: "Hummity hum hum hum"
+	P: "Hey can you hear me?"
+	?: "Of course I can. I always can."
+	P:" So you're just ignoring me?"
+
+show Hs spr_talkHaesHappy
+with nothing
+
+	?: "Ooh, Protagonist must be having a spat with Hades again. They never did get along well."
+	P: "Who are you?"
+	Hs: "I'm Haes, thanks for asking. Master blacksmith, dragon creator, and invisible to the eyes of the world."
+	P: "Well I don't have eyes... but I can see you."
+
+show Hs spr_talkHaes
+with nothing
+
+	Hs: "That almost sounded like a direct response to me."
+	P: "It was a direct response to you. That's how most conversations work."
+	Hs: ""
+	P: ""
+show Hs spr_talkHaesHappy
+with nothing
+
+	Hs: "heh."
+	Hs: "hah okay, Protagonist."
+	Hs: "What's my name?"
+	P: "Haes?"
+
+show Hs spr_talkHaes
+with nothing
+
+	Hs: "Okay, that was weird."
+	Hs: "Protagonist, what are you holding in your inventory right now?"
+	P: "A whole bunch of dust bunnies, I think. I just sort of found them here."
+	Hs: "Wow that one was actually pretty specific. One more test, if you don't mind."
+	P: "Go ahead?"
+	Hs: "Do you know what this means?"
+	P: "It means that I passed the test?"
+	Hs: "Protagonists aren't supposed to see me in game..."
+	Hs: "What did you do to break the world?!"
+	P: "Nothing?"
+	Hs: "A likely story. How did you even get here?"
+	P: "Apollo let me in. He said I should talk to you."
+	Hs: "Ah, so you somehow got to the discarded game files. That would explain it."
+	Hs: "Allow me to introduce myself properly, I suppose."
+
+show Hs spr_talkHaesHappy
+with nothing
+
+	Hs: "I've been serving as your crafting menu for the past few years."
+	P: "I have a crafting menu?"
+
+show Hs spr_talkHaes
+with nothing
+
+	Hs: "Well you would have unlocked it if you had been playing the game. Since you're here though, and out of the files..."
+	Hs: "My guess is you've somehow lost all the preset unlocks of the game, including your skills, your systems, and evidently your appearance."
+	Hs: "Did you even choose your character?"
+	P: "What does that even mean? Why is this world so weird? Why do you people speak like I'm some sort of-"
+	Hs: "-Protagonist?"
+	P: "..."
+	Hs: "Yeah, you've got to get used to that if you're planning on staying."
+	Hs: "But look at you, you've got nothing. Thrown into this world without any tools or anything-"
+	P: "They didn't even give me a face!"
+	Hs: "Well we can fix that."
+	Hs: "Tell you what, kid... I've been in your shoes before."
+
+show Hs spr_talkHaesHappy
+with nothing
+
+	Hs: "How about I help you out."
+	P: "Do you have a spare face around here somewhere?"
+
+show Hs spr_talkHaes
+with nothing
+
+	Hs: "Yes, but that's beside the point."
+	Hs: "What you've done here, well it's kind of exceptional."
+	Hs: "You've got guts bypassing the game to come pester the gods in the scrapped game files."
+
+show Hs spr_talkHaesHappy
+with nothing
+
+	Hs: "But I'd reckon you were looking for something a bit...more."
+	P: "There's more?"
+	Hs: "There's always more, kid. There's always something to find, or forge, or forget."
+	Hs: "All you've gotta do is get your resources in order, and you can do anything."
+	Hs: "I bet you could even get out of the game altogether."
+	P: "Why would I want to do that?"
+
+show Hs spr_talkHaes
+with nothing
+
+	Hs: "That's your opinion. I'm just saying it's an option."
+	Hs: "And if you're interested-"
+	Hs: "I'll get you there, if you're willing to run a few errands for me."
+	Hs: "It's getting dreadfully boring being stuck in this forge with no work anyways."
+	Hs: "You interested? I'd need you to cooperate fully with me for us to work together."
+	Hs: "The other gods may not be happy that you found me here, so we'd have to work in secret."
+	Hs: "But if strike a deal with me, I'll get you your freedom."
+	menu
+	{
+		"What sort of deal?"
+		{
+			Hs: "You look like you want out of this place. I'm just offering a way to make that happen."
+			P: "Hades has been trying to get me to leave from the start though."
+			Hs: "Hades wants you more dead than gone. Exiting through the box, I mean that's one way to go."
+			Hs: "Maybe you survive, maybe you never come back to the game..."
+			Hs: "But that's just running away from this place."
+			Hs: "What I'm saying, is that you bide your time here, make sure everything's in order."
+			Hs: "Then you bust outta this place, get out of the muck of the code. Go see what's out there beyond the realm of the discarded files."
+			P: "That's quite the offer. How can you help?"
+			Hs: "I'm a blacksmith, I'll teach you how to make what you need."
+			Hs: "I bet you'll pick it up pretty quickly."
+			Hs: "But take your time, it's not everyday you sign contracts with strangers."
+			Hs: "There is not a downside to my offer though, I hope you know that."
+			Hs: "Take your time, take your time..."
+		}
+		"Well I'd better go prepare."
+		{
+			Hs:"Do what you need to do."
+			Hs:"I'd chip in to the wager but all I've got is gold."
+			Hs: "Good luck anyways."
+		}
+		exit
+	}	 
+}
+else
+{
+	Hs: "Back again? You give some thought to it?"
+	P: "You can grant me...freedom?"
+show Hs spr_talkHaesHappy
+with nothing
+
+	Hs: "Maybe even a face too. I just need someone on the outside to start putting things in motion."
+	Hs: "You want to be that person?"
+	menu
+	{
+		"Yes. (By choosing Haes, you cannot choose any other help)"
+		{
+			Hs: "And there you have it."
+
+show Hs spr_talkHaes
+with nothing
+
+
+			Hs: "You're about to be mauled by the Sphinxx, right?"
+			P: "How do you know that? And no, I'm feeling good about my odds."
+			Hs: "I'm a system process like Hades, I get to follow you around everywhere, except I don't get to speak and in theory you never get to see me."
+			Hs: "But this game has been getting more and more corrupted every day, so who knows what makes sense anymore."
+			Hs: "And no, you're going to get creamed by that glorified Syntax Error."
+			Hs: "But not with my help."
+			P: "You're going to help me?"
+
+show Hs spr_talkHaesHappy
+with nothing
+
+			Hs: "You aren't going to be much use to me if you're dead."
+
+show Hs spr_talkHaes
+with nothing
+
+			Hs: "Sorry, that came out a bit grim, but it's true."
+			Hs: "You learned some magic from Apollo, right?"
+			P: "Yeah, I learned how to cast some spells."
+			Hs: "Let me see your spellbook."
+			P: "Sure."
+			//book sound effect
+			Hs: "Bah, all rubbish."
+			Hs: "Apollo relies too much on his own ego. Look at how none of these spells use anything material."
+			Hs: "If you want to win in this fight, try using this book."
+			//book sound effect
+			inventory remove book1
+			notify("You got the Crafting Manual!")
+			inventory add book4
+			Hs: "When you cast spells, use the environment around you to your advantage."
+			Hs: "Don't just run around throwing fireballs and lightning bolts at people, that's basic."
+			Hs: "From now on, use the crafting manual. It'll let you cast spells that are NOUNS."
+			Hs: "You'll be able to create objects in battle, not just flimsy magic."
+			Hs: "You go try that out, and if you survive call me again. I'll set you up with a real quest."
+			He = true
+		}
+		"I have no idea what I'm doing."
+		{
+show Hs spr_talkHaes
+with nothing
+
+			Hs: "Yeah, I'm starting to piece that together."
+		}
+	}
+}
+
+call hadesSpecialHelpingExtravaganza(2)
+
+hide P
+with fade
+
+hide Hs
+with haes_swing
+
+wait for drawers
+exit

@@ -1,0 +1,188 @@
+//Characters: Athena, Protagonist
+
+//CHARACTERS
+character P
+{
+	name = "Protagonist"
+	side = left
+}
+character At
+{
+	name = "Athena"
+	side = right
+}
+
+show At spr_talkAthena
+with athena_swing
+
+show P spr_defaultSpeak
+with fade
+
+if (!AtIntro)
+{
+	AtIntro = true
+	At: "What is this?"
+	At: "Who are you?"
+	P: "I was about to ask the same thing."
+	At: "You summoned someone out of a treasure chest and didn't even think about who would show up?"
+	P: "Apollo just said to press the buttons on the chest. Your face was on one of them."
+	At: "Really? I didn't tell him I was allowing visitors."
+	P: "But... you showed up here."
+	At: "Yeah, so I did."
+	At: "How did you do that?"
+	At: "You don't happen to be... the Protagonist?"
+	P: "That's what people keep telling me."
+	At: "Ah, I see what's happening now."
+	At: "You're going to want to close the box now."
+	P: "What? Why?"
+	At: "Because I want to go back to what I was doing and you don't want anything to do with me."
+	P: "But Apollo said-"
+	At: "You think I care what Apollo said?"
+	At: "That man is a buffoon."
+	At: "He's been stuck in a forest because of his dumb pride."
+	At: "He's trying to solve a riddle that cannot be solved, that doesn't even exist."
+	At: "You think that's someone you should be taking advice from?"
+	P: "I don't know, maybe. I don't have a lot of options right now."
+	At: "Alright then, allow me to entertain you with that possibility."
+	At: "My name is Athena, and I am the goddess of wit, war, and weaving."
+	At: "If you can prove that you are worth my time, I'll give you a way out of this mess."
+	At:"Or rather, perhaps a way to get a bit farther in to this story."
+	At: "All you have to do is pass my test."
+	P: "Test?"
+	At: "Yeah, just figure it out and I'll let help you out."
+	At: "So?"
+
+	menu
+	{
+		"Yeah, I'll take the test"
+		{
+			jump athenaTest
+		}
+		"I don't need any more tests in my life."
+		{ 
+			At: "Good luck to you then."
+		}
+	}
+}
+else if (!testComplete)
+{
+	if (!testTaken)
+	{
+		At: "Are you ready to take the test this time?"
+		menu
+		{
+			"Yeah, I'll take the test"
+			{
+				jump athenaTest
+			}
+			"I don't need any more tests in my life."
+			{ 
+				At: "Good luck to you then."
+			}
+		}
+	}
+	else
+	{
+		At: "Come to take the test again?"
+		P: "What happened last time?"
+		At: "That's for you to figure out. Here you go. Try again."
+		jump athenaTest
+	}
+}
+// if completed the test
+else
+{
+	At: "Do you accept my offer?"
+	menu
+	{
+		"Yes"
+		{
+			At: "Good. You're in for quite the story then."
+			At: "But in regards to your... predicament-"
+			P: "Can you help me out at all?"
+			At: "I think I can, actually."
+			At: "What have you been using to cast spells so far?"
+			P: "Apollo gave me this book."
+			At: "Yeah that book's useless. Try this one on for size."
+			inventory remove book1
+			call notify("You got the Roam Tome!")
+			inventory add book2
+			P: "This looks nice."
+			At: "Don't lose it, it'll give you the edge you need in battle."
+			At: "At least, I hope so."
+			At: "A lot of this still depends on you and your own ability to hold your own."
+			P: "I own what?"
+			At: "A nice, proper magic book, and hopefully a mind on those shoulders of yours."
+			At: "I'd wish you good luck, but you shouldn't need it."
+			At: "Go wipe the floor with those spells of yours. Once you're free, I'll show you where to go."
+			At = true
+		}
+		"I have no idea what I'm doing."
+		{
+			At: "Alright then. Maybe another time."
+		}
+	}
+}
+
+label athenaTest
+{
+	show At spr_stabAthena
+	with athena_swing
+
+	testTaken = true
+	call hadesSpecialTestExtravaganza()
+	menu obj_jokeTestAth
+	call hadesSpecialTestExtravaganza()
+
+	// show At spr_stabbyAthena
+	// with nothing
+
+	At: "!"
+	P: "Whoa whoa whoa!"
+	P: "Were you about to stab me?"
+	At: "Yes. Duck."
+	P: "Whoa hang on, can you please not stab me?"
+	At: "I mean that is an option, I suppose."
+	At: "But you were distracted."
+	P: "Because you told me to take a test!"
+	At: "Yes. Congrats on passing it, it seems."
+	P: "I passed? But I didn't finish the test you-"
+	At: "The test wasn't the piece of paper that spawned in front of you."
+	P: "It was to minimize the test?"
+	At: "Well, mostly it was to catch me before I stabbed you."
+	At: "If you were just looking at the test then you wouldn't have seen me."
+	At: "And boy were you a sitting duck."
+
+ show At spr_talkAthena
+ with nothing
+
+	At: "But good job. I might spare you life today."
+	P: "Oh... yay."
+	At: "Here's the deal. I think you can help me out."
+	At: "You just have to think a little bigger."
+	P: "Bigger?"
+	At: "Yeah, you've got to see the bigger picture. Think beyond the initial quest you've been given."
+	At: "Have you noticed anything off about this world?"
+	P: "I don't have a face."
+	At: "No that's normal."
+	At: "Well, that's not normal. But I don't care about that."
+	At: "I was more referring to the fact that the trees are made of gold."
+	P: "Oh that."
+	P: "I thought that was just part of the aethstetic."
+	At: "It's not."
+	At: "Come with me, and I'll show you what is happening to this place."
+	P: "That's... quite the offer? Is that a good offer for me?"
+	At: "Maybe it is, maybe it isn't. Just be happy I've extended this offer."
+	testComplete = true
+}
+
+call hadesSpecialHelpingExtravaganza(2)
+
+hide At
+with athena_swing
+
+hide P
+with fade
+
+wait for drawers
+exit

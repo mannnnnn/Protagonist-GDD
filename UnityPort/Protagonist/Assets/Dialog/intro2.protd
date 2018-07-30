@@ -1,0 +1,143 @@
+//intro2
+//Characters: Hades, Protagonist, the silhouettes of people
+
+//CHARACTERS
+character P
+{
+	name = "Protagonist"
+	side = left
+}
+character H
+{
+	name = "???"
+	side = right
+}
+
+text display obj_narration
+
+create stepper intro obj_ffintro
+next intro
+
+play music snd_introMusicLoop snd_introMusicIntro
+
+H: "Welcome Hero, to darkness of war. You made a new game and you're back for more."
+
+H: "Normally I'd say you together band, and strike down those who force thy hand."
+
+H: "Except as you've already read, the mortals are already dead."
+
+H: "So go ahead, sit back, while I narrate. Opening lines are little more than bait."
+
+H: "Don't mind if I make things go a bit faster. I'm bored to death by this tale of disaster."
+
+play music snd_introMusicFF
+
+next intro
+text speed 2
+text auto true
+
+//
+show oAp spr_silhouettes 0 0 100
+with fade
+//
+
+H: "In fires of gods, mere mortals will quiver,"
+next intro
+
+//
+hide oAp
+with fade
+
+show oAr spr_silhouettes 1 0 100
+with fade
+//
+
+
+H: "The light of the moon can cause you to shiver,"
+next intro
+
+//
+hide oAr
+with fade
+
+show oHa spr_silhouettes 2 0 100
+with fade
+//
+
+H: "Or by thy hammer, forge light into peace."
+next intro
+
+//
+//
+
+H: "And with thy guidance this era may cease."
+next intro
+//
+hide oHa
+with fade
+//
+
+text speed 2
+text auto false
+
+text display obj_dialogueBox
+
+play music snd_hadesEntrance
+
+H: "Hooray we're done."
+
+//
+show H spr_talkHades
+with hades_swing
+//
+
+H: "And it all ended happily, ever, after."
+
+H: "Bye."
+
+P: "Wait!"
+
+H: "Yes?"
+
+P: "I'm here to play the game now."
+
+H: "So I see. I regret to inform you that the game is very much over."
+
+P: "If the world is destroyed, then where are we now?"
+
+H: "The world isn't destroyed. We just got rid of the mortals. It's perfectly nice here now."
+
+H: "But to answer your questions, since I'm forced to..."
+
+H: "We're in a box."
+
+P: "A box?"
+
+H: "A developer's tool, if I'm not mistaken."
+
+H: "I must have accidentally moved your spawn point here while cleaning up the files."
+
+P: "Can I leave the box?"
+
+H: "Keep your arms and legs inside the box at all times, please."
+
+P: "What is this box? Is it part of the game?"
+
+H: "Stop asking questions. You have more power than you know here."
+
+H: "This was an unobtainable object in game. It was just used by the programmers to skip from map to map without going through the story."
+
+H: "See, I didn't want to tell you that. You're awfully nosy, you know that?"
+
+P: "I'm just trying to figure out what's going on here."
+
+H: "Do us all a favor and don't. Just don't worry about any of this. Go enjoy your life elsewhere."
+
+H: "And give me that."
+
+call hadesSpecialSaveExtravaganza(3)
+call hadesSpecialExitingExtravaganza()
+
+wait -4
+
+exit

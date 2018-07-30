@@ -1,0 +1,13 @@
+character Hades
+{
+	side = right
+}
+
+show Hades spr_talkHades
+with fade
+
+Hades: "Great. It's you again."
+
+menu pause
+
+Hades: "See you next time. I'm sure it won't be long."

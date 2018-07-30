@@ -1,0 +1,111 @@
+//intro3
+//Characters: Hades, Protagonist, the silhouettes of people
+
+//CHARACTERS
+character P
+{
+	name = "Protagonist"
+	side = left
+}
+character H
+{
+	name = "???"
+	side = right
+}
+
+create obj_launch 200 160
+
+text display obj_narration
+
+create stepper intro obj_ffintro
+next intro
+
+play music snd_introMusicLoop snd_introMusicIntro
+
+"Welcome Hero, to darkness of war. Rhyming's a duty I can't ignore."
+
+"I thought that I'd made this very clear, but there is nothing for you here."
+
+"I really hate introducing this game, and I know that you're the one to blame."
+
+"Repeating again the important lines, I'm starting to think that you're missing the signs."
+
+"But if it's all for giggles and chortles, I'll reminisce about the death of the mortals."
+
+play music snd_introMusicFF
+
+next intro
+text speed 2
+text auto true
+
+//
+show oAp spr_silhouettes 0 0 100
+with fade
+//
+
+H: "In fires of gods, mere mortals will quiver,"
+next intro
+
+//
+hide oAp
+with fade
+
+show oAr spr_silhouettes 1 0 100
+with fade
+//
+
+
+H: "The light of the moon can cause you to shiver,"
+next intro
+
+//
+hide oAr
+with fade
+
+show oHa spr_silhouettes 2 0 100
+with fade
+//
+
+H: "Or by thy hammer, forge light into peace."
+next intro
+
+//
+//
+
+H: "And with thy guidance this era may cease."
+next intro
+//
+hide oHa
+with fade
+//
+
+text speed 2
+text auto false
+
+text display obj_dialogueBox
+
+play music snd_hadesEntrance
+
+//slow down text to original speed
+"I can tell this is all greek to you."
+//switch button sprite to the english launch button
+
+call hadesSpecialButtonExtravaganza()
+
+//
+show H spr_talkHades
+with hades_swing
+//
+
+H: "So let's not drag this out any longer."
+H: "This is my job."
+H: "And as long as you keep restarting the game, I have to keep saying these rhymes."
+H: "I would really, very much appreciate it if you left."
+H: "And there really doesn't seem to be anything for you here anyways."
+H: "Get out."
+
+call hadesSpecialExitingExtravaganza()
+
+wait -4
+
+exit

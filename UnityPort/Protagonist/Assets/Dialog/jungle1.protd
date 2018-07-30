@@ -1,0 +1,89 @@
+//Jungle1
+//Characters: Hades, Protagonist
+
+
+//CHARACTERS
+character P
+{
+	name = "Protagonist"
+	side = left
+}
+character H
+{
+	name = "Narrator"
+	side = right
+}
+character ?
+{
+	name = "???"
+	side = right
+}
+
+//BEGIN DIALOGUE
+show H spr_talkHades
+with hades_swing
+//
+
+?: "Well."
+?: "Well, well, well."
+?: "You'd better have a real good reason for this nonsense."
+?: "Actually I don't want to wait around for an idea to bounce around and collide with the meaty thinking part of your mortal head."
+?: "At the rate which it took you to find that accursed button we might be here for weeks if you decide to open that mouth of yours."
+
+//
+show P spr_defaultSpeak
+with fade
+//
+
+P: "That's- hold on I don't have a mouth. How did that happen?"
+
+?: "An unfortunate consequence of jumping outside the game files, I'm afraid."
+?: "And by jumping outside the game files, I of course refer to you turning this treasure chest into some sort of interplanetary ship."
+
+P: "I'm a rocket scientist?"
+
+?: "I truly hope not."
+?: "But unfortunately I cannot disprove that."
+?: ""
+P:""
+P:"So I might be a rocket scientist?"
+
+?: "You aren't anything."
+?: "You shouldn't be anything."
+?: "And you are incapable of being anything because you've broken this game already."
+
+P: "What did I do?"
+
+?: "You showed up! Didn't you hear me the first time?"
+?: "The game was over! The mortals died, the gods won, and Sezu had just gotten his grapes to root on the blood-stained hills of the western cities!"
+?: "We all had to deal with four hundred years of complains over how hard it is to make a vineyard on the bones of our enemies!"
+?: "And now I get to play nanny for someone who was too lazy to show up on time for their actual role."
+
+P: "What's my role?"
+
+?: "Oh no, we're not playing that game."
+?: "I'm not the narrator in this."
+H: "If you excuse me I'll-"
+H: "..."
+H: "When did I get a name above the dialogue box."
+
+P: "About when you told me you weren't the narrator."
+H: "Well that's it for me."
+H: "Have fun playing with the incomplete maps."
+
+//
+hide H
+with hades_swing
+//
+
+P: "Cool."
+P: "I guess I'll just relax in this... forest."
+P: "In the smoldering wreck of my science."
+
+call hadesSpecialHelpingExtravaganza(0)
+
+hide P
+
+wait for drawers
+exit
+

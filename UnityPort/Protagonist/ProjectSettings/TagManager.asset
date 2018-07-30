@@ -4,13 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - RoomBackground
-  - Wall
   - Door
   - ResolutionHandler
-  - SceneTransition
-  - DialogueBox
+  - Wall
+  - RoomBackground
   - NameBox
+  - DialogueBox
+  - SceneTransition
   layers:
   - Default
   - TransparentFX
@@ -45,9 +45,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
-    uniqueID: 3483047603
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
