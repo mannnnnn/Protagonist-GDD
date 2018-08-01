@@ -11,7 +11,7 @@ Here is a simple example:
     {
         character: "Hades",
         abbrev: "H"
-    }
+    },
     { H: "Hello, world!" }
 ]
 ```
@@ -104,6 +104,49 @@ When you want to hide the sprite, you can leave out the transition to use what w
         transition: "Fade"
     }
 }
+```
+
+## Branches and Menus
+
+You can give the player decisions in dialogue using menus.
+
+```javascript
+[
+    {
+        menu: [
+            {
+                text: "Choice A",
+                block: {
+                    { H: "You chose choice A." }
+                }
+            },
+            {
+                text: "Choice B",
+                block: {
+                    { H: "You chose choice B." }
+                }
+            },
+            {
+                text: "Choice C",
+                block: {
+                    { H: "You chose choice C." }
+                }
+            }
+        ],
+        menuType: "Default"
+    }
+]
+```
+Specifying a menuType is not necessary, and if none is specified, the "Default" menu will be used.
+
+If the menu is not a decision menu, such as the "Pause" menu, then specify an empty list for the menu, and give the name of the menu type:
+```javascript
+[
+    {
+        menu: [],
+        menuType: "Pause"
+    }
+]
 ```
 
 ## Control statements

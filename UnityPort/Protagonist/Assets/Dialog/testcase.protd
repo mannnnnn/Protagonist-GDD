@@ -1,0 +1,7 @@
+[
+    {
+        character: "Hades",
+        abbrev: "H"
+    },
+    { H: "Hello, world!" }
+]
