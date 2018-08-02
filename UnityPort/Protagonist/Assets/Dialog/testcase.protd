@@ -3,5 +3,37 @@
         character: "Hades",
         abbrev: "H"
     },
-    { H: "Hello, world!" }
+    { H: "Hello, world!" },
+    {
+        show: {
+            name: "H",
+            side: "Right",
+            sprite: "HadesLeft_0",
+            transition: "Swing"
+        }
+    },
+    { var: "x", val: true },
+    { var: "y", val: false },
+    { var: "z", val: "x || y" },
+    {
+        cond: "z || x",
+        if: [
+            { H: "If ran." }
+        ],
+        else: [
+            { H: "Else ran." }
+        ]
+    },
+
+    { jump: "hadesSaysHi" },
+    { jump: "hadesSaysHi" },
+    { jump: "hadesSaysHi" },
+
+    {
+        label: "hadesSaysHi",
+        block: [
+            { H: "Hi." },
+            { H: "Hi again." }
+        ]
+    }
 ]
