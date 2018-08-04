@@ -238,7 +238,12 @@ namespace Assets.Scripts.Libraries.ProtagonistDialog
             // name and abbrev
             var name = (string)statement["character"];
             var abbrev = (string)statement["abbrev"];
-            characters[abbrev] = new DialogCharacter(name, abbrev);
+            var position = "Left";
+            if (statement.ContainsKey("side"))
+            {
+                position = (string)statement["side"];
+            }
+            characters[abbrev] = new DialogCharacter(name, abbrev, position);
         }
 
         private void RunLabel(Dictionary<string, object> statement, List<Dictionary<string, object>> context, int position)
@@ -308,10 +313,12 @@ namespace Assets.Scripts.Libraries.ProtagonistDialog
     {
         public string name { get; internal set; }
         public string abbrev { get; internal set; }
-        public DialogCharacter(string name, string abbrev)
+        public string position { get; internal set; }
+        public DialogCharacter(string name, string abbrev, string position)
         {
             this.name = name;
             this.abbrev = abbrev;
+            this.position = position;
         }
     }
 
