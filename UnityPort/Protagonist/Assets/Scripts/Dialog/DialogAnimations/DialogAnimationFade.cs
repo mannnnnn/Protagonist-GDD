@@ -13,7 +13,8 @@ public class DialogAnimationFade : TimedDialogAnimation
         endAlpha = alpha;
     }
 
-    void Start () {
+    void Start ()
+    {
         // 1 second duration
         Initialize(1f);
         // get starting opacity
@@ -21,7 +22,8 @@ public class DialogAnimationFade : TimedDialogAnimation
         startAlpha = sr.color.a;
     }
 	
-	protected override void Update () {
+	protected override void Update ()
+    {
         base.Update();
         sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, Mathf.Lerp(startAlpha, endAlpha, timer));
     }

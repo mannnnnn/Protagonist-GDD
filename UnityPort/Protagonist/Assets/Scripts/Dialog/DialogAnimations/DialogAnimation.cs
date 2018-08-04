@@ -48,10 +48,18 @@ public abstract class TimedDialogAnimation : DialogAnimation
         if (Mathf.Abs(timerSeconds) > duration)
         {
             finished = true;
+            Finish();
         }
         timerSeconds = Mathf.Clamp(timerSeconds, -duration, duration);
     }
 
+    // called when timer is finished.
+    protected virtual void Finish()
+    {
+        
+    }
+
+    // checks whether or not this animation is finished.
     public override bool Finished()
     {
         return finished;

@@ -16,7 +16,7 @@ public class AdjustUIBehavior : MonoBehaviour
         UpdateAnchors();
     }
 
-    // resets  anchor position to those of the left/right fields
+    // resets anchor position to those of the left/right fields
     public void UpdateAnchors()
     {
         UpdateAnchors(left, right);
