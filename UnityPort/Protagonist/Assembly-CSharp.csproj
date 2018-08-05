@@ -66,8 +66,6 @@
     <Compile Include="Assets\Scripts\Controllers\Map\MapScenes.cs" />
     <Compile Include="Assets\Scripts\Controllers\ResolutionHandler.cs" />
     <Compile Include="Assets\Scripts\Depth2DBehavior.cs" />
-    <Compile Include="Assets\Scripts\Dialog\AdjustUIBehavior.cs" />
-    <Compile Include="Assets\Scripts\Dialog\DialogAnimationBehavior.cs" />
     <Compile Include="Assets\Scripts\Dialog\DialogAnimations\DialogAnimation.cs" />
     <Compile Include="Assets\Scripts\Dialog\DialogAnimations\DialogAnimationFade.cs" />
     <Compile Include="Assets\Scripts\Dialog\DialogAnimations\DialogAnimationJump.cs" />
@@ -75,11 +73,14 @@
     <Compile Include="Assets\Scripts\Dialog\DialogAnimations\DialogSwingable.cs" />
     <Compile Include="Assets\Scripts\Dialog\DialogBehavior.cs" />
     <Compile Include="Assets\Scripts\Dialog\DialogBehaviorActions.cs" />
-    <Compile Include="Assets\Scripts\Dialog\DialogDisplayBehavior.cs" />
     <Compile Include="Assets\Scripts\Dialog\DialogEvents.cs" />
-    <Compile Include="Assets\Scripts\Dialog\DialogMenuBehavior.cs" />
     <Compile Include="Assets\Scripts\Dialog\DialogPrefabs.cs" />
-    <Compile Include="Assets\Scripts\Dialog\NameBoxBehavior.cs" />
+    <Compile Include="Assets\Scripts\Dialog\Display\AdjustUIBehavior.cs" />
+    <Compile Include="Assets\Scripts\Dialog\Display\DialogAnimationBehavior.cs" />
+    <Compile Include="Assets\Scripts\Dialog\Display\DialogDisplayBehavior.cs" />
+    <Compile Include="Assets\Scripts\Dialog\Display\DialogMenuBehavior.cs" />
+    <Compile Include="Assets\Scripts\Dialog\Display\DialogMenuButtonBehavior.cs" />
+    <Compile Include="Assets\Scripts\Dialog\Display\NameBoxBehavior.cs" />
     <Compile Include="Assets\Scripts\DoorBehavior.cs" />
     <Compile Include="Assets\Scripts\Libraries\ProtagonistDialog\Dialog.cs" />
     <Compile Include="Assets\Scripts\Libraries\ProtagonistDialog\DialogBoolExpression.cs" />

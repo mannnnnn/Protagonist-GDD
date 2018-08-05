@@ -63,7 +63,6 @@
         }
     },
     { jump: "hadesSaysHi" },
-
     {
         label: "hadesSaysHi",
         block: [
@@ -71,5 +70,5 @@
             { H: "Hi again." }
         ]
     },
-    { H: "Hi." }
+    { H: "The last hi." }
 ]

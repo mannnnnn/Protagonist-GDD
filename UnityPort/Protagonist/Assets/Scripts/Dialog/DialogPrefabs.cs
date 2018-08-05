@@ -23,7 +23,7 @@ public class DialogPrefabs : MonoBehaviour
         {
             Prefabs[prefab.name] = prefab.prefab;
         }
-        foreach (DialogPrefab menu in prefabs)
+        foreach (DialogPrefab menu in menus)
         {
             Menus[menu.name] = menu.prefab;
         }

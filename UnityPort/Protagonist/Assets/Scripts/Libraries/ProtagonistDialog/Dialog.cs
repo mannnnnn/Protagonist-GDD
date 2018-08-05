@@ -58,6 +58,21 @@ namespace Assets.Scripts.Libraries.ProtagonistDialog
             bool run = true;
             while (run)
             {
+                // check if we're complete with the current block
+                if (current >= currentBlock.Count)
+                {
+                    // if the call stack is empty, finish
+                    if (callStack.Count == 0)
+                    {
+                        target.Finish(this);
+                        return;
+                    }
+                    // otherwise, jump to the previous context
+                    CallStackEntry entry = callStack.Pop();
+                    current = entry.position;
+                    currentBlock = entry.block;
+                }
+
                 // fetch and run statement
                 var statement = currentBlock[current];
                 // check for control statements: 
@@ -87,6 +102,7 @@ namespace Assets.Scripts.Libraries.ProtagonistDialog
                         type = (string)statement["menuType"];
                     }
                     menu = target.GetMenu(CastBlock(statement["menu"]), type);
+                    run = false;
                 }
                 else if (statement.ContainsKey("label"))
                 {
@@ -101,7 +117,7 @@ namespace Assets.Scripts.Libraries.ProtagonistDialog
                 {
                     if (statement.Count == 0)
                     {
-                        throw new ParseError("Empty object is not a valid sattement.");
+                        throw new ParseError("Empty object is not a valid statement.");
                     }
                     // check for display statement
                     foreach (string key in statement.Keys)
@@ -118,22 +134,7 @@ namespace Assets.Scripts.Libraries.ProtagonistDialog
                         run = target.Run(statement, this);
                     }
                 }
-
-                // if we're complete with the current block
                 current++;
-                if (current >= currentBlock.Count)
-                {
-                    // if the call stack is empty, finish
-                    if (callStack.Count == 0)
-                    {
-                        target.Finish(this);
-                        return;
-                    }
-                    // otherwise, jump to the previous context
-                    CallStackEntry entry = callStack.Pop();
-                    current = entry.position;
-                    currentBlock = entry.block;
-                }
             }
         }
 

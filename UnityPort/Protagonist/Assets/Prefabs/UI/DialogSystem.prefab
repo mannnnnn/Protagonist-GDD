@@ -194,7 +194,9 @@ MonoBehaviour:
     prefab: {fileID: 1945100827670942, guid: 2a4a475fd6980f442985f7734b29226b, type: 2}
   - name: Hades
     prefab: {fileID: 1691183689219656, guid: e4ce10ab1a0867f4fbc613ff861a66d1, type: 2}
-  menus: []
+  menus:
+  - name: Default
+    prefab: {fileID: 1751481451366056, guid: b9e6d6125b94ab74590842acb8b7a613, type: 2}
 --- !u!114 &114311848610756266
 MonoBehaviour:
   m_ObjectHideFlags: 1

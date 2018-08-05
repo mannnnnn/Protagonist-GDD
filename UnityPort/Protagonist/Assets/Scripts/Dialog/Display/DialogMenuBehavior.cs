@@ -7,6 +7,8 @@ public class DialogMenuBehavior : MonoBehaviour {
 
     Dialog dialog;
     List<string> options = new List<string>();
+    public GameObject button;
+
     public List<Dictionary<string, object>> Initialize(List<Dictionary<string, object>> options, Dialog dialog)
     {
         this.dialog = dialog;
