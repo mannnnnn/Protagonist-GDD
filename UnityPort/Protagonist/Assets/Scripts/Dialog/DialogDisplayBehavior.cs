@@ -22,6 +22,11 @@ public class DialogDisplayBehavior : MonoBehaviour {
         CLOSED, OPENING, OPEN, PENDING_CLOSE, CLOSING
     }
 
+    // resize
+    float initialSize;
+    float targetSize;
+    float sizeSpd = 400f;
+
     // needs a delayed initialization since the UI elements take some warming up before going to correct position
     bool initialized = false;
 
@@ -41,6 +46,8 @@ public class DialogDisplayBehavior : MonoBehaviour {
         {
             nameBox.UpdateBasePosition();
             dialogBox.UpdateBasePosition();
+            initialSize = dialogBox.GetSize();
+            targetSize = initialSize;
             initialized = true;
         }
         // handle state
@@ -48,6 +55,7 @@ public class DialogDisplayBehavior : MonoBehaviour {
         {
             case State.CLOSED:
                 timerSeconds = 0;
+                targetSize = initialSize;
                 break;
             case State.OPENING:
                 timerSeconds += Time.deltaTime;
@@ -77,6 +85,7 @@ public class DialogDisplayBehavior : MonoBehaviour {
                 {
                     state = State.CLOSING;
                 }
+                targetSize = initialSize;
                 break;
             case State.CLOSING:
                 timerSeconds -= Time.deltaTime;
@@ -85,11 +94,13 @@ public class DialogDisplayBehavior : MonoBehaviour {
                     state = State.CLOSED;
                 }
                 timerSeconds = Mathf.Clamp(timerSeconds, 0, duration);
+                targetSize = initialSize;
                 break;
         }
         // set UI components
         SetAlpha(timer);
-        SetPosition(new Vector2(0, Mathf.Lerp(-400, 0, timer)));
+        SetPosition(new Vector2(0, Mathf.Lerp(-300 + targetSize, 0, timer)));
+        SetSize(Mathf.MoveTowards(dialogBox.GetSize(), targetSize, sizeSpd * Time.deltaTime));
     }
 
     public void SetState(State state)
@@ -99,7 +110,6 @@ public class DialogDisplayBehavior : MonoBehaviour {
 
     public void SetText(string character, string text)
     {
-        Debug.Log("character: " + character);
         setNameBox.SetName(character);
         dialogBox.SetText(text);
     }
@@ -117,9 +127,17 @@ public class DialogDisplayBehavior : MonoBehaviour {
         nameBox.SetPosition(pos);
         dialogBox.SetPosition(pos);
     }
-    public void SetSize(float size)
+    private void SetSize(float size)
     {
-
+        // move namebox up
+        nameBox.SetPosition(new Vector2(nameBox.GetPosition().x, nameBox.GetPosition().y + (size - initialSize)));
+        // set size
+        dialogBox.SetSize(size);
+    }
+    // sets size to initialSize + size
+    public void SetTargetSize(float size)
+    {
+        targetSize = size + initialSize;
     }
 
     // helper class used to wrap setting alpha/position/text into one object per GameObject.
@@ -159,9 +177,21 @@ public class DialogDisplayBehavior : MonoBehaviour {
             text.color = new Color(text.color.r, text.color.g, text.color.b, alpha);
             image.color = new Color(text.color.r, text.color.g, text.color.b, alpha);
         }
+        public Vector2 GetPosition()
+        {
+            return (Vector2)rect.localPosition - initialPos;
+        }
         public void SetPosition(Vector2 pos)
         {
             rect.localPosition = initialPos + pos;
+        }
+        public float GetSize()
+        {
+            return rect.rect.height;
+        }
+        public void SetSize(float size)
+        {
+            rect.sizeDelta = new Vector2(rect.sizeDelta.x, size);
         }
     }
 }

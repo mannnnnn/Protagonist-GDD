@@ -30,6 +30,14 @@ public partial class DialogBehavior : MonoBehaviour, DialogTarget
             display.SetState(DialogDisplayBehavior.State.OPENING);
             dialog.Run(this);
         }
+        if (display.active && Input.GetKey(KeyCode.Space))
+        {
+            display.SetTargetSize(200);
+        }
+        else
+        {
+            display.SetTargetSize(0);
+        }
     }
 
     public void Display(string character, string text, Dictionary<string, object> statement)
