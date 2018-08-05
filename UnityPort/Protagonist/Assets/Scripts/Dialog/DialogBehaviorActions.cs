@@ -51,7 +51,7 @@ public partial class DialogBehavior
             // transition in
             chr.gameObject.GetComponent<DialogAnimationBehavior>().SetTransition(chr.transition, false, show);
         }
-        UpdateCharacterImage(show, chr);
+        UpdateCharacterAfter(show, chr);
         return chr.gameObject;
     }
 
@@ -63,7 +63,7 @@ public partial class DialogBehavior
         {
             throw new ParseError("Invalid 'hide' statement, character '" + chr.abbrev + "' is not being shown.");
         }
-        UpdateCharacterImage(show, chr);
+        UpdateCharacterAfter(show, chr);
         // transition out
         chr.gameObject.GetComponent<DialogAnimationBehavior>().SetTransition(chr.transition, true, show);
         // set as hidden
@@ -89,7 +89,7 @@ public partial class DialogBehavior
         }
         return chr;
     }
-    private void UpdateCharacterImage(Dictionary<string, object> show, DialogCharacter chr)
+    private void UpdateCharacterAfter(Dictionary<string, object> show, DialogCharacter chr)
     {
         // set image if necessary
         var image = GetValue(show, "image", true);
@@ -101,6 +101,47 @@ public partial class DialogBehavior
             }
             chr.gameObject.GetComponent<DialogAnimationBehavior>().SetImage(images[image]);
         }
+        // set side if necessary
+        var side = GetValue(show, "side", true);
+        if (side != null)
+        {
+            Vector2 pos = Vector2.zero;
+            if (sides.ContainsKey(side))
+            {
+                pos = sides[side];
+            }
+            else
+            {
+                pos = ParseVector2(side);
+            }
+            chr.gameObject.GetComponent<DialogAnimationBehavior>().SetPosition(pos);
+        }
+    }
+
+    private Vector2 ParseVector2(string str)
+    {
+        str = str.Trim();
+        // first and last chars must be ( and )
+        if (str[0] != '(' || str[str.Length - 1] != ')')
+        {
+            throw new ParseError("Position '" + str + "' is not a valid (x, y) coordinate or registered side.");
+        }
+        str = str.Substring(1, str.Length - 2);
+        // split by ,
+        string[] xyStr = str.Split(',');
+        if (xyStr.Length != 2)
+        {
+            throw new ParseError("Position '" + str + "' is not a valid (x, y) coordinate or registered side.");
+        }
+        float[] nums = new float[2];
+        for (int i = 0; i < xyStr.Length; i++)
+        {
+            if (!float.TryParse(xyStr[i], out nums[i]))
+            {
+                new ParseError("Position '" + str + "' is not a valid (x, y) coordinate or registered side.");
+            }
+        }
+        return new Vector2(nums[0], nums[1]);
     }
 
     public string GetValue(Dictionary<string, object> show, string name, bool optional = false)

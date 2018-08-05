@@ -29,6 +29,7 @@
         show: {
             name: "H",
             image: "Glitch",
+            side: "Left"
         }
     },
     { jump: "hadesSaysHi" },
@@ -36,6 +37,7 @@
         show: {
             name: "H",
             image: "Happy",
+            side: "Center"
         }
     },
     { jump: "hadesSaysHi" },
@@ -43,6 +45,7 @@
         show: {
             name: "H",
             image: "Normal",
+            side: "Right"
         }
     },
     { jump: "hadesSaysHi" },

@@ -14,6 +14,11 @@ public class DialogAnimationBehavior : MonoBehaviour {
     // SetTransition with destroy=true is called if it is a hide transition
     bool destroy = false;
 
+    // move to position. spd is in mapview units (fraction of screen width per second)
+    float spd = 1f;
+    private float worldSpd;
+    Vector2 pos = Vector2.zero;
+
     // Use this for initialization
     void Awake() {
         // get components
@@ -27,7 +32,11 @@ public class DialogAnimationBehavior : MonoBehaviour {
         sr.transform.localScale = new Vector3(scale, scale, sr.transform.localScale.z);
         // set at bottom of mapview
         transform.position = new Vector3(transform.position.x, res.MapViewToWorldPoint(Vector2.zero).y, transform.position.z);
-	}
+        pos = transform.position;
+        // calculate speed in world coords
+        worldSpd = Mathf.Abs(res.MapViewToWorldPoint(Vector2.right * spd).x
+            - res.MapViewToWorldPoint(Vector2.zero).x);
+    }
 	
     public void SetTalk(bool value)
     {
@@ -73,12 +82,23 @@ public class DialogAnimationBehavior : MonoBehaviour {
                 throw new ParseError("Transition named " + transition + " does not exist. Add one in AdjustDialogAnimation.SetTransition");
         }
     }
-    // if marked for destruction, destroy when transition is done
+
+    public void SetPosition(Vector2 pos)
+    {
+        this.pos = ResolutionHandler.GetInstance().MapViewToWorldPoint(pos);
+    }
+
     void Update()
     {
+        // if marked for destruction, destroy when transition is done
         if (destroy && transition != null && transition.Finished())
         {
             Destroy(gameObject);
+        }
+        // move towards target position
+        if ((Vector2)transform.position != pos)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, pos, worldSpd * Time.deltaTime);
         }
     }
 }
