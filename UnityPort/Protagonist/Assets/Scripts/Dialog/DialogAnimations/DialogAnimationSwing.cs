@@ -9,40 +9,52 @@ public class DialogAnimationSwing : TimedDialogAnimation
     SpriteRenderer back;
     float startAlpha = 0f;
     float endAlpha = 0f;
+    float startAngle = 0f;
+    float endAngle = 0f;
 
-    public void Initialize(float alpha) {
+    public void Initialize(float alpha, float endAngle) {
+        this.endAngle = endAngle;
         endAlpha = alpha;
     }
 
     void Start ()
     {
-        base.Initialize(1.5f);
+        base.Initialize(0.5f);
         var swing = GetComponent<DialogSwingable>();
         if (swing == null)
         {
             throw new Exception("GameObject " + gameObject.name + " does not have a DialogSwingable component.");
         }
         // set back sprite
-        back = GetComponent<SpriteRenderer>();
-        back.sprite = swing.back;
-        startAlpha = front.color.a;
-        // create a child component that draws the front sprite
-        GameObject frontObj = new GameObject();
-        frontObj.transform.parent = transform;
-        front = frontObj.AddComponent<SpriteRenderer>();
+        front = GetComponent<SpriteRenderer>();
         front.sprite = swing.front;
+        startAlpha = front.color.a;
+        startAngle = front.transform.localEulerAngles.z;
+        // create a child component that draws the front sprite
+        GameObject backObj = new GameObject(gameObject.name + " Swing Back Sprite");
+        backObj.transform.parent = transform;
+        // when you apply parent, it transforms itself to preserve its absolute transform. So undo that.
+        backObj.transform.localPosition = new Vector3(0, 0, -1);
+        backObj.transform.localScale = new Vector3(1, 1, backObj.transform.localScale.z);
+        backObj.transform.localEulerAngles = new Vector3(0, 0, 0);
+        back = backObj.AddComponent<SpriteRenderer>();
+        back.sprite = swing.back;
     }
 	
 	protected override void Update ()
     {
         base.Update();
         front.color = new Color(front.color.r, front.color.g, front.color.b, Mathf.Lerp(startAlpha, endAlpha, timer));
-        back.color = new Color(back.color.r, back.color.g, back.color.b, Mathf.Lerp(1 - startAlpha, 1 - endAlpha, timer));
+        front.transform.localEulerAngles = new Vector3(0, 0, Mathf.Lerp(startAngle, endAngle, timer));
+        if (back != null)
+        {
+            back.color = new Color(back.color.r, back.color.g, back.color.b, Mathf.Lerp(1 - startAlpha, 1 - endAlpha, timer));
+        }
     }
 
     // clean up front-drawing child
     protected override void Finish()
     {
-        Destroy(front.gameObject);
+        Destroy(back.gameObject);
     }
 }

@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public partial class DialogBehavior : MonoBehaviour, DialogTarget
 {
-    Dialog dialog;
+    public Dialog dialog { get; private set; }
     DialogDisplayBehavior display;
 
     void Start()
@@ -59,7 +59,7 @@ public partial class DialogBehavior : MonoBehaviour, DialogTarget
     public void Finish(Dialog dialog)
     {
         Debug.Log("done");
-        display.SetState(DialogDisplayBehavior.State.CLOSING);
+        display.SetState(DialogDisplayBehavior.State.PENDING_CLOSE);
     }
 
     public List<Dictionary<string, object>> GetMenu(List<Dictionary<string, object>> menu, string type = "Default")

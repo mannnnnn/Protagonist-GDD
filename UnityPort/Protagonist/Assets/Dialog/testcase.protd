@@ -8,8 +8,9 @@
         show: {
             name: "H",
             side: "Right",
-            sprite: "HadesLeft_0",
-            transition: "Swing"
+            sprite: "Hades",
+            transition: "Swing",
+            image: "Normal"
         }
     },
     { var: "x", val: true },
@@ -24,9 +25,26 @@
             { H: "Else ran." }
         ]
     },
-
+    {
+        show: {
+            name: "H",
+            image: "Glitch",
+        }
+    },
     { jump: "hadesSaysHi" },
+    {
+        show: {
+            name: "H",
+            image: "Happy",
+        }
+    },
     { jump: "hadesSaysHi" },
+    {
+        show: {
+            name: "H",
+            image: "Normal",
+        }
+    },
     { jump: "hadesSaysHi" },
 
     {

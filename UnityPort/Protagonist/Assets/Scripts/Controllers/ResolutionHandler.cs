@@ -79,6 +79,52 @@ public class ResolutionHandler : MonoBehaviour {
 
     void Update()
     {
+        
+    }
+
+    void OnGUI()
+    {
+        CoverBlackBars();
+    }
+
+    // texture that covers the black bars
+    // used in CoverBlackBars()
+    private Texture2D black;
+    // used to cover the black bars with actual black
+    protected void CoverBlackBars()
+    {
+        // set the GUI drawing color to have full alpha
+        GUI.color = new Color(GUI.color.r, GUI.color.g, GUI.color.b, 1);
+        // init black texture to cover the side bars
+        if (black == null)
+        {
+            black = new Texture2D(1, 1);
+            black.SetPixel(0, 0, Color.black);
+            black.Apply();
+        }
+        // draw the 4 possible black bars:
+        Vector3 origin;
+        Vector3 size;
+
+        // left bar is Screen(0, 0) to MapView(0, 1)
+        origin = Vector2.zero;
+        size = MapViewToScreenPoint(new Vector2(0, 1)) - origin;
+        GUI.DrawTexture(new Rect(origin, size), black);
+
+        // right bar is MapView(1, 0) to Screen(1, 1)
+        origin = MapViewToScreenPoint(new Vector2(1, 0));
+        size = new Vector3(Screen.width, Screen.height) - origin;
+        GUI.DrawTexture(new Rect(origin, size), black);
+
+        // top bar is Screen(0, 0) to MapView(1, 0)
+        origin = Vector2.zero;
+        size = MapViewToScreenPoint(new Vector2(1, 0)) - origin;
+        GUI.DrawTexture(new Rect(origin, size), black);
+
+        // bottom bar is MapView(0, 1) to Screen(1, 1)
+        origin = MapViewToScreenPoint(new Vector2(0, 1));
+        size = new Vector3(Screen.width, Screen.height) - origin;
+        GUI.DrawTexture(new Rect(origin, size), black);
     }
 
     /**

@@ -29,9 +29,6 @@ public class SceneTransition : MonoBehaviour
 
     // texture drawn to screen
     protected Texture2D tex;
-    // cover the black bars during transitions
-    // used in CoverBlackBars()
-    private Texture2D black;
 
     // handle timing and state changes
     void Update()
@@ -111,9 +108,6 @@ public class SceneTransition : MonoBehaviour
     // draw on the screen based on the timer, override this
     void OnGUI()
     {
-        // cover black bars on the side
-        CoverBlackBars();
-
         // set the GUI drawing color to have the given alpha
         GUI.color = new Color(GUI.color.r, GUI.color.g, GUI.color.b, timer);
         // init texture if necessary
@@ -127,43 +121,6 @@ public class SceneTransition : MonoBehaviour
         Vector3 topLeft = ResolutionHandler.GetInstance().MapViewToScreenPoint(new Vector2(0, 0));
         Vector3 size = ResolutionHandler.GetInstance().MapViewToScreenPoint(new Vector2(1, 1)) - topLeft;
         GUI.DrawTexture(new Rect(topLeft, size), tex);
-    }
-
-    // used to cover the black bars during transitions
-    protected void CoverBlackBars()
-    {
-        // set the GUI drawing color to have full alpha
-        GUI.color = new Color(GUI.color.r, GUI.color.g, GUI.color.b, 1);
-        // init black texture to cover the side bars
-        if (black == null)
-        {
-            black = new Texture2D(1, 1);
-            black.SetPixel(0, 0, Color.black);
-            black.Apply();
-        }
-        // draw the 4 possible black bars:
-        Vector3 origin;
-        Vector3 size;
-
-        // left bar is Screen(0, 0) to MapView(0, 1)
-        origin = Vector2.zero;
-        size = ResolutionHandler.GetInstance().MapViewToScreenPoint(new Vector2(0, 1)) - origin;
-        GUI.DrawTexture(new Rect(origin, size), black);
-
-        // right bar is MapView(1, 0) to Screen(1, 1)
-        origin = ResolutionHandler.GetInstance().MapViewToScreenPoint(new Vector2(1, 0));
-        size = new Vector3(Screen.width, Screen.height) - origin;
-        GUI.DrawTexture(new Rect(origin, size), black);
-
-        // top bar is Screen(0, 0) to MapView(1, 0)
-        origin = Vector2.zero;
-        size = ResolutionHandler.GetInstance().MapViewToScreenPoint(new Vector2(1, 0)) - origin;
-        GUI.DrawTexture(new Rect(origin, size), black);
-
-        // bottom bar is MapView(0, 1) to Screen(1, 1)
-        origin = ResolutionHandler.GetInstance().MapViewToScreenPoint(new Vector2(0, 1));
-        size = new Vector3(Screen.width, Screen.height) - origin;
-        GUI.DrawTexture(new Rect(origin, size), black);
     }
 
     //Add callback on room chance when created

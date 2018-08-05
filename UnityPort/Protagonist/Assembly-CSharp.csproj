@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Controllers\ResolutionHandler.cs" />
     <Compile Include="Assets\Scripts\Depth2DBehavior.cs" />
     <Compile Include="Assets\Scripts\Dialog\AdjustUIBehavior.cs" />
+    <Compile Include="Assets\Scripts\Dialog\DialogAnimationBehavior.cs" />
     <Compile Include="Assets\Scripts\Dialog\DialogAnimations\DialogAnimation.cs" />
     <Compile Include="Assets\Scripts\Dialog\DialogAnimations\DialogAnimationFade.cs" />
     <Compile Include="Assets\Scripts\Dialog\DialogAnimations\DialogAnimationJump.cs" />

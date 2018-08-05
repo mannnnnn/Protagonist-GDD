@@ -313,12 +313,20 @@ namespace Assets.Scripts.Libraries.ProtagonistDialog
     {
         public string name { get; internal set; }
         public string abbrev { get; internal set; }
-        public string position { get; internal set; }
+        public string position { get; set; }
+
+        // these are set later on in a 'show' statement
+        public GameObject gameObject { get; set; }
+        public string image { get; set; }
+        public string transition { get; set; }
+
         public DialogCharacter(string name, string abbrev, string position)
         {
             this.name = name;
             this.abbrev = abbrev;
             this.position = position;
+            transition = "Default";
+            image = "Normal";
         }
     }
 

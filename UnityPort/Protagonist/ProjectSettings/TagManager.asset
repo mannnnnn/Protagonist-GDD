@@ -11,6 +11,7 @@ TagManager:
   - NameBox
   - DialogueBox
   - SceneTransition
+  - DialogAnimation
   layers:
   - Default
   - TransparentFX
@@ -45,6 +46,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2379264915
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 2620585259
     locked: 0

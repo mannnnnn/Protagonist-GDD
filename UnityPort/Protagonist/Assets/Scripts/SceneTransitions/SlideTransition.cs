@@ -15,9 +15,6 @@ public class SlideTransition : SceneTransition
     // draw sliding rectangle to screen
     void OnGUI()
     {
-        // cover black bars on the side
-        CoverBlackBars();
-
         // set the GUI drawing color to have the given alpha
         GUI.color = new Color(GUI.color.r, GUI.color.g, GUI.color.b, 1);
         // init texture if necessary
