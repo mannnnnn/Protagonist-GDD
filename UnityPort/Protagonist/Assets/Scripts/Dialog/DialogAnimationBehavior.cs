@@ -83,8 +83,12 @@ public class DialogAnimationBehavior : MonoBehaviour {
         }
     }
 
-    public void SetPosition(Vector2 pos)
+    public void SetPosition(Vector2 pos, bool instant = false)
     {
+        if (instant)
+        {
+            transform.position = ResolutionHandler.GetInstance().MapViewToWorldPoint(pos);
+        }
         this.pos = ResolutionHandler.GetInstance().MapViewToWorldPoint(pos);
     }
 

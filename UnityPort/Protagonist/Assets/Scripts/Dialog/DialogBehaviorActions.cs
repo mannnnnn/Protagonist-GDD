@@ -39,7 +39,8 @@ public partial class DialogBehavior
     {
         var chr = UpdateCharacter(show);
         // make sure sprite is filled in
-        if (chr.gameObject == null)
+        bool newShow = chr.gameObject == null;
+        if (newShow)
         {
             if (!DialogPrefabs.Prefabs.ContainsKey(chr.sprite))
             {
@@ -49,7 +50,7 @@ public partial class DialogBehavior
             // transition in
             chr.gameObject.GetComponent<DialogAnimationBehavior>().SetTransition(chr.transition, false, show);
         }
-        UpdateCharacterAfter(show, chr);
+        UpdateCharacterAfter(show, chr, newShow);
         return chr.gameObject;
     }
 
@@ -92,7 +93,7 @@ public partial class DialogBehavior
         }
         return chr;
     }
-    private void UpdateCharacterAfter(Dictionary<string, object> show, DialogCharacter chr)
+    private void UpdateCharacterAfter(Dictionary<string, object> show, DialogCharacter chr, bool setPos = false)
     {
         // set image if necessary
         var image = GetValue(show, "image", true);
@@ -108,17 +109,18 @@ public partial class DialogBehavior
         var side = GetValue(show, "side", true);
         if (side != null)
         {
-            Vector2 pos = Vector2.zero;
-            if (sides.ContainsKey(side))
-            {
-                pos = sides[side];
-            }
-            else
-            {
-                pos = ParseVector2(side);
-            }
-            chr.gameObject.GetComponent<DialogAnimationBehavior>().SetPosition(pos);
+            chr.position = side;
         }
+        Vector2 pos = Vector2.zero;
+        if (sides.ContainsKey(chr.position))
+        {
+            pos = sides[chr.position];
+        }
+        else
+        {
+            pos = ParseVector2(chr.position);
+        }
+        chr.gameObject.GetComponent<DialogAnimationBehavior>().SetPosition(pos, setPos);
     }
 
     private Vector2 ParseVector2(string str)
