@@ -565,11 +565,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114182345978034570, guid: 9e616bbdce673f04ea48d9499cbe91e2,
-        type: 2}
-      propertyPath: prefabs.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 224194902552606628, guid: 9e616bbdce673f04ea48d9499cbe91e2,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -660,28 +655,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114182345978034570, guid: 9e616bbdce673f04ea48d9499cbe91e2,
-        type: 2}
-      propertyPath: prefabs.Array.data[0].name
-      value: Protagonist
-      objectReference: {fileID: 0}
-    - target: {fileID: 114182345978034570, guid: 9e616bbdce673f04ea48d9499cbe91e2,
-        type: 2}
-      propertyPath: prefabs.Array.data[1].name
-      value: Hades
-      objectReference: {fileID: 0}
-    - target: {fileID: 114182345978034570, guid: 9e616bbdce673f04ea48d9499cbe91e2,
-        type: 2}
-      propertyPath: prefabs.Array.data[0].prefab
-      value: 
-      objectReference: {fileID: 1945100827670942, guid: 2a4a475fd6980f442985f7734b29226b,
-        type: 2}
-    - target: {fileID: 114182345978034570, guid: 9e616bbdce673f04ea48d9499cbe91e2,
-        type: 2}
-      propertyPath: prefabs.Array.data[1].prefab
-      value: 
-      objectReference: {fileID: 1691183689219656, guid: e4ce10ab1a0867f4fbc613ff861a66d1,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e616bbdce673f04ea48d9499cbe91e2, type: 2}
   m_IsPrefabAsset: 0

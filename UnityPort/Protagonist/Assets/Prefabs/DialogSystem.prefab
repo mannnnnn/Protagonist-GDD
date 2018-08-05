@@ -65,6 +65,7 @@ GameObject:
   - component: {fileID: 114088194401719312}
   - component: {fileID: 114455392736036906}
   - component: {fileID: 114182345978034570}
+  - component: {fileID: 114311848610756266}
   m_Layer: 5
   m_Name: DialogSystem
   m_TagString: Untagged
@@ -188,7 +189,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b619fe04bbe1f945bbbbc573ddbe0c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs: []
+  prefabs:
+  - name: Protagonist
+    prefab: {fileID: 1945100827670942, guid: 2a4a475fd6980f442985f7734b29226b, type: 2}
+  - name: Hades
+    prefab: {fileID: 1691183689219656, guid: e4ce10ab1a0867f4fbc613ff861a66d1, type: 2}
+  menus: []
+--- !u!114 &114311848610756266
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1611456124309852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a13a11efeac4c0a4aab31c88d9afb3a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114455392736036906
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -50,6 +50,11 @@ namespace Assets.Scripts.Libraries.ProtagonistDialog
         // advance along the current dialog block
         public void Run(DialogTarget target)
         {
+            // do nothing if a menu is open
+            if (menu != null)
+            {
+                return;
+            }
             bool run = true;
             while (run)
             {

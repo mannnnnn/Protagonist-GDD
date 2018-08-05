@@ -32,14 +32,6 @@ public partial class DialogBehavior : MonoBehaviour, DialogTarget
             display.SetState(DialogDisplayBehavior.State.OPENING);
             dialog.Run(this);
         }
-        if (display.active && Input.GetKey(KeyCode.Space))
-        {
-            display.SetTargetSize(200);
-        }
-        else
-        {
-            display.SetTargetSize(0);
-        }
     }
 
     public void Display(string character, string text, Dictionary<string, object> statement)
@@ -49,7 +41,7 @@ public partial class DialogBehavior : MonoBehaviour, DialogTarget
 
     public bool Run(Dictionary<string, object> statement, Dialog dialog)
     {
-        Debug.Log("Run: " + string.Join(",", statement.Keys.Select(x => x.ToString()).ToArray()));
+        // Debug.Log("Run: " + string.Join(",", statement.Keys.Select(x => x.ToString()).ToArray()));
         // nameplate-less statement
         if (statement.ContainsKey(""))
         {
@@ -96,12 +88,12 @@ public partial class DialogBehavior : MonoBehaviour, DialogTarget
 
     public void Finish(Dialog dialog)
     {
-        Debug.Log("done");
         display.SetState(DialogDisplayBehavior.State.PENDING_CLOSE);
     }
 
     public List<Dictionary<string, object>> GetMenu(List<Dictionary<string, object>> menu, string type = "Default")
     {
-        return menu;
+        // the menu created will call dialog.ChooseMenuOption(option) so we don't need to
+        return display.SetMenu(menu, type, dialog);
     }
 }

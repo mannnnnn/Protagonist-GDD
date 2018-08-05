@@ -107,21 +107,21 @@ You can give the player decisions in dialogue using menus.
         menu: [
             {
                 text: "Choice A",
-                block: {
-                    { H: "You chose choice A." }
-                }
+                block: [
+                    { H: "100 horse-shaped ducks" }
+                ]
             },
             {
                 text: "Choice B",
-                block: {
-                    { H: "You chose choice B." }
-                }
+                block: [
+                    { H: "100 duck-shaped horses" }
+                ]
             },
             {
                 text: "Choice C",
-                block: {
-                    { H: "You chose choice C." }
-                }
+                block: [
+                    { H: "100 duck-shaped-horse shaped ducks" }
+                ]
             }
         ],
         menuType: "Default"

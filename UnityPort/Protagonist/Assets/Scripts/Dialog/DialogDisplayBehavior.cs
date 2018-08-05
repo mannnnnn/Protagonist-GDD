@@ -10,7 +10,9 @@ public class DialogDisplayBehavior : MonoBehaviour {
     DialogTextbox nameBox;
     NameBoxBehavior setNameBox;
     DialogBehavior dialogBehavior;
-    
+
+    GameObject menu;
+
     public float duration;
     float timerSeconds = 0;
     float timer { get { return timerSeconds / duration; } }
@@ -138,6 +140,22 @@ public class DialogDisplayBehavior : MonoBehaviour {
     public void SetTargetSize(float size)
     {
         targetSize = size + initialSize;
+    }
+
+    public List<Dictionary<string, object>> SetMenu(List<Dictionary<string, object>> options, string type, Dialog dialog)
+    {
+        // create a menu
+        if (!DialogPrefabs.Menus.ContainsKey(type))
+        {
+            throw new ParseError("Menu Type with name '" + type + "' is not registered. See the DialogSystem's DialogPrefabs component.");
+        }
+        GameObject menuObj = Instantiate(DialogPrefabs.Menus[type], gameObject.transform);
+        DialogMenuBehavior menu = menuObj.GetComponent<DialogMenuBehavior>();
+        if (menu == null)
+        {
+            throw new ParseError("Prefab for Menu Type '" + type + "' has no DialogMenuBehavior component.");
+        }
+        return menu.Initialize(options, dialog);
     }
 
     // helper class used to wrap setting alpha/position/text into one object per GameObject.
