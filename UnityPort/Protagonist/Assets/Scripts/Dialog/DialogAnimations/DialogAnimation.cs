@@ -17,7 +17,7 @@ public abstract class TimedDialogAnimation : DialogAnimation
             // if incrementing up, lerp on [0, duration]
             return count >= 0 ? Mathf.InverseLerp(0, duration, timerSeconds) :
                 // if incrementing down, lerp on [0, -duration]
-                Mathf.InverseLerp(0, -duration, timerSeconds);
+                Mathf.InverseLerp(-duration, 0, timerSeconds);
         }
     }
 

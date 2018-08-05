@@ -15,7 +15,7 @@ public class DialogAnimationJump : TimedDialogAnimation
     void Start ()
     {
         // instant duration
-        Initialize(0f);
+        base.Initialize(0f);
         sr = GetComponent<SpriteRenderer>();
     }
 	

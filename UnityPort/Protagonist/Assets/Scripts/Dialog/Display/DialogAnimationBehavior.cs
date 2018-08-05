@@ -19,6 +19,11 @@ public class DialogAnimationBehavior : MonoBehaviour {
     private float worldSpd;
     Vector2 pos = Vector2.zero;
 
+    bool speaking = false;
+
+    // flip if on left side of the screen
+    public bool flipOnLeft = false;
+
     // Use this for initialization
     void Awake() {
         // get components
@@ -92,6 +97,13 @@ public class DialogAnimationBehavior : MonoBehaviour {
         this.pos = ResolutionHandler.GetInstance().MapViewToWorldPoint(pos);
     }
 
+    // whether or not this is the character that is speaking
+    // if not speaking, shrink a bit and gray out
+    public void SetSpeaking(bool speaking)
+    {
+        this.speaking = speaking;
+    }
+
     void Update()
     {
         // if marked for destruction, destroy when transition is done
@@ -103,6 +115,18 @@ public class DialogAnimationBehavior : MonoBehaviour {
         if ((Vector2)transform.position != pos)
         {
             transform.position = Vector2.MoveTowards(transform.position, pos, worldSpd * Time.deltaTime);
+        }
+        // if necessary and on left side of the screen, flip sprite
+        if (flipOnLeft)
+        {
+            if (ResolutionHandler.GetInstance().WorldToMapViewPoint(transform.position).x < 0.5f)
+            {
+                sr.flipX = true;
+            }
+            else
+            {
+                sr.flipX = false;
+            }
         }
     }
 }

@@ -7,6 +7,7 @@ public class DialogMenuBehavior : MonoBehaviour {
 
     Dialog dialog;
     List<string> options = new List<string>();
+    List<GameObject> buttons = new List<GameObject>();
     public GameObject button;
 
     public List<Dictionary<string, object>> Initialize(List<Dictionary<string, object>> options, Dialog dialog)
@@ -26,9 +27,8 @@ public class DialogMenuBehavior : MonoBehaviour {
 
     // Hopefully runs after Initialize
     void Start () {
-		// create a button for each option
-
-
+        // create a button for each option
+        Instantiate(button, transform);
 	}
 	
 	void Update () {

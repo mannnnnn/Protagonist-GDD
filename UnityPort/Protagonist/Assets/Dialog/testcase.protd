@@ -3,7 +3,20 @@
         character: "Hades",
         abbrev: "H"
     },
-    { H: "Hello, world!" },
+    {
+        character: "Protagonist",
+        abbrev: "P"
+    },
+    {
+        show: {
+            name: "P",
+            side: "Left",
+            sprite: "Protagonist",
+            transition: "Fade",
+            image: "Normal"
+        }
+    },
+    { P: "Hello, world!" },
     { "": "Hello, lack of a nameplate!" },
     {
         event: "Hi",
@@ -21,6 +34,7 @@
             image: "Normal"
         }
     },
+    { "H|P": "Hello, world from both of us!" },
     { var: "x", val: true },
     { var: "y", val: false },
     { var: "z", val: "x || y" },
@@ -69,6 +83,29 @@
             { H: "Hi." },
             { H: "Hi again." }
         ]
+    },
+    {
+        menu: [
+            {
+                text: "Choice A",
+                block: [
+                    { H: "100 horse-shaped ducks" }
+                ]
+            },
+            {
+                text: "Choice B",
+                block: [
+                    { H: "100 duck-shaped horses" }
+                ]
+            },
+            {
+                text: "Choice C",
+                block: [
+                    { H: "100 duck-shaped-horse shaped ducks" }
+                ]
+            }
+        ],
+        menuType: "Default"
     },
     { H: "The last hi." }
 ]

@@ -34,9 +34,9 @@ public partial class DialogBehavior : MonoBehaviour, DialogTarget
         }
     }
 
-    public void Display(string character, string text, Dictionary<string, object> statement)
+    public void Display(List<string> characters, string text, Dictionary<string, object> statement)
     {
-        display.SetText(character, text);
+        display.SetText(characters, text, dialog);
     }
 
     public bool Run(Dictionary<string, object> statement, Dialog dialog)
@@ -45,7 +45,7 @@ public partial class DialogBehavior : MonoBehaviour, DialogTarget
         // nameplate-less statement
         if (statement.ContainsKey(""))
         {
-            Display("", (string)statement[""], statement);
+            Display(new List<string>(), (string)statement[""], statement);
             return false;
         }
         // show statement
@@ -57,6 +57,7 @@ public partial class DialogBehavior : MonoBehaviour, DialogTarget
             }
             var show = (Dictionary<string, object>)statement["show"];
             ShowAction(show);
+            return true;
         }
         // hide statement
         if (statement.ContainsKey("hide"))
@@ -67,6 +68,7 @@ public partial class DialogBehavior : MonoBehaviour, DialogTarget
             }
             var hide = (Dictionary<string, object>)statement["hide"];
             HideAction(hide);
+            return true;
         }
         // event statement
         if (statement.ContainsKey("event"))
@@ -83,7 +85,8 @@ public partial class DialogBehavior : MonoBehaviour, DialogTarget
             }
             return events.Handle(evt, args);
         }
-        return true;
+        // if nothing returns above, then throw this
+        throw new ParseError("Character or statement '" + statement.Keys.First() + "' does not exist.");
     }
 
     public void Finish(Dialog dialog)

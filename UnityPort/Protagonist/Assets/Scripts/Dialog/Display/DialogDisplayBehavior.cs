@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Libraries.ProtagonistDialog;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -110,10 +111,35 @@ public class DialogDisplayBehavior : MonoBehaviour {
         this.state = state;
     }
 
-    public void SetText(string character, string text)
+    public void SetText(List<string> characters, string text, Dialog dialog = null)
     {
+        // calculate name
+        string character = "";
+        if (characters.Count != 0)
+        {
+            character += string.Join(",", characters.Select(x => dialog.characters[x].name).Take(characters.Count - 1).ToArray());
+            if (characters.Count != 1)
+            {
+                character += " and ";
+            }
+            string last = characters[characters.Count - 1];
+            character += dialog.characters[last].name;
+        }
+        // set name, text, and who is speaking
         setNameBox.SetName(character);
         dialogBox.SetText(text);
+        if (dialog != null)
+        {
+            foreach (string c in dialog.characters.Keys)
+            {
+                // speaking is true if in the character list, false otherwise
+                GameObject dialogAnim = dialog.characters[c].gameObject;
+                if (dialogAnim != null)
+                {
+                    dialogAnim.GetComponent<DialogAnimationBehavior>().SetSpeaking(characters.Contains(c));
+                }
+            }
+        }
     }
     public void SetAlpha(float alpha)
     {
@@ -149,7 +175,7 @@ public class DialogDisplayBehavior : MonoBehaviour {
         {
             throw new ParseError("Menu Type with name '" + type + "' is not registered. See the DialogSystem's DialogPrefabs component.");
         }
-        GameObject menuObj = Instantiate(DialogPrefabs.Menus[type], gameObject.transform);
+        GameObject menuObj = Instantiate(DialogPrefabs.Menus[type], dialogBox.gameObj.transform);
         DialogMenuBehavior menu = menuObj.GetComponent<DialogMenuBehavior>();
         if (menu == null)
         {
@@ -162,7 +188,7 @@ public class DialogDisplayBehavior : MonoBehaviour {
     // Then, this behavior wraps it into one method call.
     class DialogTextbox
     {
-        GameObject gameObj;
+        public GameObject gameObj;
         InputField textbox;
         Text text;
         Image image;

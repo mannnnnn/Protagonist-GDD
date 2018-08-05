@@ -122,9 +122,25 @@ namespace Assets.Scripts.Libraries.ProtagonistDialog
                     // check for display statement
                     foreach (string key in statement.Keys)
                     {
+                        // if one character
                         if (characters.ContainsKey(key))
                         {
-                            target.Display(characters[key].name, (string)statement[key], statement);
+                            target.Display(new List<string>(){ key }, (string)statement[key], statement);
+                            run = false;
+                        }
+                        // if multiple characters, separated by |
+                        if (key.Contains('|'))
+                        {
+                            List<string> chars = key.Split('|').ToList();
+                            // make sure all are characters
+                            foreach (string charKey in chars)
+                            {
+                                if (!characters.ContainsKey(charKey))
+                                {
+                                    throw new ParseError("Character '" + charKey + "' has not been defined, but is used in '" + key + "'.");
+                                }
+                            }
+                            target.Display(chars, (string)statement[key], statement);
                             run = false;
                         }
                     }
@@ -363,7 +379,7 @@ namespace Assets.Scripts.Libraries.ProtagonistDialog
         // return false means stop dialog execution (e.g. to wait 1 second). Return true means keep going.
         bool Run(Dictionary<string, object> statement, Dialog dialog);
         // when a character or "" is specified, this is called in the same fashion as Run
-        void Display(string character, string text, Dictionary<string, object> statement);
+        void Display(List<string> character, string text, Dictionary<string, object> statement);
         // inform that dialog is finished with execution
         void Finish(Dialog dialog);
         // get custom menu

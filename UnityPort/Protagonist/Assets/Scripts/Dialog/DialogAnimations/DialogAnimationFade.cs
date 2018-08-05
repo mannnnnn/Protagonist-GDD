@@ -16,7 +16,7 @@ public class DialogAnimationFade : TimedDialogAnimation
     void Start ()
     {
         // 1 second duration
-        Initialize(1f);
+        base.Initialize(1f);
         // get starting opacity
         sr = GetComponent<SpriteRenderer>();
         startAlpha = sr.color.a;

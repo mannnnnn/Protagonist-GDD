@@ -86,6 +86,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   height: 0.9
+  flipOnLeft: 0
 --- !u!212 &212354973344737214
 SpriteRenderer:
   m_ObjectHideFlags: 1
