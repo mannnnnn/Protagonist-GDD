@@ -316,6 +316,7 @@ namespace Assets.Scripts.Libraries.ProtagonistDialog
         public string position { get; set; }
 
         // these are set later on in a 'show' statement
+        public string sprite { get; set; }
         public GameObject gameObject { get; set; }
         public string image { get; set; }
         public string transition { get; set; }

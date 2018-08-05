@@ -43,15 +43,22 @@ public partial class DialogBehavior : MonoBehaviour, DialogTarget
         // show statement
         if (statement.ContainsKey("show"))
         {
-            if (statement["show"] is Dictionary<string, object>)
-            {
-                var show = (Dictionary<string, object>)statement["show"];
-                ShowAction(show);
-            }
-            else
+            if (!(statement["show"] is Dictionary<string, object>))
             {
                 throw new ParseError("Statement 'show' must be a JSON object.");
             }
+            var show = (Dictionary<string, object>)statement["show"];
+            ShowAction(show);
+        }
+        // hide statement
+        if (statement.ContainsKey("hide"))
+        {
+            if (!(statement["hide"] is Dictionary<string, object>))
+            {
+                throw new ParseError("Statement 'hide' must be a JSON object.");
+            }
+            var hide = (Dictionary<string, object>)statement["hide"];
+            HideAction(hide);
         }
         return true;
     }

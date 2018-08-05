@@ -26,6 +26,12 @@
         ]
     },
     {
+        hide: {
+            name: "H"
+        }
+    },
+    { H: "I am hidden." },
+    {
         show: {
             name: "H",
             image: "Glitch",

@@ -39,15 +39,13 @@ public partial class DialogBehavior
     {
         var chr = UpdateCharacter(show);
         // make sure sprite is filled in
-        string spr = null;
         if (chr.gameObject == null)
         {
-            spr = GetValue(show, "sprite");
-            if (!DialogPrefabs.Prefabs.ContainsKey(spr))
+            if (!DialogPrefabs.Prefabs.ContainsKey(chr.sprite))
             {
-                throw new ParseError("No DialogPrefab with name '" + spr + "' is registered. See the DialogPrefabs script on the DialogSystem GameObject.");
+                throw new ParseError("No DialogPrefab with name '" + chr.sprite + "' is registered. See the DialogPrefabs script on the DialogSystem GameObject.");
             }
-            chr.gameObject = Instantiate(DialogPrefabs.Prefabs[spr]);
+            chr.gameObject = Instantiate(DialogPrefabs.Prefabs[chr.sprite]);
             // transition in
             chr.gameObject.GetComponent<DialogAnimationBehavior>().SetTransition(chr.transition, false, show);
         }
@@ -86,6 +84,11 @@ public partial class DialogBehavior
         if (transition != null)
         {
             chr.transition = transition;
+        }
+        // set sprite if necessary
+        if (chr.sprite == null)
+        {
+            chr.sprite = GetValue(show, "sprite");
         }
         return chr;
     }
@@ -153,7 +156,7 @@ public partial class DialogBehavior
         }
         else if (!optional)
         {
-            throw new ParseError("Statement element 'show' must have a field with name " + name + ".");
+            throw new ParseError("Statement element 'show' must have a field name '" + name + "'.");
         }
         return null;
     }
