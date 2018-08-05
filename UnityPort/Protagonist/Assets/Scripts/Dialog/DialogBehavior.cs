@@ -9,12 +9,14 @@ using UnityEngine.UI;
 public partial class DialogBehavior : MonoBehaviour, DialogTarget
 {
     public Dialog dialog { get; private set; }
+    DialogEvents events;
     DialogDisplayBehavior display;
 
     void Start()
     {
         // get display
         display = GetComponent<DialogDisplayBehavior>();
+        events = GetComponent<DialogEvents>();
     }
 
     void Update()
@@ -73,6 +75,21 @@ public partial class DialogBehavior : MonoBehaviour, DialogTarget
             }
             var hide = (Dictionary<string, object>)statement["hide"];
             HideAction(hide);
+        }
+        // event statement
+        if (statement.ContainsKey("event"))
+        {
+            string evt = (string)statement["event"];
+            Dictionary<string, object> args = null;
+            if (statement.ContainsKey("args"))
+            {
+                if (!(statement["args"] is Dictionary<string, object>))
+                {
+                    throw new ParseError("Element 'args' in statement 'event' must be a JSON object.");
+                }
+                args = (Dictionary<string, object>)statement["args"];
+            }
+            return events.Handle(evt, args);
         }
         return true;
     }

@@ -44,24 +44,14 @@ There are 4 built-in positions for sprites:
 * Left back ("Left back")
 * Right back ("Right back")
 
-Alternatively, you can specify a custom position, such as "(50, 100)".
-
-```javascript
-{
-    show: {
-        name: "H",
-        side: "Right"
-    }
-}
-```
-
-After that, you can specify a sprite to display:
+Alternatively, you can specify a custom position, such as "(50, 100)". Then, you must also specify a sprite and image to display:
 ```javascript
 {
     show: {
         name: "H",
         side: "Right",
-        sprite: "HadesLeft_0"
+        sprite: "Hades",
+        image: "Normal"
     }
 }
 ```
@@ -80,18 +70,19 @@ Here is an example of a full "show" statement:
     show: {
         name: "H",
         side: "Right",
-        sprite: "HadesLeft_0",
+        sprite: "Hades",
+        image: "Normal",
         transition: "Swing"
     }
 }
 ```
 
-After showing the sprite, when you want to change the sprite, you can leave out the "side" and "transition" parameters, and they will be maintained as the sprite's defaults.
+After showing the sprite, when you want to change the image, you can leave out the parameters that you want to keep the same.
 ```javascript
 {
     show: {
         name: "H",
-        sprite: "HadesLeft_1"
+        image: "Happy"
     }
 }
 ```
@@ -204,4 +195,4 @@ You can make calls to the game code by setting up an event in the game code, and
     }
 }
 ```
-These are defined in the DialogueEvents class, in the Handle(string event, Dictionary<string, dynamic> args) method.
+These are defined in the DialogEvents class, in the Handle(string evt, Dictionary<string, object> args) method.

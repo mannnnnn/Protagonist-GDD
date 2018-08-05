@@ -5,6 +5,12 @@
     },
     { H: "Hello, world!" },
     { "": "Hello, lack of a nameplate!" },
+    {
+        event: "Hi",
+        args: {
+            message: "Hello there."
+        }
+    },
     { H: "Hello, world again!" },
     {
         show: {

@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\Dialog\DialogBehavior.cs" />
     <Compile Include="Assets\Scripts\Dialog\DialogBehaviorActions.cs" />
     <Compile Include="Assets\Scripts\Dialog\DialogDisplayBehavior.cs" />
+    <Compile Include="Assets\Scripts\Dialog\DialogEvents.cs" />
     <Compile Include="Assets\Scripts\Dialog\DialogPrefabs.cs" />
     <Compile Include="Assets\Scripts\Dialog\NameBoxBehavior.cs" />
     <Compile Include="Assets\Scripts\DoorBehavior.cs" />
