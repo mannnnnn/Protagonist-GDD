@@ -99,18 +99,27 @@ public class DialogDisplayBehavior : MonoBehaviour {
 
     public void SetText(string character, string text)
     {
+        Debug.Log("character: " + character);
         setNameBox.SetName(character);
         dialogBox.SetText(text);
     }
-    protected void SetAlpha(float alpha)
+    public void SetAlpha(float alpha)
     {
         nameBox.SetAlpha(alpha);
+        if (nameBox.GetText() == "")
+        {
+            nameBox.SetAlpha(0);
+        }
         dialogBox.SetAlpha(alpha);
     }
     protected void SetPosition(Vector2 pos)
     {
         nameBox.SetPosition(pos);
         dialogBox.SetPosition(pos);
+    }
+    public void SetSize(float size)
+    {
+
     }
 
     // helper class used to wrap setting alpha/position/text into one object per GameObject.
@@ -136,6 +145,10 @@ public class DialogDisplayBehavior : MonoBehaviour {
         public void UpdateBasePosition()
         {
             initialPos = rect.transform.localPosition;
+        }
+        public string GetText()
+        {
+            return textbox.text;
         }
         public void SetText(string message)
         {

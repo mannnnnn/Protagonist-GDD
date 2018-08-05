@@ -4,6 +4,8 @@
         abbrev: "H"
     },
     { H: "Hello, world!" },
+    { "": "Hello, lack of a nameplate!" },
+    { H: "Hello, world again!" },
     {
         show: {
             name: "H",

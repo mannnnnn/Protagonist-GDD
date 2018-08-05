@@ -40,6 +40,12 @@ public partial class DialogBehavior : MonoBehaviour, DialogTarget
     public bool Run(Dictionary<string, object> statement, Dialog dialog)
     {
         Debug.Log("Run: " + string.Join(",", statement.Keys.Select(x => x.ToString()).ToArray()));
+        // nameplate-less statement
+        if (statement.ContainsKey(""))
+        {
+            Display("", (string)statement[""], statement);
+            return false;
+        }
         // show statement
         if (statement.ContainsKey("show"))
         {

@@ -39,7 +39,7 @@ public class NameBoxBehavior : MonoBehaviour {
 
     }
 
-    public int  GetStringWidth(string message)
+    public int GetStringWidth(string message)
     {
         Font myFont = text.font;
         CharacterInfo characterInfo = new CharacterInfo();
