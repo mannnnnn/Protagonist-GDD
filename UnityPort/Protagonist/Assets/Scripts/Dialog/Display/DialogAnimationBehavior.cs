@@ -19,10 +19,18 @@ public class DialogAnimationBehavior : MonoBehaviour {
     private float worldSpd;
     Vector2 pos = Vector2.zero;
 
-    bool speaking = false;
-
     // flip if on left side of the screen
     public bool flipOnLeft = false;
+
+    public bool displaySpeaking = true;
+    bool speaking = false;
+    // base scale for resizing, and how much to shrink/darken
+    Vector2 baseScale;
+    Color baseColor;
+    float shrink = 0.94f;
+    float shrinkSpd = 0.5f;
+    float darken = 0.8f;
+    float darkenSpd = 2f;
 
     // Use this for initialization
     void Awake() {
@@ -34,13 +42,15 @@ public class DialogAnimationBehavior : MonoBehaviour {
         float worldPx = Mathf.Abs(res.MapViewToWorldPoint(new Vector2(0f, height)).y
             - res.MapViewToWorldPoint(Vector2.zero).y);
         float scale = worldPx / (2 * sr.sprite.bounds.extents.y);
-        sr.transform.localScale = new Vector3(scale, scale, sr.transform.localScale.z);
+        baseScale = new Vector3(scale, scale, sr.transform.localScale.z);
+        sr.transform.localScale = baseScale;
         // set at bottom of mapview
         transform.position = new Vector3(transform.position.x, res.MapViewToWorldPoint(Vector2.zero).y, transform.position.z);
         pos = transform.position;
         // calculate speed in world coords
         worldSpd = Mathf.Abs(res.MapViewToWorldPoint(Vector2.right * spd).x
             - res.MapViewToWorldPoint(Vector2.zero).x);
+        baseColor = sr.color;
     }
 	
     public void SetTalk(bool value)
@@ -127,6 +137,26 @@ public class DialogAnimationBehavior : MonoBehaviour {
             {
                 sr.flipX = false;
             }
+        }
+        // shrink and darken if not speaking
+        if (displaySpeaking)
+        {
+            float currentCol = sr.color.r;
+            float currentSize = sr.transform.localScale.x;
+            // move towards base if speaking
+            if (speaking)
+            {
+                currentCol = Mathf.MoveTowards(currentCol, baseColor.r, darkenSpd * Time.deltaTime * baseColor.r);
+                currentSize = Mathf.MoveTowards(currentSize, baseScale.x, shrinkSpd * Time.deltaTime * baseScale.x);
+            }
+            // move towards smaller and darker if not speaking
+            else
+            {
+                currentCol = Mathf.MoveTowards(currentCol, baseColor.r * darken, darkenSpd * Time.deltaTime * baseColor.r);
+                currentSize = Mathf.MoveTowards(currentSize, baseScale.x * shrink, shrinkSpd * Time.deltaTime * baseScale.x);
+            }
+            sr.color = new Color(currentCol, currentCol, currentCol, sr.color.a);
+            sr.transform.localScale = new Vector3(currentSize, currentSize, sr.transform.localScale.z);
         }
     }
 }

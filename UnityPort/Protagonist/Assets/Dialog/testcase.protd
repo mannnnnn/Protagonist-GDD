@@ -34,7 +34,8 @@
             image: "Normal"
         }
     },
-    { "H|P": "Hello, world from both of us!" },
+    { "H|H|H|P": "Hello, world from both of us!" },
+    { P: "And hello from me again!" },
     { var: "x", val: true },
     { var: "y", val: false },
     { var: "z", val: "x || y" },

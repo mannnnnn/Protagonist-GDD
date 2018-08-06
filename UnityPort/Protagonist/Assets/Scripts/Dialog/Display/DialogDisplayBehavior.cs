@@ -117,7 +117,7 @@ public class DialogDisplayBehavior : MonoBehaviour {
         string character = "";
         if (characters.Count != 0)
         {
-            character += string.Join(",", characters.Select(x => dialog.characters[x].name).Take(characters.Count - 1).ToArray());
+            character += string.Join(", ", characters.Select(x => dialog.characters[x].name).Take(characters.Count - 1).ToArray());
             if (characters.Count != 1)
             {
                 character += " and ";
