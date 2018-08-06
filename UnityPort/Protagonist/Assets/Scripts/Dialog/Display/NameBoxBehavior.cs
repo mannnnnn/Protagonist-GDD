@@ -6,7 +6,7 @@ using UnityEngine.UI;
 // adjust width when a name is set
 public class NameBoxBehavior : MonoBehaviour {
 
-    AdjustUIBehavior box;
+    [HideInInspector] public AdjustUIBehavior box;
     Text text;
     InputField field;
 	void Awake()
@@ -17,7 +17,7 @@ public class NameBoxBehavior : MonoBehaviour {
     }
 	
 	// Set name and scale namebox to size
-	public void SetName(string name)
+	public float SetName(string name)
     {
         // get pixels size
         int px = GetStringWidth(name);
@@ -32,6 +32,7 @@ public class NameBoxBehavior : MonoBehaviour {
         box.UpdateAnchors(box.left, box.left + mapViewWidth);
         // set text
         field.text = name;
+        return mapViewWidth;
     }
 
     void Update()
