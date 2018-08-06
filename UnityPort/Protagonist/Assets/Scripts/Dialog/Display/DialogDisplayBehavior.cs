@@ -37,7 +37,14 @@ public class DialogDisplayBehavior : MonoBehaviour {
     List<DialogAnimationBehavior> speakers = new List<DialogAnimationBehavior>();
     // scroll text
     string textFull = "";
-    int textPos = 0;
+    int textPosition = 0;
+    float textTimer = 0f;
+    // pause for different times at , and .
+    const float textPauseDefault = 0.06f;
+    static Dictionary<char, float> textPause = new Dictionary<char, float>()
+    {
+        { ',', 0.1f }, { '.', 0.2f }
+    };
 
     // y position deviation from starting position
     float targetHeight = 0f;
@@ -75,6 +82,7 @@ public class DialogDisplayBehavior : MonoBehaviour {
                 timerSeconds = 0;
                 targetSize = initialSize;
                 targetHeight = -300f;
+                textTimer = 0f;
                 break;
             case State.OPENING:
                 timerSeconds += Time.deltaTime;
@@ -123,7 +131,27 @@ public class DialogDisplayBehavior : MonoBehaviour {
         SetSize(Mathf.MoveTowards(dialogBox.GetSize(), targetSize, sizeSpd * Time.deltaTime));
         SetHeight(Mathf.MoveTowards(dialogBox.GetHeight(), targetHeight, spd * Time.deltaTime));
         // set text scroll
-        SetText(textFull);
+        textTimer += Time.deltaTime;
+        while (textPosition < textFull.Length && textTimer > GetTextPause(textFull[textPosition]))
+        {
+            textTimer -= GetTextPause(textFull[textPosition]);
+            textPosition++;
+            if (textPosition >= textFull.Length)
+            {
+                textPosition = textFull.Length;
+                // we finished scrolling, so stop the talking animation
+                foreach (DialogAnimationBehavior anim in speakers)
+                {
+                    if (anim != null)
+                    {
+                        anim.SetTalk(false);
+                    }
+                }
+                speakers.Clear();
+                break;
+            }
+        }
+        SetText(textFull.Substring(0, textPosition));
     }
 
     public void SetState(State state)
@@ -131,26 +159,7 @@ public class DialogDisplayBehavior : MonoBehaviour {
         this.state = state;
     }
 
-    private void SetName(string character, float center = 0f)
-    {
-        // get size of text
-        float size = setNameBox.SetName(character);
-        // clamp position in between the screen sides
-        float left = Mathf.Clamp(center - (size * 0.5f), 0, 1 - size);
-        if (size >= 1)
-        {
-            left = 0;
-        }
-        // set namebox position to where the person is
-        setNameBox.box.left = Mathf.Clamp01(left);
-        setNameBox.box.right = Mathf.Clamp01(left + size);
-        setNameBox.box.UpdateAnchors();
-    }
-    private void SetText(string text)
-    {
-        dialogBox.SetText(text);
-    }
-
+    // call to set the text contents of the display, both nameplate and textbox
     public void SetText(List<string> characters, string text, Dialog dialog = null)
     {
         // calculate name
@@ -175,7 +184,8 @@ public class DialogDisplayBehavior : MonoBehaviour {
         SetName(character, center);
         // set text
         textFull = text;
-        textPos = 0;
+        textPosition = 0;
+        textTimer = 0f;
         // set who is speaking
         speakers.Clear();
         if (dialog != null)
@@ -190,6 +200,7 @@ public class DialogDisplayBehavior : MonoBehaviour {
                     // set as speaking
                     DialogAnimationBehavior anim = dialogAnim.GetComponent<DialogAnimationBehavior>();
                     anim.SetSpeaking(speak);
+                    anim.SetTalk(speak);
                     // add to speakers list to turn off speaking later
                     if (speak)
                     {
@@ -199,6 +210,38 @@ public class DialogDisplayBehavior : MonoBehaviour {
             }
         }
     }
+    private void SetText(string text)
+    {
+        dialogBox.SetText(text);
+    }
+    private void SetName(string character, float center = 0f)
+    {
+        // get size of text
+        float size = setNameBox.SetName(character);
+        // clamp position in between the screen sides
+        float left = Mathf.Clamp(center - (size * 0.5f), 0, 1 - size);
+        if (size >= 1)
+        {
+            left = 0;
+        }
+        // set namebox position to where the person is
+        setNameBox.box.left = Mathf.Clamp01(left);
+        setNameBox.box.right = Mathf.Clamp01(left + size);
+        setNameBox.box.UpdateAnchors();
+    }
+
+    // used for checking if the text is being displayed
+    public bool TextFinished()
+    {
+        return textPosition == textFull.Length;
+    }
+    // used to fast-forward the text scrolling.
+    // Note that to advance to the next statement, you need to call Run in DialogBehavior.
+    public void AdvanceText(float amount)
+    {
+        textTimer += amount;
+    }
+
     public void SetAlpha(float alpha)
     {
         nameBox.SetAlpha(alpha);
@@ -213,17 +256,18 @@ public class DialogDisplayBehavior : MonoBehaviour {
         nameBox.SetHeight(height);
         dialogBox.SetHeight(height);
     }
+
+    // sets size to initialSize + size
+    public void SetTargetSize(float size)
+    {
+        targetSize = size + initialSize;
+    }
     private void SetSize(float size)
     {
         // move namebox up
         nameBox.SetHeight(nameBox.GetHeight() + (size - initialSize));
         // set size
         dialogBox.SetSize(size);
-    }
-    // sets size to initialSize + size
-    public void SetTargetSize(float size)
-    {
-        targetSize = size + initialSize;
     }
 
     public List<Dictionary<string, object>> SetMenu(List<Dictionary<string, object>> options, string type, Dialog dialog)
@@ -240,6 +284,15 @@ public class DialogDisplayBehavior : MonoBehaviour {
             throw new ParseError("Prefab for Menu Type '" + type + "' has no DialogMenuBehavior component.");
         }
         return menu.Initialize(options, dialog);
+    }
+
+    private float GetTextPause(char c)
+    {
+        if (textPause.ContainsKey(c))
+        {
+            return textPause[c];
+        }
+        return textPauseDefault;
     }
 
     // helper class used to wrap setting alpha/position/text into one object per GameObject.
