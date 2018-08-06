@@ -39,6 +39,10 @@ public class DialogDisplayBehavior : MonoBehaviour {
     string textFull = "";
     int textPos = 0;
 
+    // y position deviation from starting position
+    float targetHeight = 0f;
+    float spd = 600f;
+
     void Start()
     {
         // get components
@@ -54,10 +58,14 @@ public class DialogDisplayBehavior : MonoBehaviour {
         if (!initialized)
         {
             SetName("");
-            nameBox.UpdateBasePosition();
-            dialogBox.UpdateBasePosition();
+            nameBox.SetBaseHeight();
+            dialogBox.SetBaseHeight();
             initialSize = dialogBox.GetSize();
             targetSize = initialSize;
+            // start down
+            targetHeight = -300f;
+            nameBox.SetHeight(targetHeight);
+            dialogBox.SetHeight(targetHeight);
             initialized = true;
         }
         // handle state
@@ -66,6 +74,7 @@ public class DialogDisplayBehavior : MonoBehaviour {
             case State.CLOSED:
                 timerSeconds = 0;
                 targetSize = initialSize;
+                targetHeight = -300f;
                 break;
             case State.OPENING:
                 timerSeconds += Time.deltaTime;
@@ -74,6 +83,7 @@ public class DialogDisplayBehavior : MonoBehaviour {
                     state = State.OPEN;
                 }
                 timerSeconds = Mathf.Clamp(timerSeconds, 0, duration);
+                targetHeight = 0f;
                 break;
             case State.OPEN:
                 break;
@@ -105,12 +115,13 @@ public class DialogDisplayBehavior : MonoBehaviour {
                 }
                 timerSeconds = Mathf.Clamp(timerSeconds, 0, duration);
                 targetSize = initialSize;
+                targetHeight = -300f;
                 break;
         }
         // set UI components
         SetAlpha(timer);
-        SetPosition(new Vector2(0, Mathf.Lerp(-300 + targetSize, 0, timer)));
         SetSize(Mathf.MoveTowards(dialogBox.GetSize(), targetSize, sizeSpd * Time.deltaTime));
+        SetHeight(Mathf.MoveTowards(dialogBox.GetHeight(), targetHeight, spd * Time.deltaTime));
         // set text scroll
         SetText(textFull);
     }
@@ -134,7 +145,6 @@ public class DialogDisplayBehavior : MonoBehaviour {
         setNameBox.box.left = Mathf.Clamp01(left);
         setNameBox.box.right = Mathf.Clamp01(left + size);
         setNameBox.box.UpdateAnchors();
-        nameBox.UpdateBasePosition();
     }
     private void SetText(string text)
     {
@@ -198,15 +208,15 @@ public class DialogDisplayBehavior : MonoBehaviour {
         }
         dialogBox.SetAlpha(alpha);
     }
-    protected void SetPosition(Vector2 pos)
+    protected void SetHeight(float height)
     {
-        nameBox.SetPosition(pos);
-        dialogBox.SetPosition(pos);
+        nameBox.SetHeight(height);
+        dialogBox.SetHeight(height);
     }
     private void SetSize(float size)
     {
         // move namebox up
-        nameBox.SetPosition(new Vector2(nameBox.GetPosition().x, nameBox.GetPosition().y + (size - initialSize)));
+        nameBox.SetHeight(nameBox.GetHeight() + (size - initialSize));
         // set size
         dialogBox.SetSize(size);
     }
@@ -241,7 +251,7 @@ public class DialogDisplayBehavior : MonoBehaviour {
         Text text;
         Image image;
         RectTransform rect;
-        Vector2 initialPos;
+        float initialHeight;
 
         public DialogTextbox(GameObject g)
         {
@@ -252,10 +262,19 @@ public class DialogDisplayBehavior : MonoBehaviour {
             rect = gameObj.GetComponent<RectTransform>();
         }
 
-        public void UpdateBasePosition()
+        public float GetBaseHeight()
         {
-            initialPos = rect.transform.localPosition;
+            return initialHeight;
         }
+        public void SetBaseHeight()
+        {
+            SetBasePosition(rect.transform.localPosition.y);
+        }
+        public void SetBasePosition(float height)
+        {
+            initialHeight = height;
+        }
+
         public string GetText()
         {
             return textbox.text;
@@ -264,19 +283,22 @@ public class DialogDisplayBehavior : MonoBehaviour {
         {
             textbox.text = message;
         }
+
         public void SetAlpha(float alpha)
         {
             text.color = new Color(text.color.r, text.color.g, text.color.b, alpha);
             image.color = new Color(text.color.r, text.color.g, text.color.b, alpha);
         }
-        public Vector2 GetPosition()
+
+        public float GetHeight()
         {
-            return (Vector2)rect.localPosition - initialPos;
+            return rect.localPosition.y - initialHeight;
         }
-        public void SetPosition(Vector2 pos)
+        public void SetHeight(float height)
         {
-            rect.localPosition = initialPos + pos;
+            rect.localPosition = new Vector3(rect.localPosition.x, initialHeight + height, rect.localPosition.z);
         }
+
         public float GetSize()
         {
             return rect.rect.height;

@@ -657,8 +657,8 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 224836663304252524, guid: 9e616bbdce673f04ea48d9499cbe91e2,
         type: 2}
-      propertyPath: m_SizeDelta.x
-      value: -20
+      propertyPath: m_AnchoredPosition.y
+      value: 180
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e616bbdce673f04ea48d9499cbe91e2, type: 2}
