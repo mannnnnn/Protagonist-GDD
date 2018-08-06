@@ -4,9 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/**
+ * Handles player movement
+ */
 public class PlayerBehavior : MonoBehaviour {
 
-    //player walk speed in UU
+    //player walk speed in Unity units
     public float movementSpeed = 2f;
     public float walkAnimSpeed = 1f;
 

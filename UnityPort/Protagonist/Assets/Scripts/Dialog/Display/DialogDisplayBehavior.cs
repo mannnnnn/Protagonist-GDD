@@ -5,6 +5,13 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
+/**
+ * Handles display-related dialog tasks.
+ * This includes setting text contents, setting y position (height), alpha, and state.
+ * This also handles the text scrolling animation and its related functionality (like talk/speak animation)
+ * For the logic related to how dialog scripts are executed, see the Dialog object.
+ * For the logic bridging the Dialog object to the display, see the DialogBehavior component.
+ */
 public class DialogDisplayBehavior : MonoBehaviour {
 
     DialogTextbox dialogBox;
@@ -283,7 +290,7 @@ public class DialogDisplayBehavior : MonoBehaviour {
         {
             throw new ParseError("Prefab for Menu Type '" + type + "' has no DialogMenuBehavior component.");
         }
-        return menu.Initialize(options, dialog);
+        return menu.Initialize(options, dialog, this);
     }
 
     private float GetTextPause(char c)

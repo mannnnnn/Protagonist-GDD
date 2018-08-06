@@ -2,12 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Base class for dialog animations (those are the things where a character image fades in/out)
+ * These are automatically created by the dialog system.
+ */
 public abstract class DialogAnimation : MonoBehaviour
 {
     // return true if done with the animation
     public abstract bool Finished();
 }
 
+/**
+ * Same as above, but a bit less abstract. Timer from [0, 1] is included.
+ */
 public abstract class TimedDialogAnimation : DialogAnimation
 {
     // returns a normalized version of this transition's progress on [0, 1]

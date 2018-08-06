@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * This handles the "event" statement in dialog scripts.
+ * Register them in the Handle method.
+ */
 public class DialogEvents : MonoBehaviour {
 
 	// Use this for initialization

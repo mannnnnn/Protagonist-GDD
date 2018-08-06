@@ -3,6 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Every DialogAnimation GameObject should have this component.
+ * Allows it to perform various actions, such as set image, talk animation, position, and transition.
+ * These are automatically created by the dialog system.
+ */
 public class DialogAnimationBehavior : MonoBehaviour {
 
     public float height;

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+/**
+ * Create 2D grids out of scenes here.
+ */
 public class MapScenes
 {
     // the jungle map

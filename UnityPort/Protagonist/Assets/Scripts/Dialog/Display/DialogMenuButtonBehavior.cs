@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Default dialog menu button control.
+ */
 public class DialogMenuButtonBehavior : MonoBehaviour {
 
 	// Use this for initialization

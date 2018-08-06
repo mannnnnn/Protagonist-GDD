@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * This component is on the base level UI elements in the dialogue UI.
+ * You give it a left and right values on [0, 1], and it will set the width and x position accordingly to fit.
+ */
 public class AdjustUIBehavior : MonoBehaviour
 {
     public float left = 0f;

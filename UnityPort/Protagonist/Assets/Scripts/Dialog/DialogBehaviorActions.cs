@@ -5,7 +5,12 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-// partial to DialogBehavior class so I don't have to put the statement actions in the same file as the logic
+/**
+ * This is a partial class to DialogBehavior. It has methods that handle statements like "show" and "hide".
+ * This is so that the statement-handling methods are not in the same file as the logic.
+ * This also houses some important enums and static dictionaries.
+ * For the main thing, see DialogBehavior.cs
+ */
 public partial class DialogBehavior
 {
     // sides and positions

@@ -3,16 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Base class for dialog menus.
+ * These are automatically created by the dialog system.
+ */
 public class DialogMenuBehavior : MonoBehaviour {
 
     Dialog dialog;
+    DialogDisplayBehavior display;
+
     List<string> options = new List<string>();
     List<GameObject> buttons = new List<GameObject>();
     public GameObject button;
 
-    public List<Dictionary<string, object>> Initialize(List<Dictionary<string, object>> options, Dialog dialog)
+    public List<Dictionary<string, object>> Initialize(List<Dictionary<string, object>> options, Dialog dialog, DialogDisplayBehavior display)
     {
         this.dialog = dialog;
+        this.display = display;
         foreach (Dictionary<string, object> option in options)
         {
             if (!option.ContainsKey("text"))

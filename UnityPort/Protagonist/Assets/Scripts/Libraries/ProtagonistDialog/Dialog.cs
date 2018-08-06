@@ -6,6 +6,13 @@ using UnityEngine;
 
 namespace Assets.Scripts.Libraries.ProtagonistDialog
 {
+    /**
+     * Master of dialog script execution. Takes in parsed json, and can execute it as protagonist dialog.
+     * Handles all control flow, such as jumps and ifs, but cannot handle anything that accesses the Unity Engine.
+     * That responsibility is passed to the given DialogTarget.
+     * See DialogBehavior, which is the DialogTarget this outputs to.
+     * The constructor for Dialog objects is directly accessible to the Unity scripts. To obtain a Dialog object, see DialogLoader.
+     */
     public class Dialog
     {
         // defined characters and labels

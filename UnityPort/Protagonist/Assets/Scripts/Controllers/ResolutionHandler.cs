@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /**
+ * ResolutionHandler converts the entire screen into a scaled screen with the black bars.
+ * The screen is scaled to the size of the sprite with tag "Background".
+ * 
  * Handles resultion scaling when loading map.
  * Also handles conversion between Map Coordinates and other Unity coordinate systems.
  * Map Coordinates:

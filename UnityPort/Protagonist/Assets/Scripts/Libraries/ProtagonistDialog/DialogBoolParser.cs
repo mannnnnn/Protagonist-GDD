@@ -7,6 +7,10 @@ using UnityEngine;
 
 namespace Assets.Scripts.Libraries.ProtagonistDialog
 {
+    /**
+     * Master class of parsing boolean expressions like "(x || y) != w && z"
+     * Tokenizes, then runs Shunting Yard to convert to parse tree of DialogBoolExpressions, then executes.
+     */
     internal class DialogBoolParser
     {
         public static DialogBoolExpression Parse(string s)

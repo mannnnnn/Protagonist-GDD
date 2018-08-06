@@ -6,6 +6,16 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
+/**
+ * This is the main DialogBehavior class file.
+ * This class bridges the script execution logic of the Dialog class to the output of the DialogDisplayBehavior.
+ * It also handles statements that the Dialog object cannot directly execute, such as:
+ * "show", "hide", "event", and ""
+ * These cannot be directly handled by Dialog since these need the Unity Engine access.
+ * For the output display for the dialog, see DialogDisplayBehavior.
+ * For the script execution logic, see Dialog.
+ * For the stick-on addition to DialogBehavior that holds the various statements it handles like "show", see DialogBehaviorActions
+ */
 public partial class DialogBehavior : MonoBehaviour, DialogTarget
 {
     public Dialog dialog { get; private set; }

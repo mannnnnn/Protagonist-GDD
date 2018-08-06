@@ -3,6 +3,9 @@ using Newtonsoft.Json.Linq;
 
 namespace Assets.Scripts.Libraries.ProtagonistDialog
 {
+    /**
+     * Simple helper class to turn JSON into Dictionaries and Lists instead of normal objects.
+     */
     public static class JsonToData
     {
         public static object Deserialize(string json)

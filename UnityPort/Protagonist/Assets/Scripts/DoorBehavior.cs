@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/**
+ * Handles doors, which take players from one scene to another in a map
+ */
 public class DoorBehavior : MonoBehaviour
 {
     bool active;

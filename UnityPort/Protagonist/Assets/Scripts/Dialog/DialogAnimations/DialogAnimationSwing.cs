@@ -3,6 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Dialog animation where character image swings in, such as with Hades.
+ * To use this, the GameObject it is attached to must have a DialogSwingable component.
+ */
 public class DialogAnimationSwing : TimedDialogAnimation
 {
     SpriteRenderer front;

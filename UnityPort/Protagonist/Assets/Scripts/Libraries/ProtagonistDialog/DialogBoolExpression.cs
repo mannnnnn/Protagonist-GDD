@@ -6,6 +6,12 @@ using UnityEngine;
 
 namespace Assets.Scripts.Libraries.ProtagonistDialog
 {
+    /**
+     * This and all classes below are just simple classes to make boolean expression evaluation easier.
+     * Basically, Shunting Yard algorithm is used, and then it is made into a tree using these classes.
+     * At some point I may remove all of these and do immediate execution of boolean expressions on the output of Shunting Yard.
+     * See DialogBoolParser, which contains the Shunting Yard algorithm whose output is turned into a tree of these.
+     */
     internal interface DialogBoolExpression
     {
         bool Run();
