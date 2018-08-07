@@ -35,8 +35,14 @@ public class DialogTextbox
 
     public void SetAlpha(float alpha)
     {
-        text.color = new Color(text.color.r, text.color.g, text.color.b, alpha);
-        image.color = new Color(text.color.r, text.color.g, text.color.b, alpha);
+        if (text != null)
+        {
+            text.color = new Color(text.color.r, text.color.g, text.color.b, alpha);
+        }
+        if (image != null)
+        {
+            image.color = new Color(image.color.r, image.color.g, image.color.b, alpha);
+        }
     }
 
     public float GetY()

@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114548261401478964}
   m_Layer: 5
   m_Name: NameBox
-  m_TagString: NameBox
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 114891657669824960}
   m_Layer: 5
   m_Name: DialogueBox
-  m_TagString: DialogueBox
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

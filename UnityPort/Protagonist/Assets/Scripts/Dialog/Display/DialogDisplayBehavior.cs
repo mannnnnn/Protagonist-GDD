@@ -46,8 +46,8 @@ public class DialogDisplayBehavior : DialogDisplayBase {
     protected void Start()
     {
         // get components
-        dialogBox = new DialogTextbox(GameObject.FindGameObjectWithTag("DialogueBox"));
-        nameBox = new DialogTextbox(GameObject.FindGameObjectWithTag("NameBox"));
+        dialogBox = new DialogTextbox(transform.Find("DialogueBox").gameObject);
+        nameBox = new DialogTextbox(transform.Find("NameBox").gameObject);
         setNameBox = GetComponentInChildren<NameBoxBehavior>();
         dialogBehavior = GetComponentInParent<DialogBehavior>();
         SetName("");
@@ -67,7 +67,7 @@ public class DialogDisplayBehavior : DialogDisplayBase {
         {
             case State.OPENING:
             case State.PENDING_CLOSE:
-                SetTargetY(GetTotalSize());
+                SetTargetY(GetSize());
                 break;
             case State.CLOSING:
             case State.CLOSED:
@@ -97,7 +97,7 @@ public class DialogDisplayBehavior : DialogDisplayBase {
     // y position
     public override float GetY()
     {
-        return nameBox.GetY();
+        return ResolutionHandler.RectToScreenPoint(new Vector2(0, gameObject.transform.position.y)).y;
     }
     protected override void SetY(float screenY)
     {
@@ -105,7 +105,7 @@ public class DialogDisplayBehavior : DialogDisplayBase {
             ResolutionHandler.ScreenToRectPoint(new Vector2(0, screenY)).y, gameObject.transform.position.y);
     }
     // total vertical size of the two boxes stacked on each other
-    public float GetTotalSize()
+    public float GetSize()
     {
         return nameBox.GetSize() + dialogBox.GetSize();
     }
@@ -240,7 +240,8 @@ public class DialogDisplayBehavior : DialogDisplayBase {
         {
             throw new ParseError("Menu Type with name '" + type + "' is not registered. See the DialogSystem's DialogPrefabs component.");
         }
-        GameObject menuObj = Instantiate(DialogPrefabs.Menus[type], transform);
+        // set on same level as the dialog menu group
+        GameObject menuObj = Instantiate(DialogPrefabs.Menus[type], dialogBehavior.transform);
         DialogMenuBehavior menu = menuObj.GetComponent<DialogMenuBehavior>();
         if (menu == null)
         {

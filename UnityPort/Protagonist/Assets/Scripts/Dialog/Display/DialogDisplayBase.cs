@@ -14,7 +14,7 @@ using UnityEngine;
 public abstract class DialogDisplayBase : MonoBehaviour
 {
     // state and state transitions
-    public float duration;
+    public float duration = 0.5f;
     float timerSeconds = 0;
     protected float timer { get { return timerSeconds / duration; } }
     public bool active { get { return state == State.OPEN; } }

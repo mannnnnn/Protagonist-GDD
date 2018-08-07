@@ -8,8 +8,6 @@ TagManager:
   - ResolutionHandler
   - Wall
   - RoomBackground
-  - NameBox
-  - DialogueBox
   - SceneTransition
   - DialogAnimation
   layers:
