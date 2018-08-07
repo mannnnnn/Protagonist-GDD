@@ -42,19 +42,18 @@ public class DialogAnimationBehavior : MonoBehaviour {
         // get components
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-        ResolutionHandler res = ResolutionHandler.GetInstance();
         // calculate height based off of height as a fraction of mapview
-        float worldPx = Mathf.Abs(res.MapViewToWorldPoint(new Vector2(0f, height)).y
-            - res.MapViewToWorldPoint(Vector2.zero).y);
+        float worldPx = Mathf.Abs(ResolutionHandler.MapViewToWorldPoint(new Vector2(0f, height)).y
+            - ResolutionHandler.MapViewToWorldPoint(Vector2.zero).y);
         float scale = worldPx / (2 * sr.sprite.bounds.extents.y);
         baseScale = new Vector3(scale, scale, sr.transform.localScale.z);
         sr.transform.localScale = baseScale;
         // set at bottom of mapview
-        transform.position = new Vector3(transform.position.x, res.MapViewToWorldPoint(Vector2.zero).y, transform.position.z);
+        transform.position = new Vector3(transform.position.x, ResolutionHandler.MapViewToWorldPoint(Vector2.zero).y, transform.position.z);
         pos = transform.position;
         // calculate speed in world coords
-        worldSpd = Mathf.Abs(res.MapViewToWorldPoint(Vector2.right * spd).x
-            - res.MapViewToWorldPoint(Vector2.zero).x);
+        worldSpd = Mathf.Abs(ResolutionHandler.MapViewToWorldPoint(Vector2.right * spd).x
+            - ResolutionHandler.MapViewToWorldPoint(Vector2.zero).x);
         baseColor = sr.color;
     }
 	
@@ -107,9 +106,9 @@ public class DialogAnimationBehavior : MonoBehaviour {
     {
         if (instant)
         {
-            transform.position = ResolutionHandler.GetInstance().MapViewToWorldPoint(pos);
+            transform.position = ResolutionHandler.MapViewToWorldPoint(pos);
         }
-        this.pos = ResolutionHandler.GetInstance().MapViewToWorldPoint(pos);
+        this.pos = ResolutionHandler.MapViewToWorldPoint(pos);
     }
 
     // whether or not this is the character that is speaking
@@ -134,7 +133,7 @@ public class DialogAnimationBehavior : MonoBehaviour {
         // if necessary and on left side of the screen, flip sprite
         if (flipOnLeft)
         {
-            if (ResolutionHandler.GetInstance().WorldToMapViewPoint(transform.position).x < 0.5f)
+            if (ResolutionHandler.WorldToMapViewPoint(transform.position).x < 0.5f)
             {
                 sr.flipX = true;
             }

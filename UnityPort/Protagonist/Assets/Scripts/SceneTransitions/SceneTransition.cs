@@ -118,8 +118,8 @@ public class SceneTransition : MonoBehaviour
             tex.Apply();
         }
         // draw texture to fill screen
-        Vector3 topLeft = ResolutionHandler.GetInstance().MapViewToScreenPoint(new Vector2(0, 0));
-        Vector3 size = ResolutionHandler.GetInstance().MapViewToScreenPoint(new Vector2(1, 1)) - topLeft;
+        Vector3 topLeft = ResolutionHandler.MapViewToScreenPoint(new Vector2(0, 0));
+        Vector3 size = ResolutionHandler.MapViewToScreenPoint(new Vector2(1, 1)) - topLeft;
         GUI.DrawTexture(new Rect(topLeft, size), tex);
     }
 

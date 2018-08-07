@@ -25,15 +25,17 @@ public class ResolutionHandler : MonoBehaviour {
     GameObject roomBackground;
     public SpriteRenderer mapSprite;
 
-    public float PixelsPerUU
+    RectTransform rect;
+
+    public static float PixelsPerUU
     {
         get
         {
-            return mapSprite.sprite.texture.width / mapSprite.bounds.size.x;
+            return GetInstance().mapSprite.sprite.texture.width / GetInstance().mapSprite.bounds.size.x;
         }
     }
 
-    public float MapHeightToWidthRatio
+    public static float MapHeightToWidthRatio
     {
         get
         {
@@ -42,24 +44,24 @@ public class ResolutionHandler : MonoBehaviour {
     }
 
     //dimensions of mapTexture in Unity Units
-    public Vector2 MapDimensions
+    public static Vector2 MapDimensions
     {
         get
         {
             return new Vector2(
-                mapSprite.bounds.size.x,
-                mapSprite.bounds.size.y
+                GetInstance().mapSprite.bounds.size.x,
+                GetInstance().mapSprite.bounds.size.y
             );
         }
     }
     // center of the background
-    public Vector2 MapCenter
+    public static Vector2 MapCenter
     {
         get
         {
             return new Vector2(
-                mapSprite.bounds.center.x,
-                mapSprite.bounds.center.y
+                GetInstance().mapSprite.bounds.center.x,
+                GetInstance().mapSprite.bounds.center.y
             );
         }
     }
@@ -69,6 +71,8 @@ public class ResolutionHandler : MonoBehaviour {
         instance = this;
         roomBackground = GameObject.FindGameObjectWithTag("RoomBackground");
         mapSprite = roomBackground.GetComponent<SpriteRenderer>();
+        // only useful for UI conversions at very bottom
+        rect = GetComponent<RectTransform>();
 
         PositionCamera();
 
@@ -78,8 +82,7 @@ public class ResolutionHandler : MonoBehaviour {
 
         ScaleView();
     }
-
-
+    
     void Update()
     {
         
@@ -133,7 +136,7 @@ public class ResolutionHandler : MonoBehaviour {
     /**
      * Toggles resolution between initial windowed resolution and fullscreen.
      */
-    public void ToggleFullScreen()
+    public static void ToggleFullScreen()
     {
         if (Screen.fullScreen)
         {
@@ -151,14 +154,14 @@ public class ResolutionHandler : MonoBehaviour {
     /////////////////////////////////COORDINATE CONVERSION METHODS//////////////////////////////////////////////////////////////////
 
     //Conversion from World Coordinates (Unity Units)
-    public Vector3 MapToWorldPoint(Vector3 point)
+    public static Vector3 MapToWorldPoint(Vector3 point)
     {
         float newX = Mathf.Lerp(-MapDimensions.x / 2f, MapDimensions.x / 2f, point.x) + MapCenter.x;
         float newY = Mathf.Lerp(-MapDimensions.y / 2f, MapDimensions.y / 2f, point.y / MapHeightToWidthRatio) + MapCenter.y;
         return new Vector3(newX, newY, point.z);
     }
 
-    public Vector3 WorldToMapPoint(Vector3 point)
+    public static Vector3 WorldToMapPoint(Vector3 point)
     {
         float newX = ((point.x - MapCenter.x) / MapDimensions.x) + 0.5f;
         float newY = Mathf.Lerp(0, MapHeightToWidthRatio, ((point.y - MapCenter.y) / MapDimensions.y) + 0.5f);
@@ -166,58 +169,58 @@ public class ResolutionHandler : MonoBehaviour {
     }
 
 
-    public Vector3 WorldToMapViewPoint(Vector3 point)
+    public static Vector3 WorldToMapViewPoint(Vector3 point)
     {
         Vector3 mapCoords = WorldToMapPoint(point);
         mapCoords.y /= MapHeightToWidthRatio;
         return mapCoords;
     }
 
-    public Vector3 MapViewToWorldPoint(Vector3 point)
+    public static Vector3 MapViewToWorldPoint(Vector3 point)
     {
         point.y *= MapHeightToWidthRatio; //translate to Map Coords
         return MapToWorldPoint(point);
     }
       
     //Conversions for screen (pixel) coords
-    public Vector3 ScreenToMapPoint(Vector3 point)
+    public static Vector3 ScreenToMapPoint(Vector3 point)
     {
         return WorldToMapPoint(Camera.main.ScreenToWorldPoint(point));
     }
 
-    public Vector3 MapToScreenPoint(Vector3 point)
+    public static Vector3 MapToScreenPoint(Vector3 point)
     {
         return Camera.main.WorldToScreenPoint(MapToWorldPoint(point));
     }
 
-    public Vector3 ScreenToMapViewPoint(Vector3 point)
+    public static Vector3 ScreenToMapViewPoint(Vector3 point)
     {
         return WorldToMapViewPoint(Camera.main.ScreenToWorldPoint(point));
     }
 
-    public Vector3 MapViewToScreenPoint(Vector3 point)
+    public static Vector3 MapViewToScreenPoint(Vector3 point)
     {
         return Camera.main.WorldToScreenPoint(MapViewToWorldPoint(point));
     }
 
     //Conversions for Viewport coordinates
 
-    public Vector3 ViewportToMapPoint(Vector3 point)
+    public static Vector3 ViewportToMapPoint(Vector3 point)
     {
         return WorldToMapPoint(Camera.main.ViewportToWorldPoint(point));
     }
 
-    public Vector3 MapToViewportPoint(Vector3 point)
+    public static Vector3 MapToViewportPoint(Vector3 point)
     {
         return Camera.main.WorldToViewportPoint(MapToWorldPoint(point));
     }
 
-    public Vector3 ViewportToMapViewPoint(Vector3 point)
+    public static Vector3 ViewportToMapViewPoint(Vector3 point)
     {
         return WorldToMapViewPoint(Camera.main.ViewportToWorldPoint(point));
     }
     
-    public Vector3 MapViewToViewportPoint(Vector3 point)
+    public static Vector3 MapViewToViewportPoint(Vector3 point)
     {
         return Camera.main.WorldToViewportPoint(MapViewToWorldPoint(point));
     }
@@ -227,23 +230,23 @@ public class ResolutionHandler : MonoBehaviour {
 
     /////////////////////Fullscreen/windowed resolution helper methods//////////////////////////////////////////////////////////////
 
-    private void PositionCamera()
+    private static void PositionCamera()
     {
-        Camera.main.transform.position = new Vector3(mapSprite.transform.position.x, mapSprite.transform.position.y, Camera.main.transform.position.z);
+        Camera.main.transform.position = new Vector3(GetInstance().mapSprite.transform.position.x, GetInstance().mapSprite.transform.position.y, Camera.main.transform.position.z);
     }
 
     /**
      * Sets the game resolution based on screen size and map dimensions.
      */
-    private void SetInitialResolution()
+    private static void SetInitialResolution()
     {
         //respect initial resolution if user chose full screen
         if (Screen.fullScreen) { return; }
 
         //get resolution of initial screen fraction
         //TODO: do compatibility checks
-        int windowHeight = (int)(DEFAULT_RESOLUTION_SCALE * Screen.currentResolution.height);
-        int windowWidth = (int)(DEFAULT_RESOLUTION_SCALE * Screen.currentResolution.height * (MapDimensions.x / MapDimensions.y));
+        int windowHeight = (int)(GetInstance().DEFAULT_RESOLUTION_SCALE * Screen.currentResolution.height);
+        int windowWidth = (int)(GetInstance().DEFAULT_RESOLUTION_SCALE * Screen.currentResolution.height * (MapDimensions.x / MapDimensions.y));
 
         //set res
         Screen.SetResolution(windowWidth, windowHeight, false);
@@ -255,7 +258,7 @@ public class ResolutionHandler : MonoBehaviour {
     /**
      * Finds the optimum fullscreen resolution for a given screen size, ppi given the game assets
      */
-    private Resolution GetOptimumFullscreenResolution()
+    private static Resolution GetOptimumFullscreenResolution()
     {
         //TODO: Get rid of temp implementation and actually do this.
 
@@ -295,5 +298,17 @@ public class ResolutionHandler : MonoBehaviour {
             throw new InvalidOperationException("There are no objects in the room with the ResolutionHandler behavior.");
         }
         return instance;
+    }
+
+    // UI helper methods
+    public static Vector2 RectToScreenPoint(Vector2 rectPos)
+    {
+        return RectTransformUtility.WorldToScreenPoint(null, rectPos);
+    }
+    public static Vector2 ScreenToRectPoint(Vector2 screenPos)
+    {
+        Vector3 rectPos;
+        RectTransformUtility.ScreenPointToWorldPointInRectangle(GetInstance().rect, screenPos, null, out rectPos);
+        return rectPos;
     }
 }

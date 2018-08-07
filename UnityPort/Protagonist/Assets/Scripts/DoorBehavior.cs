@@ -22,7 +22,7 @@ public class DoorBehavior : MonoBehaviour
             // can only activate once
             active = false;
             // get direction from door to center of screen
-            Vector2 direction = gameObject.transform.position - ResolutionHandler.GetInstance().MapViewToWorldPoint(new Vector2(0.5f, 0.5f));
+            Vector2 direction = gameObject.transform.position - ResolutionHandler.MapViewToWorldPoint(new Vector2(0.5f, 0.5f));
             // cardinally normalize the direction vector
             SceneTransitions.Side side = SceneTransitions.ToSide(direction);
             Vector2Int cardinal = SceneTransitions.ToVector2Int(side);

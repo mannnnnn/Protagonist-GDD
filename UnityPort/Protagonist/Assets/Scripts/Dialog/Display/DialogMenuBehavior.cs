@@ -3,19 +3,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public interface DialogMenu
+{
+    List<Dictionary<string, object>> Initialize(List<Dictionary<string, object>> options, Dialog dialog, DialogDisplayBehavior display);
+}
+
 /**
  * Base class for dialog menus.
  * These are automatically created by the dialog system.
+ * The UI functionality is basically just a stripped-down version of the DialogDisplay.
  */
-public class DialogMenuBehavior : MonoBehaviour {
+public class DialogMenuBehavior : MonoBehaviour, DialogMenu
+{
+    // prefab passed in through inspector
+    public GameObject button;
+
+    RectTransform rect;
 
     Dialog dialog;
     DialogDisplayBehavior display;
 
     List<string> options = new List<string>();
     List<GameObject> buttons = new List<GameObject>();
-    public GameObject button;
 
+    // called by Dialog through DialogBehavior
     public List<Dictionary<string, object>> Initialize(List<Dictionary<string, object>> options, Dialog dialog, DialogDisplayBehavior display)
     {
         this.dialog = dialog;
@@ -28,17 +39,12 @@ public class DialogMenuBehavior : MonoBehaviour {
             }
             this.options.Add((string)option["text"]);
         }
-        // don't need to reshape options for default behavior
+        // we can edit the list of options passed back to dialog, but we don't need to here.
         return options;
     }
 
     // Hopefully runs after Initialize
-    void Start () {
-        // create a button for each option
-        Instantiate(button, transform);
-	}
-	
-	void Update () {
-		
-	}
+    protected virtual void Start () {
+        display.SetTargetY(Screen.height - 5);
+    }
 }

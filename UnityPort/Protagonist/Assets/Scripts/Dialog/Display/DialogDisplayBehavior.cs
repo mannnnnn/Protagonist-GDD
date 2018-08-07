@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Libraries.ProtagonistDialog;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ using UnityEngine.UI;
  * For the logic related to how dialog scripts are executed, see the Dialog object.
  * For the logic bridging the Dialog object to the display, see the DialogBehavior component.
  */
-public class DialogDisplayBehavior : MonoBehaviour {
+public class DialogDisplayBehavior : DialogDisplayBase {
 
     DialogTextbox dialogBox;
     DialogTextbox nameBox;
@@ -21,27 +22,6 @@ public class DialogDisplayBehavior : MonoBehaviour {
 
     GameObject menu;
 
-    public float duration;
-    float timerSeconds = 0;
-    float timer { get { return timerSeconds / duration; } }
-    public bool active { get { return state == State.OPEN; } }
-
-    public State state { get; private set; }
-    public enum State
-    {
-        CLOSED, OPENING, OPEN, PENDING_CLOSE, CLOSING
-    }
-
-    // resize
-    float initialSize;
-    float targetSize;
-    float sizeSpd = 400f;
-
-    // needs a delayed initialization since the UI elements take some warming up before going to correct position
-    bool initialized = false;
-
-    // move mouths
-    List<DialogAnimationBehavior> speakers = new List<DialogAnimationBehavior>();
     // scroll text
     string textFull = "";
     int textPosition = 0;
@@ -52,121 +32,95 @@ public class DialogDisplayBehavior : MonoBehaviour {
     {
         { ',', 0.1f }, { '.', 0.2f }
     };
+    private float GetTextPause(char c)
+    {
+        if (textPause.ContainsKey(c))
+        {
+            return textPause[c];
+        }
+        return textPauseDefault;
+    }
+    // move mouths
+    List<DialogAnimationBehavior> speakers = new List<DialogAnimationBehavior>();
 
-    // y position deviation from starting position
-    float targetHeight = 0f;
-    float spd = 600f;
-
-    void Start()
+    protected void Start()
     {
         // get components
         dialogBox = new DialogTextbox(GameObject.FindGameObjectWithTag("DialogueBox"));
         nameBox = new DialogTextbox(GameObject.FindGameObjectWithTag("NameBox"));
         setNameBox = GetComponentInChildren<NameBoxBehavior>();
-        dialogBehavior = GetComponent<DialogBehavior>();
+        dialogBehavior = GetComponentInParent<DialogBehavior>();
+        SetName("");
+        // set y position and y target position
+        SetY(0);
+        SetTargetY(0);
     }
 
-    void Update()
+    protected override void Update()
     {
-        // handle delayed init on getting initial positions
-        if (!initialized)
-        {
-            SetName("");
-            nameBox.SetBaseHeight();
-            dialogBox.SetBaseHeight();
-            initialSize = dialogBox.GetSize();
-            targetSize = initialSize;
-            // start down
-            targetHeight = -300f;
-            nameBox.SetHeight(targetHeight);
-            dialogBox.SetHeight(targetHeight);
-            initialized = true;
-        }
-        // handle state
+        // handle timer/state
+        base.Update();
+        // set text scroll
+        UpdateTextScroll();
+        // set target position
         switch (state)
         {
-            case State.CLOSED:
-                timerSeconds = 0;
-                targetSize = initialSize;
-                targetHeight = -300f;
-                textTimer = 0f;
-                break;
             case State.OPENING:
-                timerSeconds += Time.deltaTime;
-                if (timer > 1)
-                {
-                    state = State.OPEN;
-                }
-                timerSeconds = Mathf.Clamp(timerSeconds, 0, duration);
-                targetHeight = 0f;
-                break;
-            case State.OPEN:
-                break;
-            // we want to close, but not all dialog sprites are out of the way yet
             case State.PENDING_CLOSE:
-                bool close = true;
-                foreach (DialogCharacter chr in dialogBehavior.dialog.characters.Values)
-                {
-                    if (chr.gameObject != null)
-                    {
-                        chr.gameObject.GetComponent<DialogAnimationBehavior>().SetTransition(chr.transition, true, null);
-                        chr.gameObject = null;
-                    }
-                }
-                // can't close until all dialog animations are destroyed
-                GameObject dialogAnim = GameObject.FindGameObjectWithTag("DialogAnimation");
-                close = dialogAnim == null;
-                if (close)
-                {
-                    state = State.CLOSING;
-                }
-                targetSize = initialSize;
+                SetTargetY(GetTotalSize());
                 break;
             case State.CLOSING:
-                timerSeconds -= Time.deltaTime;
-                if (timer < 0)
-                {
-                    state = State.CLOSED;
-                }
-                timerSeconds = Mathf.Clamp(timerSeconds, 0, duration);
-                targetSize = initialSize;
-                targetHeight = -300f;
+            case State.CLOSED:
+                SetTargetY(0);
                 break;
         }
-        // set UI components
-        SetAlpha(timer);
-        SetSize(Mathf.MoveTowards(dialogBox.GetSize(), targetSize, sizeSpd * Time.deltaTime));
-        SetHeight(Mathf.MoveTowards(dialogBox.GetHeight(), targetHeight, spd * Time.deltaTime));
-        // set text scroll
-        textTimer += Time.deltaTime;
-        while (textPosition < textFull.Length && textTimer > GetTextPause(textFull[textPosition]))
+    }
+
+    // when we want to close, but have to wait for dialog animations to finish
+    protected override bool PendingClose()
+    {
+        bool close = true;
+        foreach (DialogCharacter chr in dialogBehavior.dialog.characters.Values)
         {
-            textTimer -= GetTextPause(textFull[textPosition]);
-            textPosition++;
-            if (textPosition >= textFull.Length)
+            if (chr.gameObject != null)
             {
-                textPosition = textFull.Length;
-                // we finished scrolling, so stop the talking animation
-                foreach (DialogAnimationBehavior anim in speakers)
-                {
-                    if (anim != null)
-                    {
-                        anim.SetTalk(false);
-                    }
-                }
-                speakers.Clear();
-                break;
+                chr.gameObject.GetComponent<DialogAnimationBehavior>().SetTransition(chr.transition, true, null);
+                chr.gameObject = null;
             }
         }
-        SetText(textFull.Substring(0, textPosition));
+        // can't close until all dialog animations are destroyed
+        GameObject dialogAnim = GameObject.FindGameObjectWithTag("DialogAnimation");
+        close = dialogAnim == null;
+        return close;
     }
 
-    public void SetState(State state)
+    // y position
+    public override float GetY()
     {
-        this.state = state;
+        return nameBox.GetY();
+    }
+    protected override void SetY(float screenY)
+    {
+        gameObject.transform.position = new Vector3(gameObject.transform.position.x,
+            ResolutionHandler.ScreenToRectPoint(new Vector2(0, screenY)).y, gameObject.transform.position.y);
+    }
+    // total vertical size of the two boxes stacked on each other
+    public float GetTotalSize()
+    {
+        return nameBox.GetSize() + dialogBox.GetSize();
     }
 
-    // call to set the text contents of the display, both nameplate and textbox
+    public override void SetAlpha(float alpha)
+    {
+        nameBox.SetAlpha(alpha);
+        if (nameBox.GetText() == "")
+        {
+            nameBox.SetAlpha(0);
+        }
+        dialogBox.SetAlpha(alpha);
+    }
+
+    // call to set the text contents of the display, both nameplate and textbox. Called by DialogBehavior
     public void SetText(List<string> characters, string text, Dialog dialog = null)
     {
         // calculate name
@@ -217,10 +171,6 @@ public class DialogDisplayBehavior : MonoBehaviour {
             }
         }
     }
-    private void SetText(string text)
-    {
-        dialogBox.SetText(text);
-    }
     private void SetName(string character, float center = 0f)
     {
         // get size of text
@@ -236,6 +186,39 @@ public class DialogDisplayBehavior : MonoBehaviour {
         setNameBox.box.right = Mathf.Clamp01(left + size);
         setNameBox.box.UpdateAnchors();
     }
+    // handles the text scroll animation. called by Update
+    private void UpdateTextScroll()
+    {
+        textTimer += Time.deltaTime;
+        if (state == State.CLOSED)
+        {
+            textTimer = 0f;
+        }
+        while (textPosition < textFull.Length && textTimer > GetTextPause(textFull[textPosition]))
+        {
+            textTimer -= GetTextPause(textFull[textPosition]);
+            textPosition++;
+            if (textPosition >= textFull.Length)
+            {
+                textPosition = textFull.Length;
+                // we finished scrolling, so stop the talking animation
+                foreach (DialogAnimationBehavior anim in speakers)
+                {
+                    if (anim != null)
+                    {
+                        anim.SetTalk(false);
+                    }
+                }
+                speakers.Clear();
+                break;
+            }
+        }
+        SetText(textFull.Substring(0, Math.Min(textPosition + 1, textFull.Length)));
+    }
+    private void SetText(string text)
+    {
+        dialogBox.SetText(text);
+    }
 
     // used for checking if the text is being displayed
     public bool TextFinished()
@@ -249,34 +232,7 @@ public class DialogDisplayBehavior : MonoBehaviour {
         textTimer += amount;
     }
 
-    public void SetAlpha(float alpha)
-    {
-        nameBox.SetAlpha(alpha);
-        if (nameBox.GetText() == "")
-        {
-            nameBox.SetAlpha(0);
-        }
-        dialogBox.SetAlpha(alpha);
-    }
-    protected void SetHeight(float height)
-    {
-        nameBox.SetHeight(height);
-        dialogBox.SetHeight(height);
-    }
-
-    // sets size to initialSize + size
-    public void SetTargetSize(float size)
-    {
-        targetSize = size + initialSize;
-    }
-    private void SetSize(float size)
-    {
-        // move namebox up
-        nameBox.SetHeight(nameBox.GetHeight() + (size - initialSize));
-        // set size
-        dialogBox.SetSize(size);
-    }
-
+    // dialog menu creation, called by DialogBehavior
     public List<Dictionary<string, object>> SetMenu(List<Dictionary<string, object>> options, string type, Dialog dialog)
     {
         // create a menu
@@ -284,88 +240,12 @@ public class DialogDisplayBehavior : MonoBehaviour {
         {
             throw new ParseError("Menu Type with name '" + type + "' is not registered. See the DialogSystem's DialogPrefabs component.");
         }
-        GameObject menuObj = Instantiate(DialogPrefabs.Menus[type], dialogBox.gameObj.transform);
+        GameObject menuObj = Instantiate(DialogPrefabs.Menus[type], transform);
         DialogMenuBehavior menu = menuObj.GetComponent<DialogMenuBehavior>();
         if (menu == null)
         {
             throw new ParseError("Prefab for Menu Type '" + type + "' has no DialogMenuBehavior component.");
         }
         return menu.Initialize(options, dialog, this);
-    }
-
-    private float GetTextPause(char c)
-    {
-        if (textPause.ContainsKey(c))
-        {
-            return textPause[c];
-        }
-        return textPauseDefault;
-    }
-
-    // helper class used to wrap setting alpha/position/text into one object per GameObject.
-    // Then, this behavior wraps it into one method call.
-    class DialogTextbox
-    {
-        public GameObject gameObj;
-        InputField textbox;
-        Text text;
-        Image image;
-        RectTransform rect;
-        float initialHeight;
-
-        public DialogTextbox(GameObject g)
-        {
-            gameObj = g;
-            textbox = gameObj.GetComponentInChildren<InputField>();
-            text = gameObj.GetComponentInChildren<Text>();
-            image = gameObj.GetComponentInChildren<Image>();
-            rect = gameObj.GetComponent<RectTransform>();
-        }
-
-        public float GetBaseHeight()
-        {
-            return initialHeight;
-        }
-        public void SetBaseHeight()
-        {
-            SetBasePosition(rect.transform.localPosition.y);
-        }
-        public void SetBasePosition(float height)
-        {
-            initialHeight = height;
-        }
-
-        public string GetText()
-        {
-            return textbox.text;
-        }
-        public void SetText(string message)
-        {
-            textbox.text = message;
-        }
-
-        public void SetAlpha(float alpha)
-        {
-            text.color = new Color(text.color.r, text.color.g, text.color.b, alpha);
-            image.color = new Color(text.color.r, text.color.g, text.color.b, alpha);
-        }
-
-        public float GetHeight()
-        {
-            return rect.localPosition.y - initialHeight;
-        }
-        public void SetHeight(float height)
-        {
-            rect.localPosition = new Vector3(rect.localPosition.x, initialHeight + height, rect.localPosition.z);
-        }
-
-        public float GetSize()
-        {
-            return rect.rect.height;
-        }
-        public void SetSize(float size)
-        {
-            rect.sizeDelta = new Vector2(rect.sizeDelta.x, size);
-        }
     }
 }

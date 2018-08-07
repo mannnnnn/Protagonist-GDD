@@ -25,7 +25,7 @@ public partial class DialogBehavior : MonoBehaviour, DialogTarget
     void Start()
     {
         // get display
-        display = GetComponent<DialogDisplayBehavior>();
+        display = GetComponentInChildren<DialogDisplayBehavior>();
         events = GetComponent<DialogEvents>();
     }
 

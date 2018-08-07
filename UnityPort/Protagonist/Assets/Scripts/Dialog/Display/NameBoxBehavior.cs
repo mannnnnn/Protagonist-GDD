@@ -26,11 +26,10 @@ public class NameBoxBehavior : MonoBehaviour {
         // get pixels size
         int px = GetStringWidth(name);
         // pixels to width as MapView points
-        var convert = ResolutionHandler.GetInstance();
-        float mapViewWidth = Mathf.Abs(convert.ScreenToMapViewPoint(new Vector3(px, 0)).x 
-            - convert.ScreenToMapViewPoint(new Vector3(0, 0)).x);
+        float mapViewWidth = Mathf.Abs(ResolutionHandler.ScreenToMapViewPoint(new Vector3(px, 0)).x 
+            - ResolutionHandler.ScreenToMapViewPoint(new Vector3(0, 0)).x);
         // add on (black bar x position / screenWidth) to shift over, avoiding the black bars, and then a bit (0.1f)
-        mapViewWidth += Mathf.Abs(convert.MapViewToScreenPoint(new Vector3(0, 0)).x / Screen.width) + 0.1f;
+        mapViewWidth += Mathf.Abs(ResolutionHandler.MapViewToScreenPoint(new Vector3(0, 0)).x / Screen.width) + 0.1f;
         mapViewWidth = Mathf.Clamp(mapViewWidth, 0.4f, 1f);
         // set box size
         box.UpdateAnchors(box.left, box.left + mapViewWidth);

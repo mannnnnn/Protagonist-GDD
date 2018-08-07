@@ -77,9 +77,11 @@
     <Compile Include="Assets\Scripts\Dialog\DialogPrefabs.cs" />
     <Compile Include="Assets\Scripts\Dialog\Display\AdjustUIBehavior.cs" />
     <Compile Include="Assets\Scripts\Dialog\Display\DialogAnimationBehavior.cs" />
+    <Compile Include="Assets\Scripts\Dialog\Display\DialogDisplayBase.cs" />
     <Compile Include="Assets\Scripts\Dialog\Display\DialogDisplayBehavior.cs" />
     <Compile Include="Assets\Scripts\Dialog\Display\DialogMenuBehavior.cs" />
     <Compile Include="Assets\Scripts\Dialog\Display\DialogMenuButtonBehavior.cs" />
+    <Compile Include="Assets\Scripts\Dialog\Display\DialogTextbox.cs" />
     <Compile Include="Assets\Scripts\Dialog\Display\NameBoxBehavior.cs" />
     <Compile Include="Assets\Scripts\DoorBehavior.cs" />
     <Compile Include="Assets\Scripts\Libraries\ProtagonistDialog\Dialog.cs" />
