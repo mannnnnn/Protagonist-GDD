@@ -43,6 +43,7 @@ public abstract class DialogDisplayBase : MonoBehaviour
                 if (timer > 1)
                 {
                     SetState(State.OPEN);
+                    OpenFinish();
                 }
                 timerSeconds = Mathf.Clamp(timerSeconds, 0, duration);
                 break;
@@ -53,6 +54,7 @@ public abstract class DialogDisplayBase : MonoBehaviour
                 if (PendingClose())
                 {
                     SetState(State.CLOSING);
+                    CloseStart();
                 }
                 break;
             case State.CLOSING:
@@ -60,6 +62,7 @@ public abstract class DialogDisplayBase : MonoBehaviour
                 if (timer < 0)
                 {
                     SetState(State.CLOSED);
+                    CloseFinish();
                 }
                 timerSeconds = Mathf.Clamp(timerSeconds, 0, duration);
                 break;
@@ -76,6 +79,16 @@ public abstract class DialogDisplayBase : MonoBehaviour
     protected virtual bool PendingClose()
     {
         return true;
+    }
+    // methods called on state changes
+    protected virtual void OpenFinish()
+    {
+    }
+    protected virtual void CloseStart()
+    {
+    }
+    protected virtual void CloseFinish()
+    {
     }
 
     // y position

@@ -66,7 +66,7 @@ namespace Assets.Scripts.Libraries.ProtagonistDialog
             while (run)
             {
                 // check if we're complete with the current block
-                if (current >= currentBlock.Count)
+                while (current >= currentBlock.Count)
                 {
                     // if the call stack is empty, finish
                     if (callStack.Count == 0)
@@ -162,7 +162,7 @@ namespace Assets.Scripts.Libraries.ProtagonistDialog
         }
 
         // called by the dialog target when a menu option is chosen
-        public void ChooseMenuOption(int option)
+        public void ChooseMenuOption(int option, DialogTarget target)
         {
             if (menu == null || option < 0 || option >= menu.Count)
             {
@@ -177,8 +177,10 @@ namespace Assets.Scripts.Libraries.ProtagonistDialog
             {
                 throw new ParseError("Menu option 'block' element must be of type 'block'.");
             }
+            current--;
             JumpToBlock(menuOption["block"]);
             menu = null;
+            Run(target);
         }
 
         private void RunIf(Dictionary<string, object> statement, DialogTarget target)

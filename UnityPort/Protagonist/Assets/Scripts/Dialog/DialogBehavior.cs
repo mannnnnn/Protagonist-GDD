@@ -35,11 +35,11 @@ public partial class DialogBehavior : MonoBehaviour, DialogTarget
         {
             dialog.Run(this);
         }
-        else if (display.state == DialogDisplayBehavior.State.CLOSED)
+        else if (display.state == DialogDisplayBase.State.CLOSED)
         {
             // load dialog
             dialog = DialogLoader.ReadFile("testcase.protd");
-            display.SetState(DialogDisplayBehavior.State.OPENING);
+            display.SetState(DialogDisplayBase.State.OPENING);
             dialog.Run(this);
         }
     }
@@ -101,7 +101,7 @@ public partial class DialogBehavior : MonoBehaviour, DialogTarget
 
     public void Finish(Dialog dialog)
     {
-        display.SetState(DialogDisplayBehavior.State.PENDING_CLOSE);
+        display.SetState(DialogDisplayBase.State.PENDING_CLOSE);
     }
 
     public List<Dictionary<string, object>> GetMenu(List<Dictionary<string, object>> menu, string type = "Default")

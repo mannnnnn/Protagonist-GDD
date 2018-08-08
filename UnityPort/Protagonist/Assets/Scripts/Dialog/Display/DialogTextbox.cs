@@ -47,15 +47,15 @@ public class DialogTextbox
 
     public float GetY()
     {
-        return rect.position.y;
+        return rect.localPosition.y;
     }
     public void SetY(float height)
     {
-        rect.position = new Vector3(rect.position.x, height, rect.position.z);
+        rect.anchoredPosition = new Vector3(rect.anchoredPosition.x, height, rect.position.z);
     }
     public float GetScreenY()
     {
-        return ResolutionHandler.RectToScreenPoint(rect.position).y;
+        return ResolutionHandler.RectToScreenPoint(rect.anchoredPosition).y;
     }
     public void SetScreenY(float screenHeight)
     {
@@ -68,6 +68,17 @@ public class DialogTextbox
     }
     public void SetSize(float size)
     {
+        var resize = size - GetSize();
         rect.sizeDelta = new Vector2(rect.sizeDelta.x, size);
+        SetScreenY(GetScreenY() + resize * 0.5f);
+    }
+
+    public Rect GetScreenRect()
+    {
+        Vector3[] v = new Vector3[4];
+        rect.GetWorldCorners(v);
+        var bottomLeft = ResolutionHandler.RectToScreenPoint(v[0]);
+        var topRight = ResolutionHandler.RectToScreenPoint(v[2]);
+        return new Rect(bottomLeft, topRight - bottomLeft);
     }
 }

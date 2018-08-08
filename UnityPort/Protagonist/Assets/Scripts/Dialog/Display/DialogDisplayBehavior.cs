@@ -247,6 +247,6 @@ public class DialogDisplayBehavior : DialogDisplayBase {
         {
             throw new ParseError("Prefab for Menu Type '" + type + "' has no DialogMenuBehavior component.");
         }
-        return menu.Initialize(options, dialog, this);
+        return menu.Initialize(options, dialog, dialogBehavior, this);
     }
 }
