@@ -4,6 +4,7 @@ using UnityEngine;
 
 /**
  * Default dialog menu button control.
+ * This outputs back to DialogMenuBehavior when it is clicked via menu.FinishSelection().
  */
 public class DialogMenuButtonBehavior : DialogDisplayBase
 {
@@ -36,6 +37,8 @@ public class DialogMenuButtonBehavior : DialogDisplayBase
         leftEdge = left;
         rightEdge = right;
         width.UpdateAnchors(left, right);
+        // start out transparent
+        SetAlpha(0);
     }
 
     protected override void Update()
@@ -49,7 +52,7 @@ public class DialogMenuButtonBehavior : DialogDisplayBase
         // handle click on this button
         if (Input.GetMouseButtonDown(0))
         {
-            if (box.GetScreenRect().Contains(Input.mousePosition))
+            if (ResolutionHandler.GetScreenRect(box.rect).Contains(Input.mousePosition))
             {
                 selected = true;
                 menu.FinishSelection();

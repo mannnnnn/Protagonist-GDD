@@ -25,8 +25,6 @@ public class ResolutionHandler : MonoBehaviour {
     GameObject roomBackground;
     public SpriteRenderer mapSprite;
 
-    RectTransform rect;
-
     public static float PixelsPerUU
     {
         get
@@ -71,8 +69,6 @@ public class ResolutionHandler : MonoBehaviour {
         instance = this;
         roomBackground = GameObject.FindGameObjectWithTag("RoomBackground");
         mapSprite = roomBackground.GetComponent<SpriteRenderer>();
-        // only useful for UI conversions at very bottom
-        rect = GetComponent<RectTransform>();
 
         PositionCamera();
 
@@ -301,14 +297,33 @@ public class ResolutionHandler : MonoBehaviour {
     }
 
     // UI helper methods
-    public static Vector2 RectToScreenPoint(Vector2 rectPos)
+    public static Vector2 RectToScreenPoint(RectTransform rect, Vector2 rectPos)
     {
-        return RectTransformUtility.WorldToScreenPoint(null, rectPos);
+        Rect originalRect = new Rect(rect.rect.position, rect.rect.size);
+        Rect screenRect = GetScreenRect(rect);
+        float x = FreeLerp(rectPos.x, originalRect.xMin, originalRect.xMax, screenRect.xMin, screenRect.xMax);
+        float y = FreeLerp(rectPos.y, originalRect.yMin, originalRect.yMax, screenRect.yMin, screenRect.yMax);
+        return new Vector2(x, y);
     }
-    public static Vector2 ScreenToRectPoint(Vector2 screenPos)
+    public static Vector2 ScreenToRectPoint(RectTransform rect, Vector2 screenPos)
     {
-        Vector3 rectPos;
-        RectTransformUtility.ScreenPointToWorldPointInRectangle(GetInstance().rect, screenPos, null, out rectPos);
-        return rectPos;
+        Rect originalRect = new Rect(rect.rect.position, rect.rect.size);
+        Rect screenRect = GetScreenRect(rect);
+        float x = FreeLerp(screenPos.x, screenRect.xMin, screenRect.xMax, originalRect.xMin, originalRect.xMax);
+        float y = FreeLerp(screenPos.y, screenRect.yMin, screenRect.yMax, originalRect.yMin, originalRect.yMax);
+        return new Vector2(x, y);
+    }
+    public static Rect GetScreenRect(RectTransform rect)
+    {
+        Vector3[] v = new Vector3[4];
+        rect.GetWorldCorners(v);
+        var bottomLeft = Camera.main.WorldToScreenPoint(v[0]);
+        var topRight = Camera.main.WorldToScreenPoint(v[2]);
+        return new Rect(bottomLeft, topRight - bottomLeft);
+    }
+    public static float FreeLerp(float value, float aMin, float aMax, float bMin, float bMax)
+    {
+
+        return (((value - aMin) * ((bMax - bMin) / (aMax - aMin))) + bMin);
     }
 }

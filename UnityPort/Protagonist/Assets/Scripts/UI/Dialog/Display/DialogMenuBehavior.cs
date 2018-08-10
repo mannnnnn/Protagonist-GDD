@@ -13,7 +13,8 @@ public interface DialogMenu
 /**
  * Base class for dialog menus.
  * These are automatically created by the dialog system.
- * The UI functionality is basically just a stripped-down version of the DialogDisplay.
+ * Creates buttons given an options list, and waits for the player to choose one,
+ * then calls dialog.ChooseMenuOption as is required for menus.
  */
 public class DialogMenuBehavior : DialogDisplayBase, DialogMenu
 {
@@ -56,32 +57,35 @@ public class DialogMenuBehavior : DialogDisplayBase, DialogMenu
     // Hopefully runs after Initialize
     protected virtual void Start()
     {
+        rect = GetComponent<RectTransform>();
         backPanel = new DialogTextbox(transform.Find("BackPanel").gameObject);
         // move up
         SetY(-100f);
         SetTargetY(GetSize() + 5);
+        // start out transparent
+        SetAlpha(0);
         // fade in this menu
         SetState(State.OPENING);
         // create menu sub-items
         float buttonBorder = 5f;
-        float edgeBorder = 18f;
-        // 0 is the position such that the entire button is just barely offscreen at the bottom.
-        // so, move it up by (border + buttonSize) each time.
-        float totalSize = edgeBorder - buttonBorder;
-        for (int i = options.Count - 1; i >= 0; i--)
+        float edgeBorder = 12f;
+        // 0 is the top, so go downwards
+        // so, move it down by (border + buttonSize) each time.
+        float totalSize = edgeBorder;
+        float offset = totalSize + (2f * edgeBorder) + buttonBorder;
+        for (int i = 0; i < options.Count; i++)
         {
             GameObject buttonObj = Instantiate(button, transform);
             // move button to y position
             var buttonBehavior = buttonObj.GetComponent<DialogMenuButtonBehavior>();
             totalSize += buttonBehavior.box.GetSize() + buttonBorder;
-            buttonBehavior.Initialize(this, totalSize, 0, 0.8f);
+            buttonBehavior.Initialize(this, -totalSize + offset, 0, 0.8f);
+            // set button as option
             buttonBehavior.SetText(options[i]);
-            // prepend, since we're going bottom to top
-            buttons.Insert(0, buttonBehavior);
+            buttons.Add(buttonBehavior);
         }
         // resize back panel and move up to fit buttons
         totalSize += edgeBorder;
-        float resize = (totalSize) - GetSize();
         backPanel.SetSize(totalSize);
         // move normal dialog window to the top
         displayY = display.GetY();
@@ -100,6 +104,7 @@ public class DialogMenuBehavior : DialogDisplayBase, DialogMenu
             }
         }
         dialog.ChooseMenuOption(chosen, target);
+        Destroy(gameObject);
     }
 
     // called by a button when a choice is selected
@@ -115,16 +120,16 @@ public class DialogMenuBehavior : DialogDisplayBase, DialogMenu
         SetTargetY(-100f);
         display.SetTargetY(displayY);
     }
-
+    
     // y position
     public override float GetY()
     {
-        return ResolutionHandler.RectToScreenPoint(new Vector2(0, gameObject.transform.position.y)).y;
+        return ResolutionHandler.RectToScreenPoint(rect, new Vector2(0, 0)).y;
     }
     protected override void SetY(float screenY)
     {
-        gameObject.transform.position = new Vector3(gameObject.transform.position.x,
-            ResolutionHandler.ScreenToRectPoint(new Vector2(0, screenY)).y, gameObject.transform.position.y);
+        rect.anchoredPosition = new Vector2(rect.anchoredPosition.x,
+            rect.anchoredPosition.y + ResolutionHandler.ScreenToRectPoint(rect, new Vector2(0, screenY)).y);
     }
     public float GetSize()
     {

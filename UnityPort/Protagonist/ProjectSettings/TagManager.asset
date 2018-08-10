@@ -10,6 +10,7 @@ TagManager:
   - RoomBackground
   - SceneTransition
   - DialogAnimation
+  - NameBox
   layers:
   - Default
   - TransparentFX
@@ -50,6 +51,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Foreground
+    uniqueID: 4135444789
+    locked: 0
+  - name: PreUI
+    uniqueID: 3891246439
+    locked: 0
   - name: UI
     uniqueID: 2620585259
+    locked: 0
+  - name: PostUI
+    uniqueID: 811265357
     locked: 0

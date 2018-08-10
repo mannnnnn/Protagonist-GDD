@@ -27,6 +27,7 @@ public abstract class DialogDisplayBase : MonoBehaviour
 
     // y position movement.
     // Make sure you call SetTargetY in the Start statement, or else this will move to 0 every time.
+    bool toTarget = false;
     float targetY = 0f;
     protected float spd = 600f;
 
@@ -67,7 +68,15 @@ public abstract class DialogDisplayBase : MonoBehaviour
                 timerSeconds = Mathf.Clamp(timerSeconds, 0, duration);
                 break;
         }
-        SetY(Mathf.MoveTowards(GetY(), targetY, spd * Time.deltaTime));
+        // move to target until it is reached
+        if (toTarget)
+        {
+            SetY(Mathf.MoveTowards(GetY(), targetY, spd * Time.deltaTime));
+            if (Mathf.Abs(targetY - GetY()) < 1f)
+            {
+                toTarget = false;
+            }
+        }
         SetAlpha(timer);
     }
 
@@ -96,6 +105,7 @@ public abstract class DialogDisplayBase : MonoBehaviour
     protected abstract void SetY(float screenY);
     public void SetTargetY(float screenY)
     {
+        toTarget = true;
         targetY = screenY;
     }
 

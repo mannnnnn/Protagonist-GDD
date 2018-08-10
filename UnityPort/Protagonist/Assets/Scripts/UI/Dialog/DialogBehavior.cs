@@ -31,15 +31,15 @@ public partial class DialogBehavior : MonoBehaviour, DialogTarget
 
     void Update()
     {
-        if (display.active && Input.GetMouseButtonDown(0))
-        {
-            dialog.Run(this);
-        }
-        else if (display.state == DialogDisplayBase.State.CLOSED)
+        if (display.state == DialogDisplayBase.State.CLOSED && Input.GetKeyDown(KeyCode.Z))
         {
             // load dialog
             dialog = DialogLoader.ReadFile("testcase.protd");
             display.SetState(DialogDisplayBase.State.OPENING);
+            dialog.Run(this);
+        }
+        if (Input.GetMouseButtonDown(0) && display.active)
+        {
             dialog.Run(this);
         }
     }

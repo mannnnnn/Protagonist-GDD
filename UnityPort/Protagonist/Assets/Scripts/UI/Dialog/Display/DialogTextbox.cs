@@ -45,40 +45,31 @@ public class DialogTextbox
         }
     }
 
-    public float GetY()
+    public float GetLocalY()
     {
-        return rect.localPosition.y;
+        return rect.anchoredPosition.y;
     }
-    public void SetY(float height)
+    public void SetLocalY(float height)
     {
         rect.anchoredPosition = new Vector3(rect.anchoredPosition.x, height, rect.position.z);
     }
     public float GetScreenY()
     {
-        return ResolutionHandler.RectToScreenPoint(rect.anchoredPosition).y;
+        return ResolutionHandler.RectToScreenPoint(rect, new Vector2(0, 0)).y;
     }
-    public void SetScreenY(float screenHeight)
+    public void SetScreenY(float screenY)
     {
-        SetY(ResolutionHandler.ScreenToRectPoint(new Vector2(0, screenHeight)).y);
+        SetLocalY(rect.anchoredPosition.y + ResolutionHandler.ScreenToRectPoint(rect, new Vector2(0, screenY)).y);
     }
 
     public float GetSize()
     {
-        return rect.rect.height;
+        return rect.sizeDelta.y;
     }
     public void SetSize(float size)
     {
         var resize = size - GetSize();
         rect.sizeDelta = new Vector2(rect.sizeDelta.x, size);
         SetScreenY(GetScreenY() + resize * 0.5f);
-    }
-
-    public Rect GetScreenRect()
-    {
-        Vector3[] v = new Vector3[4];
-        rect.GetWorldCorners(v);
-        var bottomLeft = ResolutionHandler.RectToScreenPoint(v[0]);
-        var topRight = ResolutionHandler.RectToScreenPoint(v[2]);
-        return new Rect(bottomLeft, topRight - bottomLeft);
     }
 }

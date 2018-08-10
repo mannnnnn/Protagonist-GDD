@@ -13,7 +13,9 @@ using UnityEngine.UI;
  * For the logic related to how dialog scripts are executed, see the Dialog object.
  * For the logic bridging the Dialog object to the display, see the DialogBehavior component.
  */
-public class DialogDisplayBehavior : DialogDisplayBase {
+public class DialogDisplayBehavior : DialogDisplayBase
+{
+    RectTransform rect;
 
     DialogTextbox dialogBox;
     DialogTextbox nameBox;
@@ -45,6 +47,7 @@ public class DialogDisplayBehavior : DialogDisplayBase {
 
     protected void Start()
     {
+        rect = GetComponent<RectTransform>();
         // get components
         dialogBox = new DialogTextbox(transform.Find("DialogueBox").gameObject);
         nameBox = new DialogTextbox(transform.Find("NameBox").gameObject);
@@ -54,6 +57,8 @@ public class DialogDisplayBehavior : DialogDisplayBase {
         // set y position and y target position
         SetY(0);
         SetTargetY(0);
+        // start out transparent
+        SetAlpha(0);
     }
 
     protected override void Update()
@@ -74,6 +79,7 @@ public class DialogDisplayBehavior : DialogDisplayBase {
                 SetTargetY(0);
                 break;
         }
+        GetY();
     }
 
     // when we want to close, but have to wait for dialog animations to finish
@@ -97,12 +103,12 @@ public class DialogDisplayBehavior : DialogDisplayBase {
     // y position
     public override float GetY()
     {
-        return ResolutionHandler.RectToScreenPoint(new Vector2(0, gameObject.transform.position.y)).y;
+        return ResolutionHandler.RectToScreenPoint(rect, new Vector2(0, 0)).y;
     }
     protected override void SetY(float screenY)
     {
-        gameObject.transform.position = new Vector3(gameObject.transform.position.x,
-            ResolutionHandler.ScreenToRectPoint(new Vector2(0, screenY)).y, gameObject.transform.position.y);
+        rect.anchoredPosition = new Vector2(rect.anchoredPosition.x,
+            rect.anchoredPosition.y + ResolutionHandler.ScreenToRectPoint(rect, new Vector2(0, screenY)).y);
     }
     // total vertical size of the two boxes stacked on each other
     public float GetSize()

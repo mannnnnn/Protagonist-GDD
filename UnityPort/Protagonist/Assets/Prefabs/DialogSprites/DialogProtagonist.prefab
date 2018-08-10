@@ -73,6 +73,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   height: 0.9
   flipOnLeft: 1
+  displaySpeaking: 1
 --- !u!212 &212992457362878172
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -105,8 +106,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1674382037
-  m_SortingLayer: 1
+  m_SortingLayerID: -403720857
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 420e6cd20f46886448401f64d6ee6878, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
