@@ -31,6 +31,13 @@ public abstract class DialogDisplayBase : MonoBehaviour
     float targetY = 0f;
     protected float spd = 600f;
 
+    protected RectTransform rect;
+
+    protected virtual void Awake()
+    {
+        rect = GetComponent<RectTransform>();
+    }
+
     protected virtual void Update()
     {
         // handle state
@@ -101,8 +108,15 @@ public abstract class DialogDisplayBase : MonoBehaviour
     }
 
     // y position
-    public abstract float GetY();
-    protected abstract void SetY(float screenY);
+    public virtual float GetY()
+    {
+        return ResolutionHandler.RectToScreenPoint(rect, new Vector2(0, 0)).y;
+    }
+    protected virtual void SetY(float screenY)
+    {
+        rect.anchoredPosition = new Vector2(rect.anchoredPosition.x,
+            rect.anchoredPosition.y + ResolutionHandler.ScreenToRectPoint(rect, new Vector2(0, screenY)).y);
+    }
     public void SetTargetY(float screenY)
     {
         toTarget = true;

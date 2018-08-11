@@ -5,20 +5,27 @@ using UnityEngine;
 public class UICanvas : MonoBehaviour {
 
     static Canvas canvas;
-    RectTransform rect;
+    static Transform rootTransform;
 
     // holds the UI canvas singleton
-    void Start () {
-        rect = GetComponent<RectTransform>();
+    void Start() {
         if (canvas == null)
         {
             canvas = GetComponent<Canvas>();
         }
-	}
+        if (rootTransform == null)
+        {
+            rootTransform = GetComponent<Transform>();
+        }
+    }
 
     public static Canvas GetCanvas()
     {
         return canvas;
+    }
+    public static Transform GetTransform()
+    {
+        return rootTransform;
     }
 
     void Update()

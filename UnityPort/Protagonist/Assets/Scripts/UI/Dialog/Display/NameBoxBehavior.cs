@@ -8,14 +8,14 @@ using UnityEngine.UI;
  * Additionally, the nameplate will have to be repositioned for different characters (e.g. right side or left side).
  * This component handles that. It is called by DialogDisplayBehavior.
  */
-public class NameBoxBehavior : MonoBehaviour {
-
-    [HideInInspector] public AdjustUIBehavior box;
+public class NameBoxBehavior : MonoBehaviour
+{
+    [HideInInspector] public UIPanel box;
     Text text;
     InputField field;
 	void Awake()
     {
-        box = GetComponent<AdjustUIBehavior>();
+        box = GetComponent<UIPanel>();
         text = GetComponentInChildren<Text>();
         field = GetComponent<InputField>();
     }

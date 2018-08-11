@@ -15,10 +15,8 @@ using UnityEngine.UI;
  */
 public class DialogDisplayBehavior : DialogDisplayBase
 {
-    RectTransform rect;
-
-    DialogTextbox dialogBox;
-    DialogTextbox nameBox;
+    UIPanel dialogBox;
+    UIPanel nameBox;
     NameBoxBehavior setNameBox;
     DialogBehavior dialogBehavior;
 
@@ -47,10 +45,9 @@ public class DialogDisplayBehavior : DialogDisplayBase
 
     protected void Start()
     {
-        rect = GetComponent<RectTransform>();
         // get components
-        dialogBox = new DialogTextbox(transform.Find("DialogueBox").gameObject);
-        nameBox = new DialogTextbox(transform.Find("NameBox").gameObject);
+        dialogBox = transform.Find("DialogueBox").gameObject.GetComponent<UIPanel>();
+        nameBox = transform.Find("NameBox").gameObject.GetComponent<UIPanel>();
         setNameBox = GetComponentInChildren<NameBoxBehavior>();
         dialogBehavior = GetComponentInParent<DialogBehavior>();
         SetName("");
@@ -99,17 +96,7 @@ public class DialogDisplayBehavior : DialogDisplayBase
         close = dialogAnim == null;
         return close;
     }
-
-    // y position
-    public override float GetY()
-    {
-        return ResolutionHandler.RectToScreenPoint(rect, new Vector2(0, 0)).y;
-    }
-    protected override void SetY(float screenY)
-    {
-        rect.anchoredPosition = new Vector2(rect.anchoredPosition.x,
-            rect.anchoredPosition.y + ResolutionHandler.ScreenToRectPoint(rect, new Vector2(0, screenY)).y);
-    }
+    
     // total vertical size of the two boxes stacked on each other
     public float GetSize()
     {
@@ -247,7 +234,7 @@ public class DialogDisplayBehavior : DialogDisplayBase
             throw new ParseError("Menu Type with name '" + type + "' is not registered. See the DialogSystem's DialogPrefabs component.");
         }
         // set on same level as the dialog menu group
-        GameObject menuObj = Instantiate(DialogPrefabs.Menus[type], dialogBehavior.transform);
+        GameObject menuObj = Instantiate(DialogPrefabs.Menus[type], UICanvas.GetTransform());
         DialogMenuBehavior menu = menuObj.GetComponent<DialogMenuBehavior>();
         if (menu == null)
         {

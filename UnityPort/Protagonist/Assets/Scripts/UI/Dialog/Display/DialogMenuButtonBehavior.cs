@@ -9,9 +9,8 @@ using UnityEngine;
 public class DialogMenuButtonBehavior : DialogDisplayBase
 {
     DialogMenuBehavior menu;
-
-    AdjustUIBehavior width;
-    public DialogTextbox box;
+    
+    [HideInInspector] public UIPanel box;
 
     // ow the edge
     float leftEdge;
@@ -21,10 +20,10 @@ public class DialogMenuButtonBehavior : DialogDisplayBase
     public bool selected { get; private set; }
 
     // Awake and not Start because Initialize is called right after this is created, no time for Start to run
-    void Awake()
+    protected override void Awake()
     {
-        box = new DialogTextbox(gameObject);
-        width = GetComponent<AdjustUIBehavior>();
+        base.Awake();
+        box = GetComponent<UIPanel>();
         SetState(State.OPENING);
     }
 
@@ -36,7 +35,7 @@ public class DialogMenuButtonBehavior : DialogDisplayBase
         // expand leftwards animation
         leftEdge = left;
         rightEdge = right;
-        width.UpdateAnchors(left, right);
+        box.UpdateAnchors(left, right);
         // start out transparent
         SetAlpha(0);
     }
@@ -47,7 +46,7 @@ public class DialogMenuButtonBehavior : DialogDisplayBase
         // opening animation
         if (state != State.OPEN)
         {
-            width.UpdateAnchors(leftEdge, Mathf.Lerp(leftEdge, rightEdge, timer));
+            box.UpdateAnchors(leftEdge, Mathf.Lerp(leftEdge, rightEdge, timer));
         }
         // handle click on this button
         if (Input.GetMouseButtonDown(0))

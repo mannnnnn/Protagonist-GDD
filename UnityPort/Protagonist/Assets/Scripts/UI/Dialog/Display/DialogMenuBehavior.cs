@@ -21,8 +21,6 @@ public class DialogMenuBehavior : DialogDisplayBase, DialogMenu
     // prefab passed in through inspector
     public GameObject button;
 
-    RectTransform rect;
-
     // uses dialog object by calling dialog.ChooseMenuOption
     Dialog dialog;
     DialogTarget target;
@@ -33,7 +31,7 @@ public class DialogMenuBehavior : DialogDisplayBase, DialogMenu
     List<DialogMenuButtonBehavior> buttons = new List<DialogMenuButtonBehavior>();
 
     // note that since the back panel has no text, using SetText will throw.
-    DialogTextbox backPanel;
+    UIPanel backPanel;
 
     // called by Dialog through DialogBehavior
     public List<Dictionary<string, object>> Initialize(List<Dictionary<string, object>> options,
@@ -57,11 +55,10 @@ public class DialogMenuBehavior : DialogDisplayBase, DialogMenu
     // Hopefully runs after Initialize
     protected virtual void Start()
     {
-        rect = GetComponent<RectTransform>();
-        backPanel = new DialogTextbox(transform.Find("BackPanel").gameObject);
+        backPanel = GetComponent<UIPanel>();
         // move up
         SetY(-100f);
-        SetTargetY(GetSize() + 5);
+        SetTargetY(1.5f * GetSize() + 20);
         // start out transparent
         SetAlpha(0);
         // fade in this menu
@@ -79,14 +76,14 @@ public class DialogMenuBehavior : DialogDisplayBase, DialogMenu
             // move button to y position
             var buttonBehavior = buttonObj.GetComponent<DialogMenuButtonBehavior>();
             totalSize += buttonBehavior.box.GetSize() + buttonBorder;
-            buttonBehavior.Initialize(this, -totalSize + offset, 0, 0.8f);
+            buttonBehavior.Initialize(this, -totalSize + offset, 0, 1);
             // set button as option
             buttonBehavior.SetText(options[i]);
             buttons.Add(buttonBehavior);
         }
         // resize back panel and move up to fit buttons
         totalSize += edgeBorder;
-        backPanel.SetSize(totalSize);
+        backPanel.SetSize(totalSize, 1f);
         // move normal dialog window to the top
         displayY = display.GetY();
         display.SetTargetY(GetSize() + display.GetSize() + edgeBorder);
@@ -121,16 +118,6 @@ public class DialogMenuBehavior : DialogDisplayBase, DialogMenu
         display.SetTargetY(displayY);
     }
     
-    // y position
-    public override float GetY()
-    {
-        return ResolutionHandler.RectToScreenPoint(rect, new Vector2(0, 0)).y;
-    }
-    protected override void SetY(float screenY)
-    {
-        rect.anchoredPosition = new Vector2(rect.anchoredPosition.x,
-            rect.anchoredPosition.y + ResolutionHandler.ScreenToRectPoint(rect, new Vector2(0, screenY)).y);
-    }
     public float GetSize()
     {
         return backPanel.GetSize();

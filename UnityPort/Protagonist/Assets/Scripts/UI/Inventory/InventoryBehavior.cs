@@ -4,17 +4,14 @@ using UnityEngine;
 
 public class InventoryBehavior : DialogDisplayBase
 {
-    RectTransform rect;
-
-    DialogTextbox backPanel;
+    UIPanel backPanel;
 
     float centerScreenY;
     float hiddenScreenY;
 
     // Use this for initialization
     void Start () {
-        rect = GetComponent<RectTransform>();
-        backPanel = new DialogTextbox(transform.Find("BackPanel").gameObject);
+        backPanel = transform.Find("BackPanel").gameObject.GetComponent<UIPanel>();
         // move up to middle of screen
         centerScreenY = Screen.height - (Screen.height - GetSize()) * 0.5f;
         hiddenScreenY = centerScreenY - 250f;
@@ -44,15 +41,6 @@ public class InventoryBehavior : DialogDisplayBase
         }
     }
 
-    public override float GetY()
-    {
-        return ResolutionHandler.RectToScreenPoint(rect, new Vector2(0, 0)).y;
-    }
-    protected override void SetY(float screenY)
-    {
-        rect.anchoredPosition = new Vector2(rect.anchoredPosition.x,
-            rect.anchoredPosition.y + ResolutionHandler.ScreenToRectPoint(rect, new Vector2(0, screenY)).y);
-    }
     public float GetSize()
     {
         return backPanel.GetSize();

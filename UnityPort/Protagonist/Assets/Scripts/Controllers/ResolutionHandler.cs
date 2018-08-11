@@ -287,6 +287,7 @@ public class ResolutionHandler : MonoBehaviour {
     //yaaay for good code style
     private static ResolutionHandler instance;
 
+    public static bool Ready => instance != null;
     public static ResolutionHandler GetInstance()
     {
         if (instance == null)
