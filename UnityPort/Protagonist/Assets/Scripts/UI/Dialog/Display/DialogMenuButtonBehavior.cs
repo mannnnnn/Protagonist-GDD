@@ -6,7 +6,7 @@ using UnityEngine;
  * Default dialog menu button control.
  * This outputs back to DialogMenuBehavior when it is clicked via menu.FinishSelection().
  */
-public class DialogMenuButtonBehavior : DialogDisplayBase
+public class DialogMenuButtonBehavior : UIDisplayBase
 {
     DialogMenuBehavior menu;
     

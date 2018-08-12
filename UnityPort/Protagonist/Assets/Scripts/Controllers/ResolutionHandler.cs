@@ -66,6 +66,10 @@ public class ResolutionHandler : MonoBehaviour {
 
     void Awake()
     {
+        if (instance != null)
+        {
+            return;
+        }
         instance = this;
         roomBackground = GameObject.FindGameObjectWithTag("RoomBackground");
         mapSprite = roomBackground.GetComponent<SpriteRenderer>();
@@ -326,5 +330,30 @@ public class ResolutionHandler : MonoBehaviour {
     {
 
         return (((value - aMin) * ((bMax - bMin) / (aMax - aMin))) + bMin);
+    }
+
+    public static Vector2 WorldToCanvasPoint(RectTransform canvas, Camera camera, Vector3 position)
+    {
+        // viewport is [0, 1]x[0, 1]
+        position = camera.WorldToViewportPoint(position);
+        // rescale to [0, canvasWidth]x[0, canvasHeight]
+        position.x *= canvas.sizeDelta.x;
+        position.y *= canvas.sizeDelta.y;
+        // adjust for pivot
+        position.x -= canvas.sizeDelta.x * canvas.pivot.x;
+        position.y -= canvas.sizeDelta.y * canvas.pivot.y;
+        return position;
+    }
+
+    public static Vector2 CanvasToWorldPoint(RectTransform canvas, Camera camera, Vector3 position)
+    {
+        // adjust for pivot
+        position.x += canvas.sizeDelta.x * canvas.pivot.x;
+        position.y += canvas.sizeDelta.y * canvas.pivot.y;
+        // rescale to [0, 1]x[0, 1]
+        position.x /= canvas.sizeDelta.x;
+        position.y /= canvas.sizeDelta.y;
+        // viewport is [0, 1]x[0, 1]
+        return camera.ViewportToWorldPoint(position);
     }
 }

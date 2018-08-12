@@ -13,7 +13,7 @@ using UnityEngine.UI;
  * For the logic related to how dialog scripts are executed, see the Dialog object.
  * For the logic bridging the Dialog object to the display, see the DialogBehavior component.
  */
-public class DialogDisplayBehavior : DialogDisplayBase
+public class DialogDisplayBehavior : UIDisplayBase
 {
     UIPanel dialogBox;
     UIPanel nameBox;

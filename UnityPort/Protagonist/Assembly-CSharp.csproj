@@ -64,6 +64,8 @@
     <Compile Include="Assets\Scripts\Controllers\Map\MapController.cs" />
     <Compile Include="Assets\Scripts\Controllers\Map\MapScenes.cs" />
     <Compile Include="Assets\Scripts\Controllers\ResolutionHandler.cs" />
+    <Compile Include="Assets\Scripts\Controllers\SaveLoad.cs" />
+    <Compile Include="Assets\Scripts\ControllersBehavior.cs" />
     <Compile Include="Assets\Scripts\Depth2DBehavior.cs" />
     <Compile Include="Assets\Scripts\DoorBehavior.cs" />
     <Compile Include="Assets\Scripts\Libraries\ProtagonistDialog\Dialog.cs" />
@@ -89,6 +91,8 @@
     <Compile Include="Assets\Scripts\UI\Dialog\Display\DialogMenuBehavior.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\Display\DialogMenuButtonBehavior.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\Display\NameBoxBehavior.cs" />
+    <Compile Include="Assets\Scripts\UI\Inventory\ChestBoxBehavior.cs" />
+    <Compile Include="Assets\Scripts\UI\Inventory\Inventory.cs" />
     <Compile Include="Assets\Scripts\UI\Inventory\InventoryBehavior.cs" />
     <Compile Include="Assets\Scripts\UI\UICanvas.cs" />
     <Compile Include="Assets\Scripts\UI\UIDisplayBase.cs" />

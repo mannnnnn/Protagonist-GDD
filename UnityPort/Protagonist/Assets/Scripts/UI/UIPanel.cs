@@ -40,8 +40,8 @@ public class UIPanel : MonoBehaviour
     {
         textbox = gameObject.GetComponentInChildren<InputField>();
         text = gameObject.GetComponentInChildren<Text>();
-        frame = transform.Find("Frame").gameObject.GetComponent<Image>();
-        fill = transform.Find("Fill").gameObject.GetComponent<Image>();
+        frame = transform.Find("Frame")?.gameObject?.GetComponent<Image>();
+        fill = transform.Find("Fill")?.gameObject?.GetComponent<Image>();
         rect = GetComponent<RectTransform>();
         UpdateAnchors();
         initialized = true;

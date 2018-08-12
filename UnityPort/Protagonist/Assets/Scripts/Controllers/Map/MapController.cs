@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Controllers;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MapController
+public class MapController : SaveLoadTarget
 {
     static MapController instance = new MapController();
     public Map map { get; private set; }
@@ -30,5 +31,14 @@ public class MapController
     public static MapController GetInstance()
     {
         return instance;
+    }
+
+    public object GetSaveData()
+    {
+        return Position;
+    }
+    public void LoadSaveData(object save)
+    {
+        Position = (Vector2Int)save;
     }
 }

@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Libraries.ProtagonistDialog;
+﻿using Assets.Scripts.Controllers;
+using Assets.Scripts.Libraries.ProtagonistDialog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ using UnityEngine.UI;
  * For the script execution logic, see Dialog.
  * For the stick-on addition to DialogBehavior that holds the various statements it handles like "show", see DialogBehaviorActions
  */
-public partial class DialogBehavior : MonoBehaviour, DialogTarget
+public partial class DialogBehavior : MonoBehaviour, DialogTarget, SaveLoadTarget
 {
     public Dialog dialog { get; private set; }
     DialogEvents events;
@@ -27,15 +28,16 @@ public partial class DialogBehavior : MonoBehaviour, DialogTarget
         // get display
         display = GetComponentInChildren<DialogDisplayBehavior>();
         events = GetComponent<DialogEvents>();
+        SaveLoad.Register("flags", this);
     }
 
     void Update()
     {
-        if (display.state == DialogDisplayBase.State.CLOSED && Input.GetKeyDown(KeyCode.Z))
+        if (display.state == UIDisplayBase.State.CLOSED && Input.GetKeyDown(KeyCode.Z))
         {
             // load dialog
             dialog = DialogLoader.ReadFile("testcase.protd");
-            display.SetState(DialogDisplayBase.State.OPENING);
+            display.SetState(UIDisplayBase.State.OPENING);
             dialog.Run(this);
         }
         if (Input.GetMouseButtonDown(0) && display.active)
@@ -101,12 +103,22 @@ public partial class DialogBehavior : MonoBehaviour, DialogTarget
 
     public void Finish(Dialog dialog)
     {
-        display.SetState(DialogDisplayBase.State.PENDING_CLOSE);
+        display.SetState(UIDisplayBase.State.PENDING_CLOSE);
     }
 
     public List<Dictionary<string, object>> GetMenu(List<Dictionary<string, object>> menu, string type = "Default")
     {
         // the menu created will call dialog.ChooseMenuOption(option) so we don't need to
         return display.SetMenu(menu, type, dialog);
+    }
+
+    // save/load flags
+    public object GetSaveData()
+    {
+        return Dialog.flags;
+    }
+    public void LoadSaveData(object save)
+    {
+        Dialog.flags = (Dictionary<string, bool>)save;
     }
 }

@@ -11,7 +11,7 @@ using UnityEngine;
  * Note that this is abstract, so you must implement these functions on your own later.
  * One implementation, for example, is DialogDisplayBehavior.
  */
-public abstract class DialogDisplayBase : MonoBehaviour
+public abstract class UIDisplayBase : MonoBehaviour
 {
     // state and state transitions
     public float duration = 0.5f;

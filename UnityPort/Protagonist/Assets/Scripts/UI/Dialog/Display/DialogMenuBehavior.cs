@@ -16,7 +16,7 @@ public interface DialogMenu
  * Creates buttons given an options list, and waits for the player to choose one,
  * then calls dialog.ChooseMenuOption as is required for menus.
  */
-public class DialogMenuBehavior : DialogDisplayBase, DialogMenu
+public class DialogMenuBehavior : UIDisplayBase, DialogMenu
 {
     // prefab passed in through inspector
     public GameObject button;
