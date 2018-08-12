@@ -213,6 +213,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 224269723142723364}
+  - component: {fileID: 114055685398448984}
   - component: {fileID: 114985383832881796}
   m_Layer: 5
   m_Name: Inventory
@@ -407,7 +408,7 @@ Transform:
   m_LocalScale: {x: 818.8859, y: 40.38239, z: 1}
   m_Children: []
   m_Father: {fileID: 224046100291282512}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4526789236462882
 Transform:
@@ -420,7 +421,7 @@ Transform:
   m_LocalScale: {x: 65.666534, y: -233.54672, z: 1}
   m_Children: []
   m_Father: {fileID: 224046100291282512}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4561965114364310
 Transform:
@@ -433,7 +434,7 @@ Transform:
   m_LocalScale: {x: 65.666435, y: -233.547, z: 1}
   m_Children: []
   m_Father: {fileID: 224046100291282512}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4675326098701328
 Transform:
@@ -575,6 +576,38 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114055685398448984
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1544908671478942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51e252b9b2b57b349b64171954e2e6b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemFiles:
+  - items1.protd
+  prefabs:
+  - name: default
+    prefab: {fileID: 1199373091792294, guid: fb5453f3f3c252e4d93dde874467031c, type: 2}
+  - name: greenbook
+    prefab: {fileID: 1191762677190802, guid: 446dba20186db1846858ceee0dc48bb4, type: 2}
+  - name: redbook
+    prefab: {fileID: 1162691174927382, guid: c415ec14c0cabdf4c865fced6a262a87, type: 2}
+  - name: goldbook
+    prefab: {fileID: 1195334776592940, guid: a48b62a528dc33f4fb70123ccc59257e, type: 2}
+  - name: bluebook
+    prefab: {fileID: 1735473774494850, guid: 57c8a557a8026c740b5308548f5a02c5, type: 2}
+  - name: dustbunny
+    prefab: {fileID: 1028597933776264, guid: 7bbaa69536ef4a744a7c28a3df225a3b, type: 2}
+  - name: bluefroot
+    prefab: {fileID: 1436229740839242, guid: 2bde8bb19f28c3443a08ca9323bce12a, type: 2}
+  - name: pinkfroot
+    prefab: {fileID: 1519319823399836, guid: d8cb1e9d8852bf347bcb6308f4139f61, type: 2}
+  - name: greenfroot
+    prefab: {fileID: 1072196828734776, guid: ea40f61db81a32447b0f744cfec7dd60, type: 2}
 --- !u!114 &114144530617828984
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1216,7 +1249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0.5
-  testItem: {fileID: 0}
+  testItem: {fileID: 1063367638793012, guid: 9c11152756f523a4498100ea6e71e940, type: 2}
 --- !u!114 &114986792723516944
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1269,7 +1302,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b930c20e1f46fe04e8c0ef9d1c5f75e1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1315,7 +1348,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b930c20e1f46fe04e8c0ef9d1c5f75e1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1361,7 +1394,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b930c20e1f46fe04e8c0ef9d1c5f75e1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1407,7 +1440,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b930c20e1f46fe04e8c0ef9d1c5f75e1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1564,9 +1597,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4675326098701328}
-  - {fileID: 4384738421639984}
   - {fileID: 4561965114364310}
   - {fileID: 4526789236462882}
+  - {fileID: 4384738421639984}
   m_Father: {fileID: 224269723142723364}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

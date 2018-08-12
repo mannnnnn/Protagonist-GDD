@@ -1,0 +1,79 @@
+[
+    {
+		name: "template",
+		img: "default",
+		text: "this is what the user sees when selecting this item",
+		edible: false,
+		eatText: "You lick the item. It tastes like an unfinished asset.",
+		size: 1,
+		message: "You lost 1 health."
+	},
+	{
+		name: "Default Spellbook",
+		img: "greenbook",
+		text: "You're not sure where you got this, but you get the feeling it's something you should hold onto.",
+		edible: false,
+		eatText: "You lick the book. It tastes like it's missing something.",
+		size: 1
+	},
+	{
+		name: "Dust Bunny",
+		img: "dustbunny",
+		text: "You just picked it up off the ground. Don't eat it, it'll taste terrible. Maybe it'll give you a stat boost though...",
+		edible: true,
+		eatText: "You eat the bunny. This is ridiculous. It doesn't even taste good.",
+		size: 1,
+		message: "You gained 5 [NULL-STAT] points!"
+	},
+	{
+		name: "Bluebury",
+		img: "bluefroot",
+		text: "This shade of blue looks toxic. It hurts just to look at it.",
+		edible: true,
+		eatText: "You eat the froot and spit out the seed. It tastes like a blue neon lavalamp with a packet of sugar mixed in.",
+		size: 1,
+		message: "You lost 1 health."
+	},
+	{
+		name: "Pinkmellon",
+		img: "pinkfroot",
+		text: "It's the consistency of a water balloon. It sloshes around with a mysterious liquid inside.",
+		edible: true,
+		eatText: "You eat the froot and drink the innards. It tastes like a liquified tree bark with a hint of citrus.",
+		size: 1,
+		message: "You lost 1 health."
+	},
+	{
+		name: "Gumquat",
+		img: "greenfroot",
+		text: "It appears to be made of a material like memory foam. You hope you've left a good impression.",
+		edible: true,
+		eatText: "You eat the froot and chew on it for a bit. It tastes like a wad of fresh gum but you can't decide what flavor.",
+		size: 1
+	},
+	{
+		name: "Wildlife Guide",
+		img: "redbook",
+		text: "Artemis gave this to you. Don't eat it. You don't need to eat it to use its powers.",
+		edible: false,
+		eatText: "You attempt to eat the book. You've learned nothing. You fail. Stop.",
+		size: 1,
+		message: "My patience has decreased by 1."
+	},
+	{
+		name: "Crafting Manual",
+		img: "goldbook",
+		text: "Haes gave this to you. It's full of interesting things to build. It's so fascinating you can't imagine not using items in combat anymore.",
+		edible: false,
+		eatText: "You lick the crafting manual. It tastes like 24 carrots.",
+		size: 1
+	},
+	{
+		name: "Roam Tome",
+		img: "bluebook",
+		text: "Athena gave this to you. It's all in a language you can barely understand. There's a few diagrams that look fun.",
+		edible: false,
+		eatText: "You lick the Roam Tome. It tastes like confusion and blood, with a hint of cinnamon.",
+		size: 1
+	}
+]

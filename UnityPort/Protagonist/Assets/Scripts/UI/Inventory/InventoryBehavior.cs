@@ -1,9 +1,12 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.UI.Inventory;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class InventoryBehavior : UIDisplayBase
 {
+    Inventory inventory;
+
     UIPanel backPanel;
     UIPanel infoPanel;
     UIPanel chestBox;
@@ -11,10 +14,11 @@ public class InventoryBehavior : UIDisplayBase
     float centerScreenY;
     float hiddenScreenY;
 
-    public GameObject testItem;
-
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
+        inventory = GetComponent<Inventory>();
+        // get panel for display control
         backPanel = transform.Find("BackPanel").gameObject.GetComponent<UIPanel>();
         infoPanel = transform.Find("InfoPanel").gameObject.GetComponent<UIPanel>();
         chestBox = transform.Find("ChestBox").gameObject.GetComponent<UIPanel>();
@@ -54,7 +58,7 @@ public class InventoryBehavior : UIDisplayBase
         }
         if (Input.GetMouseButtonDown(0) && Input.GetKey(KeyCode.LeftControl))
         {
-            GameObject item = Instantiate(testItem, chestBox.rect);
+            GameObject item = Instantiate(inventory.prefabs[Random.Range(0, inventory.prefabs.Count)].prefab, chestBox.rect);
             item.transform.localPosition = ResolutionHandler.ScreenToRectPoint(chestBox.rect, Input.mousePosition);
             item.transform.localRotation = Quaternion.identity;
         }
