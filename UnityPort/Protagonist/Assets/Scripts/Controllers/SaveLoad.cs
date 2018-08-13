@@ -36,6 +36,18 @@ namespace Assets.Scripts.Controllers
 
         }
 
+        void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                SaveFile();
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                LoadFile();
+            }
+        }
+
         public static void Register(string key, SaveLoadTarget target)
         {
             if (instance == null)

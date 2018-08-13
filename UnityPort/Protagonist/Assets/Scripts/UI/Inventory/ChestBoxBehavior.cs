@@ -10,8 +10,17 @@ public class ChestBoxBehavior : MonoBehaviour {
     RectTransform parent;
 
 	// Use this for initialization
-	void Start () {
+	void Start() {
         parent = (RectTransform)transform.parent;
+    }
+	
+	// Update is called once per frame
+	void Update () {
+        Resize();
+    }
+
+    private void Resize()
+    {
         // go to side specified and scale
         Vector2 size = Vector2.zero;
         if (Mathf.Abs(side.x) > 0)
@@ -26,9 +35,4 @@ public class ChestBoxBehavior : MonoBehaviour {
         transform.localScale = size;
         transform.localPosition = pos;
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

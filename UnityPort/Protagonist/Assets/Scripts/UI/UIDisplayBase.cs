@@ -90,6 +90,10 @@ public abstract class UIDisplayBase : MonoBehaviour
     // call to set state, such as opening/closing
     public virtual void SetState(State state)
     {
+        if (this.state == State.CLOSED && state == State.OPENING)
+        {
+            OpenStart();
+        }
         this.state = state;
     }
     protected virtual bool PendingClose()
@@ -97,6 +101,9 @@ public abstract class UIDisplayBase : MonoBehaviour
         return true;
     }
     // methods called on state changes
+    protected virtual void OpenStart()
+    {
+    }
     protected virtual void OpenFinish()
     {
     }

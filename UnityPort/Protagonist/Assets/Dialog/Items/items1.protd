@@ -1,5 +1,6 @@
 [
     {
+		ID: "default",
 		name: "template",
 		img: "default",
 		text: "this is what the user sees when selecting this item",
@@ -9,6 +10,7 @@
 		message: "You lost 1 health."
 	},
 	{
+		ID: "greenbook",
 		name: "Default Spellbook",
 		img: "greenbook",
 		text: "You're not sure where you got this, but you get the feeling it's something you should hold onto.",
@@ -17,6 +19,7 @@
 		size: 1
 	},
 	{
+		ID: "dustbunny",
 		name: "Dust Bunny",
 		img: "dustbunny",
 		text: "You just picked it up off the ground. Don't eat it, it'll taste terrible. Maybe it'll give you a stat boost though...",
@@ -26,6 +29,7 @@
 		message: "You gained 5 [NULL-STAT] points!"
 	},
 	{
+		ID: "bluefroot",
 		name: "Bluebury",
 		img: "bluefroot",
 		text: "This shade of blue looks toxic. It hurts just to look at it.",
@@ -35,6 +39,7 @@
 		message: "You lost 1 health."
 	},
 	{
+		ID: "pinkfroot",
 		name: "Pinkmellon",
 		img: "pinkfroot",
 		text: "It's the consistency of a water balloon. It sloshes around with a mysterious liquid inside.",
@@ -44,6 +49,7 @@
 		message: "You lost 1 health."
 	},
 	{
+		ID: "greenfroot",
 		name: "Gumquat",
 		img: "greenfroot",
 		text: "It appears to be made of a material like memory foam. You hope you've left a good impression.",
@@ -52,6 +58,7 @@
 		size: 1
 	},
 	{
+		ID: "redbook",
 		name: "Wildlife Guide",
 		img: "redbook",
 		text: "Artemis gave this to you. Don't eat it. You don't need to eat it to use its powers.",
@@ -61,6 +68,7 @@
 		message: "My patience has decreased by 1."
 	},
 	{
+		ID: "goldbook",
 		name: "Crafting Manual",
 		img: "goldbook",
 		text: "Haes gave this to you. It's full of interesting things to build. It's so fascinating you can't imagine not using items in combat anymore.",
@@ -69,6 +77,7 @@
 		size: 1
 	},
 	{
+		ID: "bluebook",
 		name: "Roam Tome",
 		img: "bluebook",
 		text: "Athena gave this to you. It's all in a language you can barely understand. There's a few diagrams that look fun.",

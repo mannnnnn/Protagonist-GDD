@@ -93,7 +93,7 @@
     <Compile Include="Assets\Scripts\UI\Dialog\Display\NameBoxBehavior.cs" />
     <Compile Include="Assets\Scripts\UI\Inventory\ChestBoxBehavior.cs" />
     <Compile Include="Assets\Scripts\UI\Inventory\Inventory.cs" />
-    <Compile Include="Assets\Scripts\UI\Inventory\InventoryBehavior.cs" />
+    <Compile Include="Assets\Scripts\UI\Inventory\InventoryDisplayBehavior.cs" />
     <Compile Include="Assets\Scripts\UI\Inventory\InventoryItemBehavior.cs" />
     <Compile Include="Assets\Scripts\UI\UICanvas.cs" />
     <Compile Include="Assets\Scripts\UI\UIDisplayBase.cs" />
