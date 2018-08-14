@@ -155,6 +155,10 @@ public class InventoryDisplayBehavior : UIDisplayBase
     }
     private void DiscardItem(InventoryItemBehavior item)
     {
+        if (!item.type.edible)
+        {
+            return;
+        }
         selectedItem = null;
         DisplayItem(null);
         inventory.RemoveItem(item.item);
@@ -170,6 +174,10 @@ public class InventoryDisplayBehavior : UIDisplayBase
             itemDesc.text = item.type.text;
             eatButton.SetAlpha(1);
             discardButton.SetAlpha(1);
+            if (!item.type.edible)
+            {
+                discardButton.SetAlpha(0);
+            }
         }
         else
         {
