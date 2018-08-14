@@ -92,6 +92,18 @@ namespace Assets.Scripts.UI.Inventory
             return AddItem(GetItemType(ID));
         }
 
+        // real methods for removing an item from the inventory.
+        public bool RemoveItem(Item item)
+        {
+            if (!items.ContainsKey(item.type) || !items[item.type].Contains(item))
+            {
+                return false;
+            }
+            items[item.type].Remove(item);
+            Destroy(item.gameObject);
+            return true;
+        }
+
         public object GetSaveData()
         {
             // return Dictionary<string, int> for serializability
