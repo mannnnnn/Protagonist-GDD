@@ -20,7 +20,7 @@ public class UIPanel : MonoBehaviour
     public float left = 0f;
     public float right = 1f;
 
-    void Awake()
+    protected virtual void Awake()
     {
         if (ResolutionHandler.Ready)
         {
@@ -28,7 +28,7 @@ public class UIPanel : MonoBehaviour
         }
     }
 
-    void Start()
+    protected virtual void Start()
     {
         if (!initialized)
         {
@@ -47,16 +47,16 @@ public class UIPanel : MonoBehaviour
         initialized = true;
     }
 
-    public string GetText()
+    public virtual string GetText()
     {
         return textbox.text;
     }
-    public void SetText(string message)
+    public virtual void SetText(string message)
     {
         textbox.text = message;
     }
 
-    public void SetAlpha(float alpha)
+    public virtual void SetAlpha(float alpha)
     {
         if (text != null)
         {
@@ -73,28 +73,28 @@ public class UIPanel : MonoBehaviour
     }
 
     // y position control
-    public float GetLocalY()
+    public virtual float GetLocalY()
     {
         return rect.anchoredPosition.y;
     }
-    public void SetLocalY(float height)
+    public virtual void SetLocalY(float height)
     {
         rect.anchoredPosition = new Vector3(rect.anchoredPosition.x, height, rect.position.z);
     }
-    public float GetScreenY()
+    public virtual float GetScreenY()
     {
         return ResolutionHandler.RectToScreenPoint(rect, new Vector2(0, 0)).y;
     }
-    public void SetScreenY(float screenY)
+    public virtual void SetScreenY(float screenY)
     {
         SetLocalY(rect.anchoredPosition.y + ResolutionHandler.ScreenToRectPoint(rect, new Vector2(0, screenY)).y);
     }
 
-    public float GetSize()
+    public virtual float GetSize()
     {
         return rect.sizeDelta.y;
     }
-    public void SetSize(float size, float pivot = 0)
+    public virtual void SetSize(float size, float pivot = 0)
     {
         var resize = size - GetSize();
         rect.sizeDelta = new Vector2(rect.sizeDelta.x, size);
@@ -102,12 +102,12 @@ public class UIPanel : MonoBehaviour
     }
 
     // resets anchor position to those of the left/right fields
-    public void UpdateAnchors()
+    public virtual void UpdateAnchors()
     {
         UpdateAnchors(left, right);
     }
     // temporarily sets anchor position to the given left/right, does not set the object's left/right fields
-    public void UpdateAnchors(float left, float right)
+    public virtual void UpdateAnchors(float left, float right)
     {
         // set anchor to resolution size
         if (rect != null)
