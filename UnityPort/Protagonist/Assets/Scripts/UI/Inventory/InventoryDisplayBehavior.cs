@@ -127,7 +127,7 @@ public class InventoryDisplayBehavior : UIDisplayBase
         backPanel.SetAlpha(alpha);
         infoPanel.SetAlpha(alpha);
         chestPanel.SetAlpha(alpha);
-        infoPanel.SetAlpha(alpha);
+        chestBox.SetAlpha(alpha);
         SetItemsAlpha(alpha);
     }
 
