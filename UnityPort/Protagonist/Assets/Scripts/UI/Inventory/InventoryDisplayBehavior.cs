@@ -8,21 +8,14 @@ using UnityEngine.UI;
 
 public class InventoryDisplayBehavior : UIDisplayBase
 {
-    Inventory inventory;
+    public Inventory inventory { get; private set; }
 
     UIPanel backPanel;
     UIPanel chestPanel;
     UIPanel chestBox;
-    UIPanel infoPanel;
-    UIPanel imagePanel;
-    UIPanel textPanel;
-    SpriteRenderer image;
-    Text itemName;
-    Text itemDesc;
-    UIPanel eatButton;
-    UIPanel discardButton;
+    InventoryInfoBehavior infoPanel;
 
-    InventoryItemBehavior selectedItem;
+    public InventoryItemBehavior selectedItem { get; set; }
 
     float centerScreenY;
     float hiddenScreenY;
@@ -35,16 +28,9 @@ public class InventoryDisplayBehavior : UIDisplayBase
         inventory = GetComponent<Inventory>();
         // get panels for display control
         backPanel = transform.Find("BackPanel").GetComponent<UIPanel>();
-        infoPanel = transform.Find("InfoPanel").GetComponent<UIPanel>();
+        infoPanel = transform.Find("InfoPanel").GetComponent<InventoryInfoBehavior>();
         chestBox = transform.Find("ChestBox").GetComponent<UIPanel>();
         chestPanel = transform.Find("ChestPanel").GetComponent<UIPanel>();
-        imagePanel = infoPanel.transform.Find("ImagePanel").GetComponent<UIPanel>();
-        image = imagePanel.transform.Find("ImageContainer").Find("Image").GetComponent<SpriteRenderer>();
-        textPanel = infoPanel.transform.Find("TextPanel").GetComponent<UIPanel>();
-        itemName = textPanel.transform.Find("Name").GetComponent<Text>();
-        itemDesc = textPanel.transform.Find("Description").GetComponent<Text>();
-        eatButton = textPanel.transform.Find("EatButton").GetComponent<UIPanel>();
-        discardButton = textPanel.transform.Find("DiscardButton").GetComponent<UIPanel>();
         // move up to middle of screen
         centerScreenY = Screen.height - (Screen.height - GetSize()) * 0.5f;
         hiddenScreenY = centerScreenY - 250f;
@@ -89,17 +75,6 @@ public class InventoryDisplayBehavior : UIDisplayBase
         Dialog.flags["inventoryFull"] = inventory.IsFull;
         // interact with items. Select/hover
         ItemInteraction();
-        if (selectedItem != null && Input.GetMouseButtonDown(0))
-        {
-            if (ResolutionHandler.GetScreenRect(eatButton.rect).Contains(Input.mousePosition))
-            {
-                EatItem(selectedItem);
-            }
-            if (ResolutionHandler.GetScreenRect(discardButton.rect).Contains(Input.mousePosition))
-            {
-                DiscardItem(selectedItem);
-            }
-        }
     }
 
     // player interacting with items, such as hover over an item or select it
@@ -134,58 +109,11 @@ public class InventoryDisplayBehavior : UIDisplayBase
                 item.SetSelected(false);
             }
             selectedItem = hoverItem;
-            DisplayItem(selectedItem);
+            infoPanel.DisplayItem(selectedItem);
             if (hoverItem != null)
             {
                 hoverItem.SetSelected(true);
             }
-        }
-    }
-
-    private void EatItem(InventoryItemBehavior item)
-    {
-        if (item.type.edible)
-        {
-            image.sprite = null;
-            eatButton.SetAlpha(0);
-            discardButton.SetAlpha(0);
-            inventory.RemoveItem(item.item);
-        }
-        itemDesc.text = item.type.eatText;
-    }
-    private void DiscardItem(InventoryItemBehavior item)
-    {
-        if (!item.type.edible)
-        {
-            return;
-        }
-        selectedItem = null;
-        DisplayItem(null);
-        inventory.RemoveItem(item.item);
-    }
-
-    // set item display info
-    private void DisplayItem(InventoryItemBehavior item)
-    {
-        if (item != null)
-        {
-            image.sprite = item.sr.sprite;
-            itemName.text = item.type.name;
-            itemDesc.text = item.type.text;
-            eatButton.SetAlpha(1);
-            discardButton.SetAlpha(1);
-            if (!item.type.edible)
-            {
-                discardButton.SetAlpha(0);
-            }
-        }
-        else
-        {
-            image.sprite = null;
-            itemName.text = "";
-            itemDesc.text = "";
-            eatButton.SetAlpha(0);
-            discardButton.SetAlpha(0);
         }
     }
 
@@ -199,11 +127,7 @@ public class InventoryDisplayBehavior : UIDisplayBase
         backPanel.SetAlpha(alpha);
         infoPanel.SetAlpha(alpha);
         chestPanel.SetAlpha(alpha);
-        imagePanel.SetAlpha(alpha);
-        image.color = new Color(image.color.r, image.color.g, image.color.b, alpha);
-        textPanel.SetAlpha(alpha);
-        itemName.color = new Color(image.color.r, image.color.g, image.color.b, alpha);
-        itemDesc.color = new Color(image.color.r, image.color.g, image.color.b, alpha);
+        chestBox.SetAlpha(alpha);
         SetItemsAlpha(alpha);
     }
 
