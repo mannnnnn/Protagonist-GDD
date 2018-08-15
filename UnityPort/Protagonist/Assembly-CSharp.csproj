@@ -63,8 +63,10 @@
     <Compile Include="Assets\Scripts\Controllers\Map\Map.cs" />
     <Compile Include="Assets\Scripts\Controllers\Map\MapController.cs" />
     <Compile Include="Assets\Scripts\Controllers\Map\MapScenes.cs" />
+    <Compile Include="Assets\Scripts\Controllers\MapMusicBehavior.cs" />
     <Compile Include="Assets\Scripts\Controllers\ResolutionHandler.cs" />
     <Compile Include="Assets\Scripts\Controllers\SaveLoad.cs" />
+    <Compile Include="Assets\Scripts\Controllers\SyncedMusicPlayer.cs" />
     <Compile Include="Assets\Scripts\ControllersBehavior.cs" />
     <Compile Include="Assets\Scripts\Depth2DBehavior.cs" />
     <Compile Include="Assets\Scripts\DoorBehavior.cs" />

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /**
  * ResolutionHandler converts the entire screen into a scaled screen with the black bars.
@@ -70,19 +71,29 @@ public class ResolutionHandler : MonoBehaviour {
         {
             return;
         }
+        Initialize();
+        SceneManager.sceneLoaded += SceneLoaded;
+    }
+    void SceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Initialize();
+    }
+    private void Initialize()
+    {
         instance = this;
         roomBackground = GameObject.FindGameObjectWithTag("RoomBackground");
         mapSprite = roomBackground.GetComponent<SpriteRenderer>();
 
         PositionCamera();
 
-        if (!DEBUG_MODE_NOSCALE) {
+        if (!DEBUG_MODE_NOSCALE)
+        {
             SetInitialResolution();
         }
 
         ScaleView();
     }
-    
+
     void Update()
     {
         
@@ -291,7 +302,7 @@ public class ResolutionHandler : MonoBehaviour {
     //yaaay for good code style
     private static ResolutionHandler instance;
 
-    public static bool Ready => instance != null;
+    public static bool Ready => instance != null && GetInstance().mapSprite != null;
     public static ResolutionHandler GetInstance()
     {
         if (instance == null)

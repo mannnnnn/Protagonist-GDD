@@ -112,7 +112,7 @@ public class UIPanel : MonoBehaviour
         // set anchor to resolution size
         if (rect != null)
         {
-            if (rootPanel)
+            if (rootPanel && ResolutionHandler.Ready)
             {
                 rect.anchorMin = ResolutionHandler.MapViewToScreenPoint(new Vector2(left, 0)) / new Vector2(Screen.width, Screen.height);
                 rect.anchorMax = ResolutionHandler.MapViewToScreenPoint(new Vector2(right, 0)) / new Vector2(Screen.width, Screen.height);
