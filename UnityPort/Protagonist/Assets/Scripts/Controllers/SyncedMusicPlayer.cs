@@ -53,6 +53,7 @@ public class SyncedMusicPlayer : MonoBehaviour
         // if interrupting the old one
         var currentSource = sources[current];
         target.Play(currentSource.Stop());
+        current = key;
     }
 
     public void Stop()
