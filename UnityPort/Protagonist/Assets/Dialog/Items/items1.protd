@@ -84,5 +84,14 @@
 		edible: false,
 		eatText: "You lick the Roam Tome. It tastes like confusion and blood, with a hint of cinnamon.",
 		size: 1
+	},
+	{
+		ID: "savvy",
+		name: "Savvy",
+		img: "savvy",
+		text: "Apparently Savvy wants to glomp you.",
+		edible: false,
+		eatText: "You lick Savvy. OwO what's this taste?",
+		size: 1
 	}
 ]

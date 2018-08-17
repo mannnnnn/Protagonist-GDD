@@ -1021,7 +1021,9 @@ MonoBehaviour:
     prefab: {fileID: 1519319823399836, guid: d8cb1e9d8852bf347bcb6308f4139f61, type: 2}
   - name: greenfroot
     prefab: {fileID: 1072196828734776, guid: ea40f61db81a32447b0f744cfec7dd60, type: 2}
-  MaxCount: 25
+  - name: savvy
+    prefab: {fileID: 1452508264574350, guid: be8a2638810935c488f7183266da8ca5, type: 2}
+  InventorySize: 25
 --- !u!114 &114093521802841186
 MonoBehaviour:
   m_ObjectHideFlags: 1

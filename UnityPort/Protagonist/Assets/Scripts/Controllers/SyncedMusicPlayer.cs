@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class SyncedMusicPlayer : MonoBehaviour
 {
-    public List<SyncedAudioClip> clips = new List<SyncedAudioClip>();
+    public List<KeyedAudioClip> clips = new List<KeyedAudioClip>();
     Dictionary<string, SyncedAudioSource> sources = new Dictionary<string, SyncedAudioSource>();
 
     string current = null;
 
-    public void Initialize(List<SyncedAudioClip> clips)
+    public void Initialize(List<KeyedAudioClip> clips)
     {
         this.clips = clips;
     }
@@ -19,7 +19,7 @@ public class SyncedMusicPlayer : MonoBehaviour
     void Start ()
     {
         // create audio source pool
-		foreach (SyncedAudioClip clip in clips)
+		foreach (KeyedAudioClip clip in clips)
         {
             sources[clip.key] = new SyncedAudioSource(clip.key, clip.clip, gameObject);
         }
@@ -111,11 +111,11 @@ public class SyncedMusicPlayer : MonoBehaviour
 }
 
 [Serializable]
-public class SyncedAudioClip
+public class KeyedAudioClip
 {
     public string key;
     public AudioClip clip;
-    public SyncedAudioClip(string key, AudioClip clip)
+    public KeyedAudioClip(string key, AudioClip clip)
     {
         this.key = key;
         this.clip = clip;

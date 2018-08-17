@@ -64,6 +64,17 @@
     <Compile Include="Assets\Scripts\Controllers\Map\MapController.cs" />
     <Compile Include="Assets\Scripts\Controllers\Map\MapScenes.cs" />
     <Compile Include="Assets\Scripts\Controllers\MapMusicBehavior.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Puzzle\Player\PuzzleCursor.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Puzzle\Player\PuzzleLetter.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Puzzle\Player\PuzzleLetterImages.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Puzzle\Player\PuzzlePlayerBehavior.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Puzzle\Player\PuzzleSpellInput.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Puzzle\PuzzleBehaviorBase.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Puzzle\Puzzles.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Puzzle\PuzzleSpell.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Puzzle\Spells.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Puzzle\Spells\ThrowLetterSpell.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Puzzle\StandardPuzzleBehavior.cs" />
     <Compile Include="Assets\Scripts\Controllers\ResolutionHandler.cs" />
     <Compile Include="Assets\Scripts\Controllers\SaveLoad.cs" />
     <Compile Include="Assets\Scripts\Controllers\SyncedMusicPlayer.cs" />

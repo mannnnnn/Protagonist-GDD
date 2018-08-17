@@ -17,7 +17,7 @@ namespace Assets.Scripts.UI.Inventory
         public List<KeyedPrefab> prefabs;
         public static Dictionary<string, GameObject> Prefabs = new Dictionary<string, GameObject>();
 
-        public int MaxCount = 25;
+        public int InventorySize = 25;
 
         InventoryDisplayBehavior display;
 
@@ -60,7 +60,7 @@ namespace Assets.Scripts.UI.Inventory
                 return c;
             }
         }
-        public bool IsFull => Count >= MaxCount;
+        public bool IsFull => Count >= InventorySize;
 
         public ItemType GetItemType(string ID)
         {
@@ -74,7 +74,7 @@ namespace Assets.Scripts.UI.Inventory
         // real methods for adding an item to the inventory. Use these, not InventoryDisplayBehavior's version.
         public Item AddItem(ItemType type)
         {
-            if (Count + type.size > MaxCount)
+            if (Count + type.size > InventorySize)
             {
                 return null;
             }
