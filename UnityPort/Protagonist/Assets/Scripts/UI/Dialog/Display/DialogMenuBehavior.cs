@@ -89,6 +89,12 @@ public class DialogMenuBehavior : UIDisplayBase, DialogMenu
         display.SetTargetY(GetSize() + display.GetSize() + edgeBorder);
     }
 
+    protected override void Update()
+    {
+        base.Update();
+        backPanel.UpdateAnchors();
+    }
+
     // call dialog.ChooseMenuOption when we're done
     protected override void CloseFinish()
     {

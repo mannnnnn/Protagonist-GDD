@@ -42,7 +42,7 @@ public class InventoryItemBehavior : MonoBehaviour
     {
         if (turnKinematic)
         {
-            timerSeconds += Time.deltaTime;
+            timerSeconds += UITime.deltaTime;
             if (timerSeconds >= duration)
             {
                 SetDynamic(false);
@@ -50,7 +50,7 @@ public class InventoryItemBehavior : MonoBehaviour
             }
         }
         // gray if not selected
-        float shade = Mathf.MoveTowards(sr.color.r, selected ? selectedGray : notSelectedGray, 1 * Time.deltaTime);
+        float shade = Mathf.MoveTowards(sr.color.r, selected ? selectedGray : notSelectedGray, 1 * UITime.deltaTime);
         sr.color = new Color(shade, shade, shade, sr.color.a);
         // if hovered over, light up a bit
         if (sr.color.r < hoverGray && hover)

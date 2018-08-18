@@ -10,7 +10,6 @@ TagManager:
   - RoomBackground
   - SceneTransition
   - DialogAnimation
-  - NameBox
   layers:
   - Default
   - TransparentFX

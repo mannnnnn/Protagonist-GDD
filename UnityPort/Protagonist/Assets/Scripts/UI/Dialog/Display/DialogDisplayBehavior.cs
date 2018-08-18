@@ -77,6 +77,9 @@ public class DialogDisplayBehavior : UIDisplayBase
                 break;
         }
         GetY();
+        // adjust to screen size
+        dialogBox.UpdateAnchors();
+        nameBox.UpdateAnchors();
     }
 
     // when we want to close, but have to wait for dialog animations to finish
@@ -182,7 +185,7 @@ public class DialogDisplayBehavior : UIDisplayBase
     // handles the text scroll animation. called by Update
     private void UpdateTextScroll()
     {
-        textTimer += Time.deltaTime;
+        textTimer += UITime.deltaTime;
         if (state == State.CLOSED)
         {
             textTimer = 0f;

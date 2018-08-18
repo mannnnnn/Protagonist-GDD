@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 114199718978013772}
   m_Layer: 5
   m_Name: DiscardButton
-  m_TagString: NameBox
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -304,7 +304,7 @@ GameObject:
   - component: {fileID: 114333077359161050}
   m_Layer: 5
   m_Name: EatButton
-  m_TagString: NameBox
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

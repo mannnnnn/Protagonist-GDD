@@ -101,7 +101,7 @@ public class SyncedMusicPlayer : MonoBehaviour
         public void Update()
         {
             // fade in/out depending on active or not
-            source.volume = Mathf.MoveTowards(source.volume, active ? 1 : 0, fadeSpd * Time.deltaTime);
+            source.volume = Mathf.MoveTowards(source.volume, active ? 1 : 0, fadeSpd * UITime.deltaTime);
             if (source.volume == 0 && source.isPlaying)
             {
                 source.Stop();

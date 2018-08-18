@@ -10,10 +10,10 @@ public abstract class PuzzleBehaviorBase : MonoBehaviour
 
 public interface SpellInteractionTarget
 {
-    void PlacedLetter();
-    void SpellStart();
-    void SpellFirstHit();
-    void SpellHit();
-    void SpellLastHit();
-    void SpellEnd();
+    void PlacedLetter(string letter);
+    void SpellStart(string spell);
+    void SpellFirstHit(string spell, Vector2 pos);
+    void SpellHit(string spell, Vector2 pos);
+    void SpellLastHit(string spell, Vector2 pos);
+    void SpellEnd(string spell);
 }

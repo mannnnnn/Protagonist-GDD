@@ -10,7 +10,6 @@ public class PuzzlePlayerBehavior : MonoBehaviour
     public SpellInteractionTarget puzzle { get; private set; }
 
     public GameObject cursor;
-    public GameObject letter;
     public GameObject rightHand;
     public GameObject leftHand;
 
@@ -21,7 +20,7 @@ public class PuzzlePlayerBehavior : MonoBehaviour
 
     void Start()
     {
-        
+        Instantiate(cursor);
     }
 
     void Update()

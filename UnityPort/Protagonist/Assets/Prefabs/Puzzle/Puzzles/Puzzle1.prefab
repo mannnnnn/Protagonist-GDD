@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4628310403335230}
-  - component: {fileID: 114091105168251988}
+  - component: {fileID: 114208888180049284}
   m_Layer: 0
   m_Name: Puzzle1
   m_TagString: Untagged
@@ -40,7 +40,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114091105168251988
+--- !u!114 &114208888180049284
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -48,6 +48,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1682662779749892}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 886ddcd3a3a30ed41894c0e927db1bfc, type: 3}
+  m_Script: {fileID: 11500000, guid: f67522ebbd085254cb3f03ca1ab40d23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

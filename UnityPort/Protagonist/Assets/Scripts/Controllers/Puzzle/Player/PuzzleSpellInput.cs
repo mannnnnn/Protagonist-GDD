@@ -25,7 +25,7 @@ public class PuzzleSpellInput : MonoBehaviour, SpellInputTarget
     int SpellSize = 7;
 
     // currently casting a spell or not (casting makes the player unable to type a new spell)
-    public bool Casting { get; set; } = false;
+    public bool Casting { get; private set; } = false;
 
     Vector2 pos;
     void Start()
@@ -55,12 +55,13 @@ public class PuzzleSpellInput : MonoBehaviour, SpellInputTarget
                 // create letter for this key press
                 GameObject letterObj = Instantiate(letterPrefab);
                 PuzzleLetter letterBehavior = letterObj.GetComponent<PuzzleLetter>();
-                letterBehavior.Initialize(i.ToString());
+                letterBehavior.Initialize(i.ToString(), pos + new Vector2(letters.Count * letterBehavior.GetSize().x, 0));
                 letters.Add(letterBehavior);
+                puzzle.PlacedLetter(i.ToString());
             }
         }
         // cast a spell if possible
-        if (Input.GetMouseButtonDown(0) && letters.Count != 0)
+        if (Input.GetMouseButtonDown(0) && letters.Count > 0)
         {
             string spell = "";
             foreach (PuzzleLetter letter in letters)
@@ -68,15 +69,18 @@ public class PuzzleSpellInput : MonoBehaviour, SpellInputTarget
                 spell += letter.letter;
             }
             // if it's in the Spells dictionary, use that one. Otherwise, use the default "" throwing letters
-            Spells.CreateSpell(spell, puzzle, this);
             spellLetters = letters;
             letters = new List<PuzzleLetter>();
+            Spells.CreateSpell(spell, puzzle, this);
+            puzzle.SpellStart(spell);
+            Casting = true;
         }
     }
 
     public void CompleteSpell()
     {
         Casting = false;
+        PuzzleCursor.ReleaseInnerCrosshair();
     }
 
     public List<PuzzleLetter> GetLetters()

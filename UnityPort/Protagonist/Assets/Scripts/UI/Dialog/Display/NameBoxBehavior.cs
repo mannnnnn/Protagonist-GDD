@@ -32,7 +32,8 @@ public class NameBoxBehavior : MonoBehaviour
         mapViewWidth += Mathf.Abs(ResolutionHandler.MapViewToScreenPoint(new Vector3(0, 0)).x / Screen.width) + 0.1f;
         mapViewWidth = Mathf.Clamp(mapViewWidth, 0.4f, 1f);
         // set box size
-        box.UpdateAnchors(box.left, box.left + mapViewWidth);
+        box.right = box.left + mapViewWidth;
+        box.UpdateAnchors();
         // set text
         field.text = name;
         return mapViewWidth;

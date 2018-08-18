@@ -9,55 +9,56 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1542532328315978}
+  m_RootGameObject: {fileID: 1103410298237040}
   m_IsPrefabAsset: 1
---- !u!1 &1542532328315978
+--- !u!1 &1103410298237040
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4924997505043564}
-  - component: {fileID: 212969527762925582}
-  - component: {fileID: 114190378608247124}
+  - component: {fileID: 4050823409837524}
+  - component: {fileID: 212473638310813684}
+  - component: {fileID: 114768952258144484}
   m_Layer: 0
-  m_Name: PuzzleLetter
+  m_Name: ThrowLetter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4924997505043564
+--- !u!4 &4050823409837524
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1542532328315978}
+  m_GameObject: {fileID: 1103410298237040}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114190378608247124
+--- !u!114 &114768952258144484
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1542532328315978}
+  m_GameObject: {fileID: 1103410298237040}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c912a9f05732854d889198f4283b2a9, type: 3}
+  m_Script: {fileID: 11500000, guid: eeeb6ce4c2030ce47a343ebdf300d287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!212 &212969527762925582
+  letter: 
+--- !u!212 &212473638310813684
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1542532328315978}
+  m_GameObject: {fileID: 1103410298237040}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0

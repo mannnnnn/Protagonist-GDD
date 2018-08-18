@@ -23,16 +23,20 @@ public class PuzzleLetter : MonoBehaviour
     SpriteRenderer sr;
 
     public string letter { get; private set; }
-    public void Initialize(string letter)
+    public void Initialize(string letter, Vector2 pos)
     {
         this.letter = letter;
-        sr = GetComponent<SpriteRenderer>();
+        transform.position = pos;
     }
 
+    // GetSize gets called right after creation so this is in Awake
+    void Awake()
+    {
+        sr = GetComponent<SpriteRenderer>();
+    }
     void Start()
     {
         sprites = PuzzleLetterImages.Letters[letter];
-        sr = GetComponent<SpriteRenderer>();
         duration = Random.Range(1f, 2.5f);
     }
 
@@ -41,7 +45,7 @@ public class PuzzleLetter : MonoBehaviour
         UpdateSprite();
         if (!finished)
         {
-            timer += Time.deltaTime;
+            timer += GameTime.deltaTime;
             // swap forms every so often
             if (timer > duration)
             {
@@ -53,7 +57,7 @@ public class PuzzleLetter : MonoBehaviour
         // fade out when finished (increment down)
         else
         {
-            timer -= Time.deltaTime;
+            timer -= GameTime.deltaTime;
             sr.color = new Color(0, 0, 0, timer / duration);
             if (timer <= 0)
             {
@@ -80,7 +84,7 @@ public class PuzzleLetter : MonoBehaviour
         if (greek != target)
         {
             obscured = true;
-            transitionTimer += Time.deltaTime;
+            transitionTimer += GameTime.deltaTime;
             // transition at halfway point
             bool transitionGreek = transitionTimer < 0.5f * transitionDur ? greek : !greek;
             sr.sprite = sprites.GetSprite(transitionGreek, obscured);

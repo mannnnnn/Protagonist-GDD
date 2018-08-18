@@ -245,7 +245,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 811a34bfd87c9914f81bbdd13856c041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spells: []
+  spells:
+  - name: 
+    prefab: {fileID: 1056968627326150, guid: 586c9161305a4de47b671dace5a264b7, type: 2}
 --- !u!114 &114262218043223496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -271,6 +273,8 @@ MonoBehaviour:
   puzzles:
   - name: puzzle1
     prefab: {fileID: 1682662779749892, guid: 1cfa24ddb5082804b82d468f8e263d9c, type: 2}
+  playerPrefab: {fileID: 1105736287682902, guid: 6b5f7c3cad041ea409b210b2f800c37f,
+    type: 2}
 --- !u!114 &114392388063161024
 MonoBehaviour:
   m_ObjectHideFlags: 1

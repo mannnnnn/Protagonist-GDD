@@ -64,7 +64,7 @@ public class PlayerBehavior : MonoBehaviour {
         Vector2 velocity = GetInputVelocity();
 
         // move the player
-        rb.MovePosition(rb.position + (velocity * Time.deltaTime));
+        rb.MovePosition(rb.position + (velocity * GameTime.deltaTime));
 
         //change Animator state if needed
         string state = "Idle";

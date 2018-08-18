@@ -33,7 +33,7 @@ public class SceneTransition : MonoBehaviour
     // handle timing and state changes
     void Update()
     {
-        timerSeconds += Time.deltaTime;
+        timerSeconds += GameTime.deltaTime;
         switch (state)
         {
             // increment timer up from 0 until inDuration is reached

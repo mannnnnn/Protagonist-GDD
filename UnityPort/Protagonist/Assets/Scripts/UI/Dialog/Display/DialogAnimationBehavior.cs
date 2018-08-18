@@ -128,7 +128,7 @@ public class DialogAnimationBehavior : MonoBehaviour {
         // move towards target position
         if ((Vector2)transform.position != pos)
         {
-            transform.position = Vector2.MoveTowards(transform.position, pos, worldSpd * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, pos, worldSpd * UITime.deltaTime);
         }
         // if necessary and on left side of the screen, flip sprite
         if (flipOnLeft)
@@ -150,14 +150,14 @@ public class DialogAnimationBehavior : MonoBehaviour {
             // move towards base if speaking
             if (speaking)
             {
-                currentCol = Mathf.MoveTowards(currentCol, baseColor.r, darkenSpd * Time.deltaTime * baseColor.r);
-                currentSize = Mathf.MoveTowards(currentSize, baseScale.x, shrinkSpd * Time.deltaTime * baseScale.x);
+                currentCol = Mathf.MoveTowards(currentCol, baseColor.r, darkenSpd * UITime.deltaTime * baseColor.r);
+                currentSize = Mathf.MoveTowards(currentSize, baseScale.x, shrinkSpd * UITime.deltaTime * baseScale.x);
             }
             // move towards smaller and darker if not speaking
             else
             {
-                currentCol = Mathf.MoveTowards(currentCol, baseColor.r * darken, darkenSpd * Time.deltaTime * baseColor.r);
-                currentSize = Mathf.MoveTowards(currentSize, baseScale.x * shrink, shrinkSpd * Time.deltaTime * baseScale.x);
+                currentCol = Mathf.MoveTowards(currentCol, baseColor.r * darken, darkenSpd * UITime.deltaTime * baseColor.r);
+                currentSize = Mathf.MoveTowards(currentSize, baseScale.x * shrink, shrinkSpd * UITime.deltaTime * baseScale.x);
             }
             sr.color = new Color(currentCol, currentCol, currentCol, sr.color.a);
             sr.transform.localScale = new Vector3(currentSize, currentSize, sr.transform.localScale.z);

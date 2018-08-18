@@ -71,13 +71,15 @@
     <Compile Include="Assets\Scripts\Controllers\Puzzle\Player\PuzzleSpellInput.cs" />
     <Compile Include="Assets\Scripts\Controllers\Puzzle\PuzzleBehaviorBase.cs" />
     <Compile Include="Assets\Scripts\Controllers\Puzzle\Puzzles.cs" />
-    <Compile Include="Assets\Scripts\Controllers\Puzzle\PuzzleSpell.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Puzzle\Puzzles\StandardPuzzleBehavior.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Puzzle\Puzzles\TestPuzzle.cs" />
     <Compile Include="Assets\Scripts\Controllers\Puzzle\Spells.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Puzzle\Spells\ThrowLetterBehavior.cs" />
     <Compile Include="Assets\Scripts\Controllers\Puzzle\Spells\ThrowLetterSpell.cs" />
-    <Compile Include="Assets\Scripts\Controllers\Puzzle\StandardPuzzleBehavior.cs" />
     <Compile Include="Assets\Scripts\Controllers\ResolutionHandler.cs" />
     <Compile Include="Assets\Scripts\Controllers\SaveLoad.cs" />
     <Compile Include="Assets\Scripts\Controllers\SyncedMusicPlayer.cs" />
+    <Compile Include="Assets\Scripts\Controllers\TimeExtensions.cs" />
     <Compile Include="Assets\Scripts\ControllersBehavior.cs" />
     <Compile Include="Assets\Scripts\Depth2DBehavior.cs" />
     <Compile Include="Assets\Scripts\DoorBehavior.cs" />

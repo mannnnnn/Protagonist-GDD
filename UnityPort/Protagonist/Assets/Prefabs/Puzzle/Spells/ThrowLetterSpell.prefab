@@ -9,31 +9,30 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1105736287682902}
+  m_RootGameObject: {fileID: 1056968627326150}
   m_IsPrefabAsset: 1
---- !u!1 &1105736287682902
+--- !u!1 &1056968627326150
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4719977073450886}
-  - component: {fileID: 114331381965661924}
-  - component: {fileID: 114765093453710276}
+  - component: {fileID: 4177257454716388}
+  - component: {fileID: 114321754509890646}
   m_Layer: 0
-  m_Name: PuzzlePlayer
+  m_Name: ThrowLetterSpell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4719977073450886
+--- !u!4 &4177257454716388
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1105736287682902}
+  m_GameObject: {fileID: 1056968627326150}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -41,30 +40,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114331381965661924
+--- !u!114 &114321754509890646
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1105736287682902}
+  m_GameObject: {fileID: 1056968627326150}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be3f5c6c4b002b849974a1c03ed73192, type: 3}
+  m_Script: {fileID: 11500000, guid: 48d9db3c17aa3244da9237f7a97b188c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursor: {fileID: 1630467808757160, guid: 96605a80338246b47bb7fe9193b8b5b5, type: 2}
-  rightHand: {fileID: 0}
-  leftHand: {fileID: 0}
---- !u!114 &114765093453710276
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1105736287682902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edbae17bb3ba4b244828d90213e32577, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  letterPrefab: {fileID: 1542532328315978, guid: 7a64f6750334c8342b47d2c56b3a9fa3,
+  throwLetter: {fileID: 1103410298237040, guid: a594fae1e77f49942b18e2c6745ac174,
     type: 2}

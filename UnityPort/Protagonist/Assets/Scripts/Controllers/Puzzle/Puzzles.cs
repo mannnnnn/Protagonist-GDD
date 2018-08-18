@@ -8,11 +8,17 @@ using UnityEngine;
  */
 public class Puzzles : MonoBehaviour
 {
+    // puzzle lookup by name
     public List<KeyedPrefab> puzzles;
     static Dictionary<string, GameObject> Prefabs = new Dictionary<string, GameObject>();
 
+    // player creation in puzzles
+    public GameObject playerPrefab;
+    static GameObject player;
+
     void Awake()
     {
+        player = playerPrefab;
         foreach (KeyedPrefab prefab in puzzles)
         {
             Prefabs[prefab.name] = prefab.prefab;
@@ -41,5 +47,12 @@ public class Puzzles : MonoBehaviour
         }
         puzzleBehavior.Initialize(scene);
         return puzzleBehavior;
+    }
+
+    public static GameObject CreatePlayer(SpellInteractionTarget target)
+    {
+        GameObject playerObj = Instantiate(player);
+        playerObj.GetComponent<PuzzlePlayerBehavior>().Initialize(target);
+        return playerObj;
     }
 }

@@ -47,7 +47,7 @@ public abstract class UIDisplayBase : MonoBehaviour
                 timerSeconds = 0;
                 break;
             case State.OPENING:
-                timerSeconds += Time.deltaTime;
+                timerSeconds += UITime.deltaTime;
                 if (timer > 1)
                 {
                     SetState(State.OPEN);
@@ -66,7 +66,7 @@ public abstract class UIDisplayBase : MonoBehaviour
                 }
                 break;
             case State.CLOSING:
-                timerSeconds -= Time.deltaTime;
+                timerSeconds -= UITime.deltaTime;
                 if (timer < 0)
                 {
                     SetState(State.CLOSED);
@@ -78,7 +78,7 @@ public abstract class UIDisplayBase : MonoBehaviour
         // move to target until it is reached
         if (toTarget)
         {
-            SetY(Mathf.MoveTowards(GetY(), targetY, spd * Time.deltaTime));
+            SetY(Mathf.MoveTowards(GetY(), targetY, spd * UITime.deltaTime));
             if (Mathf.Abs(targetY - GetY()) < 1f)
             {
                 toTarget = false;

@@ -50,7 +50,7 @@ public abstract class TimedDialogAnimation : DialogAnimation
             return;
         }
         // increment timerSeconds
-        timerSeconds += Time.deltaTime * count;
+        timerSeconds += UITime.deltaTime * count;
         // if absolute value is greater than duration, we're done
         if (Mathf.Abs(timerSeconds) > duration)
         {
