@@ -17,7 +17,7 @@ public class PuzzleLetter : MonoBehaviour
     float timer = 0f;
     float duration = 1f;
     // fade out animation
-    bool finished = false;
+    public bool finished = false;
     float fadeDuration = 1.5f;
 
     SpriteRenderer sr;
@@ -38,6 +38,7 @@ public class PuzzleLetter : MonoBehaviour
     {
         sprites = PuzzleLetterImages.Letters[letter];
         duration = Random.Range(1f, 2.5f);
+        UpdateSprite();
     }
 
     void Update()
@@ -63,10 +64,6 @@ public class PuzzleLetter : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Finish();
         }
     }
 
@@ -106,6 +103,10 @@ public class PuzzleLetter : MonoBehaviour
     // it turns black and fades out
     public void Finish()
     {
+        if (finished)
+        {
+            return;
+        }
         sr.color = new Color(0, 0, 0, sr.color.a);
         finished = true;
         // increment down when fading out

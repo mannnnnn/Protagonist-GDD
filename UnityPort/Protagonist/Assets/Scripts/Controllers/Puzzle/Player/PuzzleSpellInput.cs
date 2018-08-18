@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -60,9 +61,16 @@ public class PuzzleSpellInput : MonoBehaviour, SpellInputTarget
                 puzzle.PlacedLetter(i.ToString());
             }
         }
+        // backspace removes a letter
+        if (Input.GetKeyDown(KeyCode.Backspace) && letters.Count > 0)
+        {
+            Destroy(letters[letters.Count - 1].gameObject);
+            letters.RemoveAt(letters.Count - 1);
+        }
         // cast a spell if possible
         if (Input.GetMouseButtonDown(0) && letters.Count > 0)
         {
+            // collect spell letters
             string spell = "";
             foreach (PuzzleLetter letter in letters)
             {
