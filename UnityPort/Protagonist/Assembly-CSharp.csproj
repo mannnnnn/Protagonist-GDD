@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\Controllers\Map\MapController.cs" />
     <Compile Include="Assets\Scripts\Controllers\Map\MapScenes.cs" />
     <Compile Include="Assets\Scripts\Controllers\MapMusicBehavior.cs" />
+    <Compile Include="Assets\Scripts\Controllers\ParticlesPlayOnce.cs" />
     <Compile Include="Assets\Scripts\Controllers\Puzzle\Player\PuzzleCursor.cs" />
     <Compile Include="Assets\Scripts\Controllers\Puzzle\Player\PuzzleLetter.cs" />
     <Compile Include="Assets\Scripts\Controllers\Puzzle\Player\PuzzleLetterImages.cs" />

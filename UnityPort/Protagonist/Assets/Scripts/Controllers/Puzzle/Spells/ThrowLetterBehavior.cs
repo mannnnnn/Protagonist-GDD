@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class ThrowLetterBehavior : MonoBehaviour
 {
+    public string letter;
+    public GameObject hitEffect;
     SpriteRenderer sr;
 
     // letter movement
@@ -16,7 +18,6 @@ public class ThrowLetterBehavior : MonoBehaviour
     float shrinkMin = 0.4f;
     float shrinkSpd = 0.3f;
 
-    public string letter;
     MultiHitSpell spell;
     Vector2 targetPos;
     public void Initialize(string letter, Vector2 targetPos, MultiHitSpell spell)
@@ -47,6 +48,7 @@ public class ThrowLetterBehavior : MonoBehaviour
         {
             spell.Hit(gameObject);
             // create particles
+            Instantiate(hitEffect, transform.position, transform.rotation);
             // destroy
             Destroy(gameObject);
         }
