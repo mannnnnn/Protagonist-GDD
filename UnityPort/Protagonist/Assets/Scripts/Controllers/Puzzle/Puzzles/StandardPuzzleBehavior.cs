@@ -23,7 +23,7 @@ public abstract class StandardPuzzleBehavior : PuzzleBehaviorBase, SpellInteract
     {
         // should create transition to the target scene in child
         DontDestroyOnLoad(gameObject);
-        SceneTransitions.Transition<SceneTransition>(new SceneTransitions.Time(1f, 1f, 1f), scene);
+        SceneTransitions.Transition("Fade", new TransitionTime(1f, 1f, 1f), scene);
         SceneManager.sceneLoaded += StartScene;
     }
 

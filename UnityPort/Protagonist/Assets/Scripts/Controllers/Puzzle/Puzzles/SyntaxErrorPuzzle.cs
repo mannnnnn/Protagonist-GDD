@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TestPuzzle : StandardPuzzleBehavior
+public class SyntaxErrorPuzzle : StandardPuzzleBehavior
 {
-
+    
 }

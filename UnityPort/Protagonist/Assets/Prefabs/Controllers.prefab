@@ -93,6 +93,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1650216157366368
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4120622561411468}
+  - component: {fileID: 114231379295266308}
+  m_Layer: 0
+  m_Name: SceneTransitions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1842957267554932
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,6 +138,19 @@ Transform:
   m_Father: {fileID: 4157691535115456}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4120622561411468
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1650216157366368}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4157691535115456}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4157691535115456
 Transform:
   m_ObjectHideFlags: 1
@@ -137,6 +166,7 @@ Transform:
   - {fileID: 4885971286685258}
   - {fileID: 4237420384635810}
   - {fileID: 4880789384991228}
+  - {fileID: 4120622561411468}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -234,6 +264,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54bf4d1bde2a30149a67f2a67c83513c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114231379295266308
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1650216157366368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 898091b7fa12b054d8946b566f270a3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitions:
+  - name: Fade
+    prefab: {fileID: 1926441194614288, guid: f045a4eb1cfec754f941d7f9269b9061, type: 2}
+  - name: Slide
+    prefab: {fileID: 1032493496804572, guid: fc93d1c62ed0b8f4da4d578b87d38f0b, type: 2}
 --- !u!114 &114232056255455674
 MonoBehaviour:
   m_ObjectHideFlags: 1
