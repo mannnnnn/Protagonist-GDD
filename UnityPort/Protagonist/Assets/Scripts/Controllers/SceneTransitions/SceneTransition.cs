@@ -31,7 +31,7 @@ public class SceneTransition : MonoBehaviour
     protected Texture2D tex;
 
     // handle timing and state changes
-    void Update()
+    protected virtual void Update()
     {
         timerSeconds += GameTime.deltaTime;
         switch (state)
@@ -106,7 +106,7 @@ public class SceneTransition : MonoBehaviour
     }
 
     // draw on the screen based on the timer, override this
-    void OnGUI()
+    protected virtual void OnGUI()
     {
         // set the GUI drawing color to have the given alpha
         GUI.color = new Color(GUI.color.r, GUI.color.g, GUI.color.b, timer);

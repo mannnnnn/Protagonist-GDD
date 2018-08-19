@@ -13,7 +13,7 @@ public class SlideTransition : SceneTransition
     protected float slideTime = 0.5f;
 
     // draw sliding rectangle to screen
-    void OnGUI()
+    protected override void OnGUI()
     {
         // set the GUI drawing color to have the given alpha
         GUI.color = new Color(GUI.color.r, GUI.color.g, GUI.color.b, 1);

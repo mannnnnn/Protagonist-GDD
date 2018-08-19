@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\Controllers\SceneTransitions\SceneTransition.cs" />
     <Compile Include="Assets\Scripts\Controllers\SceneTransitions\SceneTransitions.cs" />
     <Compile Include="Assets\Scripts\Controllers\SceneTransitions\SlideTransition.cs" />
+    <Compile Include="Assets\Scripts\Controllers\SceneTransitions\SpinTransition.cs" />
     <Compile Include="Assets\Scripts\Controllers\SyncedMusicPlayer.cs" />
     <Compile Include="Assets\Scripts\Controllers\TimeExtensions.cs" />
     <Compile Include="Assets\Scripts\ControllersBehavior.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Assets\Scripts\Libraries\ProtagonistDialog\DialogBoolParser.cs" />
     <Compile Include="Assets\Scripts\Libraries\ProtagonistDialog\DialogLoader.cs" />
     <Compile Include="Assets\Scripts\Libraries\ProtagonistDialog\JsonToData.cs" />
+    <Compile Include="Assets\Scripts\Libraries\Triangulator.cs" />
     <Compile Include="Assets\Scripts\PlayerBehavior.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\DialogAnimations\DialogAnimation.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\DialogAnimations\DialogAnimationFade.cs" />

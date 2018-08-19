@@ -280,6 +280,8 @@ MonoBehaviour:
     prefab: {fileID: 1926441194614288, guid: f045a4eb1cfec754f941d7f9269b9061, type: 2}
   - name: Slide
     prefab: {fileID: 1032493496804572, guid: fc93d1c62ed0b8f4da4d578b87d38f0b, type: 2}
+  - name: Spin
+    prefab: {fileID: 1286926128796766, guid: 7e5f9de0ce59a0144badb778181ba5a4, type: 2}
 --- !u!114 &114232056255455674
 MonoBehaviour:
   m_ObjectHideFlags: 1

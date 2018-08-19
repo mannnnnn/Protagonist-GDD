@@ -10,6 +10,7 @@ TagManager:
   - RoomBackground
   - SceneTransition
   - DialogAnimation
+  - Cursor
   layers:
   - Default
   - TransparentFX
@@ -61,4 +62,7 @@ TagManager:
     locked: 0
   - name: PostUI
     uniqueID: 811265357
+    locked: 0
+  - name: SceneTransition
+    uniqueID: 90792183
     locked: 0
