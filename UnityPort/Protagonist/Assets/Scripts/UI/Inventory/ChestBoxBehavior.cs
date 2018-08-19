@@ -3,6 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Simple behavior that controls the walls of the inventory UI chest.
+ * Places them in the correct positions so that no items can fall out.
+ */
 public class ChestBoxBehavior : MonoBehaviour {
 
     public Vector2 side;

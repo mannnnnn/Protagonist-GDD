@@ -3,13 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/**
+ * All spells are given a target scene.
+ * If you don't want to change scenes in your puzzle, just don't do anything with it.
+ * Otherwise, create a transition using SceneTransitions.Transition(type, duration, scene)
+ */
 public abstract class PuzzleBehaviorBase : MonoBehaviour
 {
     public abstract void Initialize(string scene);
 }
 
-// a puzzle that player spells can interact with.
-// standard letter-throwing puzzles must implement this, or else it cannot create a player.
+/**
+ * Interface that defines a puzzle that player spells can interact with.
+ * Standard letter-throwing puzzles must implement this, or else it cannot create a player.
+ */
 public interface SpellInteractionTarget
 {
     void PlacedLetter(string letter);

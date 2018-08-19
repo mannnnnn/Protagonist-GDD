@@ -5,8 +5,11 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
-// helper class used to wrap setting alpha/y/text/size into one object per GameObject.
-// Then, this behavior wraps it into one method call.
+/**
+ * helper class used to wrap setting alpha/y/text/size into one object per GameObject.
+ * Then, this behavior wraps those into one method call.
+ * This behavior also controls the horizontal position via left/right anchoring.
+ */
 public class UIPanel : MonoBehaviour
 {
     bool initialized = false;

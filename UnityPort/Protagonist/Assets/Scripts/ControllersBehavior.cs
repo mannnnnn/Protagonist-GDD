@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Parent object of all of the controllers.
+ * Controllers are the persistent singleton game objects.
+ * That is why this game object is persistent and any clone that appears is destroyed.
+ */
 public class ControllersBehavior : MonoBehaviour {
 
     static ControllersBehavior instance;

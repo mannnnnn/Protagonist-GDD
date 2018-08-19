@@ -6,6 +6,12 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 
+/**
+ * The master controller of the inventory.
+ * Handles the inventory data, and calls InventoryDisplayBehavior as needed to display the data.
+ * Add/remove items from here.
+ * Register item type JSON files to this behavior in the inspector.
+ */
 namespace Assets.Scripts.UI.Inventory
 {
     public class Inventory : MonoBehaviour, SaveLoadTarget

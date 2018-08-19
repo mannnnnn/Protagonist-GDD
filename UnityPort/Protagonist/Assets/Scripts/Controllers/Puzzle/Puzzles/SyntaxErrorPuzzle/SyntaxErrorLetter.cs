@@ -5,13 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-// very similar to a normal PuzzleLetter, except it must output to the SyntaxError puzzle when it is hit
+/**
+ * Very similar to a normal PuzzleLetter, except it must output to the SyntaxError puzzle when it is hit.
+ * It can also change alpha for the flicker animation, and then fall at the falling animation.
+ */
 public class SyntaxErrorLetter : PuzzleLetter
 {
     Vector2 velocity;
     bool falling = false;
     float gravity = 10f;
 
+    // correct is whether or not this is the error
     public bool correct { get; private set; }
     public void Initialize(string letter, Vector3 pos, Vector2 size, bool correct)
     {
@@ -32,7 +36,6 @@ public class SyntaxErrorLetter : PuzzleLetter
     public bool Contains(Vector2 pos)
     {
         Rect rect = new Rect(transform.position - sr.bounds.extents, sr.bounds.extents * 2f);
-        Debug.Log(rect);
         return rect.Contains(pos);
     }
 

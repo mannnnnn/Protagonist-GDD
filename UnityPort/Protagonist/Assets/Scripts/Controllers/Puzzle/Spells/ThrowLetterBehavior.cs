@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
+/**
+ * Controls one single letter thrown in the ThrowLetterSpell spell.
+ */
 public class ThrowLetterBehavior : MonoBehaviour
 {
     public string letter;

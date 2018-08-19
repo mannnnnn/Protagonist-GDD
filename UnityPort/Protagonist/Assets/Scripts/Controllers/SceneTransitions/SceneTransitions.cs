@@ -21,6 +21,9 @@ public struct TransitionTime
     }
 }
 
+/**
+ * Controller that creates scene transitions.
+ */
 public class SceneTransitions : MonoBehaviour
 {
     public List<KeyedPrefab> transitions;

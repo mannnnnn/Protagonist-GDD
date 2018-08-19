@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
+/**
+ * Example class of how to use the SyntaxErrorPuzzle abstract class to create Syntax Error Puzzles easily.
+ */
 public class PuzzleOne : SyntaxErrorPuzzle
 {
     protected override void CreateLines()
@@ -19,7 +22,6 @@ public class PuzzleOne : SyntaxErrorPuzzle
     }
     protected override void EndPuzzle()
     {
-        Debug.Log("The end.");
         SceneTransitions.Transition("Fade", new TransitionTime(1f, 0.3f, 1f), "jungle1");
     }
 }

@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * The cursor that follows the mouse during puzzles.
+ * The inside of the cursor detaches from the main cursor when a spell is targeting a certain position.
+ * This is controlled by PuzzleSpellInput.
+ */
 public class PuzzleCursor : MonoBehaviour
 {
     public List<Sprite> outerSprites;

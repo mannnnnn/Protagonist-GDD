@@ -7,6 +7,13 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
+/**
+ * Controls saving/loading on the file system.
+ * To use this in a behavior, it must implement SaveLoadTarget,
+ * and it must also be registered using SaveLoad.Register(this).
+ * Then, calls to SaveLoad.SaveFile() or SaveLoad.LoadFile()
+ * will save/load your data using the methods you defined when implementing SaveLoadTarget.
+ */
 namespace Assets.Scripts.Controllers
 {
     // TODO: passing around objects and then having to throw around casts everywhere is DUMB.

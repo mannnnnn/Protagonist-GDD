@@ -3,6 +3,12 @@ using System;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
+/**
+ * This transition slides a black rectangle across the screen.
+ * The rectangle continues sliding, until it reveals the next room.
+ * This transition has the side effect of also moving the player,
+ * since it is used on the map to move the player from room to room.
+ */
 public class SlideTransition : SceneTransition
 {
     // output to the player's movement during the transition

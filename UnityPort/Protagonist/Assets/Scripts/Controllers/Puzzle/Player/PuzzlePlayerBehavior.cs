@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /**
- * Class the creates the player's various parts on game startup.
+ * Class that creates the player's various parts on game startup, such as the hands and cursor.
  */
 public class PuzzlePlayerBehavior : MonoBehaviour
 {

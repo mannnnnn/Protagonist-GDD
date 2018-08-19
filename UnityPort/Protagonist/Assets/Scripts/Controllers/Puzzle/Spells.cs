@@ -9,7 +9,9 @@ public interface PuzzleSpell
 }
 
 /**
- * Create a spell here.
+ * Maps spells to spell prefabs via the inspector.
+ * Spells.CreateSpell is used to use one of these prefabs to create a spell instance.
+ * Also contains what letters the player has available.
  */
 public class Spells : MonoBehaviour
 {

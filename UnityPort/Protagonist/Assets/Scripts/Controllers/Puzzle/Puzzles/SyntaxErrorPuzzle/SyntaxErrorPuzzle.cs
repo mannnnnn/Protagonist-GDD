@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/**
+ * Base class for Syntax Error puzzles,
+ * which are puzzles that display some text, and have the player find the error in the text.
+ * Extend this class to create syntax error puzzles by implementing CreateLines and EndPuzzle.
+ * You can easily create lines of text in the puzzle using the Line method.
+ * See PuzzleOne for an example.
+ */
 public abstract class SyntaxErrorPuzzle : StandardPuzzleBehavior
 {
     public GameObject line;
@@ -99,7 +106,6 @@ public abstract class SyntaxErrorPuzzle : StandardPuzzleBehavior
     // when a spell hits somewhere, scan every letter for a collision
     public override void SpellHit(string spell, Vector2 pos)
     {
-        Debug.Log(pos);
         if (completed)
         {
             return;

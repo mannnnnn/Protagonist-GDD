@@ -5,6 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
+/**
+ * Modifying Time.timeScale is messy, so this class controls the passage of time for Game objects or UI objects separately.
+ * That way, to pause the game, but not the UI, set GameTime.timeScale to 0.
+ */
+
 // timescale used for in-game activities
 public class GameTime
 {

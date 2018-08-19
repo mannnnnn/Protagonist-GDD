@@ -4,7 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /**
- * Start a Puzzle 
+ * Maps puzzles to puzzle prefabs via the inspector.
+ * Puzzles.StartPuzzle is used to use one of these prefabs to create a puzzle instance.
+ * Puzzles.CreatePlayer(puzzle) is used by puzzles to create a player. Note that a player must be bound to a puzzle,
+ * so you must pass in a puzzle instance when creating a player.
  */
 public class Puzzles : MonoBehaviour
 {

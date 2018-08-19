@@ -5,11 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
+/**
+ * Simple interface that is a spell that hits multiple times.
+ * The child behaviors just call Hit(gameObject), then this object would use that information to
+ * intelligently call SpellInteractionTarget's SpellFirstHit, SpellLastHit, and Hit methods based on when the hits occur.s
+ */
 public interface MultiHitSpell : PuzzleSpell
 {
     void Hit(GameObject gameObj);
 }
 
+/**
+ * Basic default spell that just throws the letters typed at a target.
+ */
 public class ThrowLetterSpell : MonoBehaviour, MultiHitSpell
 {
     public GameObject throwLetter;

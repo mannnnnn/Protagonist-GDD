@@ -2,6 +2,10 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
+/**
+ * Base class for scene transitions, having features like a timer.
+ * Using this alone gives a simple fade in/out transition.
+ */
 public class SceneTransition : MonoBehaviour
 {
     // current state of the SceneTransition

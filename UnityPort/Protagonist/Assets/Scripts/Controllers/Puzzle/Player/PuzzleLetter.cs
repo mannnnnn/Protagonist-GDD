@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Handles the puzzle letter object that flashes between normal and greek text.
+ * Can also be Finish()'d to turn it black and have it fade out, then destroy itself.
+ * Controlled by PuzzleSpellInput.
+ */
 public class PuzzleLetter : MonoBehaviour
 {
     bool greek = false;
@@ -72,6 +77,8 @@ public class PuzzleLetter : MonoBehaviour
         }
     }
 
+    // Method that sets the letter to transition to the greek state or normal state.
+    // The transition is handled internally.
     public void SetGreek(bool greek)
     {
         target = greek;

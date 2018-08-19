@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/**
+ * Hold the UI control object's canvas.
+ * Used for coordinate conversions.
+ */
 public class UICanvas : MonoBehaviour {
 
     static Canvas canvas;

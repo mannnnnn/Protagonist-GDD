@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/**
+ * Given a string, creates SyntaxErrorLetters for letters in that string over time.
+ */
 public class SyntaxErrorLine : MonoBehaviour
 {
     public GameObject letter;

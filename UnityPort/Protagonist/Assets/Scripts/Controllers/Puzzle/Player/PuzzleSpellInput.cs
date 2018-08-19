@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// spells use this to tell the player that it's done casting
-// so the player can cast the next one
+/**
+ * Spells use this to tell the player that it's done casting,
+ * so the player can cast the next one
+ */
 public interface SpellInputTarget
 {
     // called when the spell is finished casting
@@ -13,7 +15,10 @@ public interface SpellInputTarget
     List<PuzzleLetter> GetLetters();
 }
 
-// creates letters and casts spells based on player input.
+/**
+ * Creates letters and casts spells based on player input.
+ * Part of the player object in puzzles.
+ */
 public class PuzzleSpellInput : MonoBehaviour, SpellInputTarget
 {
     SpellInteractionTarget puzzle;
@@ -31,7 +36,7 @@ public class PuzzleSpellInput : MonoBehaviour, SpellInputTarget
     Vector2 pos;
     void Start()
     {
-        pos = ResolutionHandler.MapViewToWorldPoint(new Vector2(0.2f, 0.2f));
+        pos = ResolutionHandler.MapViewToWorldPoint(new Vector2(0.3f, 0.2f));
         puzzle = GetComponent<PuzzlePlayerBehavior>().puzzle;
     }
 

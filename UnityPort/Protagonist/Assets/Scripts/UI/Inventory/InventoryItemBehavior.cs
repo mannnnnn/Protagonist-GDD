@@ -3,6 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Inventory items are the ragdoll items that appear in the inventory menu's chest.
+ * They follow physics, and can be clicked on to display their information.
+ * They can be eaten/discarded (destroyed).
+ */
 public class InventoryItemBehavior : MonoBehaviour
 {
     public SpriteRenderer sr { get; private set; }

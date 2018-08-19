@@ -6,6 +6,13 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
+/**
+ * The controller of the display side of the inventory UI object.
+ * Called by the Inventory behavior for various actions,
+ * such as adding an InventoryItem to the chest after adding in the data.
+ * Controls the state of the Inventory Items, as well as creates them.
+ * Does not hold the true data model of the inventory. For that, see Inventory.
+ */
 public class InventoryDisplayBehavior : UIDisplayBase
 {
     public Inventory inventory { get; private set; }

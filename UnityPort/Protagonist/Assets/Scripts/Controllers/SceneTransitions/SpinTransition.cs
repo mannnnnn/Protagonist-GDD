@@ -5,6 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
+/**
+ * Transition where a spiral spins outward until it covers the screen.
+ * Then, it fades the target room in.
+ * This transition is used for syntax error encounters.
+ */
 public class SpinTransition : SceneTransition
 {
     Vector2 center;

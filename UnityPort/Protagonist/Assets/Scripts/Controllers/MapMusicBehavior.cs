@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/**
+ * Controls music on the map using a SyncedMusicPlayer.
+ * Maps scene name to music track name, then plays that one.
+ */
 public class MapMusicBehavior : MonoBehaviour {
 
     SyncedMusicPlayer player;

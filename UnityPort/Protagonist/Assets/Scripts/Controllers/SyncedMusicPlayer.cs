@@ -3,6 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Used for playing layered tracks.
+ * Pass the layered tracks in the inspector, each with a string key.
+ * Then, you can set a track to be the one played using Play(key)
+ * The tracks will automatically be synchronized on playtime.
+ */
 public class SyncedMusicPlayer : MonoBehaviour
 {
     public List<KeyedAudioClip> clips = new List<KeyedAudioClip>();

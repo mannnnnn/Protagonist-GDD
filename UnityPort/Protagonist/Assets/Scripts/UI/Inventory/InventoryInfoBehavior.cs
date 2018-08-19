@@ -4,6 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/**
+ * Panel that contains the text display of the Inventory Item's information,
+ * along with the eat/discard buttons.
+ * Handles display a given item's data, as well as the eat/discard button presses.
+ */
 public class InventoryInfoBehavior : UIPanel
 {
     InventoryDisplayBehavior display;

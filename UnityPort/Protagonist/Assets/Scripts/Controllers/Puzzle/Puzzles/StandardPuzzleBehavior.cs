@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/**
+ * Simple base class that contains some basic functionality for most letter-throwing puzzles.
+ */
 public abstract class StandardPuzzleBehavior : PuzzleBehaviorBase, SpellInteractionTarget
 {
     // whether we've finished the transition or not
