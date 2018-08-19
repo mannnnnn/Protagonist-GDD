@@ -8,6 +8,8 @@ public abstract class PuzzleBehaviorBase : MonoBehaviour
     public abstract void Initialize(string scene);
 }
 
+// a puzzle that player spells can interact with.
+// standard letter-throwing puzzles must implement this, or else it cannot create a player.
 public interface SpellInteractionTarget
 {
     void PlacedLetter(string letter);

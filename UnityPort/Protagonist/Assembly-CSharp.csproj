@@ -74,7 +74,10 @@
     <Compile Include="Assets\Scripts\Controllers\Puzzle\Puzzles.cs" />
     <Compile Include="Assets\Scripts\Controllers\Puzzle\Puzzles\BlankPuzzle.cs" />
     <Compile Include="Assets\Scripts\Controllers\Puzzle\Puzzles\StandardPuzzleBehavior.cs" />
-    <Compile Include="Assets\Scripts\Controllers\Puzzle\Puzzles\SyntaxErrorPuzzle.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Puzzle\Puzzles\SyntaxErrorPuzzle\PuzzleOne.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Puzzle\Puzzles\SyntaxErrorPuzzle\SyntaxErrorLetter.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Puzzle\Puzzles\SyntaxErrorPuzzle\SyntaxErrorLine.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Puzzle\Puzzles\SyntaxErrorPuzzle\SyntaxErrorPuzzle.cs" />
     <Compile Include="Assets\Scripts\Controllers\Puzzle\Spells.cs" />
     <Compile Include="Assets\Scripts\Controllers\Puzzle\Spells\ThrowLetterBehavior.cs" />
     <Compile Include="Assets\Scripts\Controllers\Puzzle\Spells\ThrowLetterSpell.cs" />

@@ -9,30 +9,30 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1682662779749892}
+  m_RootGameObject: {fileID: 1919924097507930}
   m_IsPrefabAsset: 1
---- !u!1 &1682662779749892
+--- !u!1 &1919924097507930
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4628310403335230}
-  - component: {fileID: 114546339715253656}
+  - component: {fileID: 4741054494173426}
+  - component: {fileID: 114993572220948958}
   m_Layer: 0
-  m_Name: Puzzle1
+  m_Name: SyntaxErrorLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4628310403335230
+--- !u!4 &4741054494173426
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1682662779749892}
+  m_GameObject: {fileID: 1919924097507930}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,15 +40,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114546339715253656
+--- !u!114 &114993572220948958
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1682662779749892}
+  m_GameObject: {fileID: 1919924097507930}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f9746257ac9f94cadcf2f0cbf38015, type: 3}
+  m_Script: {fileID: 11500000, guid: 21f6c98cc521d60448eb01d8addccdd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  line: {fileID: 1919924097507930, guid: d2c609fe39d0f2042a5a15a18ed1923b, type: 2}
+  letter: {fileID: 1952550071292570, guid: 307e708623e8fd144978a87ff4484afe, type: 2}

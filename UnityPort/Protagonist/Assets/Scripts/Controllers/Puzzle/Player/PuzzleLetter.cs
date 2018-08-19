@@ -20,28 +20,33 @@ public class PuzzleLetter : MonoBehaviour
     public bool finished = false;
     float fadeDuration = 1.5f;
 
-    SpriteRenderer sr;
+    protected SpriteRenderer sr;
 
     public string letter { get; private set; }
-    public void Initialize(string letter, Vector2 pos)
+    public void Initialize(string letter, Vector3 pos)
     {
         this.letter = letter;
         transform.position = pos;
     }
+    public void Initialize(string letter, Vector3 pos, Vector2 size)
+    {
+        Initialize(letter, pos);
+        transform.localScale = size;
+    }
 
     // GetSize gets called right after creation so this is in Awake
-    void Awake()
+    protected virtual void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
     }
-    void Start()
+    protected virtual void Start()
     {
         sprites = PuzzleLetterImages.Letters[letter];
         duration = Random.Range(1f, 2.5f);
         UpdateSprite();
     }
 
-    void Update()
+    protected virtual void Update()
     {
         UpdateSprite();
         if (!finished)

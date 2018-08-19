@@ -3,11 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public interface PuzzleSpell
-{
-    void Initialize(string spell, SpellInteractionTarget puzzle, SpellInputTarget player);
-}
-
 public abstract class StandardPuzzleBehavior : PuzzleBehaviorBase, SpellInteractionTarget
 {
     // whether we've finished the transition or not
@@ -27,7 +22,7 @@ public abstract class StandardPuzzleBehavior : PuzzleBehaviorBase, SpellInteract
         SceneManager.sceneLoaded += StartScene;
     }
 
-    protected virtual void StartScene(Scene scene, LoadSceneMode mode)
+    void StartScene(Scene scene, LoadSceneMode mode)
     {
         // activate destroy on load again
         SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetActiveScene());
@@ -36,7 +31,9 @@ public abstract class StandardPuzzleBehavior : PuzzleBehaviorBase, SpellInteract
         SceneManager.sceneLoaded -= StartScene;
         // create player targeting this puzzle
         Puzzles.CreatePlayer(this);
+        SceneStart();
     }
+    protected virtual void SceneStart() { }
 
     public virtual void PlacedLetter(string letter) { }
     public virtual void SpellEnd(string spell) { }
