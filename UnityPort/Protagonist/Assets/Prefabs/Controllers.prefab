@@ -296,6 +296,8 @@ MonoBehaviour:
   spells:
   - name: 
     prefab: {fileID: 1056968627326150, guid: 586c9161305a4de47b671dace5a264b7, type: 2}
+  - name: SEAR
+    prefab: {fileID: 1692463095228658, guid: 33a87c72de15b28498a5b5fb5808fcbb, type: 2}
 --- !u!114 &114262218043223496
 MonoBehaviour:
   m_ObjectHideFlags: 1

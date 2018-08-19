@@ -44,8 +44,8 @@ public class ThrowLetterBehavior : MonoBehaviour
         // spin
         transform.localEulerAngles = new Vector3(0f, 0f, transform.localEulerAngles.z + spinSpd * GameTime.deltaTime);
         // shrink
-        transform.localScale = new Vector3(exponentialDecay(transform.localScale.x, shrinkSpd, shrinkMin),
-            exponentialDecay(transform.localScale.y, shrinkSpd, shrinkMin), 1f);
+        transform.localScale = new Vector3(ProjectileSpellBehavior.Decay(transform.localScale.x, shrinkSpd, shrinkMin),
+            ProjectileSpellBehavior.Decay(transform.localScale.y, shrinkSpd, shrinkMin), 1f);
         // if at target
         if (Vector2.Distance(transform.position, targetPos) < 0.01f)
         {
@@ -55,12 +55,5 @@ public class ThrowLetterBehavior : MonoBehaviour
             // destroy
             Destroy(gameObject);
         }
-    }
-
-    private float exponentialDecay(float current, float shrinkSpd, float shrinkMin)
-    {
-        // fraction of (current - shrinkMin) that we want to decrease
-        float shrinkFactor = Mathf.Pow(shrinkSpd, GameTime.deltaTime);
-        return shrinkMin + (current - shrinkMin) * shrinkFactor;
     }
 }

@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\Controllers\Map\MapController.cs" />
     <Compile Include="Assets\Scripts\Controllers\Map\MapScenes.cs" />
     <Compile Include="Assets\Scripts\Controllers\MapMusicBehavior.cs" />
+    <Compile Include="Assets\Scripts\Controllers\ParticlesAttached.cs" />
     <Compile Include="Assets\Scripts\Controllers\ParticlesPlayOnce.cs" />
     <Compile Include="Assets\Scripts\Controllers\Puzzle\Player\PuzzleCursor.cs" />
     <Compile Include="Assets\Scripts\Controllers\Puzzle\Player\PuzzleHandBehavior.cs" />
@@ -80,6 +81,8 @@
     <Compile Include="Assets\Scripts\Controllers\Puzzle\Puzzles\SyntaxErrorPuzzle\SyntaxErrorLine.cs" />
     <Compile Include="Assets\Scripts\Controllers\Puzzle\Puzzles\SyntaxErrorPuzzle\SyntaxErrorPuzzle.cs" />
     <Compile Include="Assets\Scripts\Controllers\Puzzle\Spells.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Puzzle\Spells\ProjectileSpellBehavior.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Puzzle\Spells\SearBehavior.cs" />
     <Compile Include="Assets\Scripts\Controllers\Puzzle\Spells\ThrowLetterBehavior.cs" />
     <Compile Include="Assets\Scripts\Controllers\Puzzle\Spells\ThrowLetterSpell.cs" />
     <Compile Include="Assets\Scripts\Controllers\ResolutionHandler.cs" />
