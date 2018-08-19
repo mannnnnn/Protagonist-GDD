@@ -21,6 +21,8 @@ public class PuzzlePlayerBehavior : MonoBehaviour
     void Start()
     {
         Instantiate(cursor);
+        Instantiate(rightHand);
+        Instantiate(leftHand);
     }
 
     void Update()

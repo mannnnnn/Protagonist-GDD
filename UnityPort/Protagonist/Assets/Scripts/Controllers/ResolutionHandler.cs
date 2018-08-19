@@ -339,7 +339,6 @@ public class ResolutionHandler : MonoBehaviour {
     }
     public static float FreeLerp(float value, float aMin, float aMax, float bMin, float bMax)
     {
-
         return (((value - aMin) * ((bMax - bMin) / (aMax - aMin))) + bMin);
     }
 

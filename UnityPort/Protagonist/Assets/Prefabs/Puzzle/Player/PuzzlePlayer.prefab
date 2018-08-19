@@ -53,8 +53,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursor: {fileID: 1630467808757160, guid: 96605a80338246b47bb7fe9193b8b5b5, type: 2}
-  rightHand: {fileID: 0}
-  leftHand: {fileID: 0}
+  rightHand: {fileID: 1385884263968700, guid: 3b1d13ad5cf349c49944ee635b567c1e, type: 2}
+  leftHand: {fileID: 1342084257357558, guid: 0ea39a84bfe8d514588ab0c2c6bc849a, type: 2}
 --- !u!114 &114765093453710276
 MonoBehaviour:
   m_ObjectHideFlags: 1
