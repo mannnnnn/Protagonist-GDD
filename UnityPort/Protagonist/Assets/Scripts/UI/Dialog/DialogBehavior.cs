@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 /**
  * This is the main DialogBehavior class file.
+ * Use DialogBehavior.RunDialog(file, ?label) to start dialog.
  * This class bridges the script execution logic of the Dialog class to the output of the DialogDisplayBehavior.
  * It also handles statements that the Dialog object cannot directly execute, such as:
  * "show", "hide", "event", and ""
@@ -19,12 +20,19 @@ using UnityEngine.UI;
  */
 public partial class DialogBehavior : MonoBehaviour, DialogTarget, SaveLoadTarget
 {
+    static DialogBehavior instance;
+
     public Dialog dialog { get; private set; }
     DialogEvents events;
     DialogDisplayBehavior display;
 
     void Start()
     {
+        if (instance != null)
+        {
+            return;
+        }
+        instance = this;
         // get display
         display = GetComponentInChildren<DialogDisplayBehavior>();
         events = GetComponent<DialogEvents>();
@@ -33,17 +41,30 @@ public partial class DialogBehavior : MonoBehaviour, DialogTarget, SaveLoadTarge
 
     void Update()
     {
-        if (display.state == UIDisplayBase.State.CLOSED && Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
-            // load dialog
-            dialog = DialogLoader.ReadFile("testcase.protd");
-            display.SetState(UIDisplayBase.State.OPENING);
-            dialog.Run(this);
+            RunDialog("testcase.protd");
         }
         if (Input.GetMouseButtonDown(0) && display.active)
         {
             dialog.Run(this);
         }
+    }
+
+    public static void RunDialog(string file, string label = null)
+    {
+        if (instance.display.state != UIDisplayBase.State.CLOSED)
+        {
+            return;
+        }
+        // load dialog
+        instance.dialog = DialogLoader.ReadFile(file);
+        instance.display.SetState(UIDisplayBase.State.OPENING);
+        if (label != null && label != "")
+        {
+            instance.dialog.Jump(label);
+        }
+        instance.dialog.Run(instance);
     }
 
     public void Display(List<string> characters, string text, Dictionary<string, object> statement)

@@ -96,6 +96,7 @@
     <Compile Include="Assets\Scripts\ControllersBehavior.cs" />
     <Compile Include="Assets\Scripts\Depth2DBehavior.cs" />
     <Compile Include="Assets\Scripts\DoorBehavior.cs" />
+    <Compile Include="Assets\Scripts\InteractableBehavior.cs" />
     <Compile Include="Assets\Scripts\Libraries\ProtagonistDialog\Dialog.cs" />
     <Compile Include="Assets\Scripts\Libraries\ProtagonistDialog\DialogBoolExpression.cs" />
     <Compile Include="Assets\Scripts\Libraries\ProtagonistDialog\DialogBoolParser.cs" />

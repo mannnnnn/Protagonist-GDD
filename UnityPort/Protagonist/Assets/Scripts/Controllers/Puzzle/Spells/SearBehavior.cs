@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Example of using ProjectileSpellBehavior.
+ */
 public class SearBehavior : ProjectileSpellBehavior
 {
     public GameObject hitEffect;

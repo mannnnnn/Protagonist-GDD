@@ -89,7 +89,7 @@ namespace Assets.Scripts.Libraries.ProtagonistDialog
                 }
                 else if (statement.ContainsKey("jump"))
                 {
-                    RunJump(statement, target);
+                    RunJump(statement);
                     current--;
                 }
                 else if (statement.ContainsKey("var"))
@@ -221,7 +221,11 @@ namespace Assets.Scripts.Libraries.ProtagonistDialog
             }
         }
 
-        private void RunJump(Dictionary<string, object> statement, DialogTarget target)
+        public void Jump(string label)
+        {
+            RunJump(new Dictionary<string, object>() { { "jump", label } });
+        }
+        private void RunJump(Dictionary<string, object> statement)
         {
             string jump = (string)statement["jump"];
             if (!labels.ContainsKey(jump))
