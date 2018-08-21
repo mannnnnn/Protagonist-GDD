@@ -247,6 +247,7 @@ GameObject:
   - component: {fileID: 114660146182274476}
   - component: {fileID: 114655402124941490}
   - component: {fileID: 114452025637091328}
+  - component: {fileID: 114822662211928932}
   - component: {fileID: 114253244588828434}
   m_Layer: 5
   m_Name: DialogGroup
@@ -439,6 +440,7 @@ GameObject:
   - component: {fileID: 224269723142723364}
   - component: {fileID: 114055685398448984}
   - component: {fileID: 114985383832881796}
+  - component: {fileID: 114978472546983458}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -2008,6 +2010,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114822662211928932
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1240722062689172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6224f761c10b545960fb3ff64f07a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114832265808786662
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2211,6 +2224,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 029bf02dc73c72343a266665527b3688, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114978472546983458
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1544908671478942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62592d7a8b7bfd54fadb30f558c62af1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114983642948622062

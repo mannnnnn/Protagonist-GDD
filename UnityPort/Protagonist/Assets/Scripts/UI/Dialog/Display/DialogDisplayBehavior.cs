@@ -5,6 +5,28 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using static UIDisplayBase;
+
+/**
+ * A dialog display is everything in UIDisplayBase, then SetText, TextFinished, AdvanceText, and SetMenu
+ */
+public interface DialogDisplay
+{
+    // UIDisplayBase
+    State state { get; }
+    bool active { get; }
+    void SetState(State state);
+    float GetY();
+    void SetTargetY(float screenY);
+    void SetAlpha(float alpha);
+    float GetSize();
+
+    // dialog display
+    void SetText(List<string> characters, string text, Dialog dialog = null);
+    bool TextFinished();
+    void AdvanceText(float amount);
+    List<Dictionary<string, object>> SetMenu(List<Dictionary<string, object>> options, string type, Dialog dialog);
+}
 
 /**
  * Handles display-related dialog tasks.
@@ -13,7 +35,7 @@ using UnityEngine.UI;
  * For the logic related to how dialog scripts are executed, see the Dialog object.
  * For the logic bridging the Dialog object to the display, see the DialogBehavior component.
  */
-public class DialogDisplayBehavior : UIDisplayBase
+public class DialogDisplayBehavior : UIDisplayBase, DialogDisplay
 {
     UIPanel dialogBox;
     UIPanel nameBox;
@@ -185,7 +207,7 @@ public class DialogDisplayBehavior : UIDisplayBase
     // handles the text scroll animation. called by Update
     private void UpdateTextScroll()
     {
-        textTimer += UITime.deltaTime;
+        AdvanceText(UITime.deltaTime);
         if (state == State.CLOSED)
         {
             textTimer = 0f;

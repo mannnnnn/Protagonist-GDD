@@ -48,18 +48,6 @@ public class InventoryDisplayBehavior : UIDisplayBase
 	// Update is called once per frame
 	protected override void Update () {
         base.Update();
-        // open/close
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            if (state == State.CLOSED)
-            {
-                SetState(State.OPENING);
-            }
-            if (state == State.OPEN)
-            {
-                SetState(State.CLOSING);
-            }
-        }
         // set target position
         switch (state)
         {
@@ -71,12 +59,6 @@ public class InventoryDisplayBehavior : UIDisplayBase
             case State.CLOSED:
                 SetTargetY(hiddenScreenY);
                 break;
-        }
-        if (Input.GetMouseButtonDown(0) && Input.GetKey(KeyCode.LeftControl))
-        {
-            int rnd = Random.Range(0, inventory.itemTypes.Count);
-            ItemType item = inventory.itemTypes.ToList()[rnd].Value;
-            inventory.AddItem(item);
         }
         // tell dialog whether inv is full or not
         Dialog.flags["inventoryFull"] = inventory.IsFull;

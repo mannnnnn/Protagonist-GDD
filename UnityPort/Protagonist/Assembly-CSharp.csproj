@@ -113,6 +113,7 @@
     <Compile Include="Assets\Scripts\UI\Dialog\DialogBehaviorActions.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\DialogEvents.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\DialogPrefabs.cs" />
+    <Compile Include="Assets\Scripts\UI\Dialog\DialogUserInputBehavior.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\Display\DialogAnimationBehavior.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\Display\DialogDisplayBehavior.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\Display\DialogMenuBehavior.cs" />
@@ -123,6 +124,7 @@
     <Compile Include="Assets\Scripts\UI\Inventory\InventoryDisplayBehavior.cs" />
     <Compile Include="Assets\Scripts\UI\Inventory\InventoryInfoBehavior.cs" />
     <Compile Include="Assets\Scripts\UI\Inventory\InventoryItemBehavior.cs" />
+    <Compile Include="Assets\Scripts\UI\Inventory\InventoryUserInputBehavior.cs" />
     <Compile Include="Assets\Scripts\UI\UICanvas.cs" />
     <Compile Include="Assets\Scripts\UI\UIDisplayBase.cs" />
     <Compile Include="Assets\Scripts\UI\UIPanel.cs" />

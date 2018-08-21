@@ -24,7 +24,7 @@ public partial class DialogBehavior : MonoBehaviour, DialogTarget, SaveLoadTarge
 
     public Dialog dialog { get; private set; }
     DialogEvents events;
-    DialogDisplayBehavior display;
+    DialogDisplay display;
 
     void Start()
     {
@@ -34,21 +34,14 @@ public partial class DialogBehavior : MonoBehaviour, DialogTarget, SaveLoadTarge
         }
         instance = this;
         // get display
-        display = GetComponentInChildren<DialogDisplayBehavior>();
+        display = GetComponentInChildren<DialogDisplay>();
         events = GetComponent<DialogEvents>();
         SaveLoad.Register("flags", this);
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            RunDialog("testcase.protd");
-        }
-        if (Input.GetMouseButtonDown(0) && display.active)
-        {
-            dialog.Run(this);
-        }
+
     }
 
     public static void RunDialog(string file, string label = null)

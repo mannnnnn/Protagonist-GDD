@@ -7,7 +7,7 @@ using UnityEngine;
 public interface DialogMenu
 {
     List<Dictionary<string, object>> Initialize(List<Dictionary<string, object>> options,
-        Dialog dialog, DialogTarget target, DialogDisplayBehavior display);
+        Dialog dialog, DialogTarget target, DialogDisplay display);
 }
 
 /**
@@ -24,7 +24,7 @@ public class DialogMenuBehavior : UIDisplayBase, DialogMenu
     // uses dialog object by calling dialog.ChooseMenuOption
     Dialog dialog;
     DialogTarget target;
-    DialogDisplayBehavior display;
+    DialogDisplay display;
     float displayY;
 
     List<string> options = new List<string>();
@@ -35,7 +35,7 @@ public class DialogMenuBehavior : UIDisplayBase, DialogMenu
 
     // called by Dialog through DialogBehavior
     public List<Dictionary<string, object>> Initialize(List<Dictionary<string, object>> options,
-        Dialog dialog, DialogTarget target, DialogDisplayBehavior display)
+        Dialog dialog, DialogTarget target, DialogDisplay display)
     {
         this.dialog = dialog;
         this.target = target;
