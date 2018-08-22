@@ -35,9 +35,9 @@ namespace Assets.Scripts.Libraries.ProtagonistDialog
             {
                 return false;
             }
-            else if (Dialog.flags.ContainsKey(expr))
+            else if (DialogParser.flags.ContainsKey(expr))
             {
-                return Dialog.flags[expr];
+                return DialogParser.flags[expr];
             }
             return false;
         }

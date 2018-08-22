@@ -14,7 +14,6 @@ public interface DialogDisplay
 {
     // UIDisplayBase
     State state { get; }
-    bool active { get; }
     void SetState(State state);
     float GetY();
     void SetTargetY(float screenY);
@@ -22,25 +21,25 @@ public interface DialogDisplay
     float GetSize();
 
     // dialog display
-    void SetText(List<string> characters, string text, Dialog dialog = null);
+    void SetText(List<string> characters, string text, DialogParser parser = null);
     bool TextFinished();
     void AdvanceText(float amount);
-    List<Dictionary<string, object>> SetMenu(List<Dictionary<string, object>> options, string type, Dialog dialog);
+    List<Dictionary<string, object>> SetMenu(List<Dictionary<string, object>> options, string type, DialogParser parser);
 }
 
 /**
  * Handles display-related dialog tasks.
  * This includes setting text contents, setting y position (height), alpha, and state.
  * This also handles the text scrolling animation and its related functionality (like talk/speak animation)
- * For the logic related to how dialog scripts are executed, see the Dialog object.
- * For the logic bridging the Dialog object to the display, see the DialogBehavior component.
+ * For the logic related to how dialog scripts are executed, see the DialogParser object.
+ * For the logic bridging the DialogParser object to the display, see the Dialog component.
  */
 public class DialogDisplayBehavior : UIDisplayBase, DialogDisplay
 {
     UIPanel dialogBox;
     UIPanel nameBox;
     NameBoxBehavior setNameBox;
-    DialogBehavior dialogBehavior;
+    Dialog dialog;
 
     GameObject menu;
 
@@ -71,7 +70,7 @@ public class DialogDisplayBehavior : UIDisplayBase, DialogDisplay
         dialogBox = transform.Find("DialogueBox").gameObject.GetComponent<UIPanel>();
         nameBox = transform.Find("NameBox").gameObject.GetComponent<UIPanel>();
         setNameBox = GetComponentInChildren<NameBoxBehavior>();
-        dialogBehavior = GetComponentInParent<DialogBehavior>();
+        dialog = GetComponent<Dialog>();
         SetName("");
         // set y position and y target position
         SetY(0);
@@ -108,7 +107,7 @@ public class DialogDisplayBehavior : UIDisplayBase, DialogDisplay
     protected override bool PendingClose()
     {
         bool close = true;
-        foreach (DialogCharacter chr in dialogBehavior.dialog.characters.Values)
+        foreach (DialogCharacter chr in dialog.parser.characters.Values)
         {
             if (chr.gameObject != null)
             {
@@ -138,26 +137,26 @@ public class DialogDisplayBehavior : UIDisplayBase, DialogDisplay
         dialogBox.SetAlpha(alpha);
     }
 
-    // call to set the text contents of the display, both nameplate and textbox. Called by DialogBehavior
-    public void SetText(List<string> characters, string text, Dialog dialog = null)
+    // call to set the text contents of the display, both nameplate and textbox. Called by Dialog
+    public void SetText(List<string> characters, string text, DialogParser parser = null)
     {
         // calculate name
         string character = "";
         if (characters.Count != 0)
         {
-            character += string.Join(", ", characters.Select(x => dialog.characters[x].name).Take(characters.Count - 1).ToArray());
+            character += string.Join(", ", characters.Select(x => parser.characters[x].name).Take(characters.Count - 1).ToArray());
             if (characters.Count != 1)
             {
                 character += " and ";
             }
             string last = characters[characters.Count - 1];
-            character += dialog.characters[last].name;
+            character += parser.characters[last].name;
         }
         // set name
         float center = 0f;
         foreach (string c in characters)
         {
-            center += DialogBehavior.sides[dialog.characters[c].position].x;
+            center += Dialog.sides[parser.characters[c].position].x;
         }
         center = center / characters.Count;
         SetName(character, center);
@@ -167,12 +166,12 @@ public class DialogDisplayBehavior : UIDisplayBase, DialogDisplay
         textTimer = 0f;
         // set who is speaking
         speakers.Clear();
-        if (dialog != null)
+        if (parser != null)
         {
-            foreach (string c in dialog.characters.Keys)
+            foreach (string c in parser.characters.Keys)
             {
                 // speaking is true if in the character list, false otherwise
-                GameObject dialogAnim = dialog.characters[c].gameObject;
+                GameObject dialogAnim = parser.characters[c].gameObject;
                 if (dialogAnim != null)
                 {
                     bool speak = characters.Contains(c);
@@ -208,7 +207,7 @@ public class DialogDisplayBehavior : UIDisplayBase, DialogDisplay
     private void UpdateTextScroll()
     {
         AdvanceText(UITime.deltaTime);
-        if (state == State.CLOSED)
+        if (!dialog.Active)
         {
             textTimer = 0f;
         }
@@ -244,14 +243,14 @@ public class DialogDisplayBehavior : UIDisplayBase, DialogDisplay
         return textPosition == textFull.Length;
     }
     // used to fast-forward the text scrolling.
-    // Note that to advance to the next statement, you need to call Run in DialogBehavior.
+    // Note that to advance to the next statement, you need to call Run in Dialog.
     public void AdvanceText(float amount)
     {
         textTimer += amount;
     }
 
-    // dialog menu creation, called by DialogBehavior
-    public List<Dictionary<string, object>> SetMenu(List<Dictionary<string, object>> options, string type, Dialog dialog)
+    // dialog menu creation, called by Dialog
+    public List<Dictionary<string, object>> SetMenu(List<Dictionary<string, object>> options, string type, DialogParser parser)
     {
         // create a menu
         if (!DialogPrefabs.Menus.ContainsKey(type))
@@ -265,6 +264,6 @@ public class DialogDisplayBehavior : UIDisplayBase, DialogDisplay
         {
             throw new ParseError("Prefab for Menu Type '" + type + "' has no DialogMenuBehavior component.");
         }
-        return menu.Initialize(options, dialog, dialogBehavior, this);
+        return menu.Initialize(options, parser, dialog, this);
     }
 }

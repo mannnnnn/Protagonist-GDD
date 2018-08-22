@@ -25,7 +25,7 @@ public class InteractableBehavior : MonoBehaviour
             Vector2 point = col.bounds.ClosestPoint(player.transform.position);
             if (Vector2.Distance(point, player.transform.position) < distance)
             {
-                DialogBehavior.RunDialog(file, label);
+                Dialog.RunDialog(file, label);
             }
         }
 	}

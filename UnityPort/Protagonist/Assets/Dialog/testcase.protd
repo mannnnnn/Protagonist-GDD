@@ -7,6 +7,7 @@
         character: "Protagonist",
         abbrev: "P"
     },
+
     {
         show: {
             name: "P",
@@ -36,6 +37,7 @@
     },
     { "H|H|H|P": "Hello, world from both of us!" },
     { P: "And hello from me again!" },
+
     { var: "x", val: true },
     { var: "y", val: false },
     { var: "z", val: "x || y" },
@@ -48,6 +50,7 @@
             { H: "Else ran." }
         ]
     },
+
     {
         hide: {
             name: "H"
@@ -69,6 +72,7 @@
             side: "Center"
         }
     },
+
     { jump: "hadesSaysHi" },
     {
         show: {
@@ -85,6 +89,7 @@
             { H: "Hi again." }
         ]
     },
+
     {
         menu: [
             {
@@ -108,6 +113,26 @@
         ],
         menuType: "Default"
     },
+
     { H: "The last hi." },
-    { H: "The last hi2." }
+    { H: "The last hi2." },
+
+    { H: "5 second wait." },
+    {
+        event: "wait",
+        args: {
+            duration: "5"
+        }
+    },
+    { H: "One extra click." },
+    { event: "pause" },
+    { H: "Goodbye text." },
+    { event: "hide" },
+    { H: "Hello text." },
+    { event: "show" },
+    { event: "pause" },
+    { event: "hide" },
+    { event: "pause" },
+    { event: "show" },
+    { H: "That worked." }
 ]

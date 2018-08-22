@@ -7,38 +7,59 @@ using UnityEngine;
 
 public interface DialogUserInput
 {
-
+    // Forces dialog to wait by preventing user input. Used for certain cutscenes
+    void Freeze(object key);
+    void Unfreeze(object key);
 }
 
 public class DialogUserInputBehavior : MonoBehaviour, DialogUserInput
 {
-    DialogBehavior dialogBehavior;
+    Dialog dialog;
     DialogDisplay display;
     float fastForwardSpd = 15f;
 
+    // when we want to prevent user input
+    Dictionary<object, bool> freezes = new Dictionary<object, bool>();
+
     void Start()
     {
-        dialogBehavior = GetComponent<DialogBehavior>();
+        dialog = GetComponent<Dialog>();
         display = GetComponent<DialogDisplay>();
     }
 
     void Update()
     {
+        // do nothing if user input is frozen
+        if (freezes.Count > 0)
+        {
+            return;
+        }
+        // handle user input
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            DialogBehavior.RunDialog("testcase.protd");
+            Dialog.RunDialog("testcase.protd");
         }
-        if (Input.GetMouseButtonDown(0) && display.active)
+        if (Input.GetMouseButtonDown(0) && dialog.Active)
         {
-            dialogBehavior.dialog.Run(dialogBehavior);
+            Dialog.Advance();
         }
-        if (Input.GetKey(KeyCode.LeftControl) && display.active)
+        if (Input.GetKey(KeyCode.LeftControl) && dialog.Active)
         {
             if (display.TextFinished())
             {
-                dialogBehavior.dialog.Run(dialogBehavior);
+                Dialog.Advance();
             }
             display.AdvanceText(fastForwardSpd * UITime.deltaTime);
         }
+    }
+
+    public void Freeze(object key)
+    {
+        freezes[key] = true;
+    }
+
+    public void Unfreeze(object key)
+    {
+        freezes.Remove(key);
     }
 }

@@ -9,10 +9,10 @@ namespace Assets.Scripts.Libraries.ProtagonistDialog
      * Master of dialog script execution. Takes in parsed json, and can execute it as protagonist dialog.
      * Handles all control flow, such as jumps and ifs, but cannot handle anything that accesses the Unity Engine.
      * That responsibility is passed to the given DialogTarget.
-     * See DialogBehavior, which is the DialogTarget this outputs to.
-     * The constructor for Dialog objects is directly accessible to the Unity scripts. To obtain a Dialog object, see DialogLoader.
+     * See Dialog, which is the DialogTarget this outputs to.
+     * The constructor for DialogParser objects is directly accessible to the Unity scripts. To obtain a DialogParser object, see DialogLoader.
      */
-    public class Dialog
+    public class DialogParser
     {
         // defined characters and labels
         public Dictionary<string, DialogCharacter> characters = new Dictionary<string, DialogCharacter>();
@@ -44,7 +44,7 @@ namespace Assets.Scripts.Libraries.ProtagonistDialog
             }
         }
         
-        internal Dialog(List<object> json)
+        internal DialogParser(List<object> json)
         {
             block = CastBlock(json);
             currentBlock = block;
@@ -385,15 +385,15 @@ namespace Assets.Scripts.Libraries.ProtagonistDialog
         }
     }
 
-    // Dialog object outputs to one of these
+    // DialogParser object outputs to one of these
     public interface DialogTarget
     {
         // return false means stop dialog execution (e.g. to wait 1 second). Return true means keep going.
-        bool Run(Dictionary<string, object> statement, Dialog dialog);
+        bool Run(Dictionary<string, object> statement, DialogParser dialog);
         // when a character or "" is specified, this is called in the same fashion as Run
         void Display(List<string> character, string text, Dictionary<string, object> statement);
         // inform that dialog is finished with execution
-        void Finish(Dialog dialog);
+        void Finish(DialogParser dialog);
         // get custom menu
         List<Dictionary<string, object>> GetMenu(List<Dictionary<string, object>> menu, string type = "Default");
     }

@@ -8,23 +8,25 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /**
- * This is the main DialogBehavior class file.
- * Use DialogBehavior.RunDialog(file, ?label) to start dialog.
- * This class bridges the script execution logic of the Dialog class to the output of the DialogDisplayBehavior.
- * It also handles statements that the Dialog object cannot directly execute, such as:
+ * This is the main Dialog class file.
+ * Use Dialog.RunDialog(file, ?label) to start dialog.
+ * This class bridges the script execution logic of the DialogParser class to the output of the DialogDisplayBehavior.
+ * It also handles statements that the DialogParser object cannot directly execute, such as:
  * "show", "hide", "event", and ""
- * These cannot be directly handled by Dialog since these need the Unity Engine access.
+ * These cannot be directly handled by DialogParser since these need the Unity Engine access.
  * For the output display for the dialog, see DialogDisplayBehavior.
- * For the script execution logic, see Dialog.
- * For the stick-on addition to DialogBehavior that holds the various statements it handles like "show", see DialogBehaviorActions
+ * For the script execution logic, see DialogParser.
+ * For the stick-on addition to Dialog that holds the various statements it handles like "show", see DialogActions
  */
-public partial class DialogBehavior : MonoBehaviour, DialogTarget, SaveLoadTarget
+public partial class Dialog : MonoBehaviour, DialogTarget, SaveLoadTarget
 {
-    static DialogBehavior instance;
+    static Dialog instance;
 
-    public Dialog dialog { get; private set; }
+    public DialogParser parser { get; private set; }
     DialogEvents events;
     DialogDisplay display;
+
+    public bool Active { get; private set; } = false;
 
     void Start()
     {
@@ -39,33 +41,37 @@ public partial class DialogBehavior : MonoBehaviour, DialogTarget, SaveLoadTarge
         SaveLoad.Register("flags", this);
     }
 
-    void Update()
+    public static Dialog GetInstance()
     {
-
+        return instance;
     }
-
     public static void RunDialog(string file, string label = null)
     {
         if (instance.display.state != UIDisplayBase.State.CLOSED)
         {
             return;
         }
-        // load dialog
-        instance.dialog = DialogLoader.ReadFile(file);
+        // load dialog file
+        instance.parser = DialogLoader.ReadFile(file);
         instance.display.SetState(UIDisplayBase.State.OPENING);
         if (label != null && label != "")
         {
-            instance.dialog.Jump(label);
+            instance.parser.Jump(label);
         }
-        instance.dialog.Run(instance);
+        instance.Active = true;
+        instance.parser.Run(instance);
+    }
+    public static void Advance()
+    {
+        instance.parser.Run(instance);
     }
 
     public void Display(List<string> characters, string text, Dictionary<string, object> statement)
     {
-        display.SetText(characters, text, dialog);
+        display.SetText(characters, text, parser);
     }
 
-    public bool Run(Dictionary<string, object> statement, Dialog dialog)
+    public bool Run(Dictionary<string, object> statement, DialogParser parser)
     {
         // Debug.Log("Run: " + string.Join(",", statement.Keys.Select(x => x.ToString()).ToArray()));
         // nameplate-less statement
@@ -115,24 +121,25 @@ public partial class DialogBehavior : MonoBehaviour, DialogTarget, SaveLoadTarge
         throw new ParseError("Character or statement '" + statement.Keys.First() + "' does not exist.");
     }
 
-    public void Finish(Dialog dialog)
+    public void Finish(DialogParser parser)
     {
         display.SetState(UIDisplayBase.State.PENDING_CLOSE);
+        instance.Active = false;
     }
 
     public List<Dictionary<string, object>> GetMenu(List<Dictionary<string, object>> menu, string type = "Default")
     {
-        // the menu created will call dialog.ChooseMenuOption(option) so we don't need to
-        return display.SetMenu(menu, type, dialog);
+        // the menu created will call parser.ChooseMenuOption(option) so we don't need to
+        return display.SetMenu(menu, type, parser);
     }
 
     // save/load flags
     public object GetSaveData()
     {
-        return Dialog.flags;
+        return DialogParser.flags;
     }
     public void LoadSaveData(object save)
     {
-        Dialog.flags = (Dictionary<string, bool>)save;
+        DialogParser.flags = (Dictionary<string, bool>)save;
     }
 }

@@ -61,7 +61,7 @@ public class DialogAnimationBehavior : MonoBehaviour {
     {
         anim.SetBool("Talk", value);
     }
-    public void SetImage(DialogBehavior.DialogImage image)
+    public void SetImage(Dialog.DialogImage image)
     {
         anim.SetInteger("Image", (int)image);
     }

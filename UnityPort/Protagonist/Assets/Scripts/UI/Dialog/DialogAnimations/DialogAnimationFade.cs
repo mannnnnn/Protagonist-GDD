@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /**
- * Dialog animation where character image fades in.
+ * DialogParser animation where character image fades in.
  */
 public class DialogAnimationFade : TimedDialogAnimation
 {

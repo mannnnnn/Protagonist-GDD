@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /**
- * Dialog animation where character image appears/disappears in one frame.
+ * DialogParser animation where character image appears/disappears in one frame.
  */
 public class DialogAnimationJump : TimedDialogAnimation
 {

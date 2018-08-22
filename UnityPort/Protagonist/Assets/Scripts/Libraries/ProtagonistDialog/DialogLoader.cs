@@ -9,17 +9,17 @@ using UnityEngine;
 namespace Assets.Scripts.Libraries.ProtagonistDialog
 {
     /**
-     * The way to obtain a Dialog object.
-     * Pass into ReadFile the file path to a .protd file, where the directory starts at "Assets/Dialog/"
-     * This will output a Dialog object.
-     * Used by the component DialogBehavior.
+     * The way to obtain a DialogParser object.
+     * Pass into ReadFile the file path to a .protd file, where the directory starts at "Assets/DialogParser/"
+     * This will output a DialogParser object.
+     * Used by the component Dialog.
      */
     public class DialogLoader
     {
-        public static Dialog ReadFile(string path)
+        public static DialogParser ReadFile(string path)
         {
             string contents = File.ReadAllText("Assets/Dialog/" + path);
-            return new Dialog((List<object>)JsonToData.Deserialize(contents));
+            return new DialogParser((List<object>)JsonToData.Deserialize(contents));
         }
     }
 }

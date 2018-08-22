@@ -7,7 +7,7 @@ using UnityEngine;
 public interface DialogMenu
 {
     List<Dictionary<string, object>> Initialize(List<Dictionary<string, object>> options,
-        Dialog dialog, DialogTarget target, DialogDisplay display);
+        DialogParser dialog, DialogTarget target, DialogDisplay display);
 }
 
 /**
@@ -22,7 +22,7 @@ public class DialogMenuBehavior : UIDisplayBase, DialogMenu
     public GameObject button;
 
     // uses dialog object by calling dialog.ChooseMenuOption
-    Dialog dialog;
+    DialogParser parser;
     DialogTarget target;
     DialogDisplay display;
     float displayY;
@@ -33,11 +33,11 @@ public class DialogMenuBehavior : UIDisplayBase, DialogMenu
     // note that since the back panel has no text, using SetText will throw.
     UIPanel backPanel;
 
-    // called by Dialog through DialogBehavior
+    // called by DialogParser through Dialog
     public List<Dictionary<string, object>> Initialize(List<Dictionary<string, object>> options,
-        Dialog dialog, DialogTarget target, DialogDisplay display)
+        DialogParser parser, DialogTarget target, DialogDisplay display)
     {
-        this.dialog = dialog;
+        this.parser = parser;
         this.target = target;
         this.display = display;
         foreach (Dictionary<string, object> option in options)
@@ -106,7 +106,7 @@ public class DialogMenuBehavior : UIDisplayBase, DialogMenu
                 chosen = i;
             }
         }
-        dialog.ChooseMenuOption(chosen, target);
+        parser.ChooseMenuOption(chosen, target);
         Destroy(gameObject);
     }
 

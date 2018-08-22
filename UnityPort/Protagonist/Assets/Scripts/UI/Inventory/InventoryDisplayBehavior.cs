@@ -61,7 +61,7 @@ public class InventoryDisplayBehavior : UIDisplayBase
                 break;
         }
         // tell dialog whether inv is full or not
-        Dialog.flags["inventoryFull"] = inventory.IsFull;
+        DialogParser.flags["inventoryFull"] = inventory.IsFull;
         // interact with items. Select/hover
         ItemInteraction();
     }

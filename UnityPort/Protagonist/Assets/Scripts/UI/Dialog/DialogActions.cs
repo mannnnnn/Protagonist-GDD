@@ -6,12 +6,12 @@ using System.Text;
 using UnityEngine;
 
 /**
- * This is a partial class to DialogBehavior. It has methods that handle statements like "show" and "hide".
+ * This is a partial class to Dialog. It has methods that handle statements like "show" and "hide".
  * This is so that the statement-handling methods are not in the same file as the logic.
  * This also houses some important enums and static dictionaries.
- * For the main thing, see DialogBehavior.cs
+ * For the main thing, see Dialog.cs
  */
-public partial class DialogBehavior
+public partial class Dialog
 {
     // sides and positions
     public static readonly Dictionary<string, Vector2> sides = new Dictionary<string, Vector2>()
@@ -33,7 +33,7 @@ public partial class DialogBehavior
         Normal, Happy, Glitch
     }
     static Dictionary<string, DialogImage> images = new Dictionary<string, DialogImage>();
-    static DialogBehavior() {
+    static Dialog() {
         foreach (DialogImage img in Enum.GetValues(typeof(DialogImage)))
         {
             images[img.ToString()] = img;
@@ -80,11 +80,11 @@ public partial class DialogBehavior
         // name is required
         var name = GetValue(show, "name");
         // find the character obj with this name
-        if (!dialog.characters.ContainsKey(name))
+        if (!parser.characters.ContainsKey(name))
         {
             throw new ParseError("A character with name '" + name + "' does not exist.");
         }
-        var chr = dialog.characters[name];
+        var chr = parser.characters[name];
         // set transition if necessary
         var transition = GetValue(show, "transition", true);
         if (transition != null)
