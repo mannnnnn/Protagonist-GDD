@@ -163,9 +163,17 @@ namespace Assets.Scripts.Libraries.ProtagonistDialog
         // called by the dialog target when a menu option is chosen
         public void ChooseMenuOption(int option, DialogTarget target)
         {
-            if (menu == null || option < 0 || option >= menu.Count)
+            // if menu isn't meant to choose an option
+            if (menu == null || menu.Count == 0)
             {
-                throw new ParseError("Option or menu does not exist.");
+                menu = null;
+                Run(target);
+                return;
+            }
+            // check for invalid options
+            if (option < 0 || option >= menu.Count)
+            {
+                throw new ParseError("Option does not exist.");
             }
             var menuOption = menu[option];
             if (!menuOption.ContainsKey("block"))

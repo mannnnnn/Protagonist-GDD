@@ -501,12 +501,7 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 073badf50c6f59440895bdf2d1a9500e, type: 2}
   m_IsPrefabAsset: 0
---- !u!20 &1409198924 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 20459689107776480, guid: 073badf50c6f59440895bdf2d1a9500e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1110057084}
---- !u!1001 &1582033843
+--- !u!1001 &1262142600
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -611,6 +606,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e616bbdce673f04ea48d9499cbe91e2, type: 2}
   m_IsPrefabAsset: 0
+--- !u!20 &1409198924 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 20459689107776480, guid: 073badf50c6f59440895bdf2d1a9500e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1110057084}
 --- !u!1001 &1952151875
 Prefab:
   m_ObjectHideFlags: 0

@@ -45,6 +45,7 @@ public partial class Dialog : MonoBehaviour, DialogTarget, SaveLoadTarget
     {
         return instance;
     }
+    // load a dialog file and run the first instruction
     public static void RunDialog(string file, string label = null)
     {
         if (instance.display.state != UIDisplayBase.State.CLOSED)
@@ -61,6 +62,7 @@ public partial class Dialog : MonoBehaviour, DialogTarget, SaveLoadTarget
         instance.Active = true;
         instance.parser.Run(instance);
     }
+    // go to next dialog instruction
     public static void Advance()
     {
         instance.parser.Run(instance);
@@ -70,7 +72,6 @@ public partial class Dialog : MonoBehaviour, DialogTarget, SaveLoadTarget
     {
         display.SetText(characters, text, parser);
     }
-
     public bool Run(Dictionary<string, object> statement, DialogParser parser)
     {
         // Debug.Log("Run: " + string.Join(",", statement.Keys.Select(x => x.ToString()).ToArray()));

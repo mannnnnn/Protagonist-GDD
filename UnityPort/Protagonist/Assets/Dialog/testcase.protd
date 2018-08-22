@@ -115,6 +115,7 @@
     },
 
     { H: "The last hi." },
+    { menu: [], menuType: "CheckInventory" },
     { H: "The last hi2." },
 
     { H: "5 second wait." },

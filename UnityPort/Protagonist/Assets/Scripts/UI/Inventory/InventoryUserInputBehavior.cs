@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.UI.Inventory;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +10,7 @@ public interface InventoryUserInput
 
 }
 
-public class InventoryUserInputBehavior : MonoBehaviour
+public class InventoryUserInputBehavior : MonoBehaviour, InventoryUserInput
 {
     InventoryDisplayBehavior display;
     Inventory inventory;

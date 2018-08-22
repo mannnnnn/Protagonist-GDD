@@ -112,7 +112,9 @@
     <Compile Include="Assets\Scripts\UI\Dialog\DialogAnimations\DialogAnimationSwing.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\DialogAnimations\DialogSwingable.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\DialogEvents.cs" />
+    <Compile Include="Assets\Scripts\UI\Dialog\DialogEvents\CheckInventoryMenu.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\DialogEvents\DialogFreezer.cs" />
+    <Compile Include="Assets\Scripts\UI\Dialog\DialogEvents\InventoryUserInputRemove.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\DialogPrefabs.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\DialogUserInputBehavior.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\Display\DialogAnimationBehavior.cs" />

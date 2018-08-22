@@ -1,5 +1,4 @@
 ﻿using Assets.Scripts.Libraries.ProtagonistDialog;
-using Assets.Scripts.UI.Inventory;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;

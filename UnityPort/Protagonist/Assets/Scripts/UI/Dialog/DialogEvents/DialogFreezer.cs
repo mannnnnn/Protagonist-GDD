@@ -34,6 +34,7 @@ public class DialogFreezer : MonoBehaviour
             {
                 userInput.Unfreeze(this);
             }
+            Dialog.Advance();
             Destroy(this);
         }
     }

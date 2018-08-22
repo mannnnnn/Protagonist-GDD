@@ -1025,7 +1025,6 @@ MonoBehaviour:
     prefab: {fileID: 1072196828734776, guid: ea40f61db81a32447b0f744cfec7dd60, type: 2}
   - name: savvy
     prefab: {fileID: 1452508264574350, guid: be8a2638810935c488f7183266da8ca5, type: 2}
-  InventorySize: 25
 --- !u!114 &114093521802841186
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1456,6 +1455,8 @@ MonoBehaviour:
   menus:
   - name: Default
     prefab: {fileID: 1751481451366056, guid: b9e6d6125b94ab74590842acb8b7a613, type: 2}
+  - name: CheckInventory
+    prefab: {fileID: 1411159303865154, guid: 175a98b98bf4dd849bb0588ff80a71e5, type: 2}
 --- !u!114 &114464936019688886
 MonoBehaviour:
   m_ObjectHideFlags: 1

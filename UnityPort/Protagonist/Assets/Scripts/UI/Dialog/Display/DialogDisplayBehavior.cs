@@ -207,7 +207,7 @@ public class DialogDisplayBehavior : UIDisplayBase, DialogDisplay
     private void UpdateTextScroll()
     {
         AdvanceText(UITime.deltaTime);
-        if (!dialog.Active)
+        if (!dialog.Active && state == State.CLOSED)
         {
             textTimer = 0f;
         }
@@ -259,7 +259,7 @@ public class DialogDisplayBehavior : UIDisplayBase, DialogDisplay
         }
         // set on same level as the dialog menu group
         GameObject menuObj = Instantiate(DialogPrefabs.Menus[type], UICanvas.GetTransform());
-        DialogMenuBehavior menu = menuObj.GetComponent<DialogMenuBehavior>();
+        DialogMenu menu = menuObj.GetComponent<DialogMenu>();
         if (menu == null)
         {
             throw new ParseError("Prefab for Menu Type '" + type + "' has no DialogMenuBehavior component.");
