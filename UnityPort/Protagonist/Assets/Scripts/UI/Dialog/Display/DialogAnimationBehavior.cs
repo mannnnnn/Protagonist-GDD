@@ -104,11 +104,12 @@ public class DialogAnimationBehavior : MonoBehaviour {
 
     public void SetPosition(Vector2 pos, bool instant = false)
     {
+        Vector2 worldPos = ResolutionHandler.MapViewToWorldPoint(pos);
         if (instant)
         {
-            transform.position = ResolutionHandler.MapViewToWorldPoint(pos);
+            transform.position = new Vector3(worldPos.x, worldPos.y, transform.position.z);
         }
-        this.pos = ResolutionHandler.MapViewToWorldPoint(pos);
+        this.pos = new Vector3(worldPos.x, worldPos.y, transform.position.z);
     }
 
     // whether or not this is the character that is speaking
@@ -128,7 +129,8 @@ public class DialogAnimationBehavior : MonoBehaviour {
         // move towards target position
         if ((Vector2)transform.position != pos)
         {
-            transform.position = Vector2.MoveTowards(transform.position, pos, worldSpd * UITime.deltaTime);
+            Vector2 worldPos = Vector2.MoveTowards(transform.position, pos, worldSpd * UITime.deltaTime);
+            transform.position = new Vector3(worldPos.x, worldPos.y, transform.position.z);
         }
         // if necessary and on left side of the screen, flip sprite
         if (flipOnLeft)

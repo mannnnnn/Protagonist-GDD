@@ -650,6 +650,7 @@ GameObject:
   - component: {fileID: 224248195265031554}
   - component: {fileID: 222669228207638738}
   - component: {fileID: 114122074118785832}
+  - component: {fileID: 114551844064149914}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
@@ -1080,7 +1081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1496,6 +1497,8 @@ MonoBehaviour:
     prefab: {fileID: 1945100827670942, guid: 2a4a475fd6980f442985f7734b29226b, type: 2}
   - name: Hades
     prefab: {fileID: 1691183689219656, guid: e4ce10ab1a0867f4fbc613ff861a66d1, type: 2}
+  - name: Sphinx
+    prefab: {fileID: 1582483143511626, guid: 789a718ed5be74742997902b8f5cf4e5, type: 2}
   menus:
   - name: Default
     prefab: {fileID: 1751481451366056, guid: b9e6d6125b94ab74590842acb8b7a613, type: 2}
@@ -1839,6 +1842,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   box: {fileID: 0}
+--- !u!114 &114551844064149914
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1794939011888940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98b4e714f9d90dc488343aecbd1d1457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114617071474062034
 MonoBehaviour:
   m_ObjectHideFlags: 1
