@@ -1,46 +1,42 @@
-//jungle10 (pre puzzle)
-//Characters: Apollo, Protagonist
-//Triggers in the second puzzle map
+[
+    {
+        character: "Apollo the Confusing Linguist",
+        abbrev: "Ap"
+    },
+    {
+        character: "Protagonist",
+        abbrev: "P"
+    },
 
-//CHARACTERS
-character P
-{
-    name = "Protagonist"
-    side = left
-}
-character Ap
-{
-	name = "Apollo the Confusing Linguist"
-	side = right
-}
-
-//
-show P spr_defaultSpeak
-//
-
-P: "Another one? Really?"
-P: "This one looks a lot harder."
-
-//
-show Ap spr_talkApollo
-with Apollo_swing
-//
-
-Ap: "Solved it!"
-P: "What is it?"
-Ap: "Go on and figure it out! I believe in you!"
-P: "There's multiple 'u's I don't know which one to believe is the error."
-show Ap spr_talkApolloAnnoy
-with nothing
-//
-
-Ap: "Oh boy, I'm going to pull up a chair."
-
-hide P
-with fade
-hide Ap
-with Apollo_swing
-
-wait for drawers
-exit
-
+    {
+        show: {
+            name: "P",
+            side: "Left",
+            sprite: "Protagonist",
+            transition: "Fade",
+            image: "Normal"
+        }
+    },
+    { P: "Another one? Really?" },
+    { P: "This one looks a lot harder." },
+    {
+        show: {
+            name: "Ap",
+            side: "Right",
+            sprite: "Apollo",
+            transition: "Swing",
+            image: "Happy"
+        }
+    },
+    { Ap: "Solved it!" },
+    { P: "What is it?" },
+    { Ap: "Go on and figure it out! I believe in you!" },
+    { P: "There's multiple 'u's I don't know which one to believe is the error." },
+    {
+        show: {
+            name: "Ap",
+            image: "Normal"
+        }
+    },
+    { Ap: "Oh boy, I'm going to pull up a chair." }
+]

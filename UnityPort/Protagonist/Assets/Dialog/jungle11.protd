@@ -1,53 +1,51 @@
+[
+    {
+        character: "Apollo the Slightly Less Bored Than Before",
+        abbrev: "Ap"
+    },
+    {
+        character: "Protagonist",
+        abbrev: "P"
+    },
 
-//jungle11 (post puzzle)
-//Characters: Apollo, Protagonist
-//Triggers in the second puzzle map
-
-//CHARACTERS
-character P
-{
-	name = "Protagonist"
-	side = left
-}
-character Ap
-{
-	name = "Apollo the Slightly Less Bored Than Before"
-	side = right
-}
-
-//
-show P spr_defaultSpeak
-//
-
-P: "Got it!"
-
-//
-show Ap spr_talkApollo
-with Apollo_swing
-//
-
-Ap: "Yeah-ha-hah! Way to go little mortal! I knew you could do it!"
-P: "It was actually an 'f', not a 'u'"
-show Ap spr_talkApolloAnnoy
-with nothing
-//
-
-Ap: "Hey watch your language. This game doesn't allow swearing."
-Ap: "Hades and I have been trying to fix that for years."
-P: "You and Hades hang out?"
-show Ap spr_talkApollo
-with nothing
-//
-
-Ap: "Aw yeah, Hades is great."
-Ap: "Hades told me all about this place so I could test my wicked intellect on that Sphinxx's riddle."
-P: "About that, maybe we could try to find a different way to-"
-Ap: "Chop chop let's keep a move on, sport. There's more cats for you to explode."
-
-hide P
-with fade
-hide Ap
-with Apollo_swing
-
-wait for drawers
-exit
+    {
+        show: {
+            name: "P",
+            side: "Left",
+            sprite: "Protagonist",
+            transition: "Fade",
+            image: "Normal"
+        }
+    },
+    { P: "Got it!" },
+    {
+        show: {
+            name: "Ap",
+            side: "Right",
+            sprite: "Apollo",
+            transition: "Swing",
+            image: "Happy"
+        }
+    },
+    { Ap: "Yeah-ha-hah! Way to go little mortal! I knew you could do it!" },
+    { P: "It was actually an 'f', not a 'u'" },
+    {
+        show: {
+            name: "Ap",
+            image: "Normal"
+        }
+    },
+    { Ap: "Hey watch your language. This game doesn't allow swearing." },
+    { Ap: "Hades and I have been trying to fix that for years." },
+    { P: "You and Hades hang out?" },
+    {
+        show: {
+            name: "Ap",
+            image: "Happy"
+        }
+    },
+    { Ap: "Aw yeah, Hades is great." },
+    { Ap: "Hades told me all about this place so I could test my wicked intellect on that Sphinxx's riddle." },
+    { P: "About that, maybe we could try to find a different way to-" },
+    { Ap: "Chop chop, let's keep a move on, sport. There's more cats for you to explode." }
+]
