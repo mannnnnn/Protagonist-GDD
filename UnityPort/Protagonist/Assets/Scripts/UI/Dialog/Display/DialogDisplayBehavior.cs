@@ -48,10 +48,10 @@ public class DialogDisplayBehavior : UIDisplayBase, DialogDisplay
     int textPosition = 0;
     float textTimer = 0f;
     // pause for different times at , and .
-    const float textPauseDefault = 0.06f;
+    const float textPauseDefault = 0.03f;
     static Dictionary<char, float> textPause = new Dictionary<char, float>()
     {
-        { ',', 0.1f }, { '.', 0.2f }
+        { ',', 0.2f }, { '.', 0.3f }
     };
     private float GetTextPause(char c)
     {
