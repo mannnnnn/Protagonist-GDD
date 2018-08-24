@@ -155,6 +155,22 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e88097b093678cd478a87a36b1d32942, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &170803875 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1794939011888940, guid: 9e616bbdce673f04ea48d9499cbe91e2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1262142600}
+--- !u!114 &170803879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 170803875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98b4e714f9d90dc488343aecbd1d1457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &219307394
 Prefab:
   m_ObjectHideFlags: 0
@@ -196,6 +212,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1739137629608016, guid: fe2eb697303b44d43a36315c79a7fd43, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212199980433646958, guid: fe2eb697303b44d43a36315c79a7fd43,
+        type: 2}
+      propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -603,6 +624,11 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1409198924}
+    - target: {fileID: 114122074118785832, guid: 9e616bbdce673f04ea48d9499cbe91e2,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e616bbdce673f04ea48d9499cbe91e2, type: 2}
   m_IsPrefabAsset: 0

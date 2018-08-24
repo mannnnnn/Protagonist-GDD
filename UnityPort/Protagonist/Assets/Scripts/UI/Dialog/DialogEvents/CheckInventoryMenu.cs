@@ -41,8 +41,7 @@ public class CheckInventoryMenu : MonoBehaviour, DialogMenu
         {
             Destroy(userInput);
         }
-        InventoryUserInputRemove forceRemove =
-            Inventory.GetInstance().gameObject.AddComponent<InventoryUserInputRemove>();
+        Inventory.GetInstance().gameObject.AddComponent<InventoryUserInputRemove>();
     }
 
     // when we close, we're done

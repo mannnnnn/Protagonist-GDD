@@ -20,6 +20,7 @@ public class InventoryDisplayBehavior : UIDisplayBase
     UIPanel chestPanel;
     UIPanel chestBox;
     InventoryInfoBehavior infoPanel;
+    CloseButtonBehavior closeButton;
 
     public InventoryItemBehavior selectedItem { get; set; }
 
@@ -37,6 +38,7 @@ public class InventoryDisplayBehavior : UIDisplayBase
         infoPanel = transform.Find("InfoPanel").GetComponent<InventoryInfoBehavior>();
         chestBox = transform.Find("ChestBox").GetComponent<UIPanel>();
         chestPanel = transform.Find("ChestPanel").GetComponent<UIPanel>();
+        closeButton = chestPanel.transform.Find("CloseButton").GetComponent<CloseButtonBehavior>();
         // move up to middle of screen
         centerScreenY = Screen.height - (Screen.height - GetSize()) * 0.5f;
         hiddenScreenY = centerScreenY - 250f;
@@ -116,6 +118,7 @@ public class InventoryDisplayBehavior : UIDisplayBase
         infoPanel.SetAlpha(alpha);
         chestPanel.SetAlpha(alpha);
         chestBox.SetAlpha(alpha);
+        closeButton.SetAlpha(alpha);
         SetItemsAlpha(alpha);
     }
 

@@ -86,4 +86,7 @@ public class InventoryItemBehavior : MonoBehaviour
         }
         body.isKinematic = !value;
     }
+
+    // override this if you want to do something when eaten
+    public virtual void Eat() { }
 }

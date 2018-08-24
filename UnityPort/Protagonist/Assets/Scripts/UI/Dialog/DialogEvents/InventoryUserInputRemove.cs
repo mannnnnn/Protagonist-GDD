@@ -33,13 +33,7 @@ public class InventoryUserInputRemove : MonoBehaviour, InventoryUserInput
         // open/close
         if (Input.GetKeyDown(KeyCode.X))
         {
-            if (display.state == State.OPEN && !inventory.IsFull)
-            {
-                // once the inventory is no longer full, we're done
-                display.SetState(State.CLOSING);
-                Finish();
-                return;
-            }
+            CloseButtonClick();
         }
 
         // remove items debug
@@ -53,5 +47,16 @@ public class InventoryUserInputRemove : MonoBehaviour, InventoryUserInput
     {
         gameObject.AddComponent<InventoryUserInputBehavior>();
         Destroy(this);
+    }
+
+    public void CloseButtonClick()
+    {
+        if (display.state == State.OPEN && !inventory.IsFull)
+        {
+            // once the inventory is no longer full, we're done
+            display.SetState(State.CLOSING);
+            Finish();
+            return;
+        }
     }
 }

@@ -89,6 +89,7 @@ public class InventoryInfoBehavior : UIPanel
     // button click actions
     private void EatItem(InventoryItemBehavior item)
     {
+        item.Eat();
         if (item.type.edible)
         {
             SetImage(null);

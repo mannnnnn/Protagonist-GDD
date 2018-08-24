@@ -37,11 +37,18 @@ public class DialogUserInputBehavior : MonoBehaviour, DialogUserInput
         // handle user input
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            Dialog.RunDialog("testcase.protd");
+            Dialog.RunDialog("jungle1.protd");
         }
         if (Input.GetMouseButtonDown(0) && dialog.Active)
         {
-            Dialog.Advance();
+            if (display.TextFinished())
+            {
+                Dialog.Advance();
+            }
+            else
+            {
+                display.AdvanceText(10f);
+            }
         }
         if (Input.GetKey(KeyCode.LeftControl) && dialog.Active)
         {

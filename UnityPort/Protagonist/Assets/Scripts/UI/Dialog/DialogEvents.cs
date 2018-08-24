@@ -10,8 +10,8 @@ using UnityEngine;
  * Register them in the Handle method.
  * Use events for custom actions that call game code.
  */
-public class DialogEvents : MonoBehaviour {
-
+public class DialogEvents : MonoBehaviour
+{
     Dialog dialog;
     DialogDisplay display;
     void Start()
@@ -40,6 +40,9 @@ public class DialogEvents : MonoBehaviour {
             case "hide":
                 display.SetState(UIDisplayBase.State.CLOSING);
                 return true;
+            // change name
+            case "changeName":
+                return ChangeName(evt, args);
         }
         return true;
     }
@@ -47,23 +50,48 @@ public class DialogEvents : MonoBehaviour {
     // freeze dialog for a given duration
     private bool Wait(string evt, Dictionary<string, object> args)
     {
-        // must contain a valid duration argument to run
-        if (!args.ContainsKey("duration"))
-        {
-            throw new ParseError("'wait' event has no duration argument.");
-        }
-        float duration = 0;
-        try
-        {
-            duration = float.Parse(args["duration"].ToString(), CultureInfo.InvariantCulture);
-        }
-        catch (FormatException)
-        {
-            throw new ParseError("'" + args["duration"].ToString() + "' is not a valid number.");
-        }
+        float duration = GetNumberArgument(evt, args, "duration");
         // freeze dialog
         DialogFreezer freezer = gameObject.AddComponent<DialogFreezer>();
         freezer.Initialize(duration);
         return false;
+    }
+
+    private bool ChangeName(string evt, Dictionary<string, object> args)
+    {
+        string character = GetStringArgument(evt, args, "character");
+        string abbrev = GetStringArgument(evt, args, "abbrev");
+        dialog.parser.characters[abbrev].name = character;
+        return true;
+    }
+    
+    private string GetStringArgument(string evt, Dictionary<string, object> args, string key, bool optional = false)
+    {
+        if (!args.ContainsKey(key))
+        {
+            if (optional)
+            {
+                return null;
+            }
+            throw new ParseError("'" + evt + "' event has no " + key + " argument.");
+        }
+        return args[key].ToString();
+    }
+    private float GetNumberArgument(string evt, Dictionary<string, object> args, string key, bool optional = false)
+    {
+        float value = 0f;
+        try
+        {
+            value = float.Parse(GetStringArgument(evt, args, key, optional), CultureInfo.InvariantCulture);
+        }
+        catch (FormatException)
+        {
+            if (optional)
+            {
+                return 0f;
+            }
+            throw new ParseError("'" + GetStringArgument(evt, args, key, optional) + "' is not a valid number.");
+        }
+        return value;
     }
 }

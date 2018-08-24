@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using UnityEngine;
 using static UIDisplayBase;
 
-public interface InventoryUserInput
+public interface InventoryUserInput : CloseButtonTarget
 {
-
+    
 }
 
 public class InventoryUserInputBehavior : MonoBehaviour, InventoryUserInput
@@ -30,10 +30,7 @@ public class InventoryUserInputBehavior : MonoBehaviour, InventoryUserInput
             {
                 display.SetState(State.OPENING);
             }
-            if (display.state == State.OPEN)
-            {
-                display.SetState(State.CLOSING);
-            }
+            CloseButtonClick();
         }
         // add items debug
         if (Input.GetMouseButtonDown(0) && Input.GetKey(KeyCode.LeftControl))
@@ -41,6 +38,14 @@ public class InventoryUserInputBehavior : MonoBehaviour, InventoryUserInput
             int rnd = Random.Range(0, inventory.itemTypes.Count);
             ItemType item = inventory.itemTypes.ToList()[rnd].Value;
             inventory.AddItem(item);
+        }
+    }
+
+    public void CloseButtonClick()
+    {
+        if (display.state == State.OPEN)
+        {
+            display.SetState(State.CLOSING);
         }
     }
 }

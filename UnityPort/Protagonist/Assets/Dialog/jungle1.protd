@@ -1,89 +1,80 @@
-//Jungle1
-//Characters: Hades, Protagonist
+[
+    {
+        character: "???",
+        abbrev: "H"
+    },
+    {
+        character: "Protagonist",
+        abbrev: "P"
+    },
 
-
-//CHARACTERS
-character P
-{
-	name = "Protagonist"
-	side = left
-}
-character H
-{
-	name = "Narrator"
-	side = right
-}
-character ?
-{
-	name = "???"
-	side = right
-}
-
-//BEGIN DIALOGUE
-show H spr_talkHades
-with hades_swing
-//
-
-?: "Well."
-?: "Well, well, well."
-?: "You'd better have a real good reason for this nonsense."
-?: "Actually I don't want to wait around for an idea to bounce around and collide with the meaty thinking part of your mortal head."
-?: "At the rate which it took you to find that accursed button we might be here for weeks if you decide to open that mouth of yours."
-
-//
-show P spr_defaultSpeak
-with fade
-//
-
-P: "That's- hold on I don't have a mouth. How did that happen?"
-
-?: "An unfortunate consequence of jumping outside the game files, I'm afraid."
-?: "And by jumping outside the game files, I of course refer to you turning this treasure chest into some sort of interplanetary ship."
-
-P: "I'm a rocket scientist?"
-
-?: "I truly hope not."
-?: "But unfortunately I cannot disprove that."
-?: ""
-P:""
-P:"So I might be a rocket scientist?"
-
-?: "You aren't anything."
-?: "You shouldn't be anything."
-?: "And you are incapable of being anything because you've broken this game already."
-
-P: "What did I do?"
-
-?: "You showed up! Didn't you hear me the first time?"
-?: "The game was over! The mortals died, the gods won, and Sezu had just gotten his grapes to root on the blood-stained hills of the western cities!"
-?: "We all had to deal with four hundred years of complains over how hard it is to make a vineyard on the bones of our enemies!"
-?: "And now I get to play nanny for someone who was too lazy to show up on time for their actual role."
-
-P: "What's my role?"
-
-?: "Oh no, we're not playing that game."
-?: "I'm not the narrator in this."
-H: "If you excuse me I'll-"
-H: "..."
-H: "When did I get a name above the dialogue box."
-
-P: "About when you told me you weren't the narrator."
-H: "Well that's it for me."
-H: "Have fun playing with the incomplete maps."
-
-//
-hide H
-with hades_swing
-//
-
-P: "Cool."
-P: "I guess I'll just relax in this... forest."
-P: "In the smoldering wreck of my science."
-
-call hadesSpecialHelpingExtravaganza(0)
-
-hide P
-
-wait for drawers
-exit
-
+    {
+        show: {
+            name: "H",
+            side: "Right",
+            sprite: "Hades",
+            transition: "Swing",
+            image: "Normal"
+        }
+    },
+    { H: "Well." },
+    { H: "Well, well, well." },
+    { H: "You'd better have a real good reason for this nonsense." },
+    { H: "Actually I don't want to wait around for an idea to bounce around and collide with the meaty thinking part of your mortal head." },
+    { H: "At the rate which it took you to find that accursed button we might be here for weeks if you decide to open that mouth of yours." },
+    {
+        show: {
+            name: "P",
+            side: "Left",
+            sprite: "Protagonist",
+            transition: "Fade",
+            image: "Normal"
+        }
+    },
+    { P: "That's- hold on I don't have a mouth. How did that happen?" },
+    { H: "An unfortunate consequence of jumping outside the game files, I'm afraid." },
+    { H: "And by jumping outside the game files, I of course refer to you turning this treasure chest into some sort of interplanetary ship." },
+    { P: "I'm a rocket scientist?" },
+    { H: "I truly hope not." },
+    { H: "But unfortunately I cannot disprove that." },
+    { H: "..." },
+    { P: "..." },
+    { P: "So I might be a rocket scientist?" },
+    { H: "You aren't anything." },
+    { H: "You shouldn't be anything." },
+    { H: "And you are incapable of being anything because you've broken this game already." },
+    { P: "What did I do?" },
+    { H: "You showed up! Didn't you hear me the first time?" },
+    { H: "The game was over! The mortals died, the gods won, and Sezu had just gotten his grapes to root on the blood-stained hills of the western cities!" },
+    { H: "We all had to deal with four hundred years of complains over how hard it is to make a vineyard on the bones of our enemies!" },
+    { H: "And now I get to play nanny for someone who was too lazy to show up on time for their actual role." },
+    { P: "What's my role?" },
+    { H: "Oh no, we're not playing that game." },
+    { H: "I'm not the narrator in this." },
+    {
+        event: "changeName",
+        args: {
+            character: "The Narrator",
+            abbrev: "H"
+        }
+    },
+    { H: "If you excuse me I'll-" },
+    { H: "..." },
+    { H: "When did I get a name above the dialogue box?" },
+    { P: "About when you told me you weren't the narrator." },
+    { H: "Well that's it for me." },
+    { H: "Have fun playing with the incomplete maps." },
+    {
+        hide: {
+            name: "H"
+        }
+    },
+    { P: "Cool." },
+    { P: "I guess I'll just relax in this... forest." },
+    { P: "In the smoldering wreck of my science." },
+    {
+        hide: {
+            name: "P"
+        }
+    },
+]
