@@ -1,97 +1,107 @@
-//jungle15 (post puzzle)
-//Characters: Apollo, Protagonist
-//Triggers in the fourth puzzle map
+[
+    {
+        character: "Apollo of Anagrams",
+        abbrev: "Ap"
+    },
+    {
+        character: "Protagonist",
+        abbrev: "P"
+    },
 
-//CHARACTERS
-character P
-{
-	name = "Protagonist"
-	side = left
-}
-character Ap
-{
-	name = "Apollo of Anagrams"
-	side = right
-}
-
-//
-show P spr_defaultSpeak
-with fade
-//
-
-P: "And we're done!"
-
-//
-show Ap spr_talkApollo
-with Apollo_swing
-//
-
-Ap: "Aw yeah! No more sitting in the jungle! Let's get out of here!"
-Ap: "We just gotta take these letters that we got from the Syntax Errors and mix them around."
-Ap: "Surely, when these widdle cats came and screwed up the game, they corrupted the Sphinxx's riddle."
-Ap: "Which means each one of them must carry a piece, and we can rearrange they to figure out the ans-"
-Ap: ""
-Ap: "Hey kid?"
-P: "Yeah?"
-Ap: "What were those letters again?"
-P: "We got a 'l', 'f', 'h', and an 'o'."
-show Ap spr_talkApolloAnnoy
-with nothing
-//
-Ap: "Hey yeah, I don't think those fit together."
-Ap: "lfho, lfoh, lofh, olfh, fhol, fhlo..."
-P: "Those don't sound like words."
-Ap: "Are you kidding me?! I can't believe this."
-Ap: "Another dead end."
-show Ap spr_talkApollo
-with nothing
-//
-Ap: "...alright kid, new strategy."
-P: "Stop looking for the nonexistent riddle?" 
-Ap: "Better."
-Ap: "You're going to use your newly founded word-slinging powers to go beat up the Sphinxx."
-P: "I'm going to what?"
-show Ap spr_talkApolloAnnoy
-with nothing
-//
-Ap: "Hey, you're the best at what you do."
-show Ap spr_talkApollo
-with nothing
-//
-
-Ap: "And apparently what you do is explode cats for nothing but your own selfish desires."
-P: "I was doing this to help!"
-Ap: "Pshaw, come on and drop the act. You're the Protagonist."
-Ap: "Beating up stuff and solving puzzles is your job."
-P: "Look, I just want to get out of here to-"
-show Ap spr_talkApolloAnnoy
-with nothing
-//
-Ap: "To what? Beat up more monsters and solve more puzzles?"
-Ap: "Find the storyline which you already abandoned?"
-Ap: "Hey kid, here's a newsflash, you're predictable."
-show Ap spr_talkApollo
-with nothing
-//
-Ap: "I'll meet you outside where the Sphinxx is."
-
-if (HeQual || ArQual)
-{
-	Ap: "I've got someone to introduce you to. You remind me of them."
-}
-
-P: "Who says I'm going to the Sphinxx at all? Maybe I'll just sit here and figure things out for myself."
-Ap: "Nice try kid, but games don't work like that."
-Ap: "I've got an eternity to figure this out, but you don't."
-Ap: "And while I doubt that you'll be too much trouble for the Sphinxx, you're sure to put on a grand show."
-Ap: "I hope you picked up something from this experience."
-Ap: "Apollo out."
-
-hide P
-with fade
-hide Ap
-with Apollo_swing
-
-wait for drawers
-exit
-
+    {
+        show: {
+            name: "P",
+            side: "Left",
+            sprite: "Protagonist",
+            transition: "Fade",
+            image: "Normal"
+        }
+    },
+    { P: "And we're done!" },
+    {
+        show: {
+            name: "Ap",
+            side: "Right",
+            sprite: "Apollo",
+            transition: "Swing",
+            image: "Happy"
+        }
+    },
+    { Ap: "Aw yeah! No more sitting in the jungle! Let's get out of here!" },
+    { Ap: "We just gotta take these letters that we got from the Syntax Errors and mix them around." },
+    { Ap: "Surely, when these widdle cats came and screwed up the game, they corrupted the Sphinxx's riddle." },
+    { Ap: "Which means each one of them must carry a piece, and we can rearrange they to figure out the ans-" },
+    { Ap: "..." },
+    { Ap: "Hey kid?" },
+    { P: "Yeah?" },
+    { Ap: "What were those letters again?" },
+    { P: "We got a 'l', 'f', 'h', and an 'o'." },
+    {
+        show: {
+            name: "Ap",
+            image: "Normal"
+        }
+    },
+    { Ap: "Hey yeah, I don't think those fit together." },
+    { Ap: "lfho, lfoh, lofh, olfh, fhol, fhlo..." },
+    { P: "Those don't sound like words." },
+    { Ap: "Are you kidding me?! I can't believe this." },
+    { Ap: "Another dead end." },
+    {
+        show: {
+            name: "Ap",
+            image: "Happy"
+        }
+    },
+    { Ap: "...alright kid, new strategy." },
+    { P: "Stop looking for the nonexistent riddle?"  },
+    { Ap: "Better." },
+    { Ap: "You're going to use your newly founded word-slinging powers to go beat up the Sphinxx." },
+    { P: "I'm going to what?" },
+    {
+        show: {
+            name: "Ap",
+            image: "Normal"
+        }
+    },
+    { Ap: "Hey, you're the best at what you do." },
+    {
+        show: {
+            name: "Ap",
+            image: "Happy"
+        }
+    },
+    { Ap: "And apparently what you do is explode cats for nothing but your own selfish desires." },
+    { P: "I was doing this to help!" },
+    { Ap: "Pshaw, come on and drop the act. You're the Protagonist." },
+    { Ap: "Beating up stuff and solving puzzles is your job." },
+    { P: "Look, I just want to get out of here to-" },
+    {
+        show: {
+            name: "Ap",
+            image: "Normal"
+        }
+    },
+    { Ap: "To what? Beat up more monsters and solve more puzzles?" },
+    { Ap: "Find the storyline which you already abandoned?" },
+    { Ap: "Hey kid, here's a newsflash, you're predictable." },
+    {
+        show: {
+            name: "Ap",
+            image: "Happy"
+        }
+    },
+    { Ap: "I'll meet you outside where the Sphinxx is." },
+    {
+        cond: "HeQual || ArQual",
+        if: [
+            { Ap: "I've got someone to introduce you to. You remind me of them." }
+        ]
+    },
+    { P: "Who says I'm going to the Sphinxx at all? Maybe I'll just sit here and figure things out for myself." },
+    { Ap: "Nice try kid, but games don't work like that." },
+    { Ap: "I've got an eternity to figure this out, but you don't." },
+    { Ap: "And while I doubt that you'll be too much trouble for the Sphinxx, you're sure to put on a grand show." },
+    { Ap: "I hope you picked up something from this experience." },
+    { Ap: "Apollo out." }
+]

@@ -26,6 +26,8 @@ public partial class Dialog : MonoBehaviour, DialogTarget, SaveLoadTarget
     DialogEvents events;
     DialogDisplay display;
 
+    public static Dictionary<string, bool> flags = new Dictionary<string, bool>();
+
     public bool Active { get; private set; } = false;
 
     void Start()
@@ -137,10 +139,10 @@ public partial class Dialog : MonoBehaviour, DialogTarget, SaveLoadTarget
     // save/load flags
     public object GetSaveData()
     {
-        return DialogParser.flags;
+        return flags;
     }
     public void LoadSaveData(object save)
     {
-        DialogParser.flags = (Dictionary<string, bool>)save;
+        flags = (Dictionary<string, bool>)save;
     }
 }

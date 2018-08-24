@@ -117,6 +117,7 @@
     <Compile Include="Assets\Scripts\UI\Dialog\DialogEvents\DialogEventsJungle.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\DialogEvents\DialogFreezer.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\DialogEvents\InventoryUserInputRemove.cs" />
+    <Compile Include="Assets\Scripts\UI\Dialog\DialogFlags.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\DialogPrefabs.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\DialogUserInputBehavior.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\Display\DialogAnimationBehavior.cs" />

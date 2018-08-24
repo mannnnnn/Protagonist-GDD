@@ -17,7 +17,6 @@ namespace Assets.Scripts.Libraries.ProtagonistDialog
         // defined characters and labels
         public Dictionary<string, DialogCharacter> characters = new Dictionary<string, DialogCharacter>();
         public Dictionary<string, DialogLabel> labels = new Dictionary<string, DialogLabel>();
-        public static Dictionary<string, bool> flags = new Dictionary<string, bool>();
 
         // current position in execution
         int current = 0;
@@ -227,6 +226,11 @@ namespace Assets.Scripts.Libraries.ProtagonistDialog
                 }
                 JumpToBlock(statement["else"]);
             }
+            // if neither, just advance
+            else
+            {
+                current++;
+            }
         }
 
         public void Jump(string label)
@@ -263,11 +267,11 @@ namespace Assets.Scripts.Libraries.ProtagonistDialog
             }
             if (val is bool)
             {
-                flags[flag] = (bool)val;
+                Dialog.flags[flag] = (bool)val;
             }
             else if (val is string)
             {
-                flags[flag] = DialogBoolParser.Parse((string)val).Run();
+                Dialog.flags[flag] = DialogBoolParser.Parse((string)val).Run();
             }
             else
             {
