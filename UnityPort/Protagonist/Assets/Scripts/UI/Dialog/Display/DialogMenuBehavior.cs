@@ -56,34 +56,33 @@ public class DialogMenuBehavior : UIDisplayBase, DialogMenu
     protected virtual void Start()
     {
         backPanel = GetComponent<UIPanel>();
+        // calculate total size and resize. Total size looks like -B|B|B|B- for button 'B', edge '-', and button border '|'
+        float buttonBorder = 5f;
+        float edgeBorder = 12f;
+        float buttonSize = 52f;
+        float totalSize = (2 * edgeBorder) + (options.Count * buttonSize) + ((options.Count - 1) * buttonBorder);
+        backPanel.SetSize(totalSize, 1f);
         // move up
         SetY(-100f);
-        SetTargetY(1.5f * GetSize() + 20);
+        SetTargetY(GetSize());
         // start out transparent
         SetAlpha(0);
         // fade in this menu
         SetState(State.OPENING);
-        // create menu sub-items
-        float buttonBorder = 5f;
-        float edgeBorder = 12f;
-        // 0 is the top, so go downwards
-        // so, move it down by (border + buttonSize) each time.
-        float totalSize = edgeBorder;
-        float offset = totalSize + (2f * edgeBorder) + buttonBorder;
+        // place buttons
+        float buttonY = -(2 * edgeBorder) - (0.5f * buttonSize);
         for (int i = 0; i < options.Count; i++)
         {
+            buttonY -= buttonSize;
             GameObject buttonObj = Instantiate(button, transform);
             // move button to y position
             var buttonBehavior = buttonObj.GetComponent<DialogMenuButtonBehavior>();
-            totalSize += buttonBehavior.box.GetSize() + buttonBorder;
-            buttonBehavior.Initialize(this, -totalSize + offset, 0, 1);
+            buttonBehavior.Initialize(this, buttonY, 0, 1);
             // set button as option
             buttonBehavior.SetText(options[i]);
             buttons.Add(buttonBehavior);
+            buttonY -= buttonBorder;
         }
-        // resize back panel and move up to fit buttons
-        totalSize += edgeBorder;
-        backPanel.SetSize(totalSize, 1f);
         // move normal dialog window to the top
         displayY = display.GetY();
         display.SetTargetY(GetSize() + display.GetSize() + edgeBorder);

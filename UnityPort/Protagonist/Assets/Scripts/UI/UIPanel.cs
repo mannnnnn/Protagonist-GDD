@@ -97,11 +97,12 @@ public class UIPanel : MonoBehaviour
     {
         return rect.sizeDelta.y;
     }
-    public virtual void SetSize(float size, float pivot = 0)
+    public virtual float SetSize(float size, float pivot = 0)
     {
         var resize = size - GetSize();
         rect.sizeDelta = new Vector2(rect.sizeDelta.x, size);
         SetScreenY(GetScreenY() + resize * pivot);
+        return resize * pivot;
     }
 
     // resets anchor position to those of the left/right fields

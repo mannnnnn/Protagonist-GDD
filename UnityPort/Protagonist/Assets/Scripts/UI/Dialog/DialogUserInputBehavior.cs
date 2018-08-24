@@ -16,7 +16,7 @@ public class DialogUserInputBehavior : MonoBehaviour, DialogUserInput
 {
     Dialog dialog;
     DialogDisplay display;
-    float fastForwardSpd = 15f;
+    float fastForwardSpd = 30f;
 
     // when we want to prevent user input
     Dictionary<object, bool> freezes = new Dictionary<object, bool>();
