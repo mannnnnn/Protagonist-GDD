@@ -1,193 +1,227 @@
+[
+    {
+        character: "The Great Apollo",
+        abbrev: "Ap"
+    },
+    {
+        character: "Protagonist",
+        abbrev: "P"
+    },
+    {
+        character: "Hades",
+        abbrev: "H"
+    },
 
-//Jungle7
-//Characters: Apollo, Protagonist, Hades
+    {
+        show: {
+            name: "Ap",
+            side: "Right",
+            sprite: "Apollo",
+            transition: "Swing",
+            image: "Happy"
+        }
+    },
+    {
+        event: "background",
+        args: {
+            image: "CatIdle"
+        }
+    },
+    { Ap: "Alright, you want to solve this riddle, yes?" },
+    {
+        show: {
+            name: "P",
+            side: "Left",
+            sprite: "Protagonist",
+            transition: "Fade",
+            image: "Normal"
+        }
+    },
+    { P: "What's that thing over there?" },
+    {
+        show: {
+            name: "Ap",
+            image: "Normal"
+        }
+    },
+    { Ap: "Hey, hey, you're in the presence of a god, pay attention." },
+    { P: "I thought you were a video game character." },
+    { Ap: "Pay attention or I'll smite you." },
+    {
+        show: {
+            name: "Ap",
+            image: "Happy"
+        }
+    },
+    { Ap: "We should start solving the riddle by solving the real puzzle of the forest." },
+    { Ap: "These cats." },
+    { P: "I was just asking about them-" },
+    { Ap: "Kid, sit down and listen. You're about to get some important exposition from a REAL storyteller." },
+    { Ap: "This place is home to a lot of cats. I think the sphinx must like them." },
+    { Ap: "What's more, they defy the very realm in which they live!" },
+    { Ap: "And spookiest of all..." },
+    { Ap: "They never talk." },
+    { event: "jungle.catMeow" },
+    {
+        event: "wait",
+        args: {
+            duration: "1"
+        }
+    },
+    {
+        show: {
+            name: "Ap",
+            image: "Normal"
+        }
+    },
+    { Ap: "Huh." },
+    { Ap: "Alright well scratch that. Thanks cat for making me look like an idiot." },
+    { Ap: "They've always ignored me before." },
+    { P: "It's looking at us." },
+    {
+        show: {
+            name: "Ap",
+            image: "Happy"
+        }
+    },
+    { Ap: "Of course it is." },
+    { Ap: "What creature wouldn't be captivated by my beautiful body and your...grey...?" },
+    {
+        show: {
+            name: "Ap",
+            image: "Normal"
+        }
+    },
+    { Ap: "Yeah, if you're going to be my wingman, maybe we should get you a face." },
+    {
+        show: {
+            name: "Ap",
+            image: "Happy"
+        }
+    },
+    { Ap: "A good one, but not as good as mine." },
 
+    { P:"Hey Hades!" },
+    {
+        show: {
+            name: "Ap",
+            side: "Alt Right"
+        }
+    },
+    {
+        show: {
+            name: "H",
+            side: "Right",
+            sprite: "Hades",
+            transition: "Swing",
+            image: "Normal"
+        }
+    },
+    { H: "...how can I be of assistance?" },
+    { P: "What does the cat want?" },
+    { H: "What cat?" },
+    { P: "The cat over there." },
+    { H: "That's not a cat, therefore I cannot help you. Goodbye." },
+    { P: "Hold on. Just tell us how to get past here." },
+    { H: "I can't give you a direct answer. Now if you'll excuse me-" },
+    { P: "Tell us what our objective is here." },
+    { H: "..." },
+    { P: "Didn't you say you had information on all-" },
+    { H: "Yes, yes, alright. The Syntax Errors aren't here to give you a puzzle. They just exist." },
+    { P: "How do we get around them then?" },
+    { H: "That's for you to figure out." },
+    { P: "You haven't been useful at all, then." },
+    {
+        show: {
+            name: "H",
+            image: "Happy"
+        }
+    },
+    { H: "Thank god. I was afraid I was helping you for a moment there." },
+    {
+        hide: {
+            name: "H"
+        }
+    },
+    {
+        show: {
+            name: "Ap",
+            side: "Right"
+        }
+    },
 
-//CHARACTERS
-character P
-{
-	name = "Protagonist"
-	side = left
-}
-character Ap
-{
-	name = "The Great Apollo"
-	side = right
-}
-character H
-{
-	name = "Hades"
-	side = right
-}
-
-create stepper intro obj_synIntro
-next intro
-next intro
-
-//BEGIN DIALOGUE
-show Ap spr_talkApollo
-with Apollo_swing
-//
-
-Ap: "Alright, you want to solve this riddle, yes?"
-
-//
-show P spr_defaultSpeak
-//
-
-P: "What's that thing over there?"
-show Ap spr_talkApolloAnnoy
-with nothing
-//
-
-
-Ap: "Hey, hey, you're in the presence of a god, pay attention."
-P: "I thought you were a video game character."
-Ap: "Pay attention or I'll smite you."
-show Ap spr_talkApollo
-with nothing
-//
-
-Ap: "We should start solving the riddle by solving the real puzzle of the forest."
-Ap: "These cats."
-P: "I was just asking about them-"
-Ap: "Kid, sit down and listen. You're about to get some important exposition from a REAL storyteller."
-Ap: "This place is home to a lot of cats. I think the sphinx must like them."
-Ap: "What's more, they defy the very realm in which they live!"
-Ap: "And spookiest of all..."
-Ap: "They never talk."
-
-play meow snd_meow
-wait 30
-
-show Ap spr_talkApolloAnnoy
-with nothing
-//
-Ap: "Huh."
-Ap: "Alright well scratch that. Thanks cat for making me look like an idiot."
-Ap: "They've always ignored me before"
-P: "It's looking at us."
-show Ap spr_talkApollo
-with nothing
-//
-Ap: "Of course it is."
-Ap: "What creature wouldn't be captivated by my beautiful body and your...grey...?"
-show Ap spr_talkApolloAnnoy
-with nothing
-//
-
-Ap: "Yeah, if you're going to be my wingman, maybe we should get you a face."
-show Ap spr_talkApollo
-with nothing
-//
-
-Ap: "A good one, but not as good as mine."
-
-//
-hide Ap 
-with Apollo_swing
-//
-
-P:"Hey Hades!"
-
-//
-show H spr_talkHades
-with Hades_swing
-//
-
-H: "...how can I be of assistance?"
-P: "What does the cat want?"
-H: "What cat?"
-P: "The cat over there."
-H: "That's not a cat, therefore I cannot help you. Goodbye."
-P: "Hold on. Just tell us how to get past here."
-H: "I can't give you a direct answer. Now if you'll excuse me-"
-P: "Tell us what our objective is here."
-H: "..."
-P: "Didn't you say you had information on all-"
-H: "Yes, yes, alright. The Syntax Errors aren't here to give you a puzzle. They just exist."
-P: "How do we get around them then?"
-H: "That's for you to figure out."
-P: "You haven't been useful at all, then."
-show H spr_talkHadesHappy
-with nothing
-//
-
-H: "Thank god. I was afraid I was helping you for a moment there."
-
-
-//
-hide H
-with Hades_swing
-//
-
-
-P: "Syntax errors..."
-
-//
-show Ap spr_talkApollo
-with Apollo_swing
-//
-Ap: "Hey Hades!"
-Ap: "Hades!"
-Ap: "Wait up!"
-show Ap spr_talkApolloAnnoy
-with nothing
-//
-Ap: "...aw."
-Ap: "I haven't seen Hades in forever!"
-show Ap spr_talkApollo
-with nothing
-//
-
-Ap: "Hades! Come back! We can go grab lunch!" 
-P: "Hey Apollo, can you help me out?"
-show Ap spr_talkApolloAnnoy
-with nothing
-//
-Ap: "Oh right, you wanted to do things."
-P: "Yeah, help me figure out what to do with this cat... er, Syntax Error."
-show Ap spr_talkApollo
-with nothing
-//
-
-Ap: "Well, syntax is the formation of sentences, yes? Does that mean-"
-
-play meow snd_meow
-next intro
-
-Ap: "Whoa! Did you see that!? Those letters?!"
-Ap: "This cat can speak code! It's a magic cat!"
-Ap: "What the heckidodah?! I spent years learning how to do that!"
-Ap: "I'm so proud of it! It must have taken this poor widdle kitty centuries to learn to bend the universe to its whim!"
-Ap: "I'm gonna go pet it."
-P: "Is it dangerous?"
-Ap: "Oh, undoubtedly."
-Ap: "But it's also very cute and fluffy."
-P: "And it can use magic?"
-Ap: "Apparently! I'm so proud."
-P: "I want magic, can I have some?"
-Ap: "Well, it took Hades like two years to learn how to do basic magic."
-Ap: "And Hades is a pretty bright little light bulb."
-Ap: "But, you've got an edge. I'm going to be here to help you on this mighty journey of language."
-Ap: "Get a little closer, I'll show you the mighty knowledge of the Lovely Linguist Apollo."
-Ap: "I'm gonna be the best dang language teacher you've ever seen."
-Ap: "Mostly for the cat's sake though, not yours."
-P: "Well meow I'm just feline underappreciated."
-Ap: "I never appreciated you in the first place."
-show Ap spr_talkApolloAnnoy
-with nothing
-//
-
-Ap: "Hold on, was that a pun?"
-
-call hadesSpecialHelpingExtravaganza(1)
-
-hide P
-with fade
-hide Ap
-with Apollo_swing
-
-wait for drawers
-exit
-
+    { P: "Syntax errors..." },
+    { Ap: "Hey Hades!" },
+    { Ap: "Hades!" },
+    { Ap: "Wait up!" },
+    {
+        show: {
+            name: "Ap",
+            image: "Normal"
+        }
+    },
+    { Ap: "...aw." },
+    { Ap: "I haven't seen Hades in forever!" },
+    {
+        show: {
+            name: "Ap",
+            image: "Happy"
+        }
+    },
+    { Ap: "Hades! Come back! We can go grab lunch!"  },
+    { P: "Hey Apollo, can you help me out?" },
+    {
+        show: {
+            name: "Ap",
+            image: "Normal"
+        }
+    },
+    { Ap: "Oh right, you wanted to do things." },
+    { P: "Yeah, help me figure out what to do with this cat... er, Syntax Error." },
+    {
+        show: {
+            name: "Ap",
+            image: "Happy"
+        }
+    },
+    { Ap: "Well, syntax is the formation of sentences, yes? Does that mean-" },
+    { event: "jungle.catMeow" },
+    {
+        event: "background",
+        args: {
+            image: "CatSpeak"
+        }
+    },
+    {
+        event: "wait",
+        args: {
+            duration: "1"
+        }
+    },
+    { Ap: "Whoa! Did you see that!? Those letters?!" },
+    { Ap: "This cat can speak code! It's a magic cat!" },
+    { Ap: "What the heckidodah?! I spent years learning how to do that!" },
+    { Ap: "I'm so proud of it! It must have taken this poor widdle kitty centuries to learn to bend the universe to its whim!" },
+    { Ap: "I'm gonna go pet it." },
+    { P: "Is it dangerous?" },
+    { Ap: "Oh, undoubtedly." },
+    { Ap: "But it's also very cute and fluffy." },
+    { P: "And it can use magic?" },
+    { Ap: "Apparently! I'm so proud." },
+    { P: "I want magic, can I have some?" },
+    { Ap: "Well, it took Hades like two years to learn how to do basic magic." },
+    { Ap: "And Hades is a pretty bright little light bulb." },
+    { Ap: "But, you've got an edge. I'm going to be here to help you on this mighty journey of language." },
+    { Ap: "Get a little closer, I'll show you the mighty knowledge of the Lovely Linguist Apollo." },
+    { Ap: "I'm gonna be the best dang language teacher you've ever seen." },
+    { Ap: "Mostly for the cat's sake though, not yours." },
+    { P: "Well meow I'm just feline underappreciated." },
+    { Ap: "I never appreciated you in the first place." },
+    {
+        show: {
+            name: "Ap",
+            image: "Normal"
+        }
+    },
+    { Ap: "Hold on, was that a pun?" }
+]

@@ -464,6 +464,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ef4b25a341d1a84bb79a445858f721f, type: 2}
   m_IsPrefabAsset: 0
+--- !u!224 &1059236047 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224194902552606628, guid: 9e616bbdce673f04ea48d9499cbe91e2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1262142600}
 --- !u!1001 &1110057084
 Prefab:
   m_ObjectHideFlags: 0
@@ -608,6 +613,16 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1409198924}
+    - target: {fileID: 224269723142723364, guid: 9e616bbdce673f04ea48d9499cbe91e2,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224896316756130058, guid: 9e616bbdce673f04ea48d9499cbe91e2,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e616bbdce673f04ea48d9499cbe91e2, type: 2}
   m_IsPrefabAsset: 0
@@ -616,6 +631,39 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 20459689107776480, guid: 073badf50c6f59440895bdf2d1a9500e,
     type: 2}
   m_PrefabInternal: {fileID: 1110057084}
+--- !u!1 &1768945533
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1768945534}
+  m_Layer: 5
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1768945534
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1768945533}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1059236047}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1952151875
 Prefab:
   m_ObjectHideFlags: 0

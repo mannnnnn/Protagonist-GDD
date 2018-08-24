@@ -1,86 +1,89 @@
+[
+    {
+        character: "The Great Apollo",
+        abbrev: "Ap"
+    },
+    {
+        character: "Protagonist",
+        abbrev: "P"
+    },
+    {
+        character: "Hades",
+        abbrev: "H"
+    },
 
-//Jungle9 (Post-Puzzle)
-//Characters: Apollo, Protagonist, Hades
-//Triggers in the first puzzle map
-
-//CHARACTERS
-character P
-{
-	name = "Protagonist"
-	side = left
-}
-character Ap
-{
-	name = "Apollo the Confusing Linguist"
-	side = right
-}
-character H
-{
-	name = "Hades"
-	side = right
-}
-
-//
-show P spr_defaultSpeak
-//
-
-P: "Hey whoa, whoa. What just happened?"
-
-//
-show Ap spr_talkApollo
-with Apollo_swing
-//
-
-Ap: "Cat exploded. Great job sport."
-P: "Where did it go? What did I do?"
-Ap: "Who cares, it was cool. Let's go do it again!"
-Ap: "I've got a plan!"
-P: "Hang on."
-P: "Hades!"
-
-//
-hide Ap
-with Apollo_swing
-show H spr_talkHades
-with Hades_swing
-//
-
-H: "I can't believe you're already abusing this power to summon me."
-H: "Are we absolutely sure you aren't the villian in all this?"
-P: "Where did the cat go?"
-H: "Syntax error, not cat. You fixed the syntax error in its speech, so its freed."
-P: "Oh good."
-H: "I'm glad that puts your mind at ease."
-H: "I'm glad you're concerned about hurting a fake cat in a game but not about making me miserable."
-P: "Cats don't abandon me in a weird forest and call me dumb."
-H: "Oh really? What about the Sphinxx?"
-P: "..."
-H: "Hades out."
-
-//
-hide H 
-with Hades_swing
-show Ap spr_talkApollo
-with Apollo_swing
-//
-show Ap spr_talkApolloAnnoy
-with nothing
-//
-
-Ap: "Hades! Don't ignore me!"
-Ap: "Aw."
-
-show Ap spr_talkApollo
-with nothing
-//
-Ap: "You know, I'd never do those things to you."
-Ap: "Mostly because I forgot what you said."
-P: "Ok buddy, thanks."
-
-hide P
-with fade
-hide Ap
-with Apollo_swing
-
-wait for drawers
-exit
+    {
+        show: {
+            name: "P",
+            side: "Left",
+            sprite: "Protagonist",
+            transition: "Fade",
+            image: "Normal"
+        }
+    },
+    { P: "Hey whoa, whoa. What just happened?" },
+    {
+        show: {
+            name: "Ap",
+            side: "Right",
+            sprite: "Apollo",
+            transition: "Swing",
+            image: "Happy"
+        }
+    },
+    { Ap: "Cat exploded. Great job sport." },
+    { P: "Where did it go? What did I do?" },
+    { Ap: "Who cares, it was cool. Let's go do it again!" },
+    { Ap: "I've got a plan!" },
+    { P: "Hang on." },
+    { P: "Hades!" },
+    {
+        show: {
+            name: "Ap",
+            side: "Alt Right"
+        }
+    },
+    {
+        show: {
+            name: "H",
+            side: "Right",
+            sprite: "Hades",
+            transition: "Swing",
+            image: "Normal"
+        }
+    },
+    { H: "I can't believe you're already abusing this power to summon me." },
+    { H: "Are we absolutely sure you aren't the villain in all this?" },
+    { P: "Where did the cat go?" },
+    { H: "Syntax error, not cat. You fixed the syntax error in its speech, so its freed." },
+    { P: "Oh good." },
+    { H: "I'm glad that puts your mind at ease." },
+    { H: "I'm glad you're concerned about hurting a fake cat in a game but not about making me miserable." },
+    { P: "Cats don't abandon me in a weird forest and call me dumb." },
+    { H: "Oh really? What about the Sphinxx?" },
+    { P: "..." },
+    { H: "Hades out." },
+    {
+        hide: {
+            name: "H"
+        }
+    },
+    {
+        show: {
+            name: "Ap",
+            side: "Right",
+            image: "Normal"
+        }
+    },
+    { Ap: "Hades! Don't ignore me!" },
+    { Ap: "Aw." },
+    {
+        show: {
+            name: "Ap",
+            image: "Happy"
+        }
+    },
+    { Ap: "You know, I'd never do those things to you." },
+    { Ap: "Mostly because I forgot what you said." },
+    { P: "Ok buddy, thanks." }
+]
