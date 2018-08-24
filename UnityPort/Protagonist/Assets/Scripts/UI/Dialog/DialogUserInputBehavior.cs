@@ -37,7 +37,7 @@ public class DialogUserInputBehavior : MonoBehaviour, DialogUserInput
         // handle user input
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            Dialog.RunDialog("jungle2.protd");
+            Dialog.RunDialog("jungle3.protd");
         }
         if (Input.GetMouseButtonDown(0) && dialog.Active)
         {
