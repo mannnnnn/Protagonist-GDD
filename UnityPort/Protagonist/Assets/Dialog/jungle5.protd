@@ -1,71 +1,66 @@
-//Jungle5
-//Characters: Protagonist, Hades
+[
+    {
+        character: "Hades",
+        abbrev: "H"
+    },
+    {
+        character: "Protagonist",
+        abbrev: "P"
+    },
 
-
-//CHARACTERS
-character P
-{
-	name = "Protagonist"
-	side = right
-}
-character H
-{
-	name = "Hades"
-	side = left
-}
-
-
-//BEGIN DIALOGUE
-show P spr_defaultSpeak
-//
-
-P: "I hear something."
-
-
-//
-show H spr_talkHades
-with Hades_swing
-//
-
-H: "It's me, your conscience."
-H: "You should do the right thing and climb in that box."
-H: "I hear the weather there is nice this time of year."
-P: "Are you actually my conscience?"
-H: "Do I help you make sensible decisions for the benefit of all?"
-H: "The answer is no, since you don't listen to me."
-P: "Speaking of listening-"
-H: "Yes, yes. I hear it too."
-H: "It almost sounds like-"
-H: "...Oh that's right, I forgot I left him here."
-P: "?"
-H: "Don't talk to him."
-H: "You've already failed at not talking to me, but I believe in you."
-H: "I believe you can follow a simple order."
-H: "Notice how you don't have a mouth. Time to reflect on why that is."
-P: "Wait so I-?"
-
-//
-hide H
-with hades_swing
-//
-
-P: ""
-P: "Well now I don't have a menu, a narrator, or a conscience."
-P: "Or a mouth."
-P: "Or a personality?"
-P: "Not sure what I stand to lose anymore."
-P: "*gasp*"
-P: "Am I going to lose my arms next?"
-P: "...maybe that's going out on a limb."
-P: "I wouldn't be able to hand-le something like that though."
-H: "Remember when I said I'm always with you?"
-H: "I can hear you, even when you can't see me."
-P: "Sorry."
-P: ""
-P: "My conscience stuck around!"
-P: "Looks like Hades can be my guiding hand."
-
-hide P
-
-wait for drawers
-exit
+    {
+        show: {
+            name: "P",
+            side: "Left",
+            sprite: "Protagonist",
+            transition: "Fade",
+            image: "Normal"
+        }
+    },
+    { P: "I hear something." },
+    {
+        show: {
+            name: "H",
+            side: "Right",
+            sprite: "Hades",
+            transition: "Swing",
+            image: "Normal"
+        }
+    },
+    { H: "It's me, your conscience." },
+    { H: "You should do the right thing and climb in that box." },
+    { H: "I hear the weather there is nice this time of year." },
+    { P: "Are you actually my conscience?" },
+    { H: "Do I help you make sensible decisions for the benefit of all?" },
+    { H: "The answer is no, since you don't listen to me." },
+    { P: "Speaking of listening-" },
+    { H: "Yes, yes. I hear it too." },
+    { H: "It almost sounds like-" },
+    { H: "...Oh that's right, I forgot I left him here." },
+    { P: "?" },
+    { H: "Don't talk to him." },
+    { H: "You've already failed at not talking to me, but I believe in you." },
+    { H: "I believe you can follow a simple order." },
+    { H: "Notice how you don't have a mouth. Time to reflect on why that is." },
+    { P: "Wait so I-?" },
+    {
+        hide: {
+            name: "H"
+        }
+    },
+    { P: "..." },
+    { P: "Well now I don't have a menu, a narrator, or a conscience." },
+    { P: "Or a mouth." },
+    { P: "Or a personality?" },
+    { P: "Not sure what I stand to lose anymore." },
+    { P: "*gasp*" },
+    { P: "Am I going to lose my arms next?" },
+    { P: "...maybe that's going out on a limb." },
+    { P: "I wouldn't be able to hand-le something like that though." },
+    { H: "Remember when I said I'm always with you?" },
+    { H: "I can hear you, even when you can't see me." },
+    { P: "Sorry." },
+    { P: "..." },
+    { P: "My conscience stuck around!" },
+    { P: "Looks like Hades can be my guiding hand." }
+]

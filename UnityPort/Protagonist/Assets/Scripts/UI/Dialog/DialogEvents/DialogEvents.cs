@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Libraries.ProtagonistDialog;
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
@@ -10,8 +11,10 @@ using UnityEngine;
  * Register them in the Handle method.
  * Use events for custom actions that call game code.
  */
-public class DialogEvents : MonoBehaviour
+public partial class DialogEvents : MonoBehaviour
 {
+    const char evtDelimiter = '.';
+
     Dialog dialog;
     DialogDisplay display;
     void Start()
@@ -23,6 +26,19 @@ public class DialogEvents : MonoBehaviour
     // register your dialog events here
     public bool Handle(string evt, Dictionary<string, object> args)
     {
+        // handle map-specific events, such as "jungle.kickProtagonist"
+        if (evt.Contains(evtDelimiter))
+        {
+            string[] evtPath = evt.Split(evtDelimiter);
+            string map = evtPath[0];
+            string evtName = string.Join(evtDelimiter.ToString(), evtPath.Skip(1).Take(evtPath.Length - 1));
+            switch (map)
+            {
+                case "jungle":
+                    return HandleJungle(evtName, args);
+            }
+        }
+        // handle normal events
         switch (evt)
         {
             case "Hi":
