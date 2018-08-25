@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /**
- * ResolutionHandler converts the entire screen into a scaled screen with the black bars.
+ * ScreenResolution converts the entire screen into a scaled screen with the black bars.
  * The screen is scaled to the size of the sprite with tag "Background".
  * 
  * Handles resultion scaling when loading map.
@@ -16,7 +16,7 @@ using UnityEngine.SceneManagement;
  *  The same as map corrdinates, but the range is also normalized to [0, 1]
     Note that this is a non 1:1 transformation and aspect ratios may not be preserved
  */
-public class ResolutionHandler : MonoBehaviour {
+public class ScreenResolution : MonoBehaviour {
 
     //Scale on (0, 1] of default window's hieght scale (fraction of the screen)
     public float DEFAULT_RESOLUTION_SCALE;
@@ -300,10 +300,10 @@ public class ResolutionHandler : MonoBehaviour {
 
     //I guess this is a singleton now
     //yaaay for good code style
-    private static ResolutionHandler instance;
+    private static ScreenResolution instance;
 
     public static bool Ready => instance != null && GetInstance().mapSprite != null;
-    public static ResolutionHandler GetInstance()
+    public static ScreenResolution GetInstance()
     {
         if (instance == null)
         {

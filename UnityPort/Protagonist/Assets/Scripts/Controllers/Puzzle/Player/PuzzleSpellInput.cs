@@ -36,8 +36,8 @@ public class PuzzleSpellInput : MonoBehaviour, SpellInputTarget
     Vector2 pos;
     void Start()
     {
-        pos = ResolutionHandler.MapViewToWorldPoint(new Vector2(0.3f, 0.2f));
-        puzzle = GetComponent<PuzzlePlayerBehavior>().puzzle;
+        pos = ScreenResolution.MapViewToWorldPoint(new Vector2(0.3f, 0.2f));
+        puzzle = GetComponent<PuzzlePlayer>().puzzle;
     }
 
     void Update()

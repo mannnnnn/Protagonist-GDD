@@ -10,11 +10,11 @@ using UnityEngine.UI;
 /**
  * This is the main Dialog class file.
  * Use Dialog.RunDialog(file, ?label) to start dialog.
- * This class bridges the script execution logic of the DialogParser class to the output of the DialogDisplayBehavior.
+ * This class bridges the script execution logic of the DialogParser class to the output of the DialogDisplay.
  * It also handles statements that the DialogParser object cannot directly execute, such as:
  * "show", "hide", "event", and ""
  * These cannot be directly handled by DialogParser since these need the Unity Engine access.
- * For the output display for the dialog, see DialogDisplayBehavior.
+ * For the output display for the dialog, see DialogDisplay.
  * For the script execution logic, see DialogParser.
  * For the stick-on addition to Dialog that holds the various statements it handles like "show", see DialogActions
  */

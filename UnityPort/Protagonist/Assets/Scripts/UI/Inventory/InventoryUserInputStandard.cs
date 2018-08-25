@@ -10,15 +10,15 @@ public interface InventoryUserInput : CloseButtonTarget
     
 }
 
-public class InventoryUserInputBehavior : MonoBehaviour, InventoryUserInput
+public class InventoryUserInputStandard : MonoBehaviour, InventoryUserInput
 {
-    InventoryDisplayBehavior display;
+    InventoryDisplay display;
     Inventory inventory;
 
     void Start()
     {
         inventory = transform.GetComponent<Inventory>();
-        display = transform.GetComponent<InventoryDisplayBehavior>();
+        display = transform.GetComponent<InventoryDisplay>();
     }
 
     void Update()

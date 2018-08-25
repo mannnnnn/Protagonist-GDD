@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MapController : SaveLoadTarget
+public class MapPosition : SaveLoadTarget
 {
-    static MapController instance = new MapController();
+    static MapPosition instance = new MapPosition();
     public Map map { get; private set; }
     public Vector2Int Position;
 
-    public MapController()
+    public MapPosition()
     {
         instance = this;
         map = MapScenes.JungleMap;
@@ -28,7 +28,7 @@ public class MapController : SaveLoadTarget
         }
 	}
 
-    public static MapController GetInstance()
+    public static MapPosition GetInstance()
     {
         return instance;
     }

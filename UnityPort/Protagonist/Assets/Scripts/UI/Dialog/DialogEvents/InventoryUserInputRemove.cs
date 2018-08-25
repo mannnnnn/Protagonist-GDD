@@ -12,13 +12,13 @@ using static UIDisplayBase;
  */
 public class InventoryUserInputRemove : MonoBehaviour, InventoryUserInput
 {
-    InventoryDisplayBehavior display;
+    InventoryDisplay display;
     Inventory inventory;
 
     void Start()
     {
         inventory = transform.GetComponent<Inventory>();
-        display = transform.GetComponent<InventoryDisplayBehavior>();
+        display = transform.GetComponent<InventoryDisplay>();
         // if inventory isn't full, we're done
         if (!inventory.IsFull)
         {
@@ -45,7 +45,7 @@ public class InventoryUserInputRemove : MonoBehaviour, InventoryUserInput
 
     private void Finish()
     {
-        gameObject.AddComponent<InventoryUserInputBehavior>();
+        gameObject.AddComponent<InventoryUserInputStandard>();
         Destroy(this);
     }
 

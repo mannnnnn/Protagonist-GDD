@@ -12,17 +12,17 @@ using UnityEngine.UI;
  * Controls the state of the Inventory Items, as well as creates them.
  * Does not hold the true data model of the inventory. For that, see Inventory.
  */
-public class InventoryDisplayBehavior : UIDisplayBase
+public class InventoryDisplay : UIDisplayBase
 {
     public Inventory inventory { get; private set; }
 
     UIPanel backPanel;
     UIPanel chestPanel;
     UIPanel chestBox;
-    InventoryInfoBehavior infoPanel;
-    CloseButtonBehavior closeButton;
+    InventoryInfo infoPanel;
+    CloseButton closeButton;
 
-    public InventoryItemBehavior selectedItem { get; set; }
+    public InventoryItem selectedItem { get; set; }
 
     float centerScreenY;
     float hiddenScreenY;
@@ -35,10 +35,10 @@ public class InventoryDisplayBehavior : UIDisplayBase
         inventory = GetComponent<Inventory>();
         // get panels for display control
         backPanel = transform.Find("BackPanel").GetComponent<UIPanel>();
-        infoPanel = transform.Find("InfoPanel").GetComponent<InventoryInfoBehavior>();
+        infoPanel = transform.Find("InfoPanel").GetComponent<InventoryInfo>();
         chestBox = transform.Find("ChestBox").GetComponent<UIPanel>();
         chestPanel = transform.Find("ChestPanel").GetComponent<UIPanel>();
-        closeButton = chestPanel.transform.Find("CloseButton").GetComponent<CloseButtonBehavior>();
+        closeButton = chestPanel.transform.Find("CloseButton").GetComponent<CloseButton>();
         // move up to middle of screen
         centerScreenY = Screen.height - (Screen.height - GetSize()) * 0.5f;
         hiddenScreenY = centerScreenY - 250f;
@@ -70,17 +70,17 @@ public class InventoryDisplayBehavior : UIDisplayBase
     // player interacting with items, such as hover over an item or select it
     private void ItemInteraction()
     {
-        foreach (InventoryItemBehavior item in GetItemBehaviors())
+        foreach (InventoryItem item in GetItemBehaviors())
         {
             item.SetHover(false);
         }
         // find hovered item
-        InventoryItemBehavior hoverItem = null;
+        InventoryItem hoverItem = null;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit2D[] hits = Physics2D.RaycastAll(ray.origin, ray.direction, Mathf.Infinity, 1 << LayerMask.NameToLayer("UI"));
         foreach (RaycastHit2D hit in hits)
         {
-            InventoryItemBehavior item = hit.collider?.gameObject?.GetComponent<InventoryItemBehavior>();
+            InventoryItem item = hit.collider?.gameObject?.GetComponent<InventoryItem>();
             if (item != null)
             {
                 hoverItem = item;
@@ -92,9 +92,9 @@ public class InventoryDisplayBehavior : UIDisplayBase
             hoverItem.SetHover(true);
         }
         // select if clicked on
-        if (Input.GetMouseButtonDown(0) && ResolutionHandler.GetScreenRect(chestBox.rect).Contains(Input.mousePosition))
+        if (Input.GetMouseButtonDown(0) && ScreenResolution.GetScreenRect(chestBox.rect).Contains(Input.mousePosition))
         {
-            foreach (InventoryItemBehavior item in GetItemBehaviors())
+            foreach (InventoryItem item in GetItemBehaviors())
             {
                 item.SetSelected(false);
             }
@@ -131,13 +131,13 @@ public class InventoryDisplayBehavior : UIDisplayBase
         SetItemsDynamic(false);
     }
 
-    private IEnumerable<InventoryItemBehavior> GetItemBehaviors()
+    private IEnumerable<InventoryItem> GetItemBehaviors()
     {
         foreach (ItemType type in inventory.items.Keys)
         {
             foreach (Item item in inventory.items[type])
             {
-                InventoryItemBehavior itemBehavior = item.gameObject?.GetComponent<InventoryItemBehavior>();
+                InventoryItem itemBehavior = item.gameObject?.GetComponent<InventoryItem>();
                 if (itemBehavior != null)
                 {
                     yield return itemBehavior;
@@ -147,14 +147,14 @@ public class InventoryDisplayBehavior : UIDisplayBase
     }
     private void SetItemsAlpha(float alpha)
     {
-        foreach (InventoryItemBehavior item in GetItemBehaviors())
+        foreach (InventoryItem item in GetItemBehaviors())
         {
             item.SetAlpha(alpha);
         }
     }
     private void SetItemsDynamic(bool value)
     {
-        foreach (InventoryItemBehavior item in GetItemBehaviors())
+        foreach (InventoryItem item in GetItemBehaviors())
         {
             item.SetDynamic(value);
         }
@@ -164,23 +164,23 @@ public class InventoryDisplayBehavior : UIDisplayBase
     public void AddItem(Item item)
     {
         GameObject gameObj = Instantiate(Inventory.Prefabs[item.type.img], chestBox.rect);
-        gameObj.GetComponent<InventoryItemBehavior>().Initialize(item, Open);
+        gameObj.GetComponent<InventoryItem>().Initialize(item, Open);
         Vector3 objSize = gameObj.GetComponent<Collider2D>().bounds.extents * 2f;
         // get screen rectangle of the chest box, pick some x position along the top part
-        Rect chest = ResolutionHandler.GetScreenRect(chestBox.rect);
+        Rect chest = ScreenResolution.GetScreenRect(chestBox.rect);
         chest.position = new Vector2(chest.position.x, chest.position.y + chest.size.y * 0.5f);
         chest.size = new Vector2(chest.size.x, chest.size.y * 0.5f);
         chest.min += (Vector2)objSize;
         chest.max -= (Vector2)objSize;
         Vector2 pos = new Vector2(Random.Range(chest.xMin, chest.xMax), Random.Range(chest.yMin, chest.yMax));
         // move item obj to position
-        gameObj.transform.localPosition = ResolutionHandler.ScreenToRectPoint(chestBox.rect, pos);
+        gameObj.transform.localPosition = ScreenResolution.ScreenToRectPoint(chestBox.rect, pos);
         gameObj.transform.localRotation = Quaternion.identity;
         item.gameObject = gameObj;
     }
     public void ClearItems()
     {
-        foreach (InventoryItemBehavior item in GetItemBehaviors())
+        foreach (InventoryItem item in GetItemBehaviors())
         {
             Destroy(item.gameObject);
         }

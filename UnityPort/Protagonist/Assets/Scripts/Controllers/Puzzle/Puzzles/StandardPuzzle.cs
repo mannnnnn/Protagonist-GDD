@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 /**
  * Simple base class that contains some basic functionality for most letter-throwing puzzles.
  */
-public abstract class StandardPuzzleBehavior : PuzzleBehaviorBase, SpellInteractionTarget
+public abstract class StandardPuzzle : PuzzleBase, SpellInteractionTarget
 {
     // whether we've finished the transition or not
     protected bool active = false;

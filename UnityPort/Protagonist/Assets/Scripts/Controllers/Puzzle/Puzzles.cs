@@ -36,14 +36,14 @@ public class Puzzles : MonoBehaviour
         }
     }
 
-    public static PuzzleBehaviorBase StartPuzzle(string puzzle, string scene)
+    public static PuzzleBase StartPuzzle(string puzzle, string scene)
     {
         if (!Prefabs.ContainsKey(puzzle))
         {
             throw new InvalidOperationException("Puzzle '" + puzzle + "' is not registered in Puzzles.");
         }
         GameObject puzzleObj = Instantiate(Prefabs[puzzle]);
-        PuzzleBehaviorBase puzzleBehavior = puzzleObj.GetComponent<PuzzleBehaviorBase>();
+        PuzzleBase puzzleBehavior = puzzleObj.GetComponent<PuzzleBase>();
         if (puzzleBehavior == null)
         {
             throw new InvalidOperationException("Puzzle prefab '" + puzzle + "' has no PuzzleBehavior component.");
@@ -55,7 +55,7 @@ public class Puzzles : MonoBehaviour
     public static GameObject CreatePlayer(SpellInteractionTarget target)
     {
         GameObject playerObj = Instantiate(player);
-        playerObj.GetComponent<PuzzlePlayerBehavior>().Initialize(target);
+        playerObj.GetComponent<PuzzlePlayer>().Initialize(target);
         return playerObj;
     }
 }

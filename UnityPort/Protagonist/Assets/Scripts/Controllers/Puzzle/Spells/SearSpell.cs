@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /**
- * Example of using ProjectileSpellBehavior.
+ * Example of using ProjectileSpell.
  */
-public class SearBehavior : ProjectileSpellBehavior
+public class SearSpell : ProjectileSpell
 {
     public GameObject hitEffect;
     public GameObject smokeEffect;
@@ -13,7 +13,7 @@ public class SearBehavior : ProjectileSpellBehavior
     ParticlesAttached ps;
     protected override void Initialize()
     {
-        Vector2 pos = ResolutionHandler.MapViewToWorldPoint(new Vector2(0.4f, 0.2f));
+        Vector2 pos = ScreenResolution.MapViewToWorldPoint(new Vector2(0.4f, 0.2f));
         transform.position = new Vector3(pos.x, pos.y, transform.position.z);
         // create smoke obj
         ps = Instantiate(smokeEffect, transform.position, transform.rotation).GetComponent<ParticlesAttached>();

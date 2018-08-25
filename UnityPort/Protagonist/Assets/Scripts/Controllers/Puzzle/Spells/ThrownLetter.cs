@@ -8,7 +8,7 @@ using UnityEngine;
 /**
  * Controls one single letter thrown in the ThrowLetterSpell spell.
  */
-public class ThrowLetterBehavior : MonoBehaviour
+public class ThrownLetter : MonoBehaviour
 {
     public string letter;
     public GameObject hitEffect;
@@ -44,8 +44,8 @@ public class ThrowLetterBehavior : MonoBehaviour
         // spin
         transform.localEulerAngles = new Vector3(0f, 0f, transform.localEulerAngles.z + spinSpd * GameTime.deltaTime);
         // shrink
-        transform.localScale = new Vector3(ProjectileSpellBehavior.Decay(transform.localScale.x, shrinkSpd, shrinkMin),
-            ProjectileSpellBehavior.Decay(transform.localScale.y, shrinkSpd, shrinkMin), 1f);
+        transform.localScale = new Vector3(ProjectileSpell.Decay(transform.localScale.x, shrinkSpd, shrinkMin),
+            ProjectileSpell.Decay(transform.localScale.y, shrinkSpd, shrinkMin), 1f);
         // if at target
         if (Vector2.Distance(transform.position, targetPos) < 0.01f)
         {

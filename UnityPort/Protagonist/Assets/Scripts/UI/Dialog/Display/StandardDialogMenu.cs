@@ -16,7 +16,7 @@ public interface DialogMenu
  * Creates buttons given an options list, and waits for the player to choose one,
  * then calls dialog.ChooseMenuOption as is required for menus.
  */
-public class DialogMenuBehavior : UIDisplayBase, DialogMenu
+public class StandardDialogMenu : UIDisplayBase, DialogMenu
 {
     // prefab passed in through inspector
     public GameObject button;
@@ -28,7 +28,7 @@ public class DialogMenuBehavior : UIDisplayBase, DialogMenu
     float displayY;
 
     List<string> options = new List<string>();
-    List<DialogMenuButtonBehavior> buttons = new List<DialogMenuButtonBehavior>();
+    List<DialogMenuButton> buttons = new List<DialogMenuButton>();
 
     // note that since the back panel has no text, using SetText will throw.
     UIPanel backPanel;
@@ -76,7 +76,7 @@ public class DialogMenuBehavior : UIDisplayBase, DialogMenu
             buttonY -= buttonSize;
             GameObject buttonObj = Instantiate(button, transform);
             // move button to y position
-            var buttonBehavior = buttonObj.GetComponent<DialogMenuButtonBehavior>();
+            var buttonBehavior = buttonObj.GetComponent<DialogMenuButton>();
             buttonBehavior.Initialize(this, buttonY, 0, 1);
             // set button as option
             buttonBehavior.SetText(options[i]);
@@ -113,7 +113,7 @@ public class DialogMenuBehavior : UIDisplayBase, DialogMenu
     public void FinishSelection()
     {
         // close the buttons, so you can't choose another
-        foreach (DialogMenuButtonBehavior button in buttons)
+        foreach (DialogMenuButton button in buttons)
         {
             button.SetState(State.PENDING_CLOSE);
         }

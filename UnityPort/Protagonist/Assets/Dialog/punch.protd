@@ -1,16 +1,26 @@
-character H
-{
-	name = "Hades"
-	side = right
-}
+[
+    {
+        character: "Hades",
+        abbrev: "H"
+    },
 
-show H spr_talkHades
-with Hades_swing
-
-H: "You think the answer is to punch me in the face?"
-H: "You realize I was kind enough to pause the battle while you took this little test, right?"
-H: "I think I'll just stay here with the menu up and resume the battle. Enjoy a slow and painful death. The one you deserve."
-
-call hadesSpecialRetributionExtravaganza()
-
-wait -4
+	{
+		show: {
+            name: "H",
+            side: "Right",
+            sprite: "Hades",
+            transition: "Swing",
+            image: "Normal"
+		}
+	},
+	{ H: "You think the answer is to punch me in the face?" },
+	{ H: "You realize I was kind enough to pause the battle while you took this little test, right?" },
+	{ H: "I think I'll just stay here with the menu up and resume the battle. Enjoy a slow and painful death. The one you deserve." },
+	{ event: "combat.hadesRevenge" },
+	{
+		event: "wait",
+		args: {
+			duration: "1000000000"
+		}
+	}
+]

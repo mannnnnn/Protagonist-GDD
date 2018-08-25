@@ -7,9 +7,9 @@ using UnityEngine;
 /**
  * Base for dialog boxes and groups of dialog boxes.
  * Controls the state and state transition.
- * Handles setting y position (for x position, use AdjustUIBehavior), and provides a framework for other functionality.
+ * Handles setting y position (for x position, use AdjustUI), and provides a framework for other functionality.
  * Note that this is abstract, so you must implement these functions on your own later.
- * One implementation, for example, is DialogDisplayBehavior.
+ * One implementation, for example, is DialogDisplay.
  */
 public abstract class UIDisplayBase : MonoBehaviour
 {
@@ -117,12 +117,12 @@ public abstract class UIDisplayBase : MonoBehaviour
     // y position
     public virtual float GetY()
     {
-        return ResolutionHandler.RectToScreenPoint(rect, new Vector2(0, 0)).y;
+        return ScreenResolution.RectToScreenPoint(rect, new Vector2(0, 0)).y;
     }
     protected virtual void SetY(float screenY)
     {
         rect.anchoredPosition = new Vector2(rect.anchoredPosition.x,
-            rect.anchoredPosition.y + ResolutionHandler.ScreenToRectPoint(rect, new Vector2(0, screenY)).y);
+            rect.anchoredPosition.y + ScreenResolution.ScreenToRectPoint(rect, new Vector2(0, screenY)).y);
     }
     public void SetTargetY(float screenY)
     {

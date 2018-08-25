@@ -1,13 +1,22 @@
-character Hades
-{
-	side = right
-}
+[
+	{
+        character: "Hades",
+        abbrev: "H"
+    },
 
-show Hades spr_talkHades
-with fade
-
-Hades: "Great. It's you again."
-
-menu pause
-
-Hades: "See you next time. I'm sure it won't be long."
+	{
+		show: {
+            name: "H",
+            side: "Right",
+            sprite: "Hades",
+            transition: "Fade",
+            image: "Normal"
+		}
+	},
+	{ H: "Great. It's you again." },
+	{
+		menu: [],
+		menuType: "Pause"
+	}
+	{ H: ""See you next time. I'm sure it won't be long." }
+]

@@ -7,7 +7,7 @@ using UnityEngine;
 /**
  * Handles player movement
  */
-public class PlayerBehavior : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour {
 
     //player walk speed in Unity units
     public float movementSpeed = 2f;

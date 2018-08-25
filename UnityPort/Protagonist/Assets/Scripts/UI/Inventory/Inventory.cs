@@ -8,7 +8,7 @@ using UnityEngine;
 
 /**
  * The master controller of the inventory.
- * Handles the inventory data, and calls InventoryDisplayBehavior as needed to display the data.
+ * Handles the inventory data, and calls InventoryDisplay as needed to display the data.
  * Add/remove items from here.
  * Register item type JSON files to this behavior in the inspector.
  */
@@ -23,7 +23,7 @@ public class Inventory : MonoBehaviour, SaveLoadTarget
 
     public int InventorySize { get; private set; } = 25;
 
-    public InventoryDisplayBehavior display { get; private set; }
+    public InventoryDisplay display { get; private set; }
     static Inventory instance;
 
     void Start()
@@ -39,7 +39,7 @@ public class Inventory : MonoBehaviour, SaveLoadTarget
             Prefabs[prefab.name] = prefab.prefab;
         }
         SaveLoad.Register("inventory", this);
-        display = GetComponent<InventoryDisplayBehavior>();
+        display = GetComponent<InventoryDisplay>();
     }
 
     public static Inventory GetInstance()
@@ -88,7 +88,7 @@ public class Inventory : MonoBehaviour, SaveLoadTarget
         return itemTypes[ID];
     }
 
-    // real methods for adding an item to the inventory. Use these, not InventoryDisplayBehavior's version.
+    // real methods for adding an item to the inventory. Use these, not InventoryDisplay's version.
     public Item AddItem(ItemType type)
     {
         if (Count + type.size > InventorySize)

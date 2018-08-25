@@ -10,7 +10,7 @@ using static UIDisplayBase;
 /**
  * A dialog display is everything in UIDisplayBase, then SetText, TextFinished, AdvanceText, and SetMenu
  */
-public interface DialogDisplay
+public interface DialogDisplayer
 {
     // UIDisplayBase
     State state { get; }
@@ -34,11 +34,11 @@ public interface DialogDisplay
  * For the logic related to how dialog scripts are executed, see the DialogParser object.
  * For the logic bridging the DialogParser object to the display, see the Dialog component.
  */
-public class DialogDisplayBehavior : UIDisplayBase, DialogDisplay
+public class DialogDisplay : UIDisplayBase, DialogDisplayer
 {
     UIPanel dialogBox;
     UIPanel nameBox;
-    NameBoxBehavior setNameBox;
+    NameBox setNameBox;
     Dialog dialog;
 
     GameObject menu;
@@ -62,14 +62,14 @@ public class DialogDisplayBehavior : UIDisplayBase, DialogDisplay
         return textPauseDefault;
     }
     // move mouths
-    List<DialogAnimationBehavior> speakers = new List<DialogAnimationBehavior>();
+    List<DialogAnimationBase> speakers = new List<DialogAnimationBase>();
 
     protected void Start()
     {
         // get components
         dialogBox = transform.Find("DialogueBox").gameObject.GetComponent<UIPanel>();
         nameBox = transform.Find("NameBox").gameObject.GetComponent<UIPanel>();
-        setNameBox = GetComponentInChildren<NameBoxBehavior>();
+        setNameBox = GetComponentInChildren<NameBox>();
         dialog = GetComponent<Dialog>();
         SetName("");
         // set y position and y target position
@@ -111,7 +111,7 @@ public class DialogDisplayBehavior : UIDisplayBase, DialogDisplay
         {
             if (chr.gameObject != null)
             {
-                chr.gameObject.GetComponent<DialogAnimationBehavior>().SetTransition(chr.transition, true, null);
+                chr.gameObject.GetComponent<DialogAnimationBase>().SetTransition(chr.transition, true, null);
                 chr.gameObject = null;
             }
         }
@@ -176,7 +176,7 @@ public class DialogDisplayBehavior : UIDisplayBase, DialogDisplay
                 {
                     bool speak = characters.Contains(c);
                     // set as speaking
-                    DialogAnimationBehavior anim = dialogAnim.GetComponent<DialogAnimationBehavior>();
+                    DialogAnimationBase anim = dialogAnim.GetComponent<DialogAnimationBase>();
                     anim.SetSpeaking(speak);
                     anim.SetTalk(speak);
                     // add to speakers list to turn off speaking later
@@ -219,7 +219,7 @@ public class DialogDisplayBehavior : UIDisplayBase, DialogDisplay
             {
                 textPosition = textFull.Length;
                 // we finished scrolling, so stop the talking animation
-                foreach (DialogAnimationBehavior anim in speakers)
+                foreach (DialogAnimationBase anim in speakers)
                 {
                     if (anim != null)
                     {
@@ -262,7 +262,7 @@ public class DialogDisplayBehavior : UIDisplayBase, DialogDisplay
         DialogMenu menu = menuObj.GetComponent<DialogMenu>();
         if (menu == null)
         {
-            throw new ParseError("Prefab for Menu Type '" + type + "' has no DialogMenuBehavior component.");
+            throw new ParseError("Prefab for Menu Type '" + type + "' has no DialogMenu component.");
         }
         return menu.Initialize(options, parser, dialog, this);
     }

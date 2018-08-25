@@ -12,7 +12,7 @@ public class PuzzleOne : SyntaxErrorPuzzle
 {
     protected override void CreateLines()
     {
-        Vector3 pos = ResolutionHandler.MapViewToWorldPoint(new Vector2(0f, 0.9f));
+        Vector3 pos = ScreenResolution.MapViewToWorldPoint(new Vector2(0f, 0.9f));
         float x = pos.x;
         float y = pos.y;
         const float z = 10;

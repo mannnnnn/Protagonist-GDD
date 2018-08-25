@@ -5,7 +5,7 @@ using UnityEngine;
 /**
  * Objects on the map that you can press SPACE to interact with.
  */
-public class InteractableBehavior : MonoBehaviour
+public class MapInteractable : MonoBehaviour
 {
     public string file;
     public string label;

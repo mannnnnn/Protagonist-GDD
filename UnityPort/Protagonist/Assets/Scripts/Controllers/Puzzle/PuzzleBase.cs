@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
  * If you don't want to change scenes in your puzzle, just don't do anything with it.
  * Otherwise, create a transition using SceneTransitions.Transition(type, duration, scene)
  */
-public abstract class PuzzleBehaviorBase : MonoBehaviour
+public abstract class PuzzleBase : MonoBehaviour
 {
     public abstract void Initialize(string scene);
 }

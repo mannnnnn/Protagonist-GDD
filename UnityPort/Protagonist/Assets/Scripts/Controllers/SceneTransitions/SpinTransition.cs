@@ -30,7 +30,7 @@ public class SpinTransition : SceneTransition
     MeshFilter mf;
     void Start()
     {
-        center = ResolutionHandler.MapViewToWorldPoint(new Vector2(0.5f, 0.5f));
+        center = ScreenResolution.MapViewToWorldPoint(new Vector2(0.5f, 0.5f));
         mr = GetComponent<MeshRenderer>();
         mr.sortingLayerName = "SceneTransition";
         mf = GetComponent<MeshFilter>();

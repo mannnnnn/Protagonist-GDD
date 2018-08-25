@@ -5,7 +5,7 @@ using UnityEngine;
 /**
  * Sets z depth equal to y position, so that you can go in front of and in back of objects even in a 2D environment.
  */
-public class Depth2DBehavior : MonoBehaviour
+public class Depth2D : MonoBehaviour
 {
 	// Use this for initialization
 	void Start ()

@@ -7,9 +7,9 @@ using UnityEngine;
  * Controllers are the persistent singleton game objects.
  * That is why this game object is persistent and any clone that appears is destroyed.
  */
-public class ControllersBehavior : MonoBehaviour {
+public class Controllers : MonoBehaviour {
 
-    static ControllersBehavior instance;
+    static Controllers instance;
 
 	// only one may exist, and it exists persistently
 	void Awake () {

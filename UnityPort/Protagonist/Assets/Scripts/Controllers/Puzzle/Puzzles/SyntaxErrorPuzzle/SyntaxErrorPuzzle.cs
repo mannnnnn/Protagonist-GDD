@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
  * You can easily create lines of text in the puzzle using the Line method.
  * See PuzzleOne for an example.
  */
-public abstract class SyntaxErrorPuzzle : StandardPuzzleBehavior
+public abstract class SyntaxErrorPuzzle : StandardPuzzle
 {
     public GameObject line;
 
@@ -58,7 +58,7 @@ public abstract class SyntaxErrorPuzzle : StandardPuzzleBehavior
                 {
                     separated = true;
                     // fall away from top center of screen
-                    Vector2 pos = ResolutionHandler.MapViewToWorldPoint(new Vector2(0.5f, 1f));
+                    Vector2 pos = ScreenResolution.MapViewToWorldPoint(new Vector2(0.5f, 1f));
                     foreach (var letter in GetLetters())
                     {
                         Vector2 velocity = ((Vector2)letter.transform.position - pos).normalized * 5f;

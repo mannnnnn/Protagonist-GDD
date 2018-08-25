@@ -25,7 +25,7 @@ public class UIPanel : MonoBehaviour
 
     protected virtual void Awake()
     {
-        if (ResolutionHandler.Ready)
+        if (ScreenResolution.Ready)
         {
             Initialize();
         }
@@ -86,11 +86,11 @@ public class UIPanel : MonoBehaviour
     }
     public virtual float GetScreenY()
     {
-        return ResolutionHandler.RectToScreenPoint(rect, new Vector2(0, 0)).y;
+        return ScreenResolution.RectToScreenPoint(rect, new Vector2(0, 0)).y;
     }
     public virtual void SetScreenY(float screenY)
     {
-        SetLocalY(rect.anchoredPosition.y + ResolutionHandler.ScreenToRectPoint(rect, new Vector2(0, screenY)).y);
+        SetLocalY(rect.anchoredPosition.y + ScreenResolution.ScreenToRectPoint(rect, new Vector2(0, screenY)).y);
     }
 
     public virtual float GetSize()
@@ -116,10 +116,10 @@ public class UIPanel : MonoBehaviour
         // set anchor to resolution size
         if (rect != null)
         {
-            if (rootPanel && ResolutionHandler.Ready)
+            if (rootPanel && ScreenResolution.Ready)
             {
-                rect.anchorMin = ResolutionHandler.MapViewToScreenPoint(new Vector2(left, 0)) / new Vector2(Screen.width, Screen.height);
-                rect.anchorMax = ResolutionHandler.MapViewToScreenPoint(new Vector2(right, 0)) / new Vector2(Screen.width, Screen.height);
+                rect.anchorMin = ScreenResolution.MapViewToScreenPoint(new Vector2(left, 0)) / new Vector2(Screen.width, Screen.height);
+                rect.anchorMax = ScreenResolution.MapViewToScreenPoint(new Vector2(right, 0)) / new Vector2(Screen.width, Screen.height);
             }
             else
             {

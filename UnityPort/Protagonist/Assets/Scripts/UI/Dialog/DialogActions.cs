@@ -53,7 +53,7 @@ public partial class Dialog
             }
             chr.gameObject = Instantiate(DialogPrefabs.Prefabs[chr.sprite]);
             // transition in
-            chr.gameObject.GetComponent<DialogAnimationBehavior>().SetTransition(chr.transition, false, show);
+            chr.gameObject.GetComponent<DialogAnimationBase>().SetTransition(chr.transition, false, show);
         }
         UpdateCharacterAfter(show, chr, newShow);
         return chr.gameObject;
@@ -69,7 +69,7 @@ public partial class Dialog
         }
         UpdateCharacterAfter(show, chr);
         // transition out
-        chr.gameObject.GetComponent<DialogAnimationBehavior>().SetTransition(chr.transition, true, show);
+        chr.gameObject.GetComponent<DialogAnimationBase>().SetTransition(chr.transition, true, show);
         // set as hidden
         chr.gameObject = null;
         return chr.gameObject;
@@ -108,7 +108,7 @@ public partial class Dialog
             {
                 throw new ParseError("The image tag '" + image + "' is not registered in the DialogImage enum.");
             }
-            chr.gameObject.GetComponent<DialogAnimationBehavior>().SetImage(images[image]);
+            chr.gameObject.GetComponent<DialogAnimationBase>().SetImage(images[image]);
         }
         // set side if necessary
         var side = GetValue(show, "side", true);
@@ -125,7 +125,7 @@ public partial class Dialog
         {
             pos = ParseVector2(chr.position);
         }
-        chr.gameObject.GetComponent<DialogAnimationBehavior>().SetPosition(pos, setPos);
+        chr.gameObject.GetComponent<DialogAnimationBase>().SetPosition(pos, setPos);
     }
 
     private Vector2 ParseVector2(string str)

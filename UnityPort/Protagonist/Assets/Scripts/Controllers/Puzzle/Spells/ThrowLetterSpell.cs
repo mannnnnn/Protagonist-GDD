@@ -56,8 +56,8 @@ public class ThrowLetterSpell : MonoBehaviour, MultiHitSpell
             timerSeconds = 0f;
             // throw the letter by finishing the original letter and spawning a new one in its position
             PuzzleLetter old = letters[letterIndex];
-            ThrowLetterBehavior thrownLetter = Instantiate(throwLetter, old.transform.position, old.transform.rotation)
-                .GetComponent<ThrowLetterBehavior>();
+            ThrownLetter thrownLetter = Instantiate(throwLetter, old.transform.position, old.transform.rotation)
+                .GetComponent<ThrownLetter>();
             thrownLetter.Initialize(spell[letterIndex].ToString(), targetPos, this);
             old.Finish();
             letterIndex++;
@@ -70,7 +70,7 @@ public class ThrowLetterSpell : MonoBehaviour, MultiHitSpell
         }
     }
 
-    // called by ThrowLetterBehavior when a thrown letter hits
+    // called by ThrownLetter when a thrown letter hits
     public void Hit(GameObject gameObj)
     {
         if (letterHits == 0)

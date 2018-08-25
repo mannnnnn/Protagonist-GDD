@@ -8,9 +8,9 @@ using UnityEngine.UI;
  * along with the eat/discard buttons.
  * Handles display a given item's data, as well as the eat/discard button presses.
  */
-public class InventoryInfoBehavior : UIPanel
+public class InventoryInfo : UIPanel
 {
-    InventoryDisplayBehavior display;
+    InventoryDisplay display;
     Inventory inventory;
 
     UIPanel imagePanel;
@@ -26,7 +26,7 @@ public class InventoryInfoBehavior : UIPanel
     {
         base.Start();
         inventory = transform.parent.GetComponent<Inventory>();
-        display = transform.parent.GetComponent<InventoryDisplayBehavior>();
+        display = transform.parent.GetComponent<InventoryDisplay>();
         // item image
         imagePanel = transform.Find("ImagePanel").GetComponent<UIPanel>();
         image = imagePanel.transform.Find("ImageContainer").Find("Image").GetComponent<SpriteRenderer>();
@@ -44,11 +44,11 @@ public class InventoryInfoBehavior : UIPanel
         // handle button clicks
         if (display.selectedItem != null && Input.GetMouseButtonDown(0))
         {
-            if (ResolutionHandler.GetScreenRect(eatButton.rect).Contains(Input.mousePosition))
+            if (ScreenResolution.GetScreenRect(eatButton.rect).Contains(Input.mousePosition))
             {
                 EatItem(display.selectedItem);
             }
-            if (ResolutionHandler.GetScreenRect(discardButton.rect).Contains(Input.mousePosition))
+            if (ScreenResolution.GetScreenRect(discardButton.rect).Contains(Input.mousePosition))
             {
                 DiscardItem(display.selectedItem);
             }
@@ -87,7 +87,7 @@ public class InventoryInfoBehavior : UIPanel
     }
 
     // button click actions
-    private void EatItem(InventoryItemBehavior item)
+    private void EatItem(InventoryItem item)
     {
         item.Eat();
         if (item.type.edible)
@@ -99,7 +99,7 @@ public class InventoryInfoBehavior : UIPanel
         }
         SetDesc(item.type.eatText);
     }
-    private void DiscardItem(InventoryItemBehavior item)
+    private void DiscardItem(InventoryItem item)
     {
         if (!item.type.edible)
         {
@@ -111,7 +111,7 @@ public class InventoryInfoBehavior : UIPanel
     }
 
     // set item display info
-    public void DisplayItem(InventoryItemBehavior item)
+    public void DisplayItem(InventoryItem item)
     {
         if (item != null)
         {

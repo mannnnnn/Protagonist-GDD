@@ -8,7 +8,7 @@ using UnityEngine;
  * Allows it to perform various actions, such as set image, talk animation, position, and transition.
  * These are automatically created by the dialog system.
  */
-public class DialogAnimationBehavior : MonoBehaviour {
+public class DialogAnimationBase : MonoBehaviour {
 
     public float height;
     SpriteRenderer sr;
@@ -43,17 +43,17 @@ public class DialogAnimationBehavior : MonoBehaviour {
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         // calculate height based off of height as a fraction of mapview
-        float worldPx = Mathf.Abs(ResolutionHandler.MapViewToWorldPoint(new Vector2(0f, height)).y
-            - ResolutionHandler.MapViewToWorldPoint(Vector2.zero).y);
+        float worldPx = Mathf.Abs(ScreenResolution.MapViewToWorldPoint(new Vector2(0f, height)).y
+            - ScreenResolution.MapViewToWorldPoint(Vector2.zero).y);
         float scale = worldPx / (2 * sr.sprite.bounds.extents.y);
         baseScale = new Vector3(scale, scale, sr.transform.localScale.z);
         sr.transform.localScale = baseScale;
         // set at bottom of mapview
-        transform.position = new Vector3(transform.position.x, ResolutionHandler.MapViewToWorldPoint(Vector2.zero).y, transform.position.z);
+        transform.position = new Vector3(transform.position.x, ScreenResolution.MapViewToWorldPoint(Vector2.zero).y, transform.position.z);
         pos = transform.position;
         // calculate speed in world coords
-        worldSpd = Mathf.Abs(ResolutionHandler.MapViewToWorldPoint(Vector2.right * spd).x
-            - ResolutionHandler.MapViewToWorldPoint(Vector2.zero).x);
+        worldSpd = Mathf.Abs(ScreenResolution.MapViewToWorldPoint(Vector2.right * spd).x
+            - ScreenResolution.MapViewToWorldPoint(Vector2.zero).x);
         baseColor = sr.color;
     }
 	
@@ -104,7 +104,7 @@ public class DialogAnimationBehavior : MonoBehaviour {
 
     public void SetPosition(Vector2 pos, bool instant = false)
     {
-        Vector2 worldPos = ResolutionHandler.MapViewToWorldPoint(pos);
+        Vector2 worldPos = ScreenResolution.MapViewToWorldPoint(pos);
         if (instant)
         {
             transform.position = new Vector3(worldPos.x, worldPos.y, transform.position.z);
@@ -135,7 +135,7 @@ public class DialogAnimationBehavior : MonoBehaviour {
         // if necessary and on left side of the screen, flip sprite
         if (flipOnLeft)
         {
-            if (ResolutionHandler.WorldToMapViewPoint(transform.position).x < 0.5f)
+            if (ScreenResolution.WorldToMapViewPoint(transform.position).x < 0.5f)
             {
                 sr.flipX = true;
             }

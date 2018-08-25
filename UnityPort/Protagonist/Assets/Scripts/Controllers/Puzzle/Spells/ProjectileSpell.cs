@@ -6,7 +6,7 @@ using UnityEngine;
  * Base class used by spells that are just one projectile that is thrown at a given position.
  * This includes spells like SEAR, SEA, CARD, etc.
  */
-public abstract class ProjectileSpellBehavior : MonoBehaviour, PuzzleSpell
+public abstract class ProjectileSpell : MonoBehaviour, PuzzleSpell
 {
     bool moving = false;
     bool finished = false;

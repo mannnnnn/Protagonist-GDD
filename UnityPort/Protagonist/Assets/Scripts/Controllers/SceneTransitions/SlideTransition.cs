@@ -83,8 +83,8 @@ public class SlideTransition : SceneTransition
                 throw new InvalidOperationException("Cannot use a SlideTransition with side being Side.NONE, please set the side to a valid one.");
         }
         // turn [0, 1]x[0, 1] map-view points to screen points
-        Vector3 origin = ResolutionHandler.MapViewToScreenPoint(start);
-        Vector3 size = ResolutionHandler.MapViewToScreenPoint(finish) - origin;
+        Vector3 origin = ScreenResolution.MapViewToScreenPoint(start);
+        Vector3 size = ScreenResolution.MapViewToScreenPoint(finish) - origin;
         // draw
         GUI.DrawTexture(new Rect(origin, size), tex);
 
@@ -119,15 +119,15 @@ public class SlideTransition : SceneTransition
         if (player != null)
         {
             // get the size of the screen in world coordinates
-            Vector3 origin = ResolutionHandler.MapViewToWorldPoint(Vector2.zero);
-            Vector3 size = ResolutionHandler.MapViewToWorldPoint(Vector2.one) - origin;
+            Vector3 origin = ScreenResolution.MapViewToWorldPoint(Vector2.zero);
+            Vector3 size = ScreenResolution.MapViewToWorldPoint(Vector2.one) - origin;
             // convert side to a cardinal direction
             Vector3 position = (Vector2)SceneTransitions.ToVector2Int(side);
             // scale by half of the screen size
             // then since the player comes out of the opposite side of the screen, scale by -1
             position.Scale(size * 0.5f * -1f);
             // put the vector at the center of the screen
-            position = position + ResolutionHandler.MapViewToWorldPoint(new Vector2(0.5f, 0.5f));
+            position = position + ScreenResolution.MapViewToWorldPoint(new Vector2(0.5f, 0.5f));
             // set player position
             player.transform.position = position;
         }

@@ -250,6 +250,7 @@ GameObject:
   - component: {fileID: 114822662211928932}
   - component: {fileID: 114253244588828434}
   - component: {fileID: 114739741045396214}
+  - component: {fileID: 114792528895315706}
   m_Layer: 5
   m_Name: DialogGroup
   m_TagString: Untagged
@@ -2042,6 +2043,17 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!114 &114792528895315706
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1240722062689172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4601505c80d9a774aa4fe1c081d1140d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114810001535448588
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3038,8 +3050,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 224896316756130058}
   - {fileID: 224269723142723364}
+  - {fileID: 224896316756130058}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3081,7 +3093,7 @@ RectTransform:
   - {fileID: 224445047241498806}
   - {fileID: 224046100291282512}
   m_Father: {fileID: 224194902552606628}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -3575,7 +3587,7 @@ RectTransform:
   - {fileID: 224836663304252524}
   - {fileID: 224066976756469070}
   m_Father: {fileID: 224194902552606628}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}

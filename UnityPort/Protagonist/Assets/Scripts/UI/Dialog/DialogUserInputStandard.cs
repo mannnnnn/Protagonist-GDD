@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public interface DialogUserInput
@@ -12,7 +8,7 @@ public interface DialogUserInput
     void Unfreeze(object key);
 }
 
-public class DialogUserInputBehavior : MonoBehaviour, DialogUserInput
+public class DialogUserInputStandard : MonoBehaviour, DialogUserInput
 {
     Dialog dialog;
     DialogDisplay display;
@@ -37,7 +33,7 @@ public class DialogUserInputBehavior : MonoBehaviour, DialogUserInput
         // handle user input
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            Dialog.RunDialog("jungle18.protd");
+            Dialog.RunDialog("run1.protd");
         }
         if (Input.GetMouseButtonDown(0) && dialog.Active)
         {

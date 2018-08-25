@@ -4,11 +4,11 @@ using UnityEngine;
 
 /**
  * Default dialog menu button control.
- * This outputs back to DialogMenuBehavior when it is clicked via menu.FinishSelection().
+ * This outputs back to DialogMenu when it is clicked via menu.FinishSelection().
  */
-public class DialogMenuButtonBehavior : UIDisplayBase
+public class DialogMenuButton : UIDisplayBase
 {
-    DialogMenuBehavior menu;
+    StandardDialogMenu menu;
     
     [HideInInspector] public UIPanel box;
 
@@ -27,7 +27,7 @@ public class DialogMenuButtonBehavior : UIDisplayBase
         SetState(State.OPENING);
     }
 
-    public void Initialize(DialogMenuBehavior menu, float screenY, float left, float right)
+    public void Initialize(StandardDialogMenu menu, float screenY, float left, float right)
     {
         this.menu = menu;
         SetY(screenY);
@@ -51,7 +51,7 @@ public class DialogMenuButtonBehavior : UIDisplayBase
         // handle click on this button
         if (Input.GetMouseButtonDown(0))
         {
-            if (ResolutionHandler.GetScreenRect(box.rect).Contains(Input.mousePosition))
+            if (ScreenResolution.GetScreenRect(box.rect).Contains(Input.mousePosition))
             {
                 selected = true;
                 menu.FinishSelection();

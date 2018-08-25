@@ -5,7 +5,7 @@ using UnityEngine;
 /**
  * Controls the player hands that wiggle up and down during puzzles.
  */
-public class PuzzleHandBehavior : MonoBehaviour
+public class PuzzleHand : MonoBehaviour
 {
     float verticalMin = -0.5f;
     float verticalMax = 0.3f;
@@ -17,17 +17,17 @@ public class PuzzleHandBehavior : MonoBehaviour
 
     void Start()
     {
-        transform.position = ResolutionHandler.MapViewToWorldPoint(new Vector2(xPosition, 0f)) + Vector3.forward * transform.position.z;
+        transform.position = ScreenResolution.MapViewToWorldPoint(new Vector2(xPosition, 0f)) + Vector3.forward * transform.position.z;
     }
 
     void Update()
     {
         Vector2 cursor = PuzzleCursor.GetPosition();
-        Vector2 min = ResolutionHandler.MapViewToWorldPoint(Vector2.zero);
-        Vector2 max = ResolutionHandler.MapViewToWorldPoint(Vector2.one);
+        Vector2 min = ScreenResolution.MapViewToWorldPoint(Vector2.zero);
+        Vector2 max = ScreenResolution.MapViewToWorldPoint(Vector2.one);
         cursor = new Vector2(Mathf.Clamp(cursor.x, min.x, max.x), Mathf.Clamp(cursor.y, min.y, max.y));
         // height control
-        float yTarget = ResolutionHandler.FreeLerp(cursor.y, min.y, max.y, min.y + verticalMin, min.y + verticalMax);
+        float yTarget = ScreenResolution.FreeLerp(cursor.y, min.y, max.y, min.y + verticalMin, min.y + verticalMax);
         float yDist = yTarget - transform.position.y;
         float y = Mathf.MoveTowards(transform.position.y, yTarget, Mathf.Abs(yDist) * verticalSpd * GameTime.deltaTime);
         transform.position = new Vector3(transform.position.x, y, transform.position.z);

@@ -7,7 +7,7 @@ using UnityEngine;
  * They follow physics, and can be clicked on to display their information.
  * They can be eaten/discarded (destroyed).
  */
-public class InventoryItemBehavior : MonoBehaviour
+public class InventoryItem : MonoBehaviour
 {
     public SpriteRenderer sr { get; private set; }
     Rigidbody2D body;

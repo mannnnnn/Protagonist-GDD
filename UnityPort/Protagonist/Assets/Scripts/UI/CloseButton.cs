@@ -12,7 +12,7 @@ public interface CloseButtonTarget
 /**
  * Close button that outputs to some target
  */
-public class CloseButtonBehavior : MonoBehaviour
+public class CloseButton : MonoBehaviour
 {
     RectTransform rect;
     Image image;
@@ -28,7 +28,7 @@ public class CloseButtonBehavior : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Rect screenRect = ResolutionHandler.GetScreenRect(rect);
+            Rect screenRect = ScreenResolution.GetScreenRect(rect);
             if (screenRect.Contains(Input.mousePosition))
             {
                 target.CloseButtonClick();
