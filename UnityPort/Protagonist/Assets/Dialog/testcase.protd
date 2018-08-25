@@ -18,7 +18,7 @@
         }
     },
     { P: "Hello, world!" },
-    { "": "Hello, lack of a nameplate!" },
+    { "": "Hello, lack of a nameplate!\nnewline test" },
     {
         event: "Hi",
         args: {

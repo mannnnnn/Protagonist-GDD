@@ -22,6 +22,7 @@ public partial class Dialog : MonoBehaviour, DialogTarget, SaveLoadTarget
 {
     static Dialog instance;
 
+    // required components
     public DialogParser parser { get; private set; }
     DialogEvents events;
     DialogDisplay display;
@@ -32,17 +33,19 @@ public partial class Dialog : MonoBehaviour, DialogTarget, SaveLoadTarget
     public bool Enabled { get; private set; } = false;
 
     // whether or not all components of dialog are deactivated
-    public static bool Active => instance.Enabled || instance.display.active;
+    public static bool Active => instance.Enabled || instance.display.Active;
 
-    void Start()
+    void Awake()
     {
         if (instance != null)
         {
             return;
         }
         instance = this;
-        // get display
-        display = GetComponentInChildren<DialogDisplay>();
+    }
+    void Start()
+    {
+        DialogDisplays.SwapTo("Default");
         events = GetComponent<DialogEvents>();
         SaveLoad.Register("flags", this);
     }
@@ -50,6 +53,15 @@ public partial class Dialog : MonoBehaviour, DialogTarget, SaveLoadTarget
     public static Dialog GetInstance()
     {
         return instance;
+    }
+    public static DialogDisplay GetDisplay()
+    {
+        return instance.display;
+    }
+    // don't use this, use DialogDisplays.SwapTo(string name)
+    public static void SetDisplay(DialogDisplay display)
+    {
+        instance.display = display;
     }
     // load a dialog file and run the first instruction
     public static void RunDialog(string file, string label = null)
@@ -76,11 +88,10 @@ public partial class Dialog : MonoBehaviour, DialogTarget, SaveLoadTarget
 
     public void Display(List<string> characters, string text, Dictionary<string, object> statement)
     {
-        display.SetText(characters, text, parser);
+        display.SetText(characters, text);
     }
     public bool Run(Dictionary<string, object> statement, DialogParser parser)
     {
-        // Debug.Log("Run: " + string.Join(",", statement.Keys.Select(x => x.ToString()).ToArray()));
         // nameplate-less statement
         if (statement.ContainsKey(""))
         {
@@ -137,7 +148,7 @@ public partial class Dialog : MonoBehaviour, DialogTarget, SaveLoadTarget
     public List<Dictionary<string, object>> GetMenu(List<Dictionary<string, object>> menu, string type = "Default")
     {
         // the menu created will call parser.ChooseMenuOption(option) so we don't need to
-        return display.SetMenu(menu, type, parser);
+        return display.SetMenu(menu, type);
     }
 
     // save/load flags

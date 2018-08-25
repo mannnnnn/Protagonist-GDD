@@ -45,7 +45,7 @@ public class InventoryUserInputRemove : MonoBehaviour, InventoryUserInput
 
     private void Finish()
     {
-        gameObject.AddComponent<InventoryUserInputStandard>();
+        gameObject.AddComponent<StandardInventoryUserInput>();
         Destroy(this);
     }
 

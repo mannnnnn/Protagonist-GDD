@@ -6,7 +6,7 @@ using UnityEngine.UI;
 /**
  * Different dialog names have different widths.
  * Additionally, the nameplate will have to be repositioned for different characters (e.g. right side or left side).
- * This component handles that. It is called by DialogDisplay.
+ * This component handles that. It is called by StandardDialogDisplay.
  */
 public class NameBox : MonoBehaviour
 {

@@ -8,20 +8,12 @@ public interface DialogUserInput
     void Unfreeze(object key);
 }
 
-public class DialogUserInputStandard : MonoBehaviour, DialogUserInput
+public class StandardDialogUserInput : MonoBehaviour, DialogUserInput
 {
-    Dialog dialog;
-    DialogDisplay display;
     float fastForwardSpd = 30f;
 
     // when we want to prevent user input
     Dictionary<object, bool> freezes = new Dictionary<object, bool>();
-
-    void Start()
-    {
-        dialog = GetComponent<Dialog>();
-        display = GetComponent<DialogDisplay>();
-    }
 
     void Update()
     {
@@ -33,26 +25,26 @@ public class DialogUserInputStandard : MonoBehaviour, DialogUserInput
         // handle user input
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            Dialog.RunDialog("run1.protd");
+            Dialog.RunDialog("testcase.protd");
         }
-        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) && dialog.Enabled)
+        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) && Dialog.GetInstance().Enabled)
         {
-            if (display.TextFinished())
+            if (Dialog.GetDisplay().TextFinished())
             {
                 Dialog.Advance();
             }
             else
             {
-                display.AdvanceText(10f);
+                Dialog.GetDisplay().Advance(10f);
             }
         }
-        if (Input.GetKey(KeyCode.LeftControl) && dialog.Enabled)
+        if (Input.GetKey(KeyCode.LeftControl) && Dialog.GetInstance().Enabled)
         {
-            if (display.TextFinished())
+            if (Dialog.GetDisplay().TextFinished())
             {
                 Dialog.Advance();
             }
-            display.AdvanceText(fastForwardSpd * UITime.deltaTime);
+            Dialog.GetDisplay().Advance(fastForwardSpd * UITime.deltaTime);
         }
     }
 

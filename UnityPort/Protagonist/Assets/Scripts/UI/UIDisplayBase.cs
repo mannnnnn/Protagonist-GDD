@@ -9,7 +9,7 @@ using UnityEngine;
  * Controls the state and state transition.
  * Handles setting y position (for x position, use AdjustUI), and provides a framework for other functionality.
  * Note that this is abstract, so you must implement these functions on your own later.
- * One implementation, for example, is DialogDisplay.
+ * One implementation, for example, is StandardDialogDisplay.
  */
 public abstract class UIDisplayBase : MonoBehaviour
 {

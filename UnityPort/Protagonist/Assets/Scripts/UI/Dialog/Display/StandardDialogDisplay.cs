@@ -1,16 +1,13 @@
 ﻿using Assets.Scripts.Libraries.ProtagonistDialog;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 using static UIDisplayBase;
 
 /**
  * A dialog display is everything in UIDisplayBase, then SetText, TextFinished, AdvanceText, and SetMenu
  */
-public interface DialogDisplayer
+public interface DialogDisplay
 {
     // UIDisplayBase
     State state { get; }
@@ -21,10 +18,11 @@ public interface DialogDisplayer
     float GetSize();
 
     // dialog display
-    void SetText(List<string> characters, string text, DialogParser parser = null);
+    bool Active { get; }
+    void SetText(List<string> characters, string text);
     bool TextFinished();
-    void AdvanceText(float amount);
-    List<Dictionary<string, object>> SetMenu(List<Dictionary<string, object>> options, string type, DialogParser parser);
+    void Advance(float amount);
+    List<Dictionary<string, object>> SetMenu(List<Dictionary<string, object>> options, string type);
 }
 
 /**
@@ -34,43 +32,27 @@ public interface DialogDisplayer
  * For the logic related to how dialog scripts are executed, see the DialogParser object.
  * For the logic bridging the DialogParser object to the display, see the Dialog component.
  */
-public class DialogDisplay : UIDisplayBase, DialogDisplayer
+public class StandardDialogDisplay : UIDisplayBase, DialogDisplay, TextScrollTarget
 {
     UIPanel dialogBox;
     UIPanel nameBox;
     NameBox setNameBox;
-    Dialog dialog;
+    // if dialog is executing or we aren't closed, we're active
+    public bool Active => state != State.CLOSED || Dialog.GetInstance().Enabled;
 
     GameObject menu;
-
-    // scroll text
-    string textFull = "";
-    int textPosition = 0;
-    float textTimer = 0f;
-    // pause for different times at , and .
-    const float textPauseDefault = 0.03f;
-    static Dictionary<char, float> textPause = new Dictionary<char, float>()
-    {
-        { ',', 0.2f }, { '.', 0.3f }
-    };
-    private float GetTextPause(char c)
-    {
-        if (textPause.ContainsKey(c))
-        {
-            return textPause[c];
-        }
-        return textPauseDefault;
-    }
+    TextScroller textScroller;
+    
     // move mouths
     List<DialogAnimationBase> speakers = new List<DialogAnimationBase>();
 
     protected void Start()
     {
+        textScroller = new TextScroller(this);
         // get components
         dialogBox = transform.Find("DialogueBox").gameObject.GetComponent<UIPanel>();
         nameBox = transform.Find("NameBox").gameObject.GetComponent<UIPanel>();
         setNameBox = GetComponentInChildren<NameBox>();
-        dialog = GetComponent<Dialog>();
         SetName("");
         // set y position and y target position
         SetY(0);
@@ -84,7 +66,11 @@ public class DialogDisplay : UIDisplayBase, DialogDisplayer
         // handle timer/state
         base.Update();
         // set text scroll
-        UpdateTextScroll();
+        if (Active)
+        {
+            textScroller.Advance(UITime.deltaTime);
+        }
+        SetText(textScroller.Text());
         // set target position
         switch (state)
         {
@@ -107,7 +93,7 @@ public class DialogDisplay : UIDisplayBase, DialogDisplayer
     protected override bool PendingClose()
     {
         bool close = true;
-        foreach (DialogCharacter chr in dialog.parser.characters.Values)
+        foreach (DialogCharacter chr in Dialog.GetInstance().parser.characters.Values)
         {
             if (chr.gameObject != null)
             {
@@ -138,8 +124,15 @@ public class DialogDisplay : UIDisplayBase, DialogDisplayer
     }
 
     // call to set the text contents of the display, both nameplate and textbox. Called by Dialog
-    public void SetText(List<string> characters, string text, DialogParser parser = null)
+    public void SetText(List<string> characters, string text)
     {
+        SetName(characters);
+        textScroller.SetNew(text);
+        StartSpeakers(characters);
+    }
+    private void SetName(List<string> characters)
+    {
+        DialogParser parser = Dialog.GetInstance().parser;
         // calculate name
         string character = "";
         if (characters.Count != 0)
@@ -152,7 +145,7 @@ public class DialogDisplay : UIDisplayBase, DialogDisplayer
             string last = characters[characters.Count - 1];
             character += parser.characters[last].name;
         }
-        // set name
+        // calculating average position to put name at
         float center = 0f;
         foreach (string c in characters)
         {
@@ -160,10 +153,25 @@ public class DialogDisplay : UIDisplayBase, DialogDisplayer
         }
         center = center / characters.Count;
         SetName(character, center);
-        // set text
-        textFull = text;
-        textPosition = 0;
-        textTimer = 0f;
+    }
+    private void SetName(string character, float center = 0f)
+    {
+        // get size of text
+        float size = setNameBox.SetName(character);
+        // clamp position in between the screen sides
+        float left = Mathf.Clamp(center - (size * 0.5f), 0, 1 - size);
+        if (size >= 1)
+        {
+            left = 0;
+        }
+        // set namebox position to where the person is
+        setNameBox.box.left = Mathf.Clamp01(left);
+        setNameBox.box.right = Mathf.Clamp01(left + size);
+        setNameBox.box.UpdateAnchors();
+    }
+    public void StartSpeakers(List<string> characters)
+    {
+        DialogParser parser = Dialog.GetInstance().parser;
         // set who is speaking
         speakers.Clear();
         if (parser != null)
@@ -188,69 +196,9 @@ public class DialogDisplay : UIDisplayBase, DialogDisplayer
             }
         }
     }
-    private void SetName(string character, float center = 0f)
-    {
-        // get size of text
-        float size = setNameBox.SetName(character);
-        // clamp position in between the screen sides
-        float left = Mathf.Clamp(center - (size * 0.5f), 0, 1 - size);
-        if (size >= 1)
-        {
-            left = 0;
-        }
-        // set namebox position to where the person is
-        setNameBox.box.left = Mathf.Clamp01(left);
-        setNameBox.box.right = Mathf.Clamp01(left + size);
-        setNameBox.box.UpdateAnchors();
-    }
-    // handles the text scroll animation. called by Update
-    private void UpdateTextScroll()
-    {
-        AdvanceText(UITime.deltaTime);
-        if (!dialog.Enabled && state == State.CLOSED)
-        {
-            textTimer = 0f;
-        }
-        while (textPosition < textFull.Length && textTimer > GetTextPause(textFull[textPosition]))
-        {
-            textTimer -= GetTextPause(textFull[textPosition]);
-            textPosition++;
-            if (textPosition >= textFull.Length)
-            {
-                textPosition = textFull.Length;
-                // we finished scrolling, so stop the talking animation
-                foreach (DialogAnimationBase anim in speakers)
-                {
-                    if (anim != null)
-                    {
-                        anim.SetTalk(false);
-                    }
-                }
-                speakers.Clear();
-                break;
-            }
-        }
-        SetText(textFull.Substring(0, Math.Min(textPosition + 1, textFull.Length)));
-    }
-    private void SetText(string text)
-    {
-        dialogBox.SetText(text);
-    }
-
-    // used for checking if the text is being displayed
-    public bool TextFinished()
-    {
-        return textPosition == textFull.Length;
-    }
-    // used to fast-forward the text scrolling.
-    // Note that to advance to the next statement, you need to call Run in Dialog.
-    public void AdvanceText(float amount)
-    {
-        textTimer += amount;
-    }
 
     // dialog menu creation, called by Dialog
-    public List<Dictionary<string, object>> SetMenu(List<Dictionary<string, object>> options, string type, DialogParser parser)
+    public List<Dictionary<string, object>> SetMenu(List<Dictionary<string, object>> options, string type)
     {
         // create a menu
         if (!DialogPrefabs.Menus.ContainsKey(type))
@@ -264,6 +212,32 @@ public class DialogDisplay : UIDisplayBase, DialogDisplayer
         {
             throw new ParseError("Prefab for Menu Type '" + type + "' has no DialogMenu component.");
         }
-        return menu.Initialize(options, parser, dialog, this);
+        return menu.Initialize(options, Dialog.GetInstance().parser, Dialog.GetInstance(), this);
+    }
+
+    // text scroll methods
+    public bool TextFinished()
+    {
+        return textScroller.Finished();
+    }
+    public void Advance(float amount)
+    {
+        textScroller.Advance(amount);
+    }
+    public void FinishTextScroll()
+    {
+        //stop the talking animation
+        foreach (DialogAnimationBase anim in speakers)
+        {
+            if (anim != null)
+            {
+                anim.SetTalk(false);
+            }
+        }
+        speakers.Clear();
+    }
+    private void SetText(string text)
+    {
+        dialogBox.SetText(text);
     }
 }

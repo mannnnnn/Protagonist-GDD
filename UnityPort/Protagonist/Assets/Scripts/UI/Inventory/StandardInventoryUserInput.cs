@@ -10,7 +10,7 @@ public interface InventoryUserInput : CloseButtonTarget
     
 }
 
-public class InventoryUserInputStandard : MonoBehaviour, InventoryUserInput
+public class StandardInventoryUserInput : MonoBehaviour, InventoryUserInput
 {
     InventoryDisplay display;
     Inventory inventory;

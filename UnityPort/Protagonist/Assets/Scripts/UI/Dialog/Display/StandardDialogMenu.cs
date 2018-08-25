@@ -7,7 +7,7 @@ using UnityEngine;
 public interface DialogMenu
 {
     List<Dictionary<string, object>> Initialize(List<Dictionary<string, object>> options,
-        DialogParser dialog, DialogTarget target, DialogDisplay display);
+        DialogParser parser, DialogTarget target, DialogDisplay display);
 }
 
 /**

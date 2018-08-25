@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 /**
  * Allows fading in/out of images at the back of the UI but in front of the game.
- * Uses UIBackgroundImage
+ * Uses the UIBackgroundImage class.
+ * Use UIBackground.TransitionTo(sprite)
  */
 public class UIBackground : MonoBehaviour
 {

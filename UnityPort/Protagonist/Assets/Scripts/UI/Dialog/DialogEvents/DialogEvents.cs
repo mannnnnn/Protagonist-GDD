@@ -15,14 +15,6 @@ public partial class DialogEvents : MonoBehaviour
 {
     const char evtDelimiter = '.';
 
-    Dialog dialog;
-    DialogDisplay display;
-    void Start()
-    {
-        dialog = GetComponent<Dialog>();
-        display = GetComponent<DialogDisplay>();
-    }
-
     // register your dialog events here
     public bool Handle(string evt, Dictionary<string, object> args)
     {
@@ -51,10 +43,10 @@ public partial class DialogEvents : MonoBehaviour
                 return Wait(evt, args);
             // show/hide dialog display
             case "show":
-                display.SetState(UIDisplayBase.State.OPENING);
+                Dialog.GetDisplay().SetState(UIDisplayBase.State.OPENING);
                 return true;
             case "hide":
-                display.SetState(UIDisplayBase.State.CLOSING);
+                Dialog.GetDisplay().SetState(UIDisplayBase.State.CLOSING);
                 return true;
             // change name
             case "changeName":
@@ -77,7 +69,7 @@ public partial class DialogEvents : MonoBehaviour
     {
         string character = GetStringArgument(evt, args, "character");
         string abbrev = GetStringArgument(evt, args, "abbrev");
-        dialog.parser.characters[abbrev].name = character;
+        Dialog.GetInstance().parser.characters[abbrev].name = character;
         return true;
     }
     
