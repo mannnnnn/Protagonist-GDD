@@ -115,7 +115,6 @@ public class SlideTransition : SceneTransition
         state = State.OUT;
         // move the player
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        Debug.Log(player);
         if (player != null)
         {
             // get the size of the screen in world coordinates

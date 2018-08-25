@@ -94,7 +94,7 @@
     <Compile Include="Assets\Scripts\Controllers\ScreenResolution.cs" />
     <Compile Include="Assets\Scripts\Controllers\SyncedMusicPlayer.cs" />
     <Compile Include="Assets\Scripts\Controllers\TimeExtensions.cs" />
-    <Compile Include="Assets\Scripts\Depth2DBehavior.cs" />
+    <Compile Include="Assets\Scripts\Depth2D.cs" />
     <Compile Include="Assets\Scripts\Libraries\ProtagonistDialog\DialogBoolExpression.cs" />
     <Compile Include="Assets\Scripts\Libraries\ProtagonistDialog\DialogBoolParser.cs" />
     <Compile Include="Assets\Scripts\Libraries\ProtagonistDialog\DialogLoader.cs" />
@@ -131,6 +131,8 @@
     <Compile Include="Assets\Scripts\UI\Inventory\InventoryInfo.cs" />
     <Compile Include="Assets\Scripts\UI\Inventory\InventoryItem.cs" />
     <Compile Include="Assets\Scripts\UI\Inventory\InventoryUserInputStandard.cs" />
+    <Compile Include="Assets\Scripts\UI\UIBackground.cs" />
+    <Compile Include="Assets\Scripts\UI\UIBackgroundImage.cs" />
     <Compile Include="Assets\Scripts\UI\UICanvas.cs" />
     <Compile Include="Assets\Scripts\UI\UIDisplayBase.cs" />
     <Compile Include="Assets\Scripts\UI\UIPanel.cs" />

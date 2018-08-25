@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private Vector2 GetInputVelocity()
     {
+        // walk in and out of scenes
         GameObject obj = GameObject.FindGameObjectWithTag("SceneTransition");
         if (obj != null)
         {
@@ -51,6 +52,11 @@ public class PlayerMovement : MonoBehaviour {
             {
                 return slide.playerMovement;
             }
+        }
+        // do nothing if we can't move, such as when a menu is up
+        if (!PlayerCanMove())
+        {
+            return Vector2.zero;
         }
         // if player is in control
         float xInput = Input.GetAxisRaw("Horizontal");
@@ -96,5 +102,14 @@ public class PlayerMovement : MonoBehaviour {
         {
             animator.SetTrigger(state);
         }
+    }
+
+    private bool PlayerCanMove()
+    {
+        if (Dialog.Active)
+        {
+            return false;
+        }
+        return true;
     }
 }

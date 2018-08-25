@@ -7,6 +7,8 @@ using UnityEngine;
  */
 public class Depth2D : MonoBehaviour
 {
+    public float offset = 0f;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -15,6 +17,6 @@ public class Depth2D : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y);
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y + (offset * transform.localScale.y));
     }
 }

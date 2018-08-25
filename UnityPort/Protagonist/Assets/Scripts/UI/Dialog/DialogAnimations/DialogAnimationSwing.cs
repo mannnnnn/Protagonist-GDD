@@ -42,6 +42,7 @@ public class DialogAnimationSwing : TimedDialogAnimation
         backObj.transform.localScale = new Vector3(1, 1, backObj.transform.localScale.z);
         backObj.transform.localEulerAngles = new Vector3(0, 0, 0);
         back = backObj.AddComponent<SpriteRenderer>();
+        back.sortingLayerName = front.sortingLayerName;
         back.sprite = swing.back;
     }
 	

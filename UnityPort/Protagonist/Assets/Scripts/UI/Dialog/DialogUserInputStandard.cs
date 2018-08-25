@@ -35,7 +35,7 @@ public class DialogUserInputStandard : MonoBehaviour, DialogUserInput
         {
             Dialog.RunDialog("run1.protd");
         }
-        if (Input.GetMouseButtonDown(0) && dialog.Active)
+        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) && dialog.Enabled)
         {
             if (display.TextFinished())
             {
@@ -46,7 +46,7 @@ public class DialogUserInputStandard : MonoBehaviour, DialogUserInput
                 display.AdvanceText(10f);
             }
         }
-        if (Input.GetKey(KeyCode.LeftControl) && dialog.Active)
+        if (Input.GetKey(KeyCode.LeftControl) && dialog.Enabled)
         {
             if (display.TextFinished())
             {

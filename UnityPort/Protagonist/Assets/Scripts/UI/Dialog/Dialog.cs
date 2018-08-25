@@ -28,7 +28,11 @@ public partial class Dialog : MonoBehaviour, DialogTarget, SaveLoadTarget
 
     public static Dictionary<string, bool> flags = new Dictionary<string, bool>();
 
-    public bool Active { get; private set; } = false;
+    // whether or not we are currently parsing a dialog file
+    public bool Enabled { get; private set; } = false;
+
+    // whether or not all components of dialog are deactivated
+    public static bool Active => instance.Enabled || instance.display.active;
 
     void Start()
     {
@@ -61,7 +65,7 @@ public partial class Dialog : MonoBehaviour, DialogTarget, SaveLoadTarget
         {
             instance.parser.Jump(label);
         }
-        instance.Active = true;
+        instance.Enabled = true;
         instance.parser.Run(instance);
     }
     // go to next dialog instruction
@@ -127,7 +131,7 @@ public partial class Dialog : MonoBehaviour, DialogTarget, SaveLoadTarget
     public void Finish(DialogParser parser)
     {
         display.SetState(UIDisplayBase.State.PENDING_CLOSE);
-        instance.Active = false;
+        instance.Enabled = false;
     }
 
     public List<Dictionary<string, object>> GetMenu(List<Dictionary<string, object>> menu, string type = "Default")

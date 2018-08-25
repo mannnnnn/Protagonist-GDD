@@ -5,5 +5,13 @@
             { "": "You interacted with a duck box." },
             { "": "Congratulations." }
         ]
+    },
+    {
+        label: "swordfroglanterncarrier",
+        block: [
+            { "": "You're not sure what this is." },
+            { "": "You're also not sure why this is here." },
+            { "": "Thinking about it isn't going to shed any light on the situation." }
+        ]
     }
 ]

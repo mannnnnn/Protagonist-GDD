@@ -207,7 +207,7 @@ public class DialogDisplay : UIDisplayBase, DialogDisplayer
     private void UpdateTextScroll()
     {
         AdvanceText(UITime.deltaTime);
-        if (!dialog.Active && state == State.CLOSED)
+        if (!dialog.Enabled && state == State.CLOSED)
         {
             textTimer = 0f;
         }
