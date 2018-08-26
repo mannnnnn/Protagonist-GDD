@@ -20,8 +20,14 @@ public class MapMusic : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        string clip = GetClip(SceneManager.GetActiveScene().name);
-        player.Play(clip, clip == null ? 100f : 2f);
+        string scene = SceneManager.GetActiveScene().name;
+        GameObject transition = GameObject.FindGameObjectWithTag("SceneTransition");
+        if (transition != null)
+        {
+            scene = transition.GetComponent<SceneTransition>().targetScene;
+        }
+        string clip = GetClip(scene);
+        player.Play(clip, clip == null ? 100f : 1f);
 	}
 
     public string GetClip(string scene)

@@ -13,6 +13,7 @@ public class SyncedMusicPlayer : MonoBehaviour
 {
     public List<KeyedAudioClip> clips = new List<KeyedAudioClip>();
     Dictionary<string, SyncedAudioSource> sources = new Dictionary<string, SyncedAudioSource>();
+    int timeSamples = 0;
 
     string current = null;
 
@@ -41,14 +42,15 @@ public class SyncedMusicPlayer : MonoBehaviour
         }
 	}
 
-    public void Play(string key, float fadeSpd = 2f)
+    public void Play(string key, float fadeSpd = 1f)
     {
         // if we want to stop the current one
         if (key == null && current != null)
         {
             var source = sources[current];
             source.fadeSpd = fadeSpd;
-            source.Stop();
+            timeSamples = source.Stop();
+            current = null;
             return;
         }
         // if it's already playing, do nothing
@@ -61,7 +63,7 @@ public class SyncedMusicPlayer : MonoBehaviour
         // play first thing
         if (current == null)
         {
-            target.Play(0);
+            target.Play(timeSamples);
             current = key;
             return;
         }
@@ -105,7 +107,7 @@ public class SyncedMusicPlayer : MonoBehaviour
             if (!source.isPlaying)
             {
                 source.Play();
-                source.timeSamples = timeSamples;
+                source.timeSamples = Math.Min(timeSamples, source.clip.samples - 1);
             }
         }
         public int Stop()
