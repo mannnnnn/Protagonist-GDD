@@ -29,6 +29,14 @@ public abstract class SyntaxErrorPuzzle : StandardPuzzle
     // end puzzle
     float endPuzzleTimer = 0f;
     protected float endPuzzleDuration = 1f;
+    // which music to play
+    string triMusic = "Syntax1";
+
+    protected override void Start()
+    {
+        base.Start();
+        TriMusicPlayer.Get(triMusic).Play();
+    }
 
     protected override void SceneStart()
     {
@@ -39,6 +47,7 @@ public abstract class SyntaxErrorPuzzle : StandardPuzzle
     {
         if (completed)
         {
+            TriMusicPlayer.Get(triMusic).Stop();
             // flash transparency
             flashTimer += GameTime.deltaTime;
             if (flashTimer > flashDuration)

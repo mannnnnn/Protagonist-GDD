@@ -70,6 +70,7 @@ GameObject:
   - component: {fileID: 4885971286685258}
   - component: {fileID: 114262218043223496}
   - component: {fileID: 114076246090797502}
+  - component: {fileID: 114318208105303646}
   m_Layer: 0
   m_Name: GameMusic
   m_TagString: Untagged
@@ -253,6 +254,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: b2a2b33c3f50602488285dd476c7d774, type: 3}
   - key: taut1
     clip: {fileID: 8300000, guid: e3a1f600d14ffd94ab10b32bb7ad5010, type: 3}
+  - key: taut2
+    clip: {fileID: 8300000, guid: 25303f63eeadb0742a896b69fb537f79, type: 3}
+  - key: taut3
+    clip: {fileID: 8300000, guid: 41cf0d9d37c5cb140b9d65b9361a1816, type: 3}
 --- !u!114 &114096063626242378
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -309,6 +314,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbd53e98dbdb4904483c4b3b290b8b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114318208105303646
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1368169093964482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 479910a65f1d9c34ea42c2f3dbb80e28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triMusicClips:
+  - key: Tautolodiction
+    intro: {fileID: 8300000, guid: 078012236d43e4d46854883fe02d1c95, type: 3}
+    loop: {fileID: 8300000, guid: 7b82c9047399ba742b205acc8a08c991, type: 3}
+    outro: {fileID: 0}
+  - key: Syntax1
+    intro: {fileID: 8300000, guid: cca0020a38277054dae64dc4934fe59b, type: 3}
+    loop: {fileID: 8300000, guid: c80e4da0168c7c944b09c61ae6aeec04, type: 3}
+    outro: {fileID: 8300000, guid: 1257d3e8bdad2da4c95f70e9a85f9cc3, type: 3}
+  - key: Syntax2
+    intro: {fileID: 8300000, guid: e98520062a5468c4f9ebfbdc1e6a8f93, type: 3}
+    loop: {fileID: 8300000, guid: 97160b9fee07df342a8a54f9939644af, type: 3}
+    outro: {fileID: 8300000, guid: a27445d16f5cb3a4b8522d1bd9462ed1, type: 3}
+  - key: Intro
+    intro: {fileID: 8300000, guid: 01476f52144694d42bc3098bb3522f16, type: 3}
+    loop: {fileID: 8300000, guid: 36f19677ab862a14ab096184db63c2b8, type: 3}
+    outro: {fileID: 0}
+  - key: IntroFF
+    intro: {fileID: 0}
+    loop: {fileID: 8300000, guid: 62936e8c7960e904ead7cedfe1db3850, type: 3}
+    outro: {fileID: 0}
 --- !u!114 &114346729468206992
 MonoBehaviour:
   m_ObjectHideFlags: 1

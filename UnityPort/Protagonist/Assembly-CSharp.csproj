@@ -94,6 +94,8 @@
     <Compile Include="Assets\Scripts\Controllers\ScreenResolution.cs" />
     <Compile Include="Assets\Scripts\Controllers\SyncedMusicPlayer.cs" />
     <Compile Include="Assets\Scripts\Controllers\TimeExtensions.cs" />
+    <Compile Include="Assets\Scripts\Controllers\TriMusicPlayer.cs" />
+    <Compile Include="Assets\Scripts\Controllers\TriMusicSource.cs" />
     <Compile Include="Assets\Scripts\Depth2D.cs" />
     <Compile Include="Assets\Scripts\Libraries\ProtagonistDialog\DialogBoolExpression.cs" />
     <Compile Include="Assets\Scripts\Libraries\ProtagonistDialog\DialogBoolParser.cs" />

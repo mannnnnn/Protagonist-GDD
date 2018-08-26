@@ -41,14 +41,23 @@ public class SyncedMusicPlayer : MonoBehaviour
         }
 	}
 
-    public void Play(string key)
+    public void Play(string key, float fadeSpd = 2f)
     {
+        // if we want to stop the current one
+        if (key == null && current != null)
+        {
+            var source = sources[current];
+            source.fadeSpd = fadeSpd;
+            source.Stop();
+            return;
+        }
         // if it's already playing, do nothing
         if (key == null || key == current)
         {
             return;
         }
         var target = sources[key];
+        target.fadeSpd = fadeSpd;
         // play first thing
         if (current == null)
         {
@@ -58,6 +67,7 @@ public class SyncedMusicPlayer : MonoBehaviour
         }
         // if interrupting the old one
         var currentSource = sources[current];
+        currentSource.fadeSpd = fadeSpd;
         target.Play(currentSource.Stop());
         current = key;
     }
@@ -78,7 +88,7 @@ public class SyncedMusicPlayer : MonoBehaviour
         public AudioSource source;
 
         bool active = false;
-        float fadeSpd = 2f;
+        public float fadeSpd { get; set; } = 2f;
 
         public SyncedAudioSource(string key, AudioClip clip, GameObject gameObject)
         {

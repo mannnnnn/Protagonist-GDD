@@ -13,7 +13,7 @@ public class Controllers : MonoBehaviour {
 
 	// only one may exist, and it exists persistently
 	void Awake () {
-        if (instance != null)
+        if (instance != null && instance != this)
         {
             Destroy(gameObject);
             return;

@@ -15,7 +15,7 @@ public class UICanvas : MonoBehaviour {
 
     void Awake()
     {
-        if (instance != null)
+        if (instance != null && instance != this)
         {
             Destroy(gameObject);
             return;
