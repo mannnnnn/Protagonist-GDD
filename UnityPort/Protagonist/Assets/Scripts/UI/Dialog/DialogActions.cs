@@ -6,7 +6,8 @@ using System.Text;
 using UnityEngine;
 
 /**
- * This is a partial class to Dialog. It has methods that handle statements like "show" and "hide".
+ * This is a partial class to Dialog. A partial class allows you to spread code for the same class across multiple files.
+ * This contains methods that handle statements like "show" and "hide".
  * This is so that the statement-handling methods are not in the same file as the logic.
  * This also houses some important enums and static dictionaries.
  * For the main thing, see Dialog.cs

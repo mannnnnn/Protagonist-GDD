@@ -133,6 +133,8 @@
     <Compile Include="Assets\Scripts\UI\Inventory\InventoryInfo.cs" />
     <Compile Include="Assets\Scripts\UI\Inventory\InventoryItem.cs" />
     <Compile Include="Assets\Scripts\UI\Inventory\StandardInventoryUserInput.cs" />
+    <Compile Include="Assets\Scripts\UI\Title\TitleButton.cs" />
+    <Compile Include="Assets\Scripts\UI\Title\TitleTextBlink.cs" />
     <Compile Include="Assets\Scripts\UI\UIBackground.cs" />
     <Compile Include="Assets\Scripts\UI\UIBackgroundImage.cs" />
     <Compile Include="Assets\Scripts\UI\UICanvas.cs" />

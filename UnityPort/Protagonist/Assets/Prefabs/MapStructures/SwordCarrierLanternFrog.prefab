@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114650357760741590}
   - component: {fileID: 114957166504370940}
   m_Layer: 0
-  m_Name: SwordFrogLanternCarrier
+  m_Name: SwordCarrierLanternFrog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
