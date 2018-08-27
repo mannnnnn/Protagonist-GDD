@@ -360,6 +360,8 @@ MonoBehaviour:
   puzzles:
   - name: puzzle1
     prefab: {fileID: 1682662779749892, guid: 1cfa24ddb5082804b82d468f8e263d9c, type: 2}
+  - name: sphinxx
+    prefab: {fileID: 1817257322926210, guid: 8d8d10e6050888843bdeac2f2bf50abe, type: 2}
   playerPrefab: {fileID: 1105736287682902, guid: 6b5f7c3cad041ea409b210b2f800c37f,
     type: 2}
 --- !u!114 &114392388063161024

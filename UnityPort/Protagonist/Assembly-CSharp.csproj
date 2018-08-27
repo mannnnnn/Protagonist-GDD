@@ -95,10 +95,14 @@
     <Compile Include="Assets\Scripts\Puzzle\PuzzleBase.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Puzzles.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Puzzles\BlankPuzzle.cs" />
+    <Compile Include="Assets\Scripts\Puzzle\Puzzles\Sphinxx\Sphinxx.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Puzzles\Sphinxx\SphinxxBody.cs" />
+    <Compile Include="Assets\Scripts\Puzzle\Puzzles\Sphinxx\SphinxxDamageFlicker.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Puzzles\Sphinxx\SphinxxHead.cs" />
+    <Compile Include="Assets\Scripts\Puzzle\Puzzles\Sphinxx\SphinxxHitbox.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Puzzles\Sphinxx\SphinxxLeg.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Puzzles\Sphinxx\SphinxxPuzzle.cs" />
+    <Compile Include="Assets\Scripts\Puzzle\Puzzles\Sphinxx\SphinxxSpellDamage.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Puzzles\Sphinxx\SphinxxTail.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Puzzles\StandardPuzzle.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Puzzles\SyntaxErrorPuzzle\FlickerThenFall.cs" />

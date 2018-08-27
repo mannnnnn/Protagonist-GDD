@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class SphinxxPuzzle : StandardPuzzle
 {
     public GameObject sphinxxPrefab;
-    GameObject sphinxx;
+    Sphinxx sphinxx;
 
     protected override void Start()
     {
@@ -19,6 +19,11 @@ public class SphinxxPuzzle : StandardPuzzle
 
     protected override void SceneStart()
     {
-        sphinxx = Instantiate(sphinxxPrefab);
+        sphinxx = Instantiate(sphinxxPrefab).GetComponent<Sphinxx>();
+    }
+
+    public override void SpellHit(string spell, Vector2 pos)
+    {
+        sphinxx.Hit(pos, SphinxxSpellDamage.SpellDamage(spell));
     }
 }
