@@ -36,7 +36,7 @@ public abstract class StandardPuzzle : PuzzleBase, SpellInteractionTarget
         Puzzles.CreatePlayer(this);
         SceneStart();
     }
-    protected virtual void SceneStart() { }
+    protected abstract void SceneStart();
 
     public virtual void PlacedLetter(string letter) { }
     public virtual void SpellEnd(string spell) { }

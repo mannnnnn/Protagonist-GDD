@@ -13,4 +13,9 @@ public class BlankPuzzle : StandardPuzzle
     {
         base.Start();
     }
+
+    protected override void SceneStart()
+    {
+
+    }
 }

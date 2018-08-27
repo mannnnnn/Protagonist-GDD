@@ -9,7 +9,7 @@ using UnityEngine;
  * Very similar to a normal PuzzleLetter, except it must output to the SyntaxError puzzle when it is hit.
  * It can also change alpha for the flicker animation, and then fall at the falling animation.
  */
-public class SyntaxErrorLetter : PuzzleLetter
+public class SyntaxErrorLetter : PuzzleLetter, FlickerThenFallItem
 {
     Vector2 velocity;
     bool falling = false;

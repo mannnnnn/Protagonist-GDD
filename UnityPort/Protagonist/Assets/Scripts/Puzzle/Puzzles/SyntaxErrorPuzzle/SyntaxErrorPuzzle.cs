@@ -19,16 +19,7 @@ public abstract class SyntaxErrorPuzzle : StandardPuzzle
 
     List<SyntaxErrorLine> lines = new List<SyntaxErrorLine>();
     bool completed = false;
-    // flash the letter alpha as part of the completion animation
-    float flashTimer = 0f;
-    float flashDuration = 0.05f;
-    // separate the letters, letting them all fall as part of the completion animation
-    float separateTimer = 0f;
-    protected float separateDuration = 1f;
-    bool separated = false;
-    // end puzzle
-    float endPuzzleTimer = 0f;
-    protected float endPuzzleDuration = 1f;
+    FlickerThenFall endAnimation;
     // which music to play
     string triMusic = "Syntax1";
 
@@ -48,42 +39,10 @@ public abstract class SyntaxErrorPuzzle : StandardPuzzle
         if (completed)
         {
             TriMusicPlayer.Get(triMusic).Stop();
-            // flash transparency
-            flashTimer += GameTime.deltaTime;
-            if (flashTimer > flashDuration)
+            if (endAnimation == null)
             {
-                flashTimer = 0f;
-                float alpha = Random.Range(0f, 1f);
-                foreach (var letter in GetLetters())
-                {
-                    letter.SetAlpha(alpha);
-                }
-            }
-            // separate letters
-            if (!separated)
-            {
-                separateTimer += GameTime.deltaTime;
-                if (separateTimer >= separateDuration)
-                {
-                    separated = true;
-                    // fall away from top center of screen
-                    Vector2 pos = ScreenResolution.MapViewToWorldPoint(new Vector2(0.5f, 1f));
-                    foreach (var letter in GetLetters())
-                    {
-                        Vector2 velocity = ((Vector2)letter.transform.position - pos).normalized * 5f;
-                        letter.Fall(velocity);
-                    }
-                }
-            }
-            // then end the puzzle
-            else
-            {
-                endPuzzleTimer += GameTime.deltaTime;
-                if (endPuzzleTimer >= endPuzzleDuration)
-                {
-                    EndPuzzle();
-                    Destroy(gameObject);
-                }
+                EndPuzzle();
+                Destroy(gameObject);
             }
         }
     }
@@ -123,8 +82,10 @@ public abstract class SyntaxErrorPuzzle : StandardPuzzle
         {
             if (letter.correct && letter.Contains(pos))
             {
-                // if there's a hit, we're done
+                // if there's a hit, we're done. Play the end animation
                 completed = true;
+                endAnimation = gameObject.AddComponent<FlickerThenFall>();
+                endAnimation.Initialize(GetLetters());
             }
         }
     }
@@ -135,7 +96,6 @@ public abstract class SyntaxErrorPuzzle : StandardPuzzle
             foreach (var letter in line.GetLetters())
             {
                 yield return letter;
-
             }
         }
     }
