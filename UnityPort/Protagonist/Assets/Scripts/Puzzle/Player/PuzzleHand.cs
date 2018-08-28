@@ -27,7 +27,7 @@ public class PuzzleHand : MonoBehaviour
         Vector2 max = ScreenResolution.MapViewToWorldPoint(Vector2.one);
         cursor = new Vector2(Mathf.Clamp(cursor.x, min.x, max.x), Mathf.Clamp(cursor.y, min.y, max.y));
         // height control
-        float yTarget = ScreenResolution.FreeLerp(cursor.y, min.y, max.y, min.y + verticalMin, min.y + verticalMax);
+        float yTarget = Utilities.FreeLerp(cursor.y, min.y, max.y, min.y + verticalMin, min.y + verticalMax);
         float yDist = yTarget - transform.position.y;
         float y = Mathf.MoveTowards(transform.position.y, yTarget, Mathf.Abs(yDist) * verticalSpd * GameTime.deltaTime);
         transform.position = new Vector3(transform.position.x, y, transform.position.z);

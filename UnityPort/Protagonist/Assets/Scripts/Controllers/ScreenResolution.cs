@@ -317,16 +317,16 @@ public class ScreenResolution : MonoBehaviour {
     {
         Rect originalRect = new Rect(rect.rect.position, rect.rect.size);
         Rect screenRect = GetScreenRect(rect);
-        float x = FreeLerp(rectPos.x, originalRect.xMin, originalRect.xMax, screenRect.xMin, screenRect.xMax);
-        float y = FreeLerp(rectPos.y, originalRect.yMin, originalRect.yMax, screenRect.yMin, screenRect.yMax);
+        float x = Utilities.FreeLerp(rectPos.x, originalRect.xMin, originalRect.xMax, screenRect.xMin, screenRect.xMax);
+        float y = Utilities.FreeLerp(rectPos.y, originalRect.yMin, originalRect.yMax, screenRect.yMin, screenRect.yMax);
         return new Vector2(x, y);
     }
     public static Vector2 ScreenToRectPoint(RectTransform rect, Vector2 screenPos)
     {
         Rect originalRect = new Rect(rect.rect.position, rect.rect.size);
         Rect screenRect = GetScreenRect(rect);
-        float x = FreeLerp(screenPos.x, screenRect.xMin, screenRect.xMax, originalRect.xMin, originalRect.xMax);
-        float y = FreeLerp(screenPos.y, screenRect.yMin, screenRect.yMax, originalRect.yMin, originalRect.yMax);
+        float x = Utilities.FreeLerp(screenPos.x, screenRect.xMin, screenRect.xMax, originalRect.xMin, originalRect.xMax);
+        float y = Utilities.FreeLerp(screenPos.y, screenRect.yMin, screenRect.yMax, originalRect.yMin, originalRect.yMax);
         return new Vector2(x, y);
     }
     public static Rect GetScreenRect(RectTransform rect)
@@ -336,10 +336,6 @@ public class ScreenResolution : MonoBehaviour {
         var bottomLeft = Camera.main.WorldToScreenPoint(v[0]);
         var topRight = Camera.main.WorldToScreenPoint(v[2]);
         return new Rect(bottomLeft, topRight - bottomLeft);
-    }
-    public static float FreeLerp(float value, float aMin, float aMax, float bMin, float bMax)
-    {
-        return (((value - aMin) * ((bMax - bMin) / (aMax - aMin))) + bMin);
     }
 
     public static Vector2 WorldToCanvasPoint(RectTransform canvas, Camera camera, Vector3 position)

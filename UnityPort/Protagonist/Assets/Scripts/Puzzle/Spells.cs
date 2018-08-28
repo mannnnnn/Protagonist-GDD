@@ -3,6 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * A spell can be any prefab that has a MonoBehaviour that implements this.
+ * 
+ * Spells that hit a specific target should call SpellInteractionTarget's SpellHit.
+ * 
+ * Also, when the spell is done, call SpellInputTarget's CompleteSpell.
+ * This tells the player that the next spell can be cast.
+ * 
+ * Most spells will take SpellInputTarget's GetLetters() and Finish() each letter.
+ * If you want to do anything special with those letters instead, you can.
+ * See ProjectileSpell for an example.
+ * 
+ * You are free to determine the rest of the implementation details.
+ */
 public interface PuzzleSpell
 {
     void Initialize(string spell, SpellInteractionTarget puzzle, SpellInputTarget player);

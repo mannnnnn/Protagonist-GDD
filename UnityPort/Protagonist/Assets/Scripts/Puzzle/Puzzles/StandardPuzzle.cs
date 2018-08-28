@@ -40,8 +40,6 @@ public abstract class StandardPuzzle : PuzzleBase, SpellInteractionTarget
 
     public virtual void PlacedLetter(string letter) { }
     public virtual void SpellEnd(string spell) { }
-    public virtual void SpellFirstHit(string spell, Vector2 pos) { }
     public virtual void SpellHit(string spell, Vector2 pos) { }
-    public virtual void SpellLastHit(string spell, Vector2 pos) { }
     public virtual void SpellStart(string spell) { }
 }

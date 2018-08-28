@@ -32,6 +32,7 @@ public class PuzzleSpellInput : MonoBehaviour, SpellInputTarget
 
     // currently casting a spell or not (casting makes the player unable to type a new spell)
     public bool Casting { get; private set; } = false;
+    string lastSpell = "";
 
     Vector2 pos;
     void Start()
@@ -86,6 +87,7 @@ public class PuzzleSpellInput : MonoBehaviour, SpellInputTarget
             letters = new List<PuzzleLetter>();
             Spells.CreateSpell(spell, puzzle, this);
             puzzle.SpellStart(spell);
+            lastSpell = spell;
             Casting = true;
         }
     }
@@ -94,6 +96,8 @@ public class PuzzleSpellInput : MonoBehaviour, SpellInputTarget
     {
         Casting = false;
         PuzzleCursor.ReleaseInnerCrosshair();
+        puzzle.SpellEnd(lastSpell);
+        lastSpell = "";
     }
 
     public List<PuzzleLetter> GetLetters()

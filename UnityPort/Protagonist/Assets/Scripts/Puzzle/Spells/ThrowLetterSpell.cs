@@ -7,8 +7,7 @@ using UnityEngine;
 
 /**
  * Simple interface that is a spell that hits multiple times.
- * The child behaviors just call Hit(gameObject), then this object would use that information to
- * intelligently call SpellInteractionTarget's SpellFirstHit, SpellLastHit, and Hit methods based on when the hits occur.s
+ * The child behaviors call Hit(gameObject) which calls the SpellInteractionTarget's Hit method.
  */
 public interface MultiHitSpell : PuzzleSpell
 {
@@ -73,14 +72,6 @@ public class ThrowLetterSpell : MonoBehaviour, MultiHitSpell
     // called by ThrownLetter when a thrown letter hits
     public void Hit(GameObject gameObj)
     {
-        if (letterHits == 0)
-        {
-            puzzle.SpellFirstHit(spell, gameObj.transform.position);
-        }
-        if (letterHits == letters.Count - 1)
-        {
-            puzzle.SpellLastHit(spell, gameObj.transform.position);
-        }
         puzzle.SpellHit(spell, gameObj.transform.position);
         letterHits++;
     }

@@ -75,9 +75,7 @@ public abstract class ProjectileSpell : MonoBehaviour, PuzzleSpell
             {
                 finished = true;
                 // tell puzzle and player that we're finished
-                puzzle.SpellFirstHit(spell, targetPos);
                 puzzle.SpellHit(spell, targetPos);
-                puzzle.SpellLastHit(spell, targetPos);
                 player.CompleteSpell();
                 // finish effect
                 FinishMoving();

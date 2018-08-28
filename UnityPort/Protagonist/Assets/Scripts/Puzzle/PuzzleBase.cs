@@ -21,8 +21,6 @@ public interface SpellInteractionTarget
 {
     void PlacedLetter(string letter);
     void SpellStart(string spell);
-    void SpellFirstHit(string spell, Vector2 pos);
     void SpellHit(string spell, Vector2 pos);
-    void SpellLastHit(string spell, Vector2 pos);
     void SpellEnd(string spell);
 }

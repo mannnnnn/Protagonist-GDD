@@ -134,6 +134,7 @@
     <Compile Include="Assets\Scripts\UI\Dialog\DialogFlags.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\DialogPrefabs.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\Display\DialogMenuButton.cs" />
+    <Compile Include="Assets\Scripts\UI\Dialog\Display\Intro\HighlightedText.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\Display\NameBox.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\Display\StandardDialogDisplay.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\Display\StandardDialogMenu.cs" />
@@ -152,6 +153,7 @@
     <Compile Include="Assets\Scripts\UI\UICanvas.cs" />
     <Compile Include="Assets\Scripts\UI\UIDisplayBase.cs" />
     <Compile Include="Assets\Scripts\UI\UIPanel.cs" />
+    <Compile Include="Assets\Scripts\Utilities\Utilities.cs" />
     <None Include="Assets\Scripts\Libraries\JsonDotNet\link.xml" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/EvansChen/Documents/GitHub/protagonist/UnityPort/Protagonist/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
