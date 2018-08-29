@@ -17,6 +17,9 @@ public class HighlightedTextLine : MonoBehaviour
     {
         this.font = font;
         this.fontSize = fontSize;
+        text.font = font;
+        text.fontSize = fontSize;
+        SetText("");
     }
 
     void Awake()
@@ -26,13 +29,6 @@ public class HighlightedTextLine : MonoBehaviour
 
         text = GetComponentInChildren<Text>();
         textRect = text.GetComponent<RectTransform>();
-    }
-
-    void Start()
-    {
-        text.font = font;
-        text.fontSize = fontSize;
-        imageRect.sizeDelta = Vector2.zero;
     }
 
     public void SetText(string s)

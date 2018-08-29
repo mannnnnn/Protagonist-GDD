@@ -24,7 +24,7 @@ public class StandardDialogMenu : UIDisplayBase, DialogMenu
     // uses dialog object by calling dialog.ChooseMenuOption
     DialogParser parser;
     DialogTarget target;
-    DialogDisplay display;
+    StandardDialogDisplay display;
     float displayY;
 
     List<string> options = new List<string>();
@@ -39,7 +39,11 @@ public class StandardDialogMenu : UIDisplayBase, DialogMenu
     {
         this.parser = parser;
         this.target = target;
-        this.display = display;
+        this.display = (StandardDialogDisplay)display;
+        if (this.display == null)
+        {
+            throw new InvalidOperationException("StandardDialogMenu is only supposed to be used with StandardDialogDisplay.");
+        }
         foreach (Dictionary<string, object> option in options)
         {
             if (!option.ContainsKey("text"))

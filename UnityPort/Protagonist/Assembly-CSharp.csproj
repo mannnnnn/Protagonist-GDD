@@ -112,8 +112,13 @@
     <Compile Include="Assets\Scripts\Puzzle\Puzzles\SyntaxErrorPuzzle\SyntaxErrorLine.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Puzzles\SyntaxErrorPuzzle\SyntaxErrorPuzzle.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Spells.cs" />
+    <Compile Include="Assets\Scripts\Puzzle\Spells\ArcSpell.cs" />
+    <Compile Include="Assets\Scripts\Puzzle\Spells\DadSpell.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Spells\ProjectileSpell.cs" />
+    <Compile Include="Assets\Scripts\Puzzle\Spells\RedSpell.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Spells\SearSpell.cs" />
+    <Compile Include="Assets\Scripts\Puzzle\Spells\TartSpell.cs" />
+    <Compile Include="Assets\Scripts\Puzzle\Spells\TeaSpell.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Spells\ThrowLetterSpell.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Spells\ThrownLetter.cs" />
     <Compile Include="Assets\Scripts\SceneDoor.cs" />
@@ -137,6 +142,7 @@
     <Compile Include="Assets\Scripts\UI\Dialog\Display\DialogMenuButton.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\Display\Intro\HighlightedText.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\Display\Intro\HighlightedTextLine.cs" />
+    <Compile Include="Assets\Scripts\UI\Dialog\Display\Intro\IntroDialogDisplay.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\Display\NameBox.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\Display\StandardDialogDisplay.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\Display\StandardDialogMenu.cs" />

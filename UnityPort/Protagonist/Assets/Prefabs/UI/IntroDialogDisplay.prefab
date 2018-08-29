@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 222064871015301282}
   - component: {fileID: 114113496686881270}
   - component: {fileID: 114164634340121036}
+  - component: {fileID: 114003324920625268}
   m_Layer: 5
   m_Name: IntroDialogDisplay
   m_TagString: Untagged
@@ -30,6 +31,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114003324920625268
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1071972284399418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f2cda203c985a846a6130ce35950da9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114113496686881270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -75,7 +87,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   linePrefab: {fileID: 1127325004790058, guid: 8eb4739b2de7e9a48bb345acb11aeb0b, type: 2}
-  w: 0
 --- !u!114 &114489278051704398
 MonoBehaviour:
   m_ObjectHideFlags: 1

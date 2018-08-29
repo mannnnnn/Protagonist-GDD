@@ -5,20 +5,18 @@ using UnityEngine;
 using static UIDisplayBase;
 
 /**
- * A dialog display is everything in UIDisplayBase, then SetText, TextFinished, AdvanceText, and SetMenu
+ * A dialog display is everything controlling activation, and SetText, TextFinished, Advance, and SetMenu.
+ * This allows the dialog system to control and output to a display.
  */
 public interface DialogDisplay
 {
-    // UIDisplayBase
-    State state { get; }
-    void SetState(State state);
-    float GetY();
-    void SetTargetY(float screenY);
-    void SetAlpha(float alpha);
-    float GetSize();
-
-    // dialog display
     bool Active { get; }
+    void Show();
+    // Hide means the dialog display can choose when to deactivate when able.
+    void Hide();
+    // Stop means the dialog display must start deactivating immediately.
+    void Stop();
+
     void SetText(List<string> characters, string text);
     bool TextFinished();
     void Advance(float amount);
@@ -239,5 +237,29 @@ public class StandardDialogDisplay : UIDisplayBase, DialogDisplay, TextScrollTar
     private void SetText(string text)
     {
         dialogBox.SetText(text);
+    }
+
+    public void Show()
+    {
+        if (state != State.OPEN)
+        {
+            SetState(State.OPENING);
+        }
+    }
+
+    public void Hide()
+    {
+        if (state != State.CLOSING && state != State.CLOSED)
+        {
+            state = State.PENDING_CLOSE;
+        }
+    }
+
+    public void Stop()
+    {
+        if (state != State.CLOSED)
+        {
+            state = State.CLOSING;
+        }
     }
 }

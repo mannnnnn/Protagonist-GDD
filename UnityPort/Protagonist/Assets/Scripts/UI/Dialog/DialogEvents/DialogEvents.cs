@@ -43,10 +43,10 @@ public partial class DialogEvents : MonoBehaviour
                 return Wait(evt, args);
             // show/hide dialog display
             case "show":
-                Dialog.GetDisplay().SetState(UIDisplayBase.State.OPENING);
+                Dialog.GetDisplay().Show();
                 return true;
             case "hide":
-                Dialog.GetDisplay().SetState(UIDisplayBase.State.CLOSING);
+                Dialog.GetDisplay().Stop();
                 return true;
             // change name
             case "changeName":

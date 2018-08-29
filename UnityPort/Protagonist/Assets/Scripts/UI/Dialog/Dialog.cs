@@ -66,13 +66,13 @@ public partial class Dialog : MonoBehaviour, DialogTarget, SaveLoadTarget
     // load a dialog file and run the first instruction
     public static void RunDialog(string file, string label = null)
     {
-        if (instance.display.state != UIDisplayBase.State.CLOSED)
+        if (instance.display.Active)
         {
             return;
         }
         // load dialog file
         instance.parser = DialogLoader.ReadFile(file);
-        instance.display.SetState(UIDisplayBase.State.OPENING);
+        instance.display.Show();
         if (label != null && label != "")
         {
             instance.parser.Jump(label);
@@ -141,7 +141,7 @@ public partial class Dialog : MonoBehaviour, DialogTarget, SaveLoadTarget
 
     public void Finish(DialogParser parser)
     {
-        display.SetState(UIDisplayBase.State.PENDING_CLOSE);
+        display.Hide();
         instance.Enabled = false;
     }
 
