@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4229076246322878}
   - component: {fileID: 212712397399126606}
   - component: {fileID: 95290476540447544}
-  - component: {fileID: 114076838930186006}
+  - component: {fileID: 114774666040585134}
   m_Layer: 0
-  m_Name: RatSpell
+  m_Name: RareSpell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,7 +51,7 @@ Animator:
   m_GameObject: {fileID: 1692463095228658}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e3eb720ea172d474a8ab79f13d6bc9af, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5920a7640a6af1a4e85e483372ee23a8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -60,7 +60,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114076838930186006
+--- !u!114 &114774666040585134
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -68,10 +68,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1692463095228658}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06e1fb0d11480774bb25a7726221170c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c08d5a38e3938b43a131ac4af2566f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  castDuration: 0.5
+  castDuration: 1
   spd: 4
   acceleration: 4
   spinSpd: 360
@@ -115,12 +115,12 @@ SpriteRenderer:
   m_SortingLayerID: -159522507
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300018, guid: 4464e84461d7e294f8061f7315fb3271, type: 3}
+  m_Sprite: {fileID: 21300022, guid: e67367f5acf05b34a982277c885d2ee1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

@@ -458,7 +458,7 @@ Prefab:
     - target: {fileID: 114232056255455674, guid: 97b481dc765f5244f8ada85df5e18d54,
         type: 2}
       propertyPath: spells.Array.size
-      value: 7
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4157691535115456, guid: 97b481dc765f5244f8ada85df5e18d54, type: 2}
       propertyPath: m_LocalPosition.x
@@ -550,13 +550,46 @@ Prefab:
     - target: {fileID: 114232056255455674, guid: 97b481dc765f5244f8ada85df5e18d54,
         type: 2}
       propertyPath: spells.Array.data[7].name
-      value: DAD
+      value: CARD
       objectReference: {fileID: 0}
     - target: {fileID: 114232056255455674, guid: 97b481dc765f5244f8ada85df5e18d54,
         type: 2}
       propertyPath: spells.Array.data[7].prefab
       value: 
-      objectReference: {fileID: 1692463095228658, guid: 6d9984aeca4dfc747878dd5c52312755,
+      objectReference: {fileID: 1692463095228658, guid: e7ddce8fa62f79641a760725ef305711,
+        type: 2}
+    - target: {fileID: 114232056255455674, guid: 97b481dc765f5244f8ada85df5e18d54,
+        type: 2}
+      propertyPath: spells.Array.data[8].name
+      value: SAD
+      objectReference: {fileID: 0}
+    - target: {fileID: 114232056255455674, guid: 97b481dc765f5244f8ada85df5e18d54,
+        type: 2}
+      propertyPath: spells.Array.data[8].prefab
+      value: 
+      objectReference: {fileID: 1692463095228658, guid: 28aa55ecaa637f54fa0afa6c592bac43,
+        type: 2}
+    - target: {fileID: 114232056255455674, guid: 97b481dc765f5244f8ada85df5e18d54,
+        type: 2}
+      propertyPath: spells.Array.data[9].name
+      value: SEA
+      objectReference: {fileID: 0}
+    - target: {fileID: 114232056255455674, guid: 97b481dc765f5244f8ada85df5e18d54,
+        type: 2}
+      propertyPath: spells.Array.data[9].prefab
+      value: 
+      objectReference: {fileID: 1692463095228658, guid: 953dd5569ed6339418a92c2a46918fd9,
+        type: 2}
+    - target: {fileID: 114232056255455674, guid: 97b481dc765f5244f8ada85df5e18d54,
+        type: 2}
+      propertyPath: spells.Array.data[10].name
+      value: RARE
+      objectReference: {fileID: 0}
+    - target: {fileID: 114232056255455674, guid: 97b481dc765f5244f8ada85df5e18d54,
+        type: 2}
+      propertyPath: spells.Array.data[10].prefab
+      value: 
+      objectReference: {fileID: 1692463095228658, guid: 2737660bea4949b46a595dd254c57331,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97b481dc765f5244f8ada85df5e18d54, type: 2}

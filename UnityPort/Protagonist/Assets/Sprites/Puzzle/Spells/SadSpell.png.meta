@@ -1,23 +1,19 @@
 fileFormatVersion: 2
-guid: d771902743240d148aaed398a200e057
+guid: adf4da3a0395c0c4ea577e231dc7b0b3
 TextureImporter:
   fileIDToRecycleName:
-    21300000: ArcSpell_0
-    21300002: ArcSpell_1
-    21300004: ArcSpell_2
-    21300006: ArcSpell_3
-    21300008: ArcSpell_4
-    21300010: ArcSpell_5
-    21300012: ArcSpell_6
-    21300014: ArcSpell_7
-    21300016: ArcSpell_8
-    21300018: ArcSpell_9
-    21300020: ArcSpell_10
-    21300022: ArcSpell_11
-    21300024: ArcSpell_12
-    21300026: ArcSpell_13
-    21300028: ArcSpell_14
-    21300030: ArcSpell_15
+    21300000: SadSpell_0
+    21300002: SadSpell_1
+    21300004: SadSpell_2
+    21300006: SadSpell_3
+    21300008: SadSpell_4
+    21300010: SadSpell_5
+    21300012: SadSpell_6
+    21300014: SadSpell_7
+    21300016: SadSpell_8
+    21300018: SadSpell_9
+    21300020: SadSpell_10
+    21300022: SadSpell_11
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -100,7 +96,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ArcSpell_0
+      name: SadSpell_0
       rect:
         serializedVersion: 2
         x: 0
@@ -114,13 +110,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76e0b0b33641b4a4eab30d019007147e
+      spriteID: 3cf51c6d5d805464b8c4b0ab9b75208a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_1
+      name: SadSpell_1
       rect:
         serializedVersion: 2
         x: 100
@@ -134,13 +130,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72a4bb2024826df41b2a2732f818a650
+      spriteID: a7c6cbb142e066f4d82d44f7032efff3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_2
+      name: SadSpell_2
       rect:
         serializedVersion: 2
         x: 200
@@ -154,33 +150,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c9b8c35b73b51e4eb0286eecc339321
+      spriteID: f9393d1aed9ef6542ab256cb10b8e5a8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_3
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 300
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 280785545ba60334297e20a8f4617dbd
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ArcSpell_4
+      name: SadSpell_3
       rect:
         serializedVersion: 2
         x: 0
@@ -194,13 +170,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7b8f29f1208c034ea5b9eb806624eee
+      spriteID: 614d5933ef359bc438e5db64b2461439
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_5
+      name: SadSpell_4
       rect:
         serializedVersion: 2
         x: 100
@@ -214,13 +190,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae58d6edca02f274b80f32f3e756983c
+      spriteID: 65839dcd529d7ce4d80e982db1207b7c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_6
+      name: SadSpell_5
       rect:
         serializedVersion: 2
         x: 200
@@ -234,33 +210,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cdfece2a393b93f43ac709ee4c26fc81
+      spriteID: f9727432ba0a99446b1bba8672e814f3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_7
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 200
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 49ffae6d93a83f04e8bf847e9ee8a9cb
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ArcSpell_8
+      name: SadSpell_6
       rect:
         serializedVersion: 2
         x: 0
@@ -274,13 +230,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b11710bf2b1663646b6f50866787c11b
+      spriteID: 9ae8f5ca7009e974eb61d5b067c66557
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_9
+      name: SadSpell_7
       rect:
         serializedVersion: 2
         x: 100
@@ -294,13 +250,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bcda5728584cfec4da7199ab5f2dc333
+      spriteID: 9cbfa18fcb00f0648ad9c534fa42cace
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_10
+      name: SadSpell_8
       rect:
         serializedVersion: 2
         x: 200
@@ -314,33 +270,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48fee6e6d346bff42822fb7dfb65acf8
+      spriteID: 578f3bf848370004099a3733d2e63a4f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_11
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 100
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 242d3fdd912bc8e47832e23ca0901139
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ArcSpell_12
+      name: SadSpell_9
       rect:
         serializedVersion: 2
         x: 0
@@ -354,13 +290,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3cfb188e023cc3849ab6854f60017c31
+      spriteID: 156a08618a703344db3b912efc884581
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_13
+      name: SadSpell_10
       rect:
         serializedVersion: 2
         x: 100
@@ -374,13 +310,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91017194a9148b540bd3239562103827
+      spriteID: add95a22cc79d964aa3afb93d6fe0242
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_14
+      name: SadSpell_11
       rect:
         serializedVersion: 2
         x: 200
@@ -394,27 +330,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1acd9a7e6be05f94e9536c9c8cec2076
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ArcSpell_15
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a1c81fb59d490854990bc658ed60b040
+      spriteID: 19f2662ff32a8cb4fa423eea49f2c731
       vertices: []
       indices: 
       edges: []
@@ -422,7 +338,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 9aaef9d61660f424ca90ace15051ed69
+    spriteID: b53c96979e170ab42b707b3fee346dc7
     vertices: []
     indices: 
     edges: []

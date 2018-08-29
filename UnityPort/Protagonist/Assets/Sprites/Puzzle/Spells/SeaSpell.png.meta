@@ -1,23 +1,27 @@
 fileFormatVersion: 2
-guid: d771902743240d148aaed398a200e057
+guid: eec7d045c2a03934a932865e6dba649c
 TextureImporter:
   fileIDToRecycleName:
-    21300000: ArcSpell_0
-    21300002: ArcSpell_1
-    21300004: ArcSpell_2
-    21300006: ArcSpell_3
-    21300008: ArcSpell_4
-    21300010: ArcSpell_5
-    21300012: ArcSpell_6
-    21300014: ArcSpell_7
-    21300016: ArcSpell_8
-    21300018: ArcSpell_9
-    21300020: ArcSpell_10
-    21300022: ArcSpell_11
-    21300024: ArcSpell_12
-    21300026: ArcSpell_13
-    21300028: ArcSpell_14
-    21300030: ArcSpell_15
+    21300000: SeaSpell_0
+    21300002: SeaSpell_1
+    21300004: SeaSpell_2
+    21300006: SeaSpell_3
+    21300008: SeaSpell_4
+    21300010: SeaSpell_5
+    21300012: SeaSpell_6
+    21300014: SeaSpell_7
+    21300016: SeaSpell_8
+    21300018: SeaSpell_9
+    21300020: SeaSpell_10
+    21300022: SeaSpell_11
+    21300024: SeaSpell_12
+    21300026: SeaSpell_13
+    21300028: SeaSpell_14
+    21300030: SeaSpell_15
+    21300032: SeaSpell_16
+    21300034: SeaSpell_17
+    21300036: SeaSpell_18
+    21300038: SeaSpell_19
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -100,7 +104,87 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ArcSpell_0
+      name: SeaSpell_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 364880b0e251d0a4c926852d498b04e5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeaSpell_1
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 400
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 220c30c608af28143987fc2b747722ae
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeaSpell_2
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 400
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84a6464535933e845b5cedb803ea2bff
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeaSpell_3
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 400
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 474da28d680b477449eefe63b9ac74ca
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeaSpell_4
       rect:
         serializedVersion: 2
         x: 0
@@ -114,13 +198,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76e0b0b33641b4a4eab30d019007147e
+      spriteID: 36f2e35bab193eb4b9c4b222da1ace6b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_1
+      name: SeaSpell_5
       rect:
         serializedVersion: 2
         x: 100
@@ -134,13 +218,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72a4bb2024826df41b2a2732f818a650
+      spriteID: 41e4e0c815f83014590e3f1af0634823
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_2
+      name: SeaSpell_6
       rect:
         serializedVersion: 2
         x: 200
@@ -154,13 +238,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c9b8c35b73b51e4eb0286eecc339321
+      spriteID: d59b2ba0112a73541a2f0d28530850b8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_3
+      name: SeaSpell_7
       rect:
         serializedVersion: 2
         x: 300
@@ -174,13 +258,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 280785545ba60334297e20a8f4617dbd
+      spriteID: 5da2b0c3993f43e4c9214548184607ad
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_4
+      name: SeaSpell_8
       rect:
         serializedVersion: 2
         x: 0
@@ -194,13 +278,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7b8f29f1208c034ea5b9eb806624eee
+      spriteID: 23af0aa5e834ddc42b14fae6928e9f8f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_5
+      name: SeaSpell_9
       rect:
         serializedVersion: 2
         x: 100
@@ -214,13 +298,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae58d6edca02f274b80f32f3e756983c
+      spriteID: ee0db6df6d3f4db49a9e4967aeb9d059
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_6
+      name: SeaSpell_10
       rect:
         serializedVersion: 2
         x: 200
@@ -234,13 +318,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cdfece2a393b93f43ac709ee4c26fc81
+      spriteID: 4d08592b770372e4ca9db4440efa8356
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_7
+      name: SeaSpell_11
       rect:
         serializedVersion: 2
         x: 300
@@ -254,13 +338,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49ffae6d93a83f04e8bf847e9ee8a9cb
+      spriteID: ccea49ca7c847654b8193e174a66bbea
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_8
+      name: SeaSpell_12
       rect:
         serializedVersion: 2
         x: 0
@@ -274,13 +358,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b11710bf2b1663646b6f50866787c11b
+      spriteID: 7d81fb8427f68534aad9b1c55722eefe
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_9
+      name: SeaSpell_13
       rect:
         serializedVersion: 2
         x: 100
@@ -294,13 +378,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bcda5728584cfec4da7199ab5f2dc333
+      spriteID: 335d0e95df80a4244a78523a7fecdd39
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_10
+      name: SeaSpell_14
       rect:
         serializedVersion: 2
         x: 200
@@ -314,13 +398,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48fee6e6d346bff42822fb7dfb65acf8
+      spriteID: 0cb0ab0686e39b547acfd620f90d9b55
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_11
+      name: SeaSpell_15
       rect:
         serializedVersion: 2
         x: 300
@@ -334,13 +418,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 242d3fdd912bc8e47832e23ca0901139
+      spriteID: f5fb28e5f34664e40841cbff0e82ce00
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_12
+      name: SeaSpell_16
       rect:
         serializedVersion: 2
         x: 0
@@ -354,13 +438,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3cfb188e023cc3849ab6854f60017c31
+      spriteID: 39a7b8a1a8d7024469f90a1ba3840dfb
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_13
+      name: SeaSpell_17
       rect:
         serializedVersion: 2
         x: 100
@@ -374,13 +458,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91017194a9148b540bd3239562103827
+      spriteID: 09785d2bf9827314a8beaff28caec30d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_14
+      name: SeaSpell_18
       rect:
         serializedVersion: 2
         x: 200
@@ -394,13 +478,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1acd9a7e6be05f94e9536c9c8cec2076
+      spriteID: a2a6971b796dfa745879ddb0b953183b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_15
+      name: SeaSpell_19
       rect:
         serializedVersion: 2
         x: 300
@@ -414,7 +498,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1c81fb59d490854990bc658ed60b040
+      spriteID: d04f616681f79aa4b944607054caa158
       vertices: []
       indices: 
       edges: []
@@ -422,7 +506,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 9aaef9d61660f424ca90ace15051ed69
+    spriteID: 7bfbfdd364bf3d44badaeab208d02a0c
     vertices: []
     indices: 
     edges: []

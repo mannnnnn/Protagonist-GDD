@@ -1,23 +1,21 @@
 fileFormatVersion: 2
-guid: d771902743240d148aaed398a200e057
+guid: 5696f9008e5e84d4683cd105f31ffc1e
 TextureImporter:
   fileIDToRecycleName:
-    21300000: ArcSpell_0
-    21300002: ArcSpell_1
-    21300004: ArcSpell_2
-    21300006: ArcSpell_3
-    21300008: ArcSpell_4
-    21300010: ArcSpell_5
-    21300012: ArcSpell_6
-    21300014: ArcSpell_7
-    21300016: ArcSpell_8
-    21300018: ArcSpell_9
-    21300020: ArcSpell_10
-    21300022: ArcSpell_11
-    21300024: ArcSpell_12
-    21300026: ArcSpell_13
-    21300028: ArcSpell_14
-    21300030: ArcSpell_15
+    21300000: CardSpell_0
+    21300002: CardSpell_1
+    21300004: CardSpell_2
+    21300006: CardSpell_3
+    21300008: CardSpell_4
+    21300010: CardSpell_5
+    21300012: CardSpell_6
+    21300014: CardSpell_7
+    21300016: CardSpell_8
+    21300018: CardSpell_9
+    21300020: CardSpell_10
+    21300022: CardSpell_11
+    21300024: CardSpell_12
+    21300026: CardSpell_13
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -100,7 +98,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ArcSpell_0
+      name: CardSpell_0
       rect:
         serializedVersion: 2
         x: 0
@@ -114,13 +112,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76e0b0b33641b4a4eab30d019007147e
+      spriteID: 4ae6b03bb11d801499a7c5a42154b985
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_1
+      name: CardSpell_1
       rect:
         serializedVersion: 2
         x: 100
@@ -134,13 +132,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72a4bb2024826df41b2a2732f818a650
+      spriteID: 3d70461e443590646b4554f6a374eed5
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_2
+      name: CardSpell_2
       rect:
         serializedVersion: 2
         x: 200
@@ -154,13 +152,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c9b8c35b73b51e4eb0286eecc339321
+      spriteID: 5022673e88f338e4db336350c53f6fb2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_3
+      name: CardSpell_3
       rect:
         serializedVersion: 2
         x: 300
@@ -174,13 +172,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 280785545ba60334297e20a8f4617dbd
+      spriteID: 56952a57f488831499a8561523e3abc9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_4
+      name: CardSpell_4
       rect:
         serializedVersion: 2
         x: 0
@@ -194,13 +192,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7b8f29f1208c034ea5b9eb806624eee
+      spriteID: 08b03d3387e70ca47ac229ccfc988aed
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_5
+      name: CardSpell_5
       rect:
         serializedVersion: 2
         x: 100
@@ -214,13 +212,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae58d6edca02f274b80f32f3e756983c
+      spriteID: ec10ab546ff0cf24d957fb2bb2e6c276
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_6
+      name: CardSpell_6
       rect:
         serializedVersion: 2
         x: 200
@@ -234,13 +232,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cdfece2a393b93f43ac709ee4c26fc81
+      spriteID: 233bbf73ccde19a4b9e80393b413089c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_7
+      name: CardSpell_7
       rect:
         serializedVersion: 2
         x: 300
@@ -254,13 +252,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49ffae6d93a83f04e8bf847e9ee8a9cb
+      spriteID: dda0157c7f0207d40965770593337b0b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_8
+      name: CardSpell_8
       rect:
         serializedVersion: 2
         x: 0
@@ -274,13 +272,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b11710bf2b1663646b6f50866787c11b
+      spriteID: aa19226aff6c6db449ca406380eac3a4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_9
+      name: CardSpell_9
       rect:
         serializedVersion: 2
         x: 100
@@ -294,13 +292,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bcda5728584cfec4da7199ab5f2dc333
+      spriteID: 76dacd178e48cc049b1fc617431db2a2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_10
+      name: CardSpell_10
       rect:
         serializedVersion: 2
         x: 200
@@ -314,13 +312,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48fee6e6d346bff42822fb7dfb65acf8
+      spriteID: 7f5f872159b505f45915fb994ad47bfa
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_11
+      name: CardSpell_11
       rect:
         serializedVersion: 2
         x: 300
@@ -334,13 +332,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 242d3fdd912bc8e47832e23ca0901139
+      spriteID: fa83aa1da26ba264bb4e8c0ef610e769
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_12
+      name: CardSpell_12
       rect:
         serializedVersion: 2
         x: 0
@@ -354,13 +352,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3cfb188e023cc3849ab6854f60017c31
+      spriteID: 06fb5a7914a74334f91302d0c886d696
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_13
+      name: CardSpell_13
       rect:
         serializedVersion: 2
         x: 100
@@ -374,47 +372,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91017194a9148b540bd3239562103827
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ArcSpell_14
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1acd9a7e6be05f94e9536c9c8cec2076
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ArcSpell_15
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a1c81fb59d490854990bc658ed60b040
+      spriteID: f7573e12571a2e548a2a39d3d7a71ceb
       vertices: []
       indices: 
       edges: []
@@ -422,7 +380,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 9aaef9d61660f424ca90ace15051ed69
+    spriteID: 2935db8296eafba43864a8d59e859308
     vertices: []
     indices: 
     edges: []
