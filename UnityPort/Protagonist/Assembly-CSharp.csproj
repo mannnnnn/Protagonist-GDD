@@ -134,7 +134,7 @@
     <Compile Include="Assets\Scripts\UI\Dialog\DialogDisplays.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\DialogEvents\CheckInventoryMenu.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\DialogEvents\DialogEvents.cs" />
-    <Compile Include="Assets\Scripts\UI\Dialog\DialogEvents\DialogEventsJungle.cs" />
+    <Compile Include="Assets\Scripts\UI\Dialog\DialogEvents\DialogEventsByArea.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\DialogEvents\DialogFreezer.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\DialogEvents\InventoryUserInputRemove.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\DialogFlags.cs" />

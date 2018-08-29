@@ -7,13 +7,20 @@ using UnityEngine;
 
 public partial class DialogEvents
 {
+    public bool HandleIntro(string evt, Dictionary<string, object> args)
+    {
+        Debug.Log(evt);
+        switch (evt)
+        {
+        }
+        return true;
+    }
+
     public bool HandleJungle(string evt, Dictionary<string, object> args)
     {
         Debug.Log(evt);
         switch (evt)
         {
-            case "kickProtagonist":
-                return true;
         }
         return true;
     }
