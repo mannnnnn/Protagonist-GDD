@@ -1,23 +1,25 @@
 fileFormatVersion: 2
-guid: d771902743240d148aaed398a200e057
+guid: e67367f5acf05b34a982277c885d2ee1
 TextureImporter:
   fileIDToRecycleName:
-    21300000: ArcSpell_0
-    21300002: ArcSpell_1
-    21300004: ArcSpell_2
-    21300006: ArcSpell_3
-    21300008: ArcSpell_4
-    21300010: ArcSpell_5
-    21300012: ArcSpell_6
-    21300014: ArcSpell_7
-    21300016: ArcSpell_8
-    21300018: ArcSpell_9
-    21300020: ArcSpell_10
-    21300022: ArcSpell_11
-    21300024: ArcSpell_12
-    21300026: ArcSpell_13
-    21300028: ArcSpell_14
-    21300030: ArcSpell_15
+    21300000: RareSpell_0
+    21300002: RareSpell_1
+    21300004: RareSpell_2
+    21300006: RareSpell_3
+    21300008: RareSpell_4
+    21300010: RareSpell_5
+    21300012: RareSpell_6
+    21300014: RareSpell_7
+    21300016: RareSpell_8
+    21300018: RareSpell_9
+    21300020: RareSpell_10
+    21300022: RareSpell_11
+    21300024: RareSpell_12
+    21300026: RareSpell_13
+    21300028: RareSpell_14
+    21300030: RareSpell_15
+    21300032: RareSpell_16
+    21300034: RareSpell_17
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -100,7 +102,87 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ArcSpell_0
+      name: RareSpell_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8333f6163240237419b7ea0dd9c7d3cc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RareSpell_1
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 400
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62ae8437b9888684c80388c38e4f2431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RareSpell_2
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 400
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22c769257e888f34391b3b73fb239155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RareSpell_3
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 400
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e736ef8ebdcfd084f86f2e084ba8f18e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RareSpell_4
       rect:
         serializedVersion: 2
         x: 0
@@ -114,13 +196,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76e0b0b33641b4a4eab30d019007147e
+      spriteID: 4ed682682a93636409dcdc380812f337
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_1
+      name: RareSpell_5
       rect:
         serializedVersion: 2
         x: 100
@@ -134,13 +216,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72a4bb2024826df41b2a2732f818a650
+      spriteID: d2e7d7a136ce1314183b8ae3f3bd5385
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_2
+      name: RareSpell_6
       rect:
         serializedVersion: 2
         x: 200
@@ -154,13 +236,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c9b8c35b73b51e4eb0286eecc339321
+      spriteID: 54a37beeba483ff4f9e54c404e6dcaff
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_3
+      name: RareSpell_7
       rect:
         serializedVersion: 2
         x: 300
@@ -174,13 +256,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 280785545ba60334297e20a8f4617dbd
+      spriteID: 4633f7d88b9370542937329915869162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_4
+      name: RareSpell_8
       rect:
         serializedVersion: 2
         x: 0
@@ -194,13 +276,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7b8f29f1208c034ea5b9eb806624eee
+      spriteID: 9b587b9258a7b8246a9213ba4ae5ab66
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_5
+      name: RareSpell_9
       rect:
         serializedVersion: 2
         x: 100
@@ -214,13 +296,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae58d6edca02f274b80f32f3e756983c
+      spriteID: de25783c74b991d42897ee9d7f9ab341
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_6
+      name: RareSpell_10
       rect:
         serializedVersion: 2
         x: 200
@@ -234,13 +316,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cdfece2a393b93f43ac709ee4c26fc81
+      spriteID: 98746835edb473e4cbf831a120ad28fa
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_7
+      name: RareSpell_11
       rect:
         serializedVersion: 2
         x: 300
@@ -254,13 +336,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49ffae6d93a83f04e8bf847e9ee8a9cb
+      spriteID: ccf8b0295b9fa7b44b7e492ae30ff5e6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_8
+      name: RareSpell_12
       rect:
         serializedVersion: 2
         x: 0
@@ -274,13 +356,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b11710bf2b1663646b6f50866787c11b
+      spriteID: b1bb4d3ac0c7bfc4781735ee01bfd4c5
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_9
+      name: RareSpell_13
       rect:
         serializedVersion: 2
         x: 100
@@ -294,13 +376,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bcda5728584cfec4da7199ab5f2dc333
+      spriteID: 797763bfacd53824086ba0cc834372cc
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_10
+      name: RareSpell_14
       rect:
         serializedVersion: 2
         x: 200
@@ -314,13 +396,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48fee6e6d346bff42822fb7dfb65acf8
+      spriteID: 15b6c37177ed44946a862650b47ed14e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_11
+      name: RareSpell_15
       rect:
         serializedVersion: 2
         x: 300
@@ -334,13 +416,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 242d3fdd912bc8e47832e23ca0901139
+      spriteID: 701e2c9797db7f44ba6acd6752e39fea
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_12
+      name: RareSpell_16
       rect:
         serializedVersion: 2
         x: 0
@@ -354,13 +436,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3cfb188e023cc3849ab6854f60017c31
+      spriteID: dd0f434728ae57145b91707a227a8c1e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArcSpell_13
+      name: RareSpell_17
       rect:
         serializedVersion: 2
         x: 100
@@ -374,47 +456,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91017194a9148b540bd3239562103827
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ArcSpell_14
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1acd9a7e6be05f94e9536c9c8cec2076
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ArcSpell_15
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a1c81fb59d490854990bc658ed60b040
+      spriteID: a78ea98ca4d9177459220cb4beb1d88d
       vertices: []
       indices: 
       edges: []
@@ -422,7 +464,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 9aaef9d61660f424ca90ace15051ed69
+    spriteID: 18d352928d48de8418f312e5262aa822
     vertices: []
     indices: 
     edges: []

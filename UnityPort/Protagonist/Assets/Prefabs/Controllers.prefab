@@ -304,6 +304,24 @@ MonoBehaviour:
     prefab: {fileID: 1056968627326150, guid: 586c9161305a4de47b671dace5a264b7, type: 2}
   - name: SEAR
     prefab: {fileID: 1692463095228658, guid: 33a87c72de15b28498a5b5fb5808fcbb, type: 2}
+  - name: TEA
+    prefab: {fileID: 1692463095228658, guid: 5048e89c49408d54d863e7435f462947, type: 2}
+  - name: TART
+    prefab: {fileID: 1692463095228658, guid: 764d40fb6d24a4c468cf8cc2cbebeec4, type: 2}
+  - name: ARC
+    prefab: {fileID: 1692463095228658, guid: 3eafbf709d10a6b4b901862bfee012ee, type: 2}
+  - name: DAD
+    prefab: {fileID: 1692463095228658, guid: 6d9984aeca4dfc747878dd5c52312755, type: 2}
+  - name: RED
+    prefab: {fileID: 1692463095228658, guid: 378e58bed828f7a479fa5cb16a09199e, type: 2}
+  - name: CARD
+    prefab: {fileID: 1692463095228658, guid: e7ddce8fa62f79641a760725ef305711, type: 2}
+  - name: SAD
+    prefab: {fileID: 1692463095228658, guid: 28aa55ecaa637f54fa0afa6c592bac43, type: 2}
+  - name: SEA
+    prefab: {fileID: 1692463095228658, guid: 953dd5569ed6339418a92c2a46918fd9, type: 2}
+  - name: RARE
+    prefab: {fileID: 1692463095228658, guid: 2737660bea4949b46a595dd254c57331, type: 2}
 --- !u!114 &114262218043223496
 MonoBehaviour:
   m_ObjectHideFlags: 1

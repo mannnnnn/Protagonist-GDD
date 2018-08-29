@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4229076246322878}
   - component: {fileID: 212712397399126606}
   - component: {fileID: 95290476540447544}
-  - component: {fileID: 114898329484397294}
+  - component: {fileID: 114941564622509700}
   m_Layer: 0
   m_Name: RateSpell
   m_TagString: Untagged
@@ -51,7 +51,7 @@ Animator:
   m_GameObject: {fileID: 1692463095228658}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ffcc86db1ca3dfa43badc4f0c2a64f0b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0db6168a39aec92488d1c09792717510, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -60,7 +60,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114898329484397294
+--- !u!114 &114941564622509700
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1692463095228658}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfc0dcf6798949746beedacb646fcfd3, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d9666ee73d57c646ae92217e101937b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   castDuration: 0.5

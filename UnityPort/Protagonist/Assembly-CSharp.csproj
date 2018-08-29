@@ -113,10 +113,17 @@
     <Compile Include="Assets\Scripts\Puzzle\Puzzles\SyntaxErrorPuzzle\SyntaxErrorPuzzle.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Spells.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Spells\ArcSpell.cs" />
+    <Compile Include="Assets\Scripts\Puzzle\Spells\CardSpell.cs" />
+    <Compile Include="Assets\Scripts\Puzzle\Spells\CatSpell.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Spells\DadSpell.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Spells\ProjectileSpell.cs" />
+    <Compile Include="Assets\Scripts\Puzzle\Spells\RareSpell.cs" />
+    <Compile Include="Assets\Scripts\Puzzle\Spells\RateSpell.cs" />
+    <Compile Include="Assets\Scripts\Puzzle\Spells\RatSpell.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Spells\RedSpell.cs" />
+    <Compile Include="Assets\Scripts\Puzzle\Spells\SadSpell.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Spells\SearSpell.cs" />
+    <Compile Include="Assets\Scripts\Puzzle\Spells\SeaSpell.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Spells\TartSpell.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Spells\TeaSpell.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Spells\ThrowLetterSpell.cs" />
