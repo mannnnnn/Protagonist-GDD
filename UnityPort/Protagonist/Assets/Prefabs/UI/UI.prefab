@@ -1830,6 +1830,8 @@ MonoBehaviour:
   dialogDisplays:
   - name: Default
     prefab: {fileID: 1241213988556622, guid: 0a9c8cbef2093af4bbedb0042f8ca6c1, type: 2}
+  - name: Intro
+    prefab: {fileID: 1071972284399418, guid: bf18b9059b9fa6c4a91dbeab8df48c1c, type: 2}
 --- !u!114 &114959377602496186
 MonoBehaviour:
   m_ObjectHideFlags: 1

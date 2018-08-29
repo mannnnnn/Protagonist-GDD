@@ -71,6 +71,7 @@ GameObject:
   - component: {fileID: 114262218043223496}
   - component: {fileID: 114076246090797502}
   - component: {fileID: 114318208105303646}
+  - component: {fileID: 114712827756101118}
   m_Layer: 0
   m_Name: GameMusic
   m_TagString: Untagged
@@ -520,3 +521,15 @@ MonoBehaviour:
   DEFAULT_RESOLUTION_SCALE: 0.8
   DEBUG_MODE_NOSCALE: 1
   mapSprite: {fileID: 0}
+--- !u!114 &114712827756101118
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1368169093964482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19953c22aefd82c47b6fbed930cc9c4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffects: []

@@ -24,7 +24,7 @@ public class NameBox : MonoBehaviour
 	public float SetName(string name)
     {
         // get pixels size
-        int px = Utilities.GetStringWidth(name, text.font, text.fontSize);
+        float px = Utilities.GetStringWidth(name, text.font, text.fontSize);
         // pixels to width as MapView points
         float mapViewWidth = Mathf.Abs(ScreenResolution.ScreenToMapViewPoint(new Vector3(px, 0)).x 
             - ScreenResolution.ScreenToMapViewPoint(new Vector3(0, 0)).x);

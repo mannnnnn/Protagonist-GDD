@@ -32,7 +32,7 @@ public class Puzzles : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            StartPuzzle("puzzle1", "puzzle1");
+            StartPuzzle("sphinxx", "puzzle1");
         }
     }
 

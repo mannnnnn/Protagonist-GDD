@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\Controllers\SceneTransitions\SlideTransition.cs" />
     <Compile Include="Assets\Scripts\Controllers\SceneTransitions\SpinTransition.cs" />
     <Compile Include="Assets\Scripts\Controllers\ScreenResolution.cs" />
+    <Compile Include="Assets\Scripts\Controllers\SFXPlayer.cs" />
     <Compile Include="Assets\Scripts\Controllers\SyncedMusicPlayer.cs" />
     <Compile Include="Assets\Scripts\Controllers\TimeExtensions.cs" />
     <Compile Include="Assets\Scripts\Controllers\TriMusicPlayer.cs" />
@@ -135,6 +136,7 @@
     <Compile Include="Assets\Scripts\UI\Dialog\DialogPrefabs.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\Display\DialogMenuButton.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\Display\Intro\HighlightedText.cs" />
+    <Compile Include="Assets\Scripts\UI\Dialog\Display\Intro\HighlightedTextLine.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\Display\NameBox.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\Display\StandardDialogDisplay.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\Display\StandardDialogMenu.cs" />
