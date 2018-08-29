@@ -1,0 +1,447 @@
+fileFormatVersion: 2
+guid: 4464e84461d7e294f8061f7315fb3271
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: RatSpell_0
+    21300002: RatSpell_1
+    21300004: RatSpell_2
+    21300006: RatSpell_3
+    21300008: RatSpell_4
+    21300010: RatSpell_5
+    21300012: RatSpell_6
+    21300014: RatSpell_7
+    21300016: RatSpell_8
+    21300018: RatSpell_9
+    21300020: RatSpell_10
+    21300022: RatSpell_11
+    21300024: RatSpell_12
+    21300026: RatSpell_13
+    21300028: RatSpell_14
+    21300030: RatSpell_15
+    21300032: RatSpell_16
+    21300034: RatSpell_17
+    21300036: RatSpell_18
+    21300038: RatSpell_19
+    21300040: RatSpell_20
+    21300042: RatSpell_21
+    21300044: RatSpell_22
+    21300046: RatSpell_23
+    21300048: RatSpell_24
+    21300050: RatSpell_25
+    21300052: RatSpell_26
+    21300054: RatSpell_27
+    21300056: RatSpell_28
+    21300058: RatSpell_29
+    21300060: RatSpell_30
+    21300062: RatSpell_31
+    21300064: RatSpell_32
+    21300066: RatSpell_33
+    21300068: RatSpell_34
+    21300070: RatSpell_35
+    21300072: RatSpell_36
+    21300074: RatSpell_37
+    21300076: RatSpell_38
+    21300078: RatSpell_39
+    21300080: RatSpell_40
+    21300082: RatSpell_41
+    21300084: RatSpell_42
+    21300086: RatSpell_43
+    21300088: RatSpell_44
+    21300090: RatSpell_45
+    21300092: RatSpell_46
+    21300094: RatSpell_47
+    21300096: RatSpell_48
+    21300098: RatSpell_49
+    21300100: RatSpell_50
+    21300102: RatSpell_51
+    21300104: RatSpell_52
+    21300106: RatSpell_53
+    21300108: RatSpell_54
+    21300110: RatSpell_55
+    21300112: RatSpell_56
+    21300114: RatSpell_57
+    21300116: RatSpell_58
+    21300118: RatSpell_59
+    21300120: RatSpell_60
+    21300122: RatSpell_61
+    21300124: RatSpell_62
+    21300126: RatSpell_63
+    21300128: RatSpell_64
+    21300130: RatSpell_65
+    21300132: RatSpell_66
+    21300134: RatSpell_67
+    21300136: RatSpell_68
+    21300138: RatSpell_69
+    21300140: RatSpell_70
+    21300142: RatSpell_71
+    21300144: RatSpell_72
+    21300146: RatSpell_73
+    21300148: RatSpell_74
+    21300150: RatSpell_75
+    21300152: RatSpell_76
+    21300154: RatSpell_77
+    21300156: RatSpell_78
+    21300158: RatSpell_79
+    21300160: RatSpell_80
+    21300162: RatSpell_81
+    21300164: RatSpell_82
+    21300166: RatSpell_83
+    21300168: RatSpell_84
+    21300170: RatSpell_85
+    21300172: RatSpell_86
+    21300174: RatSpell_87
+    21300176: RatSpell_88
+    21300178: RatSpell_89
+    21300180: RatSpell_90
+    21300182: RatSpell_91
+    21300184: RatSpell_92
+    21300186: RatSpell_93
+    21300188: RatSpell_94
+    21300190: RatSpell_95
+    21300192: RatSpell_96
+    21300194: RatSpell_97
+    21300196: RatSpell_98
+    21300198: RatSpell_99
+    21300200: RatSpell_100
+    21300202: RatSpell_101
+    21300204: RatSpell_102
+    21300206: RatSpell_103
+    21300208: RatSpell_104
+    21300210: RatSpell_105
+    21300212: RatSpell_106
+    21300214: RatSpell_107
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RatSpell_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 900
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bf3a32d38b6108409f78ae27f576ef2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RatSpell_1
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 900
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3acf3416c277f547a655a4cce062351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RatSpell_2
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 900
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 112e813188c60ad45b056f10a9c9c6d0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RatSpell_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 869cdd05456ac184faa47e71a68c642b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RatSpell_4
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3b338f81c329184795a0048bc612c62
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RatSpell_5
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a22dc53cc046fc429911c32cffa779c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RatSpell_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39b9ed801b03ab345a74f17a3fab9072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RatSpell_7
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d7570effeccd2545b3d1e007f33f4cd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RatSpell_8
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cb10c426ec21574db99cd293b345659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RatSpell_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28f511267f958594ca296271744ab529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RatSpell_10
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15a647b9f84fa92418124135ddd9abed
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RatSpell_11
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d01f56fd688d774c975773bf673fdd0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 591e55ce0320ed44ba6e9d6051d3c855
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
