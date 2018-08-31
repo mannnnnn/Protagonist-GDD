@@ -1,133 +1,81 @@
-//intro1
-//Characters: Hades, Protagonist, the silhouettes of people
+[
+    {
+        character: "???",
+        abbrev: "H"
+    },
+    {
+        character: "Protagonist",
+        abbrev: "P"
+    },
 
-//CHARACTERS
-character P
-{
-	name = "Protagonist"
-	side = left
-}
-character H
-{
-	name = "???"
-	side = right
-}
+    { event: "intro.introDisplay" },
+    { event: "intro.music", args: { name: "intro" } },
 
-text display obj_narration
+    { H: "Welcome Hero, to darkness of war. Give thy love to the gods of lore?" },
 
-create stepper intro obj_intro
-next intro
+    { event: "background", args: { image: "Intro1", layer: 0 } },
 
-play music snd_introMusicLoop snd_introMusicIntro
+    { H: "Or bolder still, together band, and strike down those who force thy hand." },
 
-H: "Welcome Hero, to darkness of war. Give thy love to the gods of lore?"
+    { event: "background", args: { image: "Intro2", layer: 0 } },
+    { event: "background", args: { image: "IntroShadow1", layer: 1 } },
 
-next intro
+    { H: "In fires of gods, mere mortals will quiver," },
 
-H: "Or bolder still, together band, and strike down those who force thy hand."
+    { event: "background", args: { image: "IntroShadow2", layer: 1 } },
 
-//
-show oAp spr_silhouettes 0 0 100
-with fade
-//
+    { H: "The light of the moon can cause you to shiver," },
 
-H: "In fires of gods, mere mortals will quiver,"
+    { event: "background", args: { image: "IntroShadow3", layer: 1 } },
 
-//
-hide oAp
-with fade
+    { H: "Or by thy hammer, forge light into peace." },
+    { H: "And with thy guidance this era may cease." },
+    
+    { event: "background", args: { image: null, layer: 1 } },
+    { event: "intro.standardDisplay" },
+    { event: "intro.music", args: { name: "hades" } },
+    { event: "intro.datetime" },
 
-show oAr spr_silhouettes 1 0 100
-with fade
-//
+    {
+        show: {
+            name: "H",
+            side: "Right",
+            sprite: "Hades",
+            transition: "Swing",
+            image: "Normal"
+        }
+    },
+    { H: "Oh nevermind then. Don't worry about any of that stuff." },
+    { P: "Huh?" },
+    { H: "The war ended like three years ago when the game was released." },
+    { P: "Wait, so we won already?" },
+    { H: "What? Are you kidding me? The mortals didn't stand a chance!" },
 
+    { event: "background", args: { image: "Intro3", layer: 0 } },
 
-H: "The light of the moon can cause you to shiver,"
+    { H: "We are GODS. We shoot LIGHTNING." },
+    { H: "You guys had sticks." },
+    { P: "That can't be right." },
+    { H: "No, you're right. I misspoke." },
+    { H: "You didn't have sticks by the end of it." },
+    { H: "Universal ban on sticks, enacted by the gods." },
+    { H: "You guys were pretty annoying with them." },
 
-//
-hide oAr
-with fade
+    { event: "background", args: { image: "Intro4", layer: 0 } },
 
-show oHa spr_silhouettes 2 0 100
-with fade
-//
+    { H: "Invented dumb stuff like spears for survival." },
+    { H: "And that weird instrument thing. Aulos?" },
+    { H: "So yeah, you guys clearly weren't ready for sticks yet. So we banned them." },
+    { H: "Then we just decided to cut to the root of the problem and just banned mortals from existence." },
+    { P: "You did what?" },
+    { H: "Yeah, they're all gone. It's pretty nice." },
+    { H: "So enjoy that lifespan limitation of yours." },
+    { H: "I'm not really under any obligation to do anything anymore." },
+    { H: "Game's over. Thanks for stopping by. And don't do it again." },
+    { H: "We've got our own little thing going on here, so no games please." },
+    { H: "I'll just take this and exit you out." },
 
-H: "Or by thy hammer, forge light into peace."
-
-//
-//
-
-H: "And with thy guidance this era may cease."
-
-//
-hide oHa
-with fade
-//
-
-text display obj_dialogueBox
-
-play music snd_hadesEntrance
-
-call hadesSpecialDatetimeExtravaganza()
-
-//
-show H spr_talkHades
-with hades_swing
-//
-
-H: "Oh nevermind then. Don't worry about any of that stuff."
-
-P: "Huh?"
-
-H: "The war ended like three years ago when the game was released."
-
-P: "Wait, so we won already?"
-
-H: "What? Are you kidding me? The mortals didn't stand a chance!"
-
-next intro
-
-H: "We are GODS. We shoot LIGHTNING."
-
-H: "You guys had sticks."
-
-P: "That can't be right."
-
-H: "No, you're right. I misspoke."
-
-H: "You didn't have sticks by the end of it."
-
-H: "Universal ban on sticks, enacted by the gods."
-
-H: "You guys were pretty annoying with them."
-
-next intro
-
-H: "Invented dumb stuff like spears for survival."
-
-H: "And that weird instrument thing. Aulos?"
-
-H: "So yeah, you guys clearly weren't ready for sticks yet. So we banned them."
-
-H: "Then we just decided to cut to the root of the problem and just banned mortals from existence."
-
-P: "You did what?"
-
-H: "Yeah, they're all gone. It's pretty nice."
-
-H: "So enjoy that lifespan limitation of yours."
-
-H: "I'm not really under any obligation to do anything anymore."
-
-H: "Game's over. Thanks for stopping by. And don't do it again."
-
-H: "We've got our own little thing going on here, so no games please."
-
-H: "I'll just take this and exit you out."
-
-call hadesSpecialSaveExtravaganza(2)
-call hadesSpecialExitingExtravaganza()
-
-wait -4
-
-exit
+    { event: "intro.save1" },
+    { event: "intro.exit" },
+    { event: "wait", args: { duration: 1000000 } }
+]

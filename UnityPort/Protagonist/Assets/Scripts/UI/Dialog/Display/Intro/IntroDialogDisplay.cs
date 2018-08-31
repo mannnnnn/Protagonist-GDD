@@ -7,14 +7,13 @@ using UnityEngine;
  */
 public class IntroDialogDisplay : MonoBehaviour, DialogDisplay
 {
-    TextScroller textScroller;
+    TextScroller textScroller = new TextScroller();
     HighlightedText text;
 
     public bool Active { get; private set; }
 
     protected void Start()
     {
-        textScroller = new TextScroller();
         // get components
         text = GetComponent<HighlightedText>();
     }

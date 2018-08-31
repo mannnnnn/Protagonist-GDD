@@ -26,6 +26,8 @@ public partial class DialogEvents : MonoBehaviour
             string evtName = string.Join(evtDelimiter.ToString(), evtPath.Skip(1).Take(evtPath.Length - 1));
             switch (map)
             {
+                case "intro":
+                    return HandleIntro(evtName, args);
                 case "jungle":
                     return HandleJungle(evtName, args);
             }
@@ -51,6 +53,8 @@ public partial class DialogEvents : MonoBehaviour
             // change name
             case "changeName":
                 return ChangeName(evt, args);
+            case "background":
+                return ChangeBackground(evt, args);
         }
         return true;
     }
@@ -72,7 +76,15 @@ public partial class DialogEvents : MonoBehaviour
         Dialog.GetInstance().parser.characters[abbrev].name = character;
         return true;
     }
-    
+
+    private bool ChangeBackground(string evt, Dictionary<string, object> args)
+    {
+        string image = GetStringArgument(evt, args, "image");
+        int layer = (int)Math.Floor(GetNumberArgument(evt, args, "layer", true));
+        UIBackground.TransitionTo(image, layer);
+        return true;
+    }
+
     private string GetStringArgument(string evt, Dictionary<string, object> args, string key, bool optional = false)
     {
         if (!args.ContainsKey(key))
@@ -83,7 +95,7 @@ public partial class DialogEvents : MonoBehaviour
             }
             throw new ParseError("'" + evt + "' event has no " + key + " argument.");
         }
-        return args[key].ToString();
+        return args[key] != null ? args[key].ToString() : null;
     }
     private float GetNumberArgument(string evt, Dictionary<string, object> args, string key, bool optional = false)
     {

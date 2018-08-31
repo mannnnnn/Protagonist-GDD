@@ -550,4 +550,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19953c22aefd82c47b6fbed930cc9c4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffects: []
+  soundEffects:
+  - key: Hades
+    clip: {fileID: 8300000, guid: fb60c167a79d7524ca3c4df64a8abd6d, type: 3}

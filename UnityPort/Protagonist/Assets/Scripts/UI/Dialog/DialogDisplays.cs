@@ -21,13 +21,19 @@ public class DialogDisplays : MonoBehaviour
     // don't use before Dialog's Awake method is called.
     public static void SwapTo(string name)
     {
+        bool active = false;
         DialogDisplay newDisplay = Create(name);
         MonoBehaviour oldDisplay = Dialog.GetDisplay() as MonoBehaviour;
         if (oldDisplay != null)
         {
+            active = ((DialogDisplay)oldDisplay).Active;
             Destroy(oldDisplay.gameObject);
         }
         Dialog.SetDisplay(newDisplay);
+        if (active)
+        {
+            newDisplay.Show();
+        }
     }
 
     // creates the prefab for a given string name

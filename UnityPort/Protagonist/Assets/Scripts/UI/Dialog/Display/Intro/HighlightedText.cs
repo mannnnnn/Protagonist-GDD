@@ -39,6 +39,7 @@ public class HighlightedText : MonoBehaviour
         // remove unused
         for (int i = lines.Count; i < highlightedLines.Count; i++)
         {
+            lineY += highlightedLines[i].GetSize();
             Destroy(highlightedLines[i].gameObject);
             highlightedLines.RemoveAt(i);
             i--;

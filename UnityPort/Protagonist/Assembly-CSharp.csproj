@@ -165,6 +165,7 @@
     <Compile Include="Assets\Scripts\UI\Title\TitleTextBlink.cs" />
     <Compile Include="Assets\Scripts\UI\UIBackground.cs" />
     <Compile Include="Assets\Scripts\UI\UIBackgroundImage.cs" />
+    <Compile Include="Assets\Scripts\UI\UIBackgroundLayer.cs" />
     <Compile Include="Assets\Scripts\UI\UICanvas.cs" />
     <Compile Include="Assets\Scripts\UI\UIDisplayBase.cs" />
     <Compile Include="Assets\Scripts\UI\UIPanel.cs" />

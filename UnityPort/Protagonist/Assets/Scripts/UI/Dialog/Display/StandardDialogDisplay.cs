@@ -44,13 +44,18 @@ public class StandardDialogDisplay : UIDisplayBase, DialogDisplay, TextScrollTar
     // move mouths
     List<DialogAnimationBase> speakers = new List<DialogAnimationBase>();
 
-    protected void Start()
+    protected override void Awake()
     {
+        base.Awake();
         textScroller = new TextScroller(this);
         // get components
         dialogBox = transform.Find("DialogueBox").gameObject.GetComponent<UIPanel>();
         nameBox = transform.Find("NameBox").gameObject.GetComponent<UIPanel>();
         setNameBox = GetComponentInChildren<NameBox>();
+    }
+
+    protected void Start()
+    {
         SetName("");
         // set y position and y target position
         SetY(0);

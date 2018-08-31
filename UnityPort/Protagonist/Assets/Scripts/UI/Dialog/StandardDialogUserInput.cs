@@ -25,7 +25,7 @@ public class StandardDialogUserInput : MonoBehaviour, DialogUserInput
         // handle user input
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            Dialog.RunDialog("testcase.protd");
+            Dialog.RunDialog("intro1.protd");
         }
         if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) && Dialog.GetInstance().Enabled)
         {
