@@ -56,7 +56,7 @@ public class UIBackground : MonoBehaviour
     {
         if (!layers.ContainsKey(layer) || layers[layer] == null)
         {
-            layers[layer] = Instantiate(UIBackgroundLayer).GetComponent<UIBackgroundLayer>();
+            layers[layer] = Instantiate(UIBackgroundLayer, transform).GetComponent<UIBackgroundLayer>();
             layers[layer].Temporary = true;
             SortLayers();
         }
@@ -80,7 +80,8 @@ public class UIBackground : MonoBehaviour
         int index = 0;
         foreach (var layer in layerList)
         {
-            layer.Value.transform.SetSiblingIndex(index);
+            layer.Value.transform.position = new Vector3(layer.Value.transform.position.x,
+                layer.Value.transform.position.y, layerList.Count - index);
             index++;
         }
     }

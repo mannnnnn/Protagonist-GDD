@@ -17,7 +17,7 @@ public class UIBackgroundImage : MonoBehaviour
 
     bool destroy = false;
 
-    Image image;
+    SpriteRenderer sr;
 
     Sprite sprite;
     public void Initialize(Sprite sprite)
@@ -26,14 +26,21 @@ public class UIBackgroundImage : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        image.sprite = sprite;
+        sr.sprite = sprite;
         SetAlpha(0f);
+        // scale to fit area
+        Vector2 center = ScreenResolution.MapViewToScreenPoint(new Vector2(0.5f, 0.5f));
+        Vector2 corner = ScreenResolution.MapViewToScreenPoint(Vector2.zero);
+        Vector2 extents = center - corner;
+        Vector2 currentExtents = Camera.main.WorldToScreenPoint(sr.bounds.extents) - Camera.main.WorldToScreenPoint(Vector2.zero);
+        transform.localScale = new Vector2(extents.x / currentExtents.x, extents.y / currentExtents.y);
+        transform.localPosition = new Vector3(corner.x, corner.y, transform.localPosition.z);
     }
 
 	// Use this for initialization
 	void Awake()
     {
-        image = GetComponent<Image>();
+        sr = GetComponent<SpriteRenderer>();
     }
 	
 	// Update is called once per frame
@@ -50,7 +57,7 @@ public class UIBackgroundImage : MonoBehaviour
         }
         timerSeconds = Mathf.Clamp(timerSeconds, 0, delay + duration);
         // clean up self if animation sequence is finished
-        if (destroy && image.color.a == 0f)
+        if (destroy && sr.color.a == 0f)
         {
             Destroy(gameObject);
         }
@@ -58,7 +65,7 @@ public class UIBackgroundImage : MonoBehaviour
 
     public void FadeIn(float duration, float delay)
     {
-        initialAlpha = image.color.a;
+        initialAlpha = sr.color.a;
         targetAlpha = 1f;
         this.duration = duration;
         this.delay = delay;
@@ -66,7 +73,7 @@ public class UIBackgroundImage : MonoBehaviour
     }
     public void FadeOut(float duration, float delay, bool destroy = true)
     {
-        initialAlpha = image.color.a;
+        initialAlpha = sr.color.a;
         targetAlpha = 0f;
         this.duration = duration;
         this.delay = delay;
@@ -76,11 +83,11 @@ public class UIBackgroundImage : MonoBehaviour
 
     private void SetAlpha(float alpha)
     {
-        if (image.sprite == null)
+        if (sr.sprite == null)
         {
-            image.color = new Color(image.color.r, image.color.g, image.color.b, 0f);
+            sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0f);
             return;
         }
-        image.color = new Color(image.color.r, image.color.g, image.color.b, alpha);
+        sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, alpha);
     }
 }

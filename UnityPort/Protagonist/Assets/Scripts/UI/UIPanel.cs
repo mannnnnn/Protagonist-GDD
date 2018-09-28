@@ -1,131 +1,102 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 /**
- * helper class used to wrap setting alpha/y/text/size into one object per GameObject.
+ * A Panel is a UI gameObject that can have a frame, fill, and optionally text.
+ * Allows setting a panel's position, text, size, and alpha into one component.
  * Then, this behavior wraps those into one method call.
- * This behavior also controls the horizontal position via left/right anchoring.
  */
 public class UIPanel : MonoBehaviour
 {
-    bool initialized = false;
-    InputField textbox;
-    Text text;
+    InputField inputbox;
+    Text textbox;
     Image frame;
     Image fill;
-    [HideInInspector] public RectTransform rect;
+    RectTransform rectTransform;
 
-    public bool rootPanel = true;
-    public float left = 0f;
-    public float right = 1f;
-
-    protected virtual void Awake()
+    void Awake()
     {
-        if (ScreenResolution.Ready)
-        {
-            Initialize();
-        }
-    }
-
-    protected virtual void Start()
-    {
-        if (!initialized)
-        {
-            Initialize();
-        }
-    }
-
-    void Initialize()
-    {
-        textbox = gameObject.GetComponentInChildren<InputField>();
-        text = gameObject.GetComponentInChildren<Text>();
+        inputbox = gameObject.GetComponentInChildren<InputField>();
+        textbox = gameObject.GetComponentInChildren<Text>();
         frame = transform.Find("Frame")?.gameObject?.GetComponent<Image>();
         fill = transform.Find("Fill")?.gameObject?.GetComponent<Image>();
-        rect = GetComponent<RectTransform>();
-        UpdateAnchors();
-        initialized = true;
+        rectTransform = GetComponent<RectTransform>();
     }
 
-    public virtual string GetText()
+    float size = 100f;
+    void Update()
     {
-        return textbox.text;
-    }
-    public virtual void SetText(string message)
-    {
-        textbox.text = message;
+        rect = new Rect(Input.mousePosition, Vector2.one * size);
+        size += Input.GetAxis("Mouse ScrollWheel") * 100f;
     }
 
-    public virtual void SetAlpha(float alpha)
+    public Rect rect
     {
-        if (text != null)
+        get
         {
-            text.color = new Color(text.color.r, text.color.g, text.color.b, alpha);
+            return ScreenResolution.GetScreenRect(rectTransform);
         }
-        if (frame != null)
+        set
         {
-            frame.color = new Color(frame.color.r, frame.color.g, frame.color.b, alpha);
-        }
-        if (fill != null)
-        {
-            fill.color = new Color(fill.color.r, fill.color.g, fill.color.b, alpha);
+            SetScreenRect(value);
         }
     }
 
-    // y position control
-    public virtual float GetLocalY()
+    public string text
     {
-        return rect.anchoredPosition.y;
-    }
-    public virtual void SetLocalY(float height)
-    {
-        rect.anchoredPosition = new Vector3(rect.anchoredPosition.x, height, rect.position.z);
-    }
-    public virtual float GetScreenY()
-    {
-        return ScreenResolution.RectToScreenPoint(rect, new Vector2(0, 0)).y;
-    }
-    public virtual void SetScreenY(float screenY)
-    {
-        SetLocalY(rect.anchoredPosition.y + ScreenResolution.ScreenToRectPoint(rect, new Vector2(0, screenY)).y);
+        get { return inputbox.text; }
+        set { inputbox.text = value; }
     }
 
-    public virtual float GetSize()
+    public float alpha
     {
-        return rect.sizeDelta.y;
-    }
-    public virtual float SetSize(float size, float pivot = 0)
-    {
-        var resize = size - GetSize();
-        rect.sizeDelta = new Vector2(rect.sizeDelta.x, size);
-        SetScreenY(GetScreenY() + resize * pivot);
-        return resize * pivot;
-    }
-
-    // resets anchor position to those of the left/right fields
-    public virtual void UpdateAnchors()
-    {
-        UpdateAnchors(left, right);
-    }
-    // temporarily sets anchor position to the given left/right, does not set the object's left/right fields
-    public virtual void UpdateAnchors(float left, float right)
-    {
-        // set anchor to resolution size
-        if (rect != null)
+        get
         {
-            if (rootPanel && ScreenResolution.Ready)
-            {
-                rect.anchorMin = ScreenResolution.MapViewToScreenPoint(new Vector2(left, 0)) / new Vector2(Screen.width, Screen.height);
-                rect.anchorMax = ScreenResolution.MapViewToScreenPoint(new Vector2(right, 0)) / new Vector2(Screen.width, Screen.height);
-            }
-            else
-            {
-                rect.anchorMin = new Vector2(left, rect.anchorMin.y);
-                rect.anchorMax = new Vector2(right, rect.anchorMax.y);
-            }
+            if (textbox != null)
+                return textbox.color.a;
+            if (frame != null)
+                return frame.color.a;
+            if (fill != null)
+                return fill.color.a;
+            return 0f;
         }
+        set
+        {
+            if (textbox != null)
+                textbox.color = new Color(textbox.color.r, textbox.color.g, textbox.color.b, value);
+            if (frame != null)
+                frame.color = new Color(frame.color.r, frame.color.g, frame.color.b, value);
+            if (fill != null)
+                fill.color = new Color(fill.color.r, fill.color.g, fill.color.b, value);
+        }
+    }
+
+    Rect ToRect(Vector2 pos, Vector2 size, Vector2 pivot)
+    {
+        return new Rect(pos - LerpRect(new Rect(Vector2.zero, size), pivot), size);
+    }
+    void SetScreenRect(Rect screenRect)
+    {
+        Rect parent = ScreenResolution.GetScreenRect(transform.parent.GetComponent<RectTransform>());
+        screenRect = ClampRect(screenRect, parent);
+        Vector2 anchorPosMin = LerpRect(parent, rectTransform.anchorMin);
+        Vector2 anchorPosMax = LerpRect(parent, rectTransform.anchorMax);
+        Vector2 min = screenRect.position - anchorPosMin;
+        Vector2 max = (screenRect.position + screenRect.size) - anchorPosMax;
+        rectTransform.offsetMin = min;
+        rectTransform.offsetMax = max;
+    }
+    Vector2 LerpRect(Rect rect, Vector2 t)
+    {
+        return new Vector2(Mathf.Lerp(rect.position.x, rect.position.x + rect.size.x, t.x),
+            Mathf.Lerp(rect.position.y, rect.position.y + rect.size.y, t.y));
+    }
+    Rect ClampRect(Rect current, Rect parent)
+    {
+        Vector2 min = parent.position;
+        Vector2 max = parent.position + parent.size - current.size;
+        Vector2 clampedPos = new Vector2(Mathf.Clamp(current.x, min.x, max.x),
+            Mathf.Clamp(current.y, min.y, max.y));
+        return new Rect(clampedPos, current.size);
     }
 }

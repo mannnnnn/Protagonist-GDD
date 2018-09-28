@@ -56,7 +56,6 @@ public class StandardDialogDisplay : UIDisplayBase, DialogDisplay, TextScrollTar
 
     protected void Start()
     {
-        SetName("");
         // set y position and y target position
         SetY(0);
         SetTargetY(0);
@@ -87,9 +86,6 @@ public class StandardDialogDisplay : UIDisplayBase, DialogDisplay, TextScrollTar
                 break;
         }
         GetY();
-        // adjust to screen size
-        dialogBox.UpdateAnchors();
-        nameBox.UpdateAnchors();
     }
 
     // when we want to close, but have to wait for dialog animations to finish
@@ -113,17 +109,18 @@ public class StandardDialogDisplay : UIDisplayBase, DialogDisplay, TextScrollTar
     // total vertical size of the two boxes stacked on each other
     public float GetSize()
     {
-        return nameBox.GetSize() + dialogBox.GetSize();
+        //TODO: return nameBox.size.y + dialogBox.size.y;
+        return 0;
     }
 
     public override void SetAlpha(float alpha)
     {
-        nameBox.SetAlpha(alpha);
-        if (nameBox.GetText() == "")
+        nameBox.alpha = alpha;
+        if (nameBox.text == "")
         {
-            nameBox.SetAlpha(0);
+            nameBox.alpha = 0;
         }
-        dialogBox.SetAlpha(alpha);
+        dialogBox.alpha = alpha;
     }
 
     // call to set the text contents of the display, both nameplate and textbox. Called by Dialog
@@ -155,23 +152,10 @@ public class StandardDialogDisplay : UIDisplayBase, DialogDisplay, TextScrollTar
             center += Dialog.sides[parser.characters[c].position].x;
         }
         center = center / characters.Count;
-        SetName(character, center);
+        nameBox.text = character;
+        //TODO: nameBox.x = center;
     }
-    private void SetName(string character, float center = 0f)
-    {
-        // get size of text
-        float size = setNameBox.SetName(character);
-        // clamp position in between the screen sides
-        float left = Mathf.Clamp(center - (size * 0.5f), 0, 1 - size);
-        if (size >= 1)
-        {
-            left = 0;
-        }
-        // set namebox position to where the person is
-        setNameBox.box.left = Mathf.Clamp01(left);
-        setNameBox.box.right = Mathf.Clamp01(left + size);
-        setNameBox.box.UpdateAnchors();
-    }
+
     public void StartSpeakers(List<string> characters)
     {
         DialogParser parser = Dialog.GetInstance().parser;
@@ -209,7 +193,7 @@ public class StandardDialogDisplay : UIDisplayBase, DialogDisplay, TextScrollTar
             throw new ParseError("Menu Type with name '" + type + "' is not registered. See the DialogSystem's DialogPrefabs component.");
         }
         // set on same level as the dialog menu group
-        GameObject menuObj = Instantiate(DialogPrefabs.Menus[type], UICanvas.GetTransform());
+        GameObject menuObj = Instantiate(DialogPrefabs.Menus[type], UICanvas.root);
         DialogMenu menu = menuObj.GetComponent<DialogMenu>();
         if (menu == null)
         {
@@ -241,7 +225,7 @@ public class StandardDialogDisplay : UIDisplayBase, DialogDisplay, TextScrollTar
     }
     private void SetText(string text)
     {
-        dialogBox.SetText(text);
+        dialogBox.text = text;
     }
 
     public void Show()

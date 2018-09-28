@@ -65,7 +65,7 @@ public class StandardDialogMenu : UIDisplayBase, DialogMenu
         float edgeBorder = 12f;
         float buttonSize = 52f;
         float totalSize = (2 * edgeBorder) + (options.Count * buttonSize) + ((options.Count - 1) * buttonBorder);
-        backPanel.SetSize(totalSize, 1f);
+        //TODO: backPanel.height = totalSize;
         // move up
         SetY(-100f);
         SetTargetY(GetSize());
@@ -81,7 +81,7 @@ public class StandardDialogMenu : UIDisplayBase, DialogMenu
             GameObject buttonObj = Instantiate(button, transform);
             // move button to y position
             var buttonBehavior = buttonObj.GetComponent<DialogMenuButton>();
-            buttonBehavior.Initialize(this, buttonY, 0, 1);
+            //TODO: buttonBehavior.Initialize(this, buttonY, backPanel.width);
             // set button as option
             buttonBehavior.SetText(options[i]);
             buttons.Add(buttonBehavior);
@@ -90,12 +90,6 @@ public class StandardDialogMenu : UIDisplayBase, DialogMenu
         // move normal dialog window to the top
         displayY = display.GetY();
         display.SetTargetY(GetSize() + display.GetSize() + edgeBorder);
-    }
-
-    protected override void Update()
-    {
-        base.Update();
-        backPanel.UpdateAnchors();
     }
 
     // call dialog.ChooseMenuOption when we're done
@@ -129,11 +123,12 @@ public class StandardDialogMenu : UIDisplayBase, DialogMenu
     
     public float GetSize()
     {
-        return backPanel.GetSize();
+        //TODO: return backPanel.size.y;
+        return 0;
     }
 
     public override void SetAlpha(float alpha)
     {
-        backPanel.SetAlpha(alpha);
+        backPanel.alpha = alpha;
     }
 }

@@ -331,7 +331,7 @@ Prefab:
     - target: {fileID: 114512872291987682, guid: 9e616bbdce673f04ea48d9499cbe91e2,
         type: 2}
       propertyPath: m_Text
-      value: DISC
+      value: DISCARD
       objectReference: {fileID: 0}
     - target: {fileID: 223159190038924510, guid: 9e616bbdce673f04ea48d9499cbe91e2,
         type: 2}

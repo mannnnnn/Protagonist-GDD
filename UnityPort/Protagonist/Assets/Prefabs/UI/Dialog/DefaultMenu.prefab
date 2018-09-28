@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 224094376437415240}
   - component: {fileID: 114401814256738042}
   - component: {fileID: 114795835609155260}
+  - component: {fileID: 114533987594916118}
   m_Layer: 0
   m_Name: DefaultMenu
   m_TagString: Untagged
@@ -75,6 +76,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 0.5
   button: {fileID: 1973238750533558, guid: 1b73bb67937ba3f4f9c20fdf30f669f0, type: 2}
+--- !u!114 &114533987594916118
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1751481451366056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f321b7f5d01daf4482f3d92eedaee5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114757777051212780
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -113,10 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dfee83b6368c40489d4e768ba8e825c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rect: {fileID: 0}
-  rootPanel: 1
-  left: 0
-  right: 1
 --- !u!114 &114905973006818078
 MonoBehaviour:
   m_ObjectHideFlags: 1

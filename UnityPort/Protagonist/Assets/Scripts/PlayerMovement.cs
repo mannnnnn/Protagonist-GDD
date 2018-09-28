@@ -106,9 +106,10 @@ public class PlayerMovement : MonoBehaviour {
 
     private bool PlayerCanMove()
     {
+        return true;
         if (Dialog.Active)
         {
-            return false;
+            //TODO: return false;
         }
         return true;
     }

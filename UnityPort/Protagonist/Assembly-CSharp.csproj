@@ -129,6 +129,9 @@
     <Compile Include="Assets\Scripts\Puzzle\Spells\ThrowLetterSpell.cs" />
     <Compile Include="Assets\Scripts\Puzzle\Spells\ThrownLetter.cs" />
     <Compile Include="Assets\Scripts\SceneDoor.cs" />
+    <Compile Include="Assets\Scripts\UI\Background\UIBackground.cs" />
+    <Compile Include="Assets\Scripts\UI\Background\UIBackgroundImage.cs" />
+    <Compile Include="Assets\Scripts\UI\Background\UIBackgroundLayer.cs" />
     <Compile Include="Assets\Scripts\UI\CloseButton.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\Dialog.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\DialogActions.cs" />
@@ -163,12 +166,10 @@
     <Compile Include="Assets\Scripts\UI\Inventory\StandardInventoryUserInput.cs" />
     <Compile Include="Assets\Scripts\UI\Title\TitleButton.cs" />
     <Compile Include="Assets\Scripts\UI\Title\TitleTextBlink.cs" />
-    <Compile Include="Assets\Scripts\UI\UIBackground.cs" />
-    <Compile Include="Assets\Scripts\UI\UIBackgroundImage.cs" />
-    <Compile Include="Assets\Scripts\UI\UIBackgroundLayer.cs" />
     <Compile Include="Assets\Scripts\UI\UICanvas.cs" />
     <Compile Include="Assets\Scripts\UI\UIDisplayBase.cs" />
     <Compile Include="Assets\Scripts\UI\UIPanel.cs" />
+    <Compile Include="Assets\Scripts\UI\UIScaler.cs" />
     <Compile Include="Assets\Scripts\Utilities\Utilities.cs" />
     <None Include="Assets\Scripts\Libraries\JsonDotNet\link.xml" />
     <Reference Include="UnityEditor.StandardEvents">

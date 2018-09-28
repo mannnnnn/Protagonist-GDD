@@ -7,11 +7,11 @@ using UnityEngine.SceneManagement;
  * Hold the UI control object's canvas.
  * Used for coordinate conversions.
  */
-public class UICanvas : MonoBehaviour {
-
+public class UICanvas : MonoBehaviour
+{
     static Canvas canvas;
-    static Transform rootTransform;
     static UICanvas instance;
+    public static Transform root => instance.transform;
 
     void Awake()
     {
@@ -32,23 +32,6 @@ public class UICanvas : MonoBehaviour {
             canvas.worldCamera = Camera.main;
             SceneManager.sceneLoaded += SwitchCamera;
         }
-        if (rootTransform == null)
-        {
-            rootTransform = GetComponent<Transform>();
-        }
-    }
-
-    public static Canvas GetCanvas()
-    {
-        return canvas;
-    }
-    public static Transform GetTransform()
-    {
-        return rootTransform;
-    }
-
-    void Update()
-    {
     }
 
     void SwitchCamera(Scene scene, LoadSceneMode mode)

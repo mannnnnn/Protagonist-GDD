@@ -92,7 +92,7 @@ public class InventoryDisplay : UIDisplayBase
             hoverItem.SetHover(true);
         }
         // select if clicked on
-        if (Input.GetMouseButtonDown(0) && ScreenResolution.GetScreenRect(chestBox.rect).Contains(Input.mousePosition))
+        if (Input.GetMouseButtonDown(0) && chestBox.rect.Contains(Input.mousePosition))
         {
             foreach (InventoryItem item in GetItemBehaviors())
             {
@@ -109,15 +109,16 @@ public class InventoryDisplay : UIDisplayBase
 
     public float GetSize()
     {
-        return backPanel.GetSize();
+        //TODO: return backPanel.size.y;
+        return 0;
     }
 
     public override void SetAlpha(float alpha)
     {
-        backPanel.SetAlpha(alpha);
+        backPanel.alpha = alpha;
         infoPanel.SetAlpha(alpha);
-        chestPanel.SetAlpha(alpha);
-        chestBox.SetAlpha(alpha);
+        chestPanel.alpha = alpha;
+        chestBox.alpha = alpha;
         closeButton.SetAlpha(alpha);
         SetItemsAlpha(alpha);
     }
@@ -163,18 +164,19 @@ public class InventoryDisplay : UIDisplayBase
     // For that, see the Inventory class.
     public void AddItem(Item item)
     {
-        GameObject gameObj = Instantiate(Inventory.Prefabs[item.type.img], chestBox.rect);
+        RectTransform chestBoxTransform = chestBox.GetComponent<RectTransform>();
+        GameObject gameObj = Instantiate(Inventory.Prefabs[item.type.img], chestBoxTransform);
         gameObj.GetComponent<InventoryItem>().Initialize(item, Open);
         Vector3 objSize = gameObj.GetComponent<Collider2D>().bounds.extents * 2f;
         // get screen rectangle of the chest box, pick some x position along the top part
-        Rect chest = ScreenResolution.GetScreenRect(chestBox.rect);
+        Rect chest = chestBox.rect;
         chest.position = new Vector2(chest.position.x, chest.position.y + chest.size.y * 0.5f);
         chest.size = new Vector2(chest.size.x, chest.size.y * 0.5f);
         chest.min += (Vector2)objSize;
         chest.max -= (Vector2)objSize;
         Vector2 pos = new Vector2(Random.Range(chest.xMin, chest.xMax), Random.Range(chest.yMin, chest.yMax));
         // move item obj to position
-        gameObj.transform.localPosition = ScreenResolution.ScreenToRectPoint(chestBox.rect, pos);
+        gameObj.transform.localPosition = ScreenResolution.ScreenToRectPoint(chestBoxTransform, pos);
         gameObj.transform.localRotation = Quaternion.identity;
         item.gameObject = gameObj;
     }
